@@ -2,11 +2,9 @@
 	<v-app>
 		<v-container>
 			<h1>Landing Page</h1>
-			<a class="n-d" href="/play">
-				<v-btn>
-					Play
-				</v-btn>
-			</a>
+			<v-btn>
+				Play
+			</v-btn>
 			<router-link class="n-d" :to="{name: 'Login'}">
 				<v-btn>
 					Login
@@ -50,7 +48,7 @@
 </script>
 
 <style lang="scss">
-.n-d{
-	text-decoration: none;
-}
+	.n-d{
+		text-decoration: none;
+	}
 </style>
