@@ -4,4 +4,6 @@ const variable = {
 
 }
 
+window.API_URL = variable.api_url
+
 export default variable;
