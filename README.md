@@ -1,4 +1,4 @@
-# my-project
+# yuky-fe
 
 ## Project setup
 ```
