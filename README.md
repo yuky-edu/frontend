@@ -1,4 +1,4 @@
-# yuky-fe
+# hello-world
 
 ## Project setup
 ```
