@@ -4,8 +4,7 @@ import vuetify from '/src/plugins/vuetify';
 import router from './router'
 import store from './store'
 
-import variable from './variable'
-window._var = variable
+// import variable from './variable'
 
 Vue.config.productionTip = false
 

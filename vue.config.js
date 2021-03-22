@@ -29,7 +29,7 @@ module.exports = {
 		    chunks: ['chunk-vendors', 'chunk-common', 'play']
 		},
 	},
-	runtimeCompiler: true,
+	// runtimeCompiler: true,
 	transpileDependencies: [
 		'vuetify'
 	],
