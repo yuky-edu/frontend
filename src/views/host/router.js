@@ -7,14 +7,14 @@ Vue.use(VueRouter)
 
 const routes = [
 {
-    path: '/host',
+    path: '/',
     name: 'Dashboard',
     component: Dashboard
 },
 ]
 
 const router = new VueRouter({
-    mode: 'history',
+    // mode: 'history',
     routes
 })
 

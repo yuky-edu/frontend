@@ -7,14 +7,14 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/join',
+    path: '/',
     name: 'Join',
     component: Join
   },
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes
 })
 
