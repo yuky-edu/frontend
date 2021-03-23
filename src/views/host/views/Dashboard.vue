@@ -1,6 +1,7 @@
 <template>
 	<v-app>
 		<h1>Halaman Dashboard</h1>
+		<a href="/">Home</a>
 	</v-app>
 </template>
 
