@@ -2,9 +2,9 @@
 	<v-app>
 		<v-container>
 			<h1>Landing Page</h1>
-			<a class="n-d" href="/play">
+			<a class="n-d" href="/join">
 				<v-btn>
-					Play
+					Join
 				</v-btn>
 			</a>
 			<router-link class="n-d" :to="{name: 'Login'}">
@@ -36,7 +36,7 @@
 
 		mounted()
 		{
-			window.console.log(this.store)
+			//
 		},
 
 		data()
