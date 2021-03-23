@@ -36,7 +36,7 @@
 
 		mounted()
 		{
-			//
+			window.console.log(this.store)
 		},
 
 		data()

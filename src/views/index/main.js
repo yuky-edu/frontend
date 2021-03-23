@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
-import vuetify from '/src/plugins/vuetify';
+import vuetify from '/src/plugins/vuetify'
 import router from './router'
 import store from './store'
 
-// import variable from './variable'
+require('./variable').default
+Vue.prototype.axios = require('axios').default
 
 Vue.config.productionTip = false
 
