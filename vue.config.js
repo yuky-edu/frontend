@@ -14,6 +14,20 @@ module.exports = {
 		    // extracted common chunks and vendor chunks.
 		    chunks: ['chunk-vendors', 'chunk-common', 'index']
 		},
+		host: {
+		    // entry for the page
+		    entry: 'src/views/host/main.js',
+		    // the source template
+		    template: 'public/host.html',
+		    // output as dist/host/index.html
+		    filename: 'host/index.html',
+		    // when using title option,
+		    // template title tag needs to be <title><%= htmlWebpackPlugin.options.title %></title>
+		    title: 'Host - Yuky',
+		    // chunks to include on this page, by default includes
+		    // extracted common chunks and vendor chunks.
+		    chunks: ['chunk-vendors', 'chunk-common', 'host']
+		},
 		play: {
 		    // entry for the page
 		    entry: 'src/views/play/main.js',

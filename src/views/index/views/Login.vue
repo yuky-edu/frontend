@@ -49,7 +49,7 @@
 				this.axios.post(this.API_URL + '/auth/login', this.login)
 				.then( response => {
 					window.console.log(response)
-					this.btnLoginLoading = false
+					window.location.href = '/host'
 				})
 			},
 
