@@ -44,7 +44,7 @@
 		methods: {
 			loginHost: function()
 			{
-				window.console.log(this.API_URL)
+				window.console.log(this.API_URL + '/auth/login')
 				this.btnLoginLoading = true
 
 				// this.axios.post(this.API_URL + '/auth/login', this.login)
