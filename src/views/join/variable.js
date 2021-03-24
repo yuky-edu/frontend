@@ -1,9 +1,13 @@
+import Vue from 'vue'
+import Global from '/global.variable'
+
 const variable = {
 
-	api_url: "http://yuky.unitedpatent.id/api",
+	api_url: Global.API_URL,
 
 }
 
-window.API_URL = variable.api_url
+Vue.prototype._var = variable
+Vue.prototype.API_URL = Global.API_URL
 
 export default variable;

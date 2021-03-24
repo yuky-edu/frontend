@@ -44,20 +44,21 @@
 		methods: {
 			loginHost: function()
 			{
+				window.console.log(this.API_URL)
 				this.btnLoginLoading = true
 
-				this.axios.post(this.API_URL + '/auth/login', this.login)
-				.then( ({data}) => {
-					window.console.log(data)
-					if(data.status)
-					{
-						sessionStorage.setItem('_token', data.token)
-						window.location.href = '/host'
-					}else{
-						sessionStorage.removeItem('_token')
-					}
-					this.btnLoginLoading = false
-				})
+				// this.axios.post(this.API_URL + '/auth/login', this.login)
+				// .then( ({data}) => {
+				// 	window.console.log(data)
+				// 	if(data.status)
+				// 	{
+				// 		sessionStorage.setItem('_token', data.token)
+				// 		window.location.href = '/host'
+				// 	}else{
+				// 		sessionStorage.removeItem('_token')
+				// 	}
+				// 	this.btnLoginLoading = false
+				// })
 				// .catch( errors => {
 
 				// })

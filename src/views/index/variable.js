@@ -1,13 +1,13 @@
 import Vue from 'vue'
-import Package from '/package.json'
+import Global from '/global.variable'
 
 const variable = {
 
-	api_url: Package['api-url'],
+	api_url: Global.API_URL,
 
 }
 
 Vue.prototype._var = variable
-Vue.prototype.API_URL = Package['api-url']
+Vue.prototype.API_URL = Global.API_URL
 
 export default variable;
