@@ -1,5 +1,5 @@
 export default{
 
-	API_URL: 'http://yuky.unitedpatent.id/api'
+	API_URL: 'https://unitedpatent.id/yuky/public'
 
 }
