@@ -5,6 +5,7 @@ import router from './router'
 import store from './store'
 
 require('./variable').default
+require('./style.scss').default
 Vue.prototype.axios = require('axios').default
 
 Vue.config.productionTip = false
