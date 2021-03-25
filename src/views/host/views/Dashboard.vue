@@ -24,7 +24,7 @@
 				})
 				.then( () => {
 					sessionStorage.removeItem('_token')
-					window.location.href = '/login'
+					window.location.href = '/#/login'
 				})
 			},
 			checkToken: function()
