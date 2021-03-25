@@ -7,7 +7,7 @@ Vue.use(Vuex)
 
 /**
 * * Auth store
-*/ 
+*/
 const auth = {
 
 	namespaced: true,
@@ -34,11 +34,11 @@ export default new Vuex.Store({
 	mutations: {
 		//
 	},
-	
+
 	actions: {
 		//
 	},
-	
+
 	modules: {
 		auth
 	},

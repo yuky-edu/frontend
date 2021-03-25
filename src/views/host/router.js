@@ -5,17 +5,15 @@ import Dashboard from './views/Dashboard.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
-{
-    path: '/',
-    name: 'Dashboard',
-    component: Dashboard
-},
-]
+const routes = [{
+  path: '/',
+  name: 'Dashboard',
+  component: Dashboard
+}, ]
 
 const router = new VueRouter({
-    // mode: 'history',
-    routes
+  // mode: 'history',
+  routes
 })
 
 export default router
