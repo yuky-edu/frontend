@@ -3,9 +3,9 @@
   <v-container>
     <h1>Register Page</h1>
 
-    <v-form style="margin-bottom: 12px" lazy-validation v-model="rules.valid" @submit.prevent="registerHost()">
+    <v-form style="margin-bottom: 12px" ref="register" v-model="rules.valid" @submit.prevent="registerHost()">
 
-      <v-text-field label="Name" type="text" name="name" :rules="rules.name" v-model="register.email"></v-text-field>
+      <v-text-field label="Name" type="text" name="name" :rules="rules.name" v-model="register.name"></v-text-field>
 
       <v-text-field label="E-Mail" type="email" name="email" :rules="rules.email" v-model="register.email"></v-text-field>
 
@@ -32,6 +32,20 @@ export default {
   methods: {
     registerHost: function() {
       window.console.log(this.register)
+      this.btnLoginLoading = true
+
+      this.axios.post(this.API_URL + '/auth/register', this.register)
+        .then(({
+          data
+        }) => {
+          window.console.log(data)
+          if (data.status) {
+            this.$router.push('Login')
+          } else {
+            window.console.log("Register gagal")
+          }
+          this.btnLoginLoading = false
+        })
     },
 
     handleVisiblePassowrd: function() {
@@ -52,13 +66,14 @@ export default {
       },
       rules: {
         name: [
-          v => v != '' || 'Name is required.'
+          v => !!v || 'Name is required'
         ],
         email: [
-          v => v != '' || 'E-mail is required.'
+          v => !!v || 'E-mail is required',
+          v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
         ],
         password: [
-          v => v != '' || 'Password is required.'
+          v => !!v || 'Password is required',
         ],
         valid: false
       },
