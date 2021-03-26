@@ -11,29 +11,38 @@ body {
 
 .home {
   nav {
-    margin: 22px 50px;
+    margin-top: 35px;
+    padding-left: 100px;
+    padding-right: 100px;
     font-size: 18px;
+
+    .nav-container {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+    }
 
     .navbar-brand img {
       height: 64px;
     }
 
     .nav {
-
-      li.button{
-        margin-left: 30px;
+      li a {
+        margin-top: 3px;
       }
 
-      .btn {
-        padding-left: 24px;
-        padding-right: 24px;
+      .nav-a {
+        margin-right: 20px;
       }
+    }
 
-      .login {
-        color: #fff;
-      }
+    .btn-nav {
+      color: #fff;
+      border-width: 3px;
+      border-radius: 12px;
+      padding: 9px 30px;
 
-      .login:hover {
+      &:hover {
         color: #212529;
       }
     }
@@ -42,6 +51,8 @@ body {
   header {
     background-color: #6935F0;
     height: 100vh;
+    min-height: 780px;
+    max-height: 100vh;
     display: flex;
     align-items: center;
 
@@ -53,6 +64,17 @@ body {
       font-size: 56px;
       line-height: 80px;
       margin-bottom: 52px;
+    }
+
+    .btn-play {
+      color: #fff;
+      background: linear-gradient(to bottom, #ffcb4d 0%, #fc622c 100%);
+      font-size: 24px;
+      padding: 14px 33px;
+      border-radius: 18px;
+      border-width: 8px;
+      border-color: #fff;
+      border-style: outset;
     }
   }
 }

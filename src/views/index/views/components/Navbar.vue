@@ -1,6 +1,6 @@
 <template lang="html">
   <nav class="navbar navbar-light navbar-expand-md navbar navbar-expand-lg fixed-top" id="mainNav">
-    <div class="container">
+    <div class="nav-container">
       <a class="navbar-brand" href="#">
         <img src="/assets/img/logo.svg">
       </a>
@@ -10,18 +10,19 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="nav navbar-nav ml-auto">
 
-          <li v-for="(v, i) in nav" class="nav-item text-light nav-link">
+          <li v-for="(v, i) in nav" class="nav-item text-light nav-link nav-a">
             <a class="nav-link active text-light" :href="v.link">{{ v.label }}</a>
           </li>
 
           <li class="nav-item nav-link button" role="presentation">
             <router-link :to="{ name: 'Login'}">
-              <button class="btn btn-outline-light login">Masuk</button>
+              <button class="btn btn-nav btn-outline-light btn-login">Masuk</button>
             </router-link>
           </li>
+
           <li class="nav-item nav-link" role="presentation">
             <router-link :to="{ name: 'Register'}">
-              <button class="btn btn-outline-light login">Daftar</button>
+              <button class="btn btn-nav btn-outline-light btn-register">Daftar</button>
             </router-link>
           </li>
 
