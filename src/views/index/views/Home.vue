@@ -17,13 +17,23 @@
         </div>
       </div>
     </div>
+    <img class="circle" src="/assets/img/circle.svg" alt="">
+    <!-- <div class="hand row">
+      <div class="col-sm-4">
+        <img src="/assets/img/hand-left.png" alt="">
+      </div>
+      <div class="4"></div>
+      <div class="col-sm-4">
+        <img src="/assets/img/hand-right.png" alt="">
+      </div>
+    </div> -->
   </header>
 
   <section id="about">
     <div class="header">
       <div class="title">
-        <h1 class="sub-title">Kenalin Nih Yuky</h1>
-        <h1 class="sub-title">Aplikasi Keren Untuk Belajar</h1>
+        <h2 class="sub-title">Kenalin Nih Yuky</h2>
+        <h2 class="sub-title">Aplikasi Keren Untuk Belajar</h2>
       </div>
       <div class="bg">
         <div class="item item-1">
@@ -37,21 +47,23 @@
         </div>
       </div>
     </div>
+
     <div class="body">
       <div class="container text-center">
         <div class="card-wrapper">
+
           <div class="y-card">
             <div class="content">
-              <img src="" alt="">
+              <img src="/assets/img/trophy.png" alt="">
             </div>
             <div class="title">
               <h3>Biar Ide Makin Kreatif</h3>
             </div>
           </div>
 
-          <div class="y-card">
+          <div class="y-card active">
             <div class="content">
-              <img src="" alt="">
+              <img src="/assets/img/rocket.png" alt="">
             </div>
             <div class="title">
               <h3>Belajar Dengan Cara Yang Berbeda</h3>
@@ -60,45 +72,70 @@
 
           <div class="y-card">
             <div class="content">
-              <img src="" alt="">
+              <img src="/assets/img/idea.png" alt="">
             </div>
             <div class="title">
               <h3>Biar Ide Makin Kreatif</h3>
             </div>
           </div>
+
         </div>
       </div>
     </div>
   </section>
 
 
-  <div>
-    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
-  </div>
+  <section>
+    <div class="title">
+      <h2 class="sub-title">Belum Pernah Coba Yuky ?</h2>
+      <h2 class="sub-title">Lihat Tutorial ini</h2>
+    </div>
+    <div class="body">
+      <h1 class="text-center m-5">SKIP SECTION</h1>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="sub-title mb-5">Punya Pertanyaan? Hubungi Kami.</h2>\
+      <form class="" action="" method="get">
+        <div class="form-group">
+          <textarea class="form-control" rows="5" id="comment" placeholder="Ingin bertanya?">
+          </textarea>
+        </div>
+        <div class="text-right mt-4">
+          <button class="btn btn-lg btn-outline-light">
+            Kirim
+          </button>
+        </div>
+      </form>
+
+      <footer>
+        <div class="header">
+          <div class="mini-logo">
+            <img src="/assets/img/logo.svg">
+          </div>
+          <div class="follow">
+            <p>Ikutin Kami!</p>
+            <div class="social-icon">
+              <span class="glyphicon glyphicon-search"></span>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="footer">
+          <p class="copyright">© 2021 Yuky - ARNAV Developer. All rights reserved.</p>
+          <div class="to-top">
+          <a href="#">Kembali ke atas</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </section>
 
 </div>
 
-<!-- <v-app>
-  <v-container>
-    <h1>Landing Page</h1>
-    <a class="n-d" href="/join">
-      <v-btn>
-        Join
-      </v-btn>
-    </a>
-    <router-link class="n-d" :to="{name: 'Login'}">
-      <v-btn>
-        Login
-      </v-btn>
-    </router-link>
-    <router-link class="n-d" :to="{name: 'Register'}">
-      <v-btn>
-        Register
-      </v-btn>
-    </router-link>
-  </v-container>
-</v-app> -->
 </template>
 
 <script type="text/javascript">
