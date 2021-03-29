@@ -20,11 +20,41 @@ hr {
 }
 
 .home {
+  nav.scroll {
+    margin-top: 0;
+    padding: 0;
+    background: $purple;
+
+    // li a{
+    //   color: $textDark !important;
+    // }
+    //
+    // .btn-nav {
+    //   color: $white;
+    //   border-width: 3px;
+    //   border-radius: 12px;
+    //   padding: 9px 30px;
+    //
+    //   &:hover {
+    //     color: $textDark;
+    //   }
+    // }
+
+    .nav-container{
+      // padding: 0;
+    }
+
+    img{
+      height: 46px !important;
+    }
+  }
+
   nav {
     margin-top: 18px;
     padding-left: 100px;
     padding-right: 100px;
     font-size: 18px;
+    transition: 0.3s;
 
     .nav-container {
       display: flex;
@@ -34,6 +64,7 @@ hr {
 
     .navbar-brand img {
       height: 64px;
+      transition: 0.3s;
     }
 
     .nav {
