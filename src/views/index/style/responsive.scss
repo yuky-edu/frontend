@@ -1,0 +1,81 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .sub-title{
+    font-size: 26px $im;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+/* Medium devices (landscape tablets, 768px and down) */
+@media only screen and (max-width: 768px) {
+  .home {
+    #banner {
+      h1 {
+        font-size: 36px;
+        line-height: 46px;
+      }
+    }
+  }
+
+  #about{
+    .header{
+      padding: 0 12px $im;
+    }
+  }
+
+  #tutorial{
+    .video{
+      width: 520px $im;
+      height: 293px $im;
+    }
+  }
+}
+/* Large devices (laptops/desktops, 992px and down) */
+@media only screen and (max-width: 992px) {
+  .home {
+
+    #about{
+      .card-wrapper{
+        display: block $im;
+        padding: 0 46px;
+
+        .y-card{
+          width: 100% $im;
+          margin-bottom: 46px;
+        }
+      }
+    }
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and down) */
+@media only screen and (max-width: 1200px) {
+  .home {
+    nav {
+      padding-left: 22px !important;
+      padding-right: 22px !important;
+
+      .container {
+        max-width: none;
+      }
+    }
+
+    #about{
+
+      .title{
+        position: relative $im;
+      }
+
+      .body{
+        margin-top: 96px $im;
+      }
+
+      .bg{
+        display: none $im;
+      }
+
+      .card-wrapper{
+        justify-content: space-between;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 <template lang="html">
-    <nav class="navbar navbar-dark navbar-expand-xl fixed-top" :class="{'scroll': navScroll}">
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top" :class="{'scroll': navScroll}">
       <div class="container">
         <a class="navbar-brand logo" href="#">
         <img src="/assets/img/logo.svg">
@@ -77,7 +77,3 @@ export default {
   },
 }
 </script>
-
-<style lang="css" scoped>
-
-</style>

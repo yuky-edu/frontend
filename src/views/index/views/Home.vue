@@ -29,11 +29,13 @@
   </header>
 
   <section id="about">
+
     <div class="header">
       <div class="title">
         <h2 class="sub-title">Kenalin Nih Yuky</h2>
         <h2 class="sub-title">Aplikasi Keren Untuk Belajar</h2>
       </div>
+
       <div class="bg">
         <div class="item item-1">
           <img class="obj-1" src="/assets/img/img1.png" alt="">
@@ -60,7 +62,7 @@
             </div>
           </div>
 
-          <div class="y-card active">
+          <div class="y-card">
             <div class="content">
               <img src="/assets/img/rocket.png" alt="">
             </div>
@@ -90,7 +92,7 @@
     </div>
     <div class="body">
       <div class="wrapper text-center">
-        <iframe class="video" width="672" height="394" src="https://www.youtube.com/embed/PjfP2tmjtQM">
+        <iframe class="video" src="https://www.youtube.com/embed/PjfP2tmjtQM">
         </iframe>
         <div class="bg"></div>
       </div>
