@@ -36,25 +36,26 @@ export default {
   },
 
   methods: {
-    //
+    navScrollHanddle: function() {
+      const top = $(window).scrollTop()
+      if (top > 80)
+        this.navScroll = true
+      else
+        this.navScroll = false
+
+    }
   },
 
   mounted() {
 
-    $(window).scroll(function() {
-      const scroll = $(window).scrollTop()
-      // window.console.log(this.navScroll)
-      if (scroll > 100)
-        this.navScroll = true
-      else
-        this.navScroll = false
-    })
-
+    this.navScrollHanddle()
+    $(window).scroll(() => this.navScrollHanddle())
 
   },
 
   data() {
     return {
+      navScroll: true,
       nav: [{
           label: 'Beranda',
           link: '#'
@@ -72,7 +73,6 @@ export default {
           link: '#'
         },
       ],
-      navScroll: true,
     }
   },
 }
