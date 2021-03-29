@@ -9,10 +9,9 @@
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             <h1 class="text-light">Belajar Kreatif & Inovatif Dengan Yuky</h1>
-            <!-- <p class="intro-text">A free, responsive, one page Bootstrap theme.<br>Created with love.</p><a class="btn btn-link btn-circle" role="button" href="#about"><i class="fa fa-angle-double-down animated"></i></a> -->
-            <!-- <a href="/join"> -->
-            <button class="btn btn-warning btn-lg btn-play">Mulai Sekarang</button>
-            <!-- </a> -->
+            <a href="/join">
+              <button class="btn btn-warning btn-lg btn-play">Mulai Sekarang</button>
+            </a>
           </div>
         </div>
       </div>
@@ -84,14 +83,17 @@
     </div>
   </section>
 
-
-  <section>
+  <section id="tutorial">
     <div class="title">
       <h2 class="sub-title">Belum Pernah Coba Yuky ?</h2>
       <h2 class="sub-title">Lihat Tutorial ini</h2>
     </div>
     <div class="body">
-      <h1 class="text-center m-5">SKIP SECTION</h1>
+      <div class="wrapper text-center">
+        <iframe class="video" width="672" height="394" src="https://www.youtube.com/embed/PjfP2tmjtQM">
+        </iframe>
+        <div class="bg"></div>
+      </div>
     </div>
   </section>
 
@@ -126,7 +128,7 @@
         <div class="footer">
           <p class="copyright">© 2021 Yuky - ARNAV Developer. All rights reserved.</p>
           <div class="to-top">
-          <a href="#">Kembali ke atas</a>
+            <a href="#">Kembali ke atas</a>
           </div>
         </div>
       </footer>
@@ -135,7 +137,6 @@
   </section>
 
 </div>
-
 </template>
 
 <script type="text/javascript">

@@ -21,7 +21,7 @@ hr {
 
 .home {
   nav {
-    margin-top: 35px;
+    margin-top: 18px;
     padding-left: 100px;
     padding-right: 100px;
     font-size: 18px;
@@ -42,7 +42,7 @@ hr {
       }
 
       .nav-a {
-        margin-right: 20px;
+        margin-right: 8px;
       }
     }
 
@@ -61,7 +61,7 @@ hr {
   header {
     background-color: $blue;
     height: 100vh;
-    min-height: 780px;
+    min-height: 768px;
     max-height: 100vh;
     display: flex;
     align-items: center;
@@ -75,12 +75,13 @@ hr {
       width: 101%;
     }
 
-    .hand{
+    .hand {
       position: absolute;
       width: 100%;
       // display: flex;
       justify-content: space-between;
 
+      img {}
       // &::before{
       //   content: "";
       //   background-image: url(/assets/img/hand.png);
@@ -113,6 +114,7 @@ hr {
 
       &:hover {
         box-shadow: 0 0 0 8px rgb(255 255 255 / 30%);
+        background: $btnGradientOrangeHover;
       }
 
       &:active {
@@ -201,14 +203,14 @@ hr {
     }
 
     .body {
-      margin-top: 96px;
+      margin-top: 106px;
 
       .card-wrapper {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
 
         .y-card {
-          width: 296px;
+          width: 256px;
           background: #FFCB4D;
           color: $textDarkBlue;
           font-size: 24px;
@@ -218,7 +220,7 @@ hr {
           .content {
             background: #FFF8E7;
             border-radius: 26px;
-            height: 346px;
+            height: 316px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -230,6 +232,10 @@ hr {
 
           .title {
             padding-top: 32px;
+
+            h3{
+              font-size: 22px;
+            }
           }
         }
 
@@ -237,6 +243,29 @@ hr {
           transform: scale(1.2);
         }
       }
+    }
+  }
+
+  #tutorial {
+    padding-bottom: 22px;
+
+    .body {
+      margin-top: 56px;
+    }
+
+    .video {
+      margin-bottom: -182px;
+      border-radius: 20px;
+      background: #6935F0;
+      border-width: 0;
+      box-shadow: 0 0 0 12px $white;
+    }
+
+    .bg {
+      width: 100%;
+      background-image: url("/assets/img/bg-mini-circle.svg");
+      height: 280px;
+      background-repeat: repeat;
     }
   }
 
