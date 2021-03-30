@@ -92,10 +92,10 @@
 
   <section id="contact">
     <div class="container">
-      <h2 class="sub-title mb-5">Punya Pertanyaan? Hubungi Kami.</h2>\
+      <h2 class="sub-title mb-5">Punya Pertanyaan? Hubungi Kami.</h2>
       <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8">
+        <div class="col-lg-2 col-xl-3"></div>
+        <div class="col-lg-8 col-xl-6">
           <form class="" action="" method="get">
             <div class="form-group">
               <textarea class="form-control" rows="5" id="comment" placeholder="Ingin bertanya?">

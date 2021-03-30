@@ -13,13 +13,13 @@
 
             <li class="nav-item nav-link button" role="presentation">
               <router-link :to="{ name: 'Login'}">
-                <button class="btn btn-nav btn-outline-light btn-login">Masuk</button>
+                <button class="btn btn-outline-light btn-login">Masuk</button>
               </router-link>
             </li>
 
             <li class="nav-item nav-link" role="presentation">
               <router-link :to="{ name: 'Register'}">
-                <button class="btn btn-nav btn-outline-light btn-register">Daftar</button>
+                <button class="btn btn-outline-light btn-register">Daftar</button>
               </router-link>
             </li>
           </ul>

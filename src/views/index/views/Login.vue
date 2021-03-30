@@ -1,21 +1,17 @@
 <template>
-<v-app>
-  <v-container>
-    <h1>Login Page</h1>
+<div id="login">
+  <div class="container-fluid">
+    <div class="row sub-fluid">
+      <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4 y-panel-left">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="col-md-7 col-lg-8 y-panel-right">
 
-    <v-form style="margin-bottom: 12px" ref="login" v-model="rules.valid" @submit.prevent="loginHost()">
-      <v-text-field label="E-Mail" type="email" name="login.email" :rules="rules.email" v-model="login.email"></v-text-field>
 
-      <v-text-field label="Password" name="login.password" required :rules="rules.password" :append-icon="visiblePassword ? 'mdi-eye-off' : 'mdi-eye'" :type="visiblePassword ? 'password' : 'text'" v-model="login.password"
-        @click:append="handleVisiblePassowrd()"></v-text-field>
-
-      <v-btn type="submit" color="primary" :loading="btnLoginLoading" :disabled="!rules.valid || btnLoginLoading">LOGIN</v-btn>
-    </v-form>
-
-    <router-link :to="{name: 'Home'}">Home</router-link>
-
-  </v-container>
-</v-app>
+      </div>
+    </div> <!-- ./row -->
+  </div>
+</div>
 </template>
 
 <script>

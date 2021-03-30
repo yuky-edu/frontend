@@ -1,48 +1,46 @@
 <template>
-	<v-app>
-		<h1>Halaman Dashboard</h1>
-		<a href="/">Home</a>
-		<a href="#" @click="logOut()">Logout</a>
-	</v-app>
+<div class="container">
+  <h1>Halaman Dashboard</h1>
+  <a href="/">Home</a>
+  <a href="#" @click="logOut()">Logout</a>
+</div>
 </template>
 
 <script>
-	export default{
+export default {
 
-		computed: {
-			//
-		},
+  computed: {
+    //
+  },
 
-		methods: {
-			logOut: function()
-			{
-				const _token = sessionStorage.getItem('_token')
-				this.axios.get(this.API_URL + '/auth/logout', {
-					params: {
-						token: _token
-					}
-				})
-				.then( () => {
-					sessionStorage.removeItem('_token')
-					window.location.href = '/#/login'
-				})
-			},
-			checkToken: function()
-			{
-				//
-			}
-		},
+  methods: {
+    logOut: function() {
+      const _token = sessionStorage.getItem('_token')
+      this.axios.get(this.API_URL + '/auth/logout', {
+          params: {
+            token: _token
+          }
+        })
+        .then(() => {
+          sessionStorage.removeItem('_token')
+          window.location.href = '/#/login'
+        })
+    },
+    checkToken: function() {
+      //
+    }
+  },
 
-		mounted() {
-			this.checkToken()
-		},
+  mounted() {
+    this.checkToken()
+  },
 
-		data() {
-			return {
-				//
-			}
-		},
-	}
+  data() {
+    return {
+      //
+    }
+  },
+}
 </script>
 
 <style lang="scss">

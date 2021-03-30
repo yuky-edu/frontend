@@ -1,5 +1,6 @@
 @import 'variable';
 @import 'font';
+@import 'buttons';
 
 html {
   box-sizing: border-box;
@@ -36,6 +37,8 @@ hr {
 }
 
 .home {
+  overflow: hidden;
+
   nav.scroll {
     margin-top: 0;
     padding-top: 0;
@@ -81,17 +84,6 @@ hr {
 
       .nav-a {
         margin-right: 8px;
-      }
-    }
-
-    .btn-nav {
-      color: $white;
-      border-width: 3px;
-      border-radius: 12px;
-      padding: 9px 30px;
-
-      &:hover {
-        color: $textDark;
       }
     }
   }
@@ -370,6 +362,26 @@ hr {
       justify-content: space-between;
     }
   }
+}
+
+#login{
+
+  .container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .sub-fluid{
+    margin: 0;
+  }
+
+  .y-panel-left{
+    height: 100vh;
+    background: $darkBlue;
+    color: $white;
+  }
+
+
 }
 
 @import 'responsive';
