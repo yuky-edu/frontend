@@ -13,9 +13,14 @@
             </div>
           </div>
 
+          <div class="v-panel-body">
+            <h1>LOREM IPSUM DOLOR SIT AMET</h1>
+            <p>LOREM IPSUM DOLOR SIT AMET</p>
+          </div>
+
           <div class="back">
             <a href="#">
-              <span class="fa fa-user"></span>
+              <span class="fa fa-arrow-left"></span>
               <p>Kembali ke Beranda</p>
             </a>
           </div>

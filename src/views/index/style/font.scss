@@ -1,6 +1,11 @@
 @font-face {
-  font-family: rubik;
+  font-family: rubik-medium;
   src: url("/assets/fonts/rubik-medium.ttf") format("truetype");
 }
 
-$font-main: rubik , sans-serif;
+@font-face {
+  font-family: rubik-regular;
+  src: url("/assets/fonts/rubik-regular.ttf") format("truetype");
+}
+
+$font-main: rubik-medium, rubik-regular , sans-serif;

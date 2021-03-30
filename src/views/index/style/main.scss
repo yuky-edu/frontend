@@ -19,7 +19,7 @@ html {
 
 body {
   margin: 0;
-  font-family: rubik;
+  font-family: rubik-medium;
 }
 
 section {
@@ -351,7 +351,7 @@ hr {
         text-decoration: none;
         transition: 0.2s;
 
-        &:hover{
+        &:hover {
           transform: translateY(-5px);
         }
       }
@@ -364,28 +364,44 @@ hr {
   }
 }
 
-#login{
-
-  .container-fluid{
+#login {
+  .container-fluid {
     padding-left: 0;
     padding-right: 0;
   }
 
-  .sub-fluid{
+  .sub-fluid {
     margin: 0;
   }
 
-  .y-panel-left{
+  .y-panel-left {
     height: 100vh;
     background: $darkBlue;
     color: $white;
 
-    .y-wrapper{
+    .y-wrapper {
       padding: 30px;
+      position: relative;
+      height: -webkit-fill-available;
+    }
+
+    .back {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      a {
+        color: $white;
+        display: flex;
+        align-items: center;
+
+        p {
+          margin: 0;
+        }
+      }
     }
   }
 
-
+  .y-panel-body {}
 }
-
 @import 'responsive';
