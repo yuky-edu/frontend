@@ -12,6 +12,13 @@
               <button class="btn btn-outline-light" name="button">Daftar</button>
             </div>
           </div>
+
+          <div class="back">
+            <a href="#">
+              <span class="fa fa-user"></span>
+              <p>Kembali ke Beranda</p>
+            </a>
+          </div>
         </div>
       </div>
       <div class="col-md-7 col-lg-8 y-panel-right">
