@@ -17,15 +17,6 @@
       </div>
     </div>
     <img class="circle" src="/assets/img/circle.svg" alt="">
-    <!-- <div class="hand row">
-      <div class="col-sm-4">
-        <img src="/assets/img/hand-left.png" alt="">
-      </div>
-      <div class="4"></div>
-      <div class="col-sm-4">
-        <img src="/assets/img/hand-right.png" alt="">
-      </div>
-    </div> -->
   </header>
 
   <section id="about">
@@ -102,17 +93,22 @@
   <section id="contact">
     <div class="container">
       <h2 class="sub-title mb-5">Punya Pertanyaan? Hubungi Kami.</h2>\
-      <form class="" action="" method="get">
-        <div class="form-group">
-          <textarea class="form-control" rows="5" id="comment" placeholder="Ingin bertanya?">
-          </textarea>
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <form class="" action="" method="get">
+            <div class="form-group">
+              <textarea class="form-control" rows="5" id="comment" placeholder="Ingin bertanya?">
+              </textarea>
+            </div>
+            <div class="text-right mt-4">
+              <button class="btn btn-lg btn-outline-light">
+                Kirim
+              </button>
+            </div>
+          </form>
         </div>
-        <div class="text-right mt-4">
-          <button class="btn btn-lg btn-outline-light">
-            Kirim
-          </button>
-        </div>
-      </form>
+      </div>
 
       <footer>
         <div class="header">
@@ -120,9 +116,20 @@
             <img src="/assets/img/logo.svg">
           </div>
           <div class="follow">
-            <p>Ikutin Kami!</p>
+            <p>Ikuti Kami 👇</p>
             <div class="social-icon">
-              <span class="glyphicon glyphicon-search"></span>
+              <a class="icon-wrapper" href="#">
+                <span class="fa fa-user"></span>
+              </a>
+              <a class="icon-wrapper" href="#">
+                <span class="fa fa-facebook"></span>
+              </a>
+              <a class="icon-wrapper" href="#">
+                <span class="fa fa-youtube"></span>
+              </a>
+              <a class="icon-wrapper" href="#">
+                <span class="fa fa-instagram"></span>
+              </a>
             </div>
           </div>
         </div>
@@ -170,9 +177,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.n-d {
-    text-decoration: none;
-}
-</style>

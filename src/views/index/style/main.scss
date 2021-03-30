@@ -1,6 +1,5 @@
 @import 'variable';
 @import 'font';
-@import 'responsive';
 
 html {
   box-sizing: border-box;
@@ -106,30 +105,12 @@ hr {
     align-items: center;
     position: relative;
 
-    img.circle {
+    .circle {
       position: absolute;
       left: -10px;
       bottom: -1px;
       display: block;
       width: 102%;
-    }
-
-    .hand {
-      position: absolute;
-      width: 100%;
-      // display: flex;
-      justify-content: space-between;
-
-      img {}
-      // &::before{
-      //   content: "";
-      //   background-image: url(/assets/img/hand.png);
-      //   background-size: contain;
-      // }
-      //
-      // &::after{
-      //   content: "after"
-      // }
     }
 
     .body {
@@ -169,7 +150,7 @@ hr {
   }
 
   section {
-  padding: 56px 0;
+    padding: 56px 0;
   }
 
   #about {
@@ -318,11 +299,6 @@ hr {
       color: $white;
     }
 
-    form {
-      margin: auto;
-      width: 682px;
-    }
-
     textarea {
       background: $blueGray;
       color: $white;
@@ -356,7 +332,37 @@ hr {
     .header {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 42px;
+      margin-bottom: 36px;
+    }
+
+    .follow {
+      p {
+        text-align: right;
+        font-size: 18px;
+      }
+    }
+
+    .social-icon {
+      display: flex;
+
+      .icon-wrapper {
+        margin: 0 6px;
+        border: 1px solid #fff;
+        width: 42px;
+        height: 42px;
+        border-radius: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        text-decoration: none;
+        transition: 0.2s;
+
+        &:hover{
+          transform: translateY(-5px);
+        }
+      }
     }
 
     .footer {
@@ -365,3 +371,5 @@ hr {
     }
   }
 }
+
+@import 'responsive';
