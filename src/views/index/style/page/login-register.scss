@@ -13,13 +13,23 @@
   color: $white;
 
   .y-wrapper {
-    padding: 30px;
+    padding: 56px;
     position: relative;
     height: -webkit-fill-available;
   }
 
-  .v-panel-body{
-    margin-top: 36px;
+  .v-panel-body {
+    margin-top: 56px;
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 26px;
+    }
+
+    p {
+      font-size: 24px;
+      font-family: rubik-regular;
+    }
   }
 
   .back {
@@ -28,18 +38,27 @@
     bottom: 0;
 
     a {
-      color: $white;
+      color: darken($white, 25%);
       display: flex;
       align-items: center;
-      margin: 30px;
+      margin: 26px 56px;
       font-family: rubik-regular;
       text-decoration: none;
 
+      &:hover {
+        color: $white;
+      }
+
       p {
-        margin: 0 12px;
-        margin-top: 4px;
+        margin: 4px 12px 0;
       }
     }
+  }
+}
+
+.y-panel-right {
+  .y-wrapper {
+    padding: 56px 0;
   }
 }
 
