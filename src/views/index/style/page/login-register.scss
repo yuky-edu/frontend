@@ -1,0 +1,50 @@
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sub-fluid {
+  margin: 0;
+}
+
+.y-panel-left {
+  height: 100vh;
+  background: $darkBlue;
+  color: $white;
+
+  .y-wrapper {
+    padding: 30px;
+    position: relative;
+    height: -webkit-fill-available;
+  }
+
+  .v-panel-body{
+    margin-top: 36px;
+  }
+
+  .back {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    a {
+      color: $white;
+      display: flex;
+      align-items: center;
+      margin: 30px;
+      font-family: rubik-regular;
+      text-decoration: none;
+
+      p {
+        margin: 0 12px;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+.y-panel-body {}
+
+#login {}
+
+#register {}

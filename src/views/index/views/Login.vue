@@ -4,11 +4,12 @@
     <div class="row sub-fluid">
       <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4 y-panel-left">
         <div class="y-wrapper">
-          <div class="row text-center">
-            <div class="col-6">
+
+          <div class="row">
+            <div class="col-6 text-left">
               <button class="btn btn-outline-light" name="button">Masuk</button>
             </div>
-            <div class="col-6">
+            <div class="col-6 text-right">
               <button class="btn btn-outline-light" name="button">Daftar</button>
             </div>
           </div>
@@ -24,6 +25,7 @@
               <p>Kembali ke Beranda</p>
             </a>
           </div>
+
         </div>
       </div>
       <div class="col-md-7 col-lg-8 y-panel-right">
