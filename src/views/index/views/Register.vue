@@ -92,7 +92,8 @@ export default {
       this.Nprogress.start()
 
       this.axios.post(this.API_URL + '/auth/register', {
-          name: this.register.firstName + ' ' + this.register.lastName,
+          first_name: this.register.firstName,
+          last_name: this.register.lastName,
           email: this.register.email,
           password: this.register.password
         })
