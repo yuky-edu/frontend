@@ -9,6 +9,37 @@
   }
 }
 
-.btn.border-transparent{
-  border-color: transparent; 
+.btn.border-transparent {
+  border-color: transparent;
+}
+
+.btn-with-facebook {
+  background: $purple;
+  color: $white;
+  position: relative;
+  width: 76px;
+  height: 76px;
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+
+  i {
+    font-size: 60px;
+    position: absolute;
+    bottom: -6px;
+    left: 14px;
+  }
+}
+
+.btn-with-google{
+  height: 76px;
+  border-radius: 20px;
+  font-family: rubik-regular;
+  font-size: 18px;
+  border-width: 2px;
+
+  svg{
+    margin-right: 12px;
+  }
 }
