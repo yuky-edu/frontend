@@ -65,6 +65,9 @@ a{
 }
 
 .y-panel-right {
+  height: 100vh;
+  overflow-y: scroll;
+
   .y-wrapper {
     padding: 96px 0;
   }
@@ -111,7 +114,7 @@ a{
 
 }
 
-.forget-password{
+.y-more-action{
   text-align: center;
   font-size: 18px;
   font-family: rubik-regular;

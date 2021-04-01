@@ -6,10 +6,14 @@
         <div class="y-wrapper">
           <div class="row">
             <div class="col-6 text-right">
-              <button class="btn btn-outline-light" name="button">Masuk</button>
+              <router-link :to="{ name: 'Login' }">
+                <button class="btn btn-outline-light" name="button">Masuk</button>
+              </router-link>
             </div>
             <div class="col-6 text-left">
-              <button class="btn btn-outline-light border-transparent" name="button">Daftar</button>
+              <router-link :to="{ name: 'Register'}">
+                <button class="btn btn-outline-light border-transparent" name="button">Daftar</button>
+              </router-link>
             </div>
           </div>
           <div class="v-panel-body">
@@ -76,9 +80,9 @@
                       <input class="form-check-input" type="checkbox"> Remember me
                     </label>
                   </div>
-                  <button class="btn btn-block y-btn-lg btn-purple mb-4">Masuk</button>
+                  <button class="btn btn-block y-btn-lg btn-purple mb-4 mt-3">Masuk</button>
                 </form>
-                <p class="forget-password">Lupa Password? <a href="/">Klik Disini</a></p>
+                <p class="y-more-action">Lupa Password? <a href="/">Klik Disini</a></p>
               </div>
             </div>
           </div>

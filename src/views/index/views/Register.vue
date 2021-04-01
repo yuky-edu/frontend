@@ -1,25 +1,105 @@
 <template>
-<v-app>
-  <v-container>
-    <h1>Register Page</h1>
-
-    <v-form style="margin-bottom: 12px" ref="register" v-model="rules.valid" @submit.prevent="registerHost()">
-
-      <v-text-field label="Name" type="text" name="name" :rules="rules.name" v-model="register.name"></v-text-field>
-
-      <v-text-field label="E-Mail" type="email" name="email" :rules="rules.email" v-model="register.email"></v-text-field>
-
-      <v-text-field label="Password" name="login.password" required :rules="rules.password" :append-icon="visiblePassword ? 'mdi-eye-off' : 'mdi-eye'" :type="visiblePassword ? 'password' : 'text'" v-model="register.password"
-        @click:append="handleVisiblePassowrd()"></v-text-field>
-
-      <v-btn type="submit" color="primary" :loading="btnLoginLoading" :disabled="!rules.valid || btnLoginLoading">Register</v-btn>
-
-    </v-form>
-
-    <router-link :to="{name: 'Home'}">Home</router-link>
-
-  </v-container>
-</v-app>
+<div id="register">
+  <div class="container-fluid">
+    <div class="row sub-fluid">
+      <div class="col-lg-4 d-none d-lg-block y-panel-left">
+        <div class="y-wrapper">
+          <div class="row">
+            <div class="col-6 text-right">
+              <router-link :to="{ name: 'Login' }">
+                <button class="btn btn-outline-light border-transparent" name="button">Masuk</button>
+              </router-link>
+            </div>
+            <div class="col-6 text-left">
+              <router-link :to="{ name: 'Register'}">
+                <button class="btn btn-outline-light" name="button">Daftar</button>
+              </router-link>
+            </div>
+          </div>
+          <div class="v-panel-body">
+            <h1>LOREM IPSUM DOLOR SIT AMET</h1>
+            <p>LOREM IPSUM DOLOR SIT AMET</p>
+          </div>
+          <div class="back">
+            <router-link :to="{name: 'Home'}">
+              <span class="fa fa-arrow-left"></span>
+              <p>Kembali ke Beranda</p>
+            </router-link>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 y-panel-right">
+        <div class="y-wrapper">
+          <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+              <div class="external-auth">
+                <div class="wrapper">
+                  <div class="row">
+                    <div class="col">
+                      <button class="btn btn-lg btn-with-google btn-block btn-outline-dark">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M5.31891 14.5035L4.4835 17.6222L1.43011 17.6868C0.517594 15.9943 0 14.0578 0 12C0 10.0101 0.483938 8.13362 1.34175 6.48132H1.34241L4.06078 6.9797L5.25159 9.68176C5.00236 10.4084 4.86652 11.1884 4.86652 12C4.86661 12.8809 5.02617 13.7249 5.31891 14.5035Z"
+                            fill="#FBBB00" />
+                          <path
+                            d="M23.7902 9.75824C23.928 10.4841 23.9999 11.2338 23.9999 12C23.9999 12.8591 23.9095 13.6971 23.7375 14.5055C23.1533 17.2563 21.6269 19.6582 19.5124 21.358L19.5118 21.3574L16.0878 21.1827L15.6032 18.1576C17.0063 17.3347 18.1028 16.047 18.6804 14.5055H12.2637V9.75824H18.774H23.7902Z"
+                            fill="#518EF8" />
+                          <path
+                            d="M19.5119 21.3574L19.5126 21.358C17.4561 23.011 14.8438 24 12.0001 24C7.43018 24 3.457 21.4457 1.43018 17.6868L5.31897 14.5035C6.33236 17.2081 8.94138 19.1334 12.0001 19.1334C13.3148 19.1334 14.5465 18.778 15.6033 18.1576L19.5119 21.3574Z"
+                            fill="#28B446" />
+                          <path
+                            d="M19.6596 2.76263L15.7721 5.94525C14.6783 5.26153 13.3853 4.86656 12 4.86656C8.87213 4.86656 6.21431 6.88017 5.25169 9.68175L1.34245 6.48131H1.3418C3.33895 2.63077 7.36223 0 12 0C14.9117 0 17.5814 1.03716 19.6596 2.76263Z"
+                            fill="#F14336" />
+                        </svg>
+                        <span class="d-none d-sm-inline">Register With Google</span>
+                      </button>
+                    </div>
+                    <div class="col-auto">
+                      <button class="btn btn-lg btn-with-facebook" name="button">
+                        <i class="fa fa-facebook"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="line-space">
+                <hr>
+                <span>Atau</span>
+                <hr>
+              </div>
+              <div class="main-auth">
+                <form action="/">
+                  <div class="form-group y-form row">
+                    <div class="col-6">
+                      <input type="first-name" class="form-control form-control-lg" placeholder="Nama Depan">
+                    </div>
+                    <div class="col-6">
+                      <input type="last-name" class="form-control form-control-lg" placeholder="Nama Belakang">
+                    </div>
+                  </div>
+                  <div class="form-group y-form">
+                    <input type="email" class="form-control form-control-lg" placeholder="Email">
+                  </div>
+                  <div class="form-group y-form">
+                    <input type="password" class="form-control form-control-lg" placeholder="Password">
+                  </div>
+                  <div class="form-group y-form">
+                    <input type="password" class="form-control form-control-lg" placeholder="Konfirmasi Password">
+                  </div>
+                  <button class="btn btn-block y-btn-lg btn-purple mb-4 mt-5">Daftar Sekarang</button>
+                </form>
+                <p class="y-more-action">
+                  <span>Sudah Punya Akun?</span>
+                  <router-link :to="{ name: 'Login'}">Masuk</router-link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
