@@ -68,22 +68,25 @@
                 <hr>
               </div>
               <div class="main-auth">
-                <form action="/">
+                <form @submit.prevent="loginHost()">
                   <div class="form-group y-form">
-                    <input type="email" class="form-control form-control-lg" placeholder="example@yuky.com">
+                    <input v-model="login.email" ref="email" type="email" class="form-control form-control-lg" placeholder="example@yuky.com">
                   </div>
                   <div class="form-group y-form">
-                    <input type="password" class="form-control form-control-lg" placeholder="Password">
+                    <input v-model="login.password" type="password" class="form-control form-control-lg" placeholder="Password">
                   </div>
                   <div class="form-group form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox"> Remember me
+                      <input v-model="login.remember" class="form-check-input" type="checkbox">
+                      <span> Remember me</span>
                     </label>
                   </div>
-                  <button class="btn btn-block y-btn-lg btn-purple mb-4 mt-3">Masuk</button>
+                  <button type="submit" class="btn btn-block y-btn-lg btn-purple mb-4 mt-3" :disabled="btnLoginLoading">
+                    <span>Masuk</span>
+                  </button>
                 </form>
                 <p class="y-more-action">
-                <span>Lupa Password? </span>
+                  <span>Lupa Password? </span>
                   <a href="/">Klik Disini</a>
                 </p>
               </div>
@@ -106,7 +109,7 @@ export default {
   methods: {
     loginHost: function() {
       this.btnLoginLoading = true
-      this.$refs.login.validate()
+      this.Nprogress.start()
 
       this.axios.post(this.API_URL + '/auth/login', this.login)
         .then(({
@@ -114,54 +117,38 @@ export default {
         }) => {
           window.console.log(data)
           if (data.status) {
-            sessionStorage.setItem('_token', data.token)
+            document.cookie = 'token=' + data.token
+            window.console.log(document.cookie)
             window.location.href = '/host'
           } else {
-            sessionStorage.removeItem('_token')
+            document.cookie = 'token='
           }
           this.btnLoginLoading = false
+          this.Nprogress.done()
         })
-      // .catch( errors => {
-
-      // })
-      // .then( response => {
-
-      // })
     },
 
     alreadyLogin: function() {
-      const _token = sessionStorage.getItem('_token')
-      if (_token) {
+      const token = this.Global.getCookie('token')
+      if (token) {
         window.location.href = '/host'
       }
     },
 
-    handleVisiblePassowrd: function() {
-      this.visiblePassword = !this.visiblePassword
-    },
   },
 
   mounted() {
     this.alreadyLogin()
+    this.$refs.email.focus()
   },
 
   data() {
     return {
       login: {
-        email: '',
-        password: '',
+        email: 'fanesahadi@gmail.com',
+        password: '12345678',
+        remember: false,
       },
-      rules: {
-        email: [
-          v => !!v || 'E-mail is required',
-          v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-        ],
-        password: [
-          v => !!v || 'Password is required',
-        ],
-        valid: false
-      },
-      visiblePassword: true,
       btnLoginLoading: false
     }
   },

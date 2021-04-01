@@ -15,14 +15,14 @@ export default {
 
   methods: {
     logOut: function() {
-      const _token = sessionStorage.getItem('_token')
+      const token = this.Global.getCookie('token')
       this.axios.get(this.API_URL + '/auth/logout', {
           params: {
-            token: _token
+            token: token
           }
         })
         .then(() => {
-          sessionStorage.removeItem('_token')
+          document.cookie = 'token='
           window.location.href = '/#/login'
         })
     },

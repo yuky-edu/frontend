@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Global from '/global.variable'
+import Global from '/global'
 
 const variable = {
 
