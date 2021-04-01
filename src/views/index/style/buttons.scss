@@ -30,6 +30,10 @@
     bottom: -6px;
     left: 14px;
   }
+
+  &:hover{
+    color: $white;
+  }
 }
 
 .btn-with-google{
@@ -40,7 +44,7 @@
   border-width: 2px;
 
   svg{
-    margin-right: 12px;
+    margin: 0 12px;
   }
 }
 
@@ -53,4 +57,8 @@
 .btn-purple{
   background: $purple;
   color: $white;
+
+  &:hover{
+    color: $white;
+  }
 }

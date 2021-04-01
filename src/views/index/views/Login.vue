@@ -2,9 +2,8 @@
 <div id="login">
   <div class="container-fluid">
     <div class="row sub-fluid">
-      <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4 y-panel-left">
+      <div class="col-lg-4 d-none d-lg-block y-panel-left">
         <div class="y-wrapper">
-
           <div class="row">
             <div class="col-6 text-right">
               <button class="btn btn-outline-light" name="button">Masuk</button>
@@ -13,29 +12,24 @@
               <button class="btn btn-outline-light border-transparent" name="button">Daftar</button>
             </div>
           </div>
-
           <div class="v-panel-body">
             <h1>LOREM IPSUM DOLOR SIT AMET</h1>
             <p>LOREM IPSUM DOLOR SIT AMET</p>
           </div>
-
           <div class="back">
             <router-link :to="{name: 'Home'}">
               <span class="fa fa-arrow-left"></span>
               <p>Kembali ke Beranda</p>
             </router-link>
           </div>
-
         </div>
       </div>
-      <div class="col-md-7 col-lg-8 y-panel-right">
+      <div class="col-lg-8 y-panel-right">
         <div class="y-wrapper">
-
           <div class="row">
-            <div class="col-sm-6 offset-sm-3">
+            <div class="col-lg-6 offset-lg-3">
               <div class="external-auth">
                 <div class="wrapper">
-
                   <div class="row">
                     <div class="col">
                       <button class="btn btn-lg btn-with-google btn-block btn-outline-dark">
@@ -53,7 +47,7 @@
                             d="M19.6596 2.76263L15.7721 5.94525C14.6783 5.26153 13.3853 4.86656 12 4.86656C8.87213 4.86656 6.21431 6.88017 5.25169 9.68175L1.34245 6.48131H1.3418C3.33895 2.63077 7.36223 0 12 0C14.9117 0 17.5814 1.03716 19.6596 2.76263Z"
                             fill="#F14336" />
                         </svg>
-                        <span>Login With Google</span>
+                        <span class="d-none d-sm-inline">Login With Google</span>
                       </button>
                     </div>
                     <div class="col-auto">
@@ -62,18 +56,15 @@
                       </button>
                     </div>
                   </div>
-
                 </div>
               </div>
-
               <div class="line-space">
                 <hr>
                 <span>Atau</span>
                 <hr>
               </div>
-
               <div class="main-auth">
-                <form action="/action_page.php">
+                <form action="/">
                   <div class="form-group y-form">
                     <input type="email" class="form-control form-control-lg" placeholder="example@yuky.com">
                   </div>
@@ -87,14 +78,13 @@
                   </div>
                   <button class="btn btn-block y-btn-lg btn-purple mb-4">Masuk</button>
                 </form>
-                <p class="forget-password">Lupa Password? <a href="#">Klik Disini</a></p>
+                <p class="forget-password">Lupa Password? <a href="/">Klik Disini</a></p>
               </div>
             </div>
           </div>
-
         </div>
       </div>
-    </div> <!-- ./row -->
+    </div>
   </div>
 </div>
 </template>

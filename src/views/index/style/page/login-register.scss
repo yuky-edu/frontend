@@ -1,3 +1,11 @@
+a{
+  color: $purple;
+
+  &:focus{
+    color: $purple;
+  }
+}
+
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
@@ -58,7 +66,7 @@
 
 .y-panel-right {
   .y-wrapper {
-    padding: 56px 0;
+    padding: 96px 0;
   }
 }
 
@@ -88,6 +96,17 @@
     height: 76px;
     border-radius: 20px;
     padding: 0 28px;
+    background: $gray1;
+    font-family: rubik-regular;
+
+    &:focus{
+      background: $white;
+      font-family: rubik-medium;
+    }
+
+    &::placeholder{
+      opacity: 0.4;
+    }
   }
 
 }
