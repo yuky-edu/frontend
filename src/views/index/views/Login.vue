@@ -82,7 +82,10 @@
                   </div>
                   <button class="btn btn-block y-btn-lg btn-purple mb-4 mt-3">Masuk</button>
                 </form>
-                <p class="y-more-action">Lupa Password? <a href="/">Klik Disini</a></p>
+                <p class="y-more-action">
+                <span>Lupa Password? </span>
+                  <a href="/">Klik Disini</a>
+                </p>
               </div>
             </div>
           </div>

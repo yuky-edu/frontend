@@ -89,7 +89,7 @@
                   <button class="btn btn-block y-btn-lg btn-purple mb-4 mt-5">Daftar Sekarang</button>
                 </form>
                 <p class="y-more-action">
-                  <span>Sudah Punya Akun?</span>
+                  <span>Sudah Punya Akun? </span>
                   <router-link :to="{ name: 'Login'}">Masuk</router-link>
                 </p>
               </div>
