@@ -62,6 +62,42 @@
   }
 }
 
+.line-space {
+  text-align: center;
+  margin: 26px 0;
+  display: flex;
+  color: $gray2;
+  align-items: center;
+  font-family: rubik-regular;
+  font-size: 18px;
+
+  span{
+    margin: 0 12px;
+  }
+
+  hr {
+    height: 3px;
+    width: 100%;
+    background: $gray1;
+  }
+}
+
+.y-form{
+  .form-control-lg{
+    font-size: 18px;
+    height: 76px;
+    border-radius: 20px;
+    padding: 0 28px;
+  }
+
+}
+
+.forget-password{
+  text-align: center;
+  font-size: 18px;
+  font-family: rubik-regular;
+}
+
 .y-panel-body {}
 
 #login {}

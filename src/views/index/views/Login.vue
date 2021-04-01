@@ -67,25 +67,27 @@
               </div>
 
               <div class="line-space">
+                <hr>
                 <span>Atau</span>
+                <hr>
               </div>
 
               <div class="main-auth">
                 <form action="/action_page.php">
-                  <div class="form-group">
-                    <input type="email" class="form-control" placeholder="example@yuky.com">
+                  <div class="form-group y-form">
+                    <input type="email" class="form-control form-control-lg" placeholder="example@yuky.com">
                   </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password">
+                  <div class="form-group y-form">
+                    <input type="password" class="form-control form-control-lg" placeholder="Password">
                   </div>
                   <div class="form-group form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox"> Remember me
                     </label>
                   </div>
-                  <button class="btn btn-primary">Masuk</button>
+                  <button class="btn btn-block y-btn-lg btn-purple mb-4">Masuk</button>
                 </form>
-                <p>Lupa Password? <a href="#">Klik Disini</a></p>
+                <p class="forget-password">Lupa Password? <a href="#">Klik Disini</a></p>
               </div>
             </div>
           </div>
