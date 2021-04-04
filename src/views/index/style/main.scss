@@ -1,25 +1,4 @@
 @import '/src/assets/style/main';
 @import 'page/home';
 @import 'page/login-register';
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*:after,
-*:before {
-  box-sizing: inherit;
-}
-
-html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: rubik-medium;
-}
-
 @import 'responsive';

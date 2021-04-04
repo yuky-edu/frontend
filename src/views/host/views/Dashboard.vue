@@ -1,12 +1,12 @@
 <template>
-<div class="container">
-  <h1>Halaman Dashboard</h1>
-  <a href="/">Home</a>
-  <a href="#" @click="logOut()">Logout</a>
+<div id="dashboard">
+  <Navbar></Navbar>
 </div>
 </template>
 
 <script>
+import Navbar from './components/Navbar'
+
 export default {
 
   computed: {
@@ -40,6 +40,10 @@ export default {
       //
     }
   },
+
+  components: {
+    Navbar
+  }
 }
 </script>
 
