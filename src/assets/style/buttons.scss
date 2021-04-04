@@ -5,7 +5,7 @@
   padding: 9px 30px;
 
   &:hover {
-    color: $textDark;
+    color: $dark;
   }
 }
 
@@ -14,7 +14,7 @@
 }
 
 .btn-with-facebook {
-  background: $purple;
+  background: $blue-1;
   color: $white;
   position: relative;
   width: 76px;
@@ -55,7 +55,7 @@
 }
 
 .btn-purple{
-  background: $purple;
+  background: $blue-1;
   color: $white;
 
   &:hover{
