@@ -1,19 +1,29 @@
 <template>
-<nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-  <div class="container-fluid">
-    <button class="btn btn-link rounded-circle mr-3" type="button"><i class="fas fa-bars"></i></button>
+<nav class="navbar navbar-light navbar-expand mb-4 topbar static-top">
+  <div class="container">
+    <a class="navbar-brand logo" href="#">
+      <img src="/assets/img/logo.svg">
+    </a>
+    <!-- <button class="btn btn-link rounded-circle mr-3" type="button"><i class="fas fa-bars"></i></button> -->
     <ul class="nav navbar-nav flex-nowrap ml-auto">
-      <li class="nav-item dropdown d-sm-none no-arrow"><a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#"><i class="fas fa-search"></i></a>
+      <!-- <li class="nav-item dropdown no-arrow"><a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#"><i class="fas fa-search"></i></a>
         <div role="menu" class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" aria-labelledby="searchDropdown">
           <form class="form-inline mr-auto navbar-search w-100">
-            <div class="input-group"><input type="text" class="bg-light form-control border-0 small" placeholder="Search for ..." />
+            <div class="input-group">
+              <input type="text" class="bg-light form-control border-0 small" placeholder="Search for ..." />
               <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
             </div>
           </form>
         </div>
-      </li>
-      <li role="presentation" class="nav-item dropdown no-arrow mx-1">
-        <div class="nav-item dropdown no-arrow"><a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#"><span class="badge badge-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
+      </li> -->
+      <li class="nav-item dropdown no-arrow mx-1">
+        <div class="nav-item dropdown no-arrow">
+
+          <a data-toggle="dropdown" class="nav-link" href="#">
+            <span class="badge badge-danger badge-counter">3+</span>
+            <i class="fas fa-bell fa-fw"></i>
+          </a>
+
           <div role="menu" class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
             <h6 class="dropdown-header">alerts center</h6>
             <a class="d-flex align-items-center dropdown-item" href="#">
@@ -39,12 +49,19 @@
               <div><span class="small text-gray-500">December 2, 2019</span>
                 <p>Spending Alert: We&#39;ve noticed unusually high spending for your account.</p>
               </div>
-            </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
+            </a>
+            <a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
           </div>
         </div>
       </li>
-      <li role="presentation" class="nav-item dropdown no-arrow mx-1">
-        <div class="nav-item dropdown no-arrow"><a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#"><i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter">7</span></a>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <div class="nav-item dropdown no-arrow">
+
+          <a data-toggle="dropdown" class="nav-link" href="#">
+            <i class="fas fa-envelope fa-fw"></i>
+            <span class="badge badge-danger badge-counter">7</span>
+          </a>
+
           <div role="menu" class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
             <h6 class="dropdown-header">alerts center</h6>
             <a class="d-flex align-items-center dropdown-item" href="#">
@@ -88,16 +105,37 @@
         <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
       </li>
       <div class="d-none d-sm-block topbar-divider"></div>
-      <li role="presentation" class="nav-item dropdown no-arrow">
-        <div class="nav-item dropdown no-arrow"><a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Valerie Luna</span><img
-              class="border rounded-circle img-profile" src="avatars/avatar1.jpeg" /></a>
-          <div role="menu" class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a role="presentation" class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a><a role="presentation"
-              class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
-            <a role="presentation" class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity log</a>
-            <div class="dropdown-divider"></div><a role="presentation" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout</a>
+
+      <li class="nav-item nav-menu dropdown no-arrow">
+        <div class="nav-item dropdown no-arrow avatar">
+          <a data-toggle="dropdown" class="dropdown-toggle nav-link" href="#">
+            <img class="rounded-circle" src="/assets/avatars/avatar.png" />
+            <span class="d-none d-lg-inline">Hai, Dhimas</span>
+          </a>
+          <div role="menu" class="dropdown-menu dropdown-menu-right animated--grow-in">
+            <a class="dropdown-item active" href="#">
+              <i class="fas fa-bars fa-sm fa-fw"></i> Dashboard
+            </a>
+            <a class="dropdown-item" href="#">
+              <i class="fas fa-user fa-sm fa-fw"></i> Profile Akun
+            </a>
+            <a class="dropdown-item" href="#">
+              <i class="fas fa-signal fa-sm fa-fw"></i> Analisis
+            </a>
+            <!-- <div class="dropdown-divider"></div> -->
+            <a class="dropdown-item" href="#">
+              <i class="fas fa-sign-out-alt fa-sm fa-fw"></i> Kelas
+            </a>
+            <a class="dropdown-item" href="#">
+              <i class="fas fa-cogs fa-sm fa-fw"></i> Pengaturan
+            </a>
+            <a @click="logOut()" class="dropdown-item text-danger mb-0" href="#">
+              <i class="fas fa-sign-out-alt fa-sm fa-fw"></i> Keluar
+            </a>
           </div>
         </div>
       </li>
+
     </ul>
   </div>
 </nav>
@@ -111,7 +149,19 @@ export default {
   },
 
   methods: {
-    //
+    logOut: function() {
+      this.Nprogress.start()
+      const token = this.Global.getCookie('token')
+      this.axios.get(this.API_URL + '/auth/logout', {
+          params: {
+            token: token
+          }
+        })
+        .then(() => {
+          document.cookie = 'token='
+          window.location.href = '/#/login'
+        })
+    },
   },
 
   mounted() {

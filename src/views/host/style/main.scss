@@ -1,2 +1,81 @@
 @import '/src/assets/style/main';
+
+nav {
+  background: $dark-blue;
+
+  .logo {
+    img {
+      height: 46px;
+    }
+  }
+
+  li.nav-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: $white $im;
+    position: relative;
+
+    i {
+      font-size: 24px;
+    }
+
+    .badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .avatar {
+    margin-left: 36px;
+
+    img {
+      height: 36px;
+      border: 2px solid $white;
+      box-sizing: border-box;
+      margin-right: 12px;
+    }
+
+    span {
+      font-size: 18px;
+      margin-right: 0.8rem;
+    }
+  }
+
+  .nav-menu {
+    .dropdown-menu {
+      padding: 32px 48px 40px;
+      margin-top: 10px;
+      background: $white;
+      box-shadow: 0 4px 35px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      border-width: 0;
+      color: $dark-blue;
+
+      a.active{
+        color: $blue-1;
+        background: none;
+      }
+
+      a {
+        font-family: rubik-regular;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+        margin-bottom: 32px;
+
+        &:hover{
+          color: $blue-1;
+        }
+      }
+
+      i{
+        margin-right: 10px;
+      }
+    }
+  }
+}
 @import 'responsive';

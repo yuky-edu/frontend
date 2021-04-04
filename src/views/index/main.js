@@ -6,7 +6,6 @@ import store from './store'
 
 require('./variable')
 require('./style/main.scss').default
-require('/src/assets/plugin/nprogress.css').default
 Vue.prototype.axios = require('axios').default
 Vue.prototype.Nprogress = Nprogress
 

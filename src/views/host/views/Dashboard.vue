@@ -14,18 +14,6 @@ export default {
   },
 
   methods: {
-    logOut: function() {
-      const token = this.Global.getCookie('token')
-      this.axios.get(this.API_URL + '/auth/logout', {
-          params: {
-            token: token
-          }
-        })
-        .then(() => {
-          document.cookie = 'token='
-          window.location.href = '/#/login'
-        })
-    },
     checkToken: function() {
       //
     }

@@ -1,10 +1,8 @@
 <template lang="html">
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top" :class="{'scroll': navScroll}">
       <div class="container">
-        <a class="navbar-brand logo" href="#">
-        <img src="/assets/img/logo.svg">
-      </a>
-      <button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <a class="navbar-brand logo" href="#"><img src="/assets/img/logo.svg"></a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="nav navbar-nav ml-auto">
             <li v-for="(v, i) in nav" class="nav-item nav-link nav-a">
