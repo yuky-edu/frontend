@@ -1,6 +1,9 @@
 <template>
 <div id="dashboard">
   <Navbar></Navbar>
+  <div class="banner">
+    <img src="/assets/img/banner.png" alt="">
+  </div>
 </div>
 </template>
 
