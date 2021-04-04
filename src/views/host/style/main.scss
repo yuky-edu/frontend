@@ -111,5 +111,11 @@ nav {
   }
 }
 
+.d-center-b{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @import 'page/dashboard';
 @import 'responsive';

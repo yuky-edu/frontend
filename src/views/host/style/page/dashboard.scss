@@ -1,4 +1,4 @@
-body{
+body {
   background: $bg-1;
 }
 
@@ -8,7 +8,7 @@ body{
   }
 }
 
-.y-analytic{
+.y-analytic {
   margin-top: -100px;
 }
 
@@ -18,23 +18,54 @@ body{
   border-radius: 10px;
   background: $white;
 
-  .card-body{
+  .card-body {
     padding: 32px;
   }
 
-  .wrapper{
+  .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    h3{
+    h3 {
       font-size: 48px;
     }
   }
 
-  .title{
+  .title {
     margin-top: 34px;
     font-size: 24px;
     font-family: rubik-regular;
+  }
+}
+
+.y-card {
+  .card-header {
+    background: $white;
+    border: none;
+    padding: 26px 32px;
+
+    h6 {
+      font-size: 24px;
+      color: $black;
+    }
+  }
+}
+
+.y-table {
+  th {
+    border-width: 0;
+  }
+
+  td {
+    font-size: 16px;
+    line-height: 19px;
+    color: $dark-blue;
+    height: 56px;
+    vertical-align: middle;
+  }
+
+  .name{
+    font-weight: bold;
   }
 }
