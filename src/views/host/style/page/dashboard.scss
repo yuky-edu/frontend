@@ -1,5 +1,40 @@
-.banner{
-  img{
+body{
+  background: $bg-1;
+}
+
+.y-banner {
+  img {
     width: 100%;
+  }
+}
+
+.y-analytic{
+  margin-top: -100px;
+}
+
+.y-card {
+  border: 1px solid $gray-1;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: $white;
+
+  .card-body{
+    padding: 32px;
+  }
+
+  .wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3{
+      font-size: 48px;
+    }
+  }
+
+  .title{
+    margin-top: 34px;
+    font-size: 24px;
+    font-family: rubik-regular;
   }
 }

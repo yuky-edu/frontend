@@ -47,7 +47,7 @@ nav {
 
   .nav-menu {
     .dropdown-menu {
-      padding: 32px 48px 40px;
+      padding: 30px 30px;
       margin-top: 10px;
       background: $white;
       box-shadow: 0 4px 35px rgba(0, 0, 0, 0.1);
@@ -55,7 +55,7 @@ nav {
       border-width: 0;
       color: $dark-blue;
 
-      a.active{
+      a.active {
         color: $blue-1;
         background: none;
       }
@@ -67,15 +67,47 @@ nav {
         line-height: 21px;
         margin-bottom: 32px;
 
-        &:hover{
+        &:hover {
           color: $blue-1;
         }
       }
 
-      i{
+      i {
         margin-right: 10px;
       }
     }
+  }
+}
+
+.icon-rounded {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: lighten($dark-blue, 80%);
+
+  i{
+    font-size: 22px;
+    color: $dark-blue;
+  }
+}
+
+.icon-blue{
+  background: lighten($dark-blue, 80%);
+
+  i{
+    color: $blue-1;
+  }
+}
+
+.icon-orange{
+  background: lighten($orange, 32%);
+
+  i{
+    color: $orange;
   }
 }
 
