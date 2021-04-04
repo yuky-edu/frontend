@@ -97,16 +97,28 @@
                       <tbody>
                         <tr>
                           <td class="name">XII-Agama Islam</td>
-                          <td>Agama</td>
                           <td>
-                            <h3><span class="badge badge-success">Aktif</span></h3>
+                            <i class="fa fa-user"></i>
+                            <span> Agama</span>
+                          </td>
+                          <td>
+                            <div class="badge badge-green">
+                              <i class="far fa-clock"></i>
+                              <span>Aktif</span>
+                            </div>
                           </td>
                         </tr>
                         <tr>
                           <td class="name">XII-Bahasa Inggris</td>
-                          <td>Bahasa</td>
                           <td>
-                            <h3><span class="badge badge-success">Aktif</span></h3>
+                            <i class="fa fa-user"></i>
+                            <span> Bahasa</span>
+                          </td>
+                          <td>
+                            <div class="badge badge-orange">
+                              <i class="far fa-times-circle"></i>
+                              <span>Non-Aktif</span>
+                            </div>
                           </td>
                         </tr>
                       </tbody>

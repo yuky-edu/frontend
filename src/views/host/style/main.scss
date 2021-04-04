@@ -117,5 +117,28 @@ nav {
   align-items: center;
 }
 
+
+// TODO: badge
+.badge{
+  font-family: rubik-regular;
+  font-size: 12px;
+  font-weight: normal;
+  padding: 6px 12px;
+
+  i{
+    margin-right: 8px;
+  }
+}
+
+.badge-green{
+  color: $green;
+  background: lighten($green, 55%);
+}
+
+.badge-orange{
+  color: $orange;
+  background: lighten($orange, 35%);
+}
+
 @import 'page/dashboard';
 @import 'responsive';
