@@ -102,7 +102,7 @@
                             <span> Agama</span>
                           </td>
                           <td>
-                            <div class="badge badge-green">
+                            <div class="badge badge-green size-2x">
                               <i class="far fa-clock"></i>
                               <span>Aktif</span>
                             </div>
@@ -115,7 +115,7 @@
                             <span> Bahasa</span>
                           </td>
                           <td>
-                            <div class="badge badge-orange">
+                            <div class="badge badge-orange size-2x">
                               <i class="far fa-times-circle"></i>
                               <span>Non-Aktif</span>
                             </div>
@@ -129,14 +129,20 @@
                   <div class="row">
                     <div class="col-md-6 offset-6">
                       <div class="d-lg-flex justify-content-lg-end">
-                        <ul class="pagination">
+                        <ul class="pagination m-0">
                           <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a>
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <span aria-hidden="true">« Sebelumnya</span>
+                            </a>
                           </li>
                           <li class="page-item active"><a class="page-link" href="#">1</a></li>
                           <li class="page-item"><a class="page-link" href="#">2</a></li>
                           <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">Selanjutnya »</span>
+                          </a>
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -165,7 +171,10 @@
     </div>
   </div>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, aliquid cum accusantium iusto, enim adipisci nam. Doloremque beatae perspiciatis perferendis esse qui, optio sequi incidunt illo sapiente aliquam. Alias, odio!</p>
+  <footer>
+    <p>© 2021 Yuky - ARNAV Developer. All rights reserved.</p>
+  </footer>
+
 </div>
 </template>
 

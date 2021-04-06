@@ -16,6 +16,7 @@ body {
   border: 1px solid $gray-1;
   box-sizing: border-box;
   border-radius: 10px;
+  overflow: hidden;
   background: $white;
 
   .card-header {
@@ -55,6 +56,13 @@ body {
 }
 
 .y-table {
+
+  tbody{
+    td{
+      border-width: 0;
+    }
+  }
+
   th {
     border-width: 0;
   }

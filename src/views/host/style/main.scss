@@ -47,7 +47,7 @@ nav {
 
   .nav-menu {
     .dropdown-menu {
-      padding: 30px 30px;
+      padding: 30px;
       margin-top: 10px;
       background: $white;
       box-shadow: 0 4px 35px rgba(0, 0, 0, 0.1);
@@ -89,56 +89,88 @@ nav {
   border-radius: 50%;
   background: lighten($dark-blue, 80%);
 
-  i{
+  i {
     font-size: 22px;
     color: $dark-blue;
   }
 }
 
-.icon-blue{
+.icon-blue {
   background: lighten($dark-blue, 80%);
 
-  i{
+  i {
     color: $blue-1;
   }
 }
 
-.icon-orange{
+.icon-orange {
   background: lighten($orange, 32%);
 
-  i{
+  i {
     color: $orange;
   }
 }
 
-.d-center-b{
+.d-center-b {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-
 // TODO: badge
-.badge{
+
+.badge {
   font-family: rubik-regular;
   font-size: 12px;
   font-weight: normal;
-  padding: 6px 12px;
 
-  i{
+  i {
     margin-right: 8px;
+  }
+
+  &.size-2x{
+    padding: 6px 12px;
   }
 }
 
-.badge-green{
+.badge-green {
   color: $green;
   background: lighten($green, 55%);
 }
 
-.badge-orange{
+.badge-orange {
   color: $orange;
   background: lighten($orange, 35%);
 }
+// TODO: pagination
 
+.pagination {
+  .page-item {
+    a {
+      color: $blue-1;
+    }
+  }
+
+  .page-item.active {
+    a {
+      background-color: $blue-1;
+      border-color: $blue-1;
+    }
+  }
+}
+
+// TODO: footer
+footer {
+  text-align: center;
+  margin-top: 56px;
+  background: $gray-1;
+  padding: 24px 12px;
+
+  p {
+    font-size: 12px;
+    line-height: 14px;
+    color: $dark-blue;
+    margin: 0;
+  }
+}
 @import 'page/dashboard';
 @import 'responsive';
