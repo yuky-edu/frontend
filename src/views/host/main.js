@@ -5,10 +5,8 @@ import Nprogress from 'nprogress'
 import router from './router'
 import store from './store'
 
-require('./style/main.scss').default
-
+require('./style/main.scss')
 const _var = require('./variable').default
-window.console.log(_var.getCookie('token'))
 
 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + _var.getCookie('token')
 Vue.prototype.axios = Axios

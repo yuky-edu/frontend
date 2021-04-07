@@ -1,10 +1,18 @@
 <template>
 <div id="app">
-  <router-view />
+  <Navbar></Navbar>
+
+  <router-view class="host-view" />
+
+  <footer>
+    <p>© 2021 Yuky - ARNAV Developer. All rights reserved.</p>
+  </footer>
 </div>
 </template>
 
 <script>
+import Navbar from './views/components/Navbar'
+
 export default {
 
   computed: {
@@ -18,7 +26,9 @@ export default {
 
       if (token) {
         this.axios(this.API_URL + '/hosts/user/myInfo')
-          .then( ({data}) => {
+          .then(({
+            data
+          }) => {
             this.$store.commit(this.Xprofile.m[1], data)
             this.Nprogress.done()
           })
@@ -40,5 +50,9 @@ export default {
       //
     }
   },
+
+  components: {
+    Navbar
+  }
 }
 </script>

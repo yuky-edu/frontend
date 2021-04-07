@@ -1,16 +1,13 @@
 <template>
 <div id="dashboard">
-  <Navbar></Navbar>
-  <div class="y-banner">
-    <img src="/assets/img/banner.png" alt="">
-  </div>
+  <div class="y-banner"></div>
 
   <div class="y-body">
     <div class="container">
 
       <div class="y-analytic mb-3">
         <div class="row">
-          <div class="col-md-6 col-xl-4 mb-4">
+          <div class="col-sm-12 col-lg-4 mb-4">
             <div class="card y-card">
               <div class="card-body">
                 <div class="row no-gutters">
@@ -29,7 +26,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-xl-4 mb-4">
+          <div class="col-sm-12 col-lg-4 mb-4">
             <div class="card y-card">
               <div class="card-body">
                 <div class="row no-gutters">
@@ -48,7 +45,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-xl-4 mb-4">
+          <div class="col-sm-12 col-lg-4 mb-4">
             <div class="card y-card">
               <div class="card-body">
                 <div class="row no-gutters">
@@ -72,7 +69,7 @@
 
       <div class="y-wrapper">
         <div class="row">
-          <div class="col-sm-9">
+          <div class="col-lg-9 mb-4">
             <div class="y-class">
               <div class="card y-card">
                 <div class="card-header d-center-b">
@@ -126,32 +123,28 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <div class="row">
-                    <div class="col-md-6 offset-6">
-                      <div class="d-lg-flex justify-content-lg-end">
-                        <ul class="pagination m-0">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                              <span aria-hidden="true">« Sebelumnya</span>
-                            </a>
-                          </li>
-                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">Selanjutnya »</span>
-                          </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+                  <div class="d-lg-flex justify-content-lg-end">
+                    <ul class="pagination m-0">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">«</span>
+                        </a>
+                      </li>
+                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">»</span>
+                        </a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col">
+          <div class="col mb-4">
             <div class="y-simple-log">
               <div class="y-class">
                 <div class="card y-card">
@@ -171,16 +164,10 @@
     </div>
   </div>
 
-  <footer>
-    <p>© 2021 Yuky - ARNAV Developer. All rights reserved.</p>
-  </footer>
-
 </div>
 </template>
 
 <script>
-import Navbar from './components/Navbar'
-
 export default {
 
   computed: {
@@ -203,9 +190,7 @@ export default {
     }
   },
 
-  components: {
-    Navbar
-  }
+  components: {}
 }
 </script>
 
