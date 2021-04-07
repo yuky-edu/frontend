@@ -3,13 +3,68 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+/**
+ * * Profile host
+ */
+const profile = {
+
+  namespaced: true,
+
   state: {
+    profile: { // data profile
+      first_name: 'Yuky' // default name
+    },
   },
+
+  getters: {
+    getState: (state) => {
+      //
+    },
+
+    getStateProfile: (state) => {
+      return state.profile
+    }
+  },
+
   mutations: {
-  },
-  actions: {
-  },
-  modules: {
+    updateState: (state) => {
+      //
+    },
+    updateStateProfile: (state, data) => {
+      state.profile = data
+    }
   }
+}
+
+Vue.prototype.Xprofile = {
+  g: [
+    'profile/getState',
+    'profile/getStateProfile',
+  ],
+  m: [
+    'profile/updateState',
+    'profile/updateStateProfile',
+  ]
+}
+
+/**
+ * * Vuex Main
+ */
+export default new Vuex.Store({
+
+  state: {
+    app: 'Yuky Guest',
+  },
+
+  mutations: {
+    //
+  },
+
+  actions: {
+    //
+  },
+
+  modules: {
+    profile
+  },
 })

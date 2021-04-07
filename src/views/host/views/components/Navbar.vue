@@ -34,22 +34,6 @@
                 <p>A new monthly report is ready to download!</p>
               </div>
             </a>
-            <a class="d-flex align-items-center dropdown-item" href="#">
-              <div class="mr-3">
-                <div class="bg-success icon-circle"><i class="fas fa-donate text-white"></i></div>
-              </div>
-              <div><span class="small text-gray-500">December 7, 2019</span>
-                <p>$290.29 has been deposited into your account!</p>
-              </div>
-            </a>
-            <a class="d-flex align-items-center dropdown-item" href="#">
-              <div class="mr-3">
-                <div class="bg-warning icon-circle"><i class="fas fa-exclamation-triangle text-white"></i></div>
-              </div>
-              <div><span class="small text-gray-500">December 2, 2019</span>
-                <p>Spending Alert: We&#39;ve noticed unusually high spending for your account.</p>
-              </div>
-            </a>
             <a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
           </div>
         </div>
@@ -73,33 +57,7 @@
                 <p class="small text-gray-500 mb-0">Emily Fowler - 58m</p>
               </div>
             </a>
-            <a class="d-flex align-items-center dropdown-item" href="#">
-              <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="avatars/avatar2.jpeg" />
-                <div class="status-indicator"></div>
-              </div>
-              <div class="font-weight-bold">
-                <div class="text-truncate"><span>I have the photos that you ordered last month!</span></div>
-                <p class="small text-gray-500 mb-0">Jae Chun - 1d</p>
-              </div>
-            </a>
-            <a class="d-flex align-items-center dropdown-item" href="#">
-              <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="avatars/avatar3.jpeg" />
-                <div class="bg-warning status-indicator"></div>
-              </div>
-              <div class="font-weight-bold">
-                <div class="text-truncate"><span>Last month&#39;s report looks great, I am very happy with the progress so far, keep up the good work!</span></div>
-                <p class="small text-gray-500 mb-0">Morgan Alvarez - 2d</p>
-              </div>
-            </a>
-            <a class="d-flex align-items-center dropdown-item" href="#">
-              <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="avatars/avatar5.jpeg" />
-                <div class="bg-success status-indicator"></div>
-              </div>
-              <div class="font-weight-bold">
-                <div class="text-truncate"><span>Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren&#39;t good...</span></div>
-                <p class="small text-gray-500 mb-0">Chicken the Dog · 2w</p>
-              </div>
-            </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
+            <a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
           </div>
         </div>
         <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
@@ -110,7 +68,7 @@
         <div class="nav-item dropdown no-arrow avatar">
           <a data-toggle="dropdown" class="dropdown-toggle nav-link" href="#">
             <img class="rounded-circle" src="/assets/avatars/avatar.png" />
-            <span class="d-none d-lg-inline">Hai, Dhimas</span>
+            <span class="d-none d-lg-inline">Hai, {{_profile.first_name}}</span>
           </a>
           <div role="menu" class="dropdown-menu dropdown-menu-right animated--grow-in">
             <a class="dropdown-item active" href="#">
@@ -145,7 +103,9 @@
 export default {
 
   computed: {
-    //
+    _profile: function() {
+      return this.$store.getters[this.Xprofile.g[1]]
+    }
   },
 
   methods: {
@@ -158,8 +118,7 @@ export default {
           }
         })
         .then(() => {
-          document.cookie = 'token='
-          window.location.href = '/#/login'
+          this.Global.expiredToken()
         })
     },
   },

@@ -172,5 +172,14 @@ footer {
     margin: 0;
   }
 }
+
+// TODO: form-group
+.form-group{
+  .invalid-feedback{
+    font-family: rubik-regular;
+    display: none;
+  }
+}
+
 @import 'page/dashboard';
 @import 'responsive';

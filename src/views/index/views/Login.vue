@@ -43,10 +43,13 @@
               <div class="main-auth">
                 <form @submit.prevent="loginHost()">
                   <div class="form-group y-form">
-                    <input v-model="login.email" ref="email" type="email" class="form-control form-control-lg" placeholder="example@yuky.com">
+                    <input v-model="login.email" :class="{'is-invalid': invalid}" ref="email" type="email" class="form-control form-control-lg" placeholder="example@yuky.com" name="email">
                   </div>
                   <div class="form-group y-form">
-                    <input v-model="login.password" type="password" class="form-control form-control-lg" placeholder="Password">
+                    <input v-model="login.password" :class="{'is-invalid': invalid}" type="password" class="form-control form-control-lg" placeholder="Password" name="password">
+                    <div v-if="invalid" class="invalid-feedback">
+                      <span>E-mail atau password kamu salah!</span>
+                    </div>
                   </div>
                   <div class="form-group form-check">
                     <label class="form-check-label">
@@ -85,6 +88,7 @@ export default {
     loginHost: function() {
       this.btnLoginLoading = true
       this.Nprogress.start()
+      this.invalid = false
 
       this.axios.post(this.API_URL + '/auth/login', this.login)
         .then(({
@@ -97,6 +101,7 @@ export default {
             window.location.href = '/host'
           } else {
             document.cookie = 'token='
+            this.invalid = true
           }
           this.btnLoginLoading = false
           this.Nprogress.done()
@@ -133,7 +138,8 @@ export default {
         password: '12345678',
         remember: false,
       },
-      btnLoginLoading: false
+      btnLoginLoading: false,
+      invalid: false
     }
   },
 

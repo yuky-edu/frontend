@@ -25,4 +25,9 @@ export default {
     return "";
   },
 
+  expiredToken: function() {
+    document.cookie = 'token='
+    window.location.href = '/#/login'
+  }
+
 }
