@@ -88,7 +88,7 @@
                         <tr>
                           <th>Nama Kelas</th>
                           <th>Kategori</th>
-                          <th>Status</th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -98,11 +98,10 @@
                             <i class="fa fa-user"></i>
                             <span> Agama</span>
                           </td>
-                          <td>
-                            <div class="badge badge-green size-2x">
-                              <i class="far fa-clock"></i>
-                              <span>Aktif</span>
-                            </div>
+                          <td class="text-right">
+                            <button class="btn btn-green">
+                              <span>Mainkan</span>
+                            </button>
                           </td>
                         </tr>
                         <tr>
@@ -111,7 +110,7 @@
                             <i class="fa fa-user"></i>
                             <span> Bahasa</span>
                           </td>
-                          <td>
+                          <td lass="text-right">
                             <div class="badge badge-orange size-2x">
                               <i class="far fa-times-circle"></i>
                               <span>Non-Aktif</span>
@@ -152,8 +151,11 @@
                     <h6 class="m-0">Log Aktivitas</h6>
                   </div>
                   <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, impedit!</p>
-                    <h1>Sabar..</h1>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+                      <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
                   </div>
                 </div>
               </div>

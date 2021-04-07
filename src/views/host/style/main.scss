@@ -127,7 +127,7 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-// TODO: badge
+// badge
 
 .badge {
   font-family: rubik-regular;
@@ -152,7 +152,7 @@ nav {
   color: $orange;
   background: lighten($orange, 35%);
 }
-// TODO: pagination
+// pagination
 
 .pagination {
   .page-item {
@@ -169,7 +169,7 @@ nav {
   }
 }
 
-// TODO: form-group
+// form-group
 .form-group{
   .invalid-feedback{
     font-family: rubik-regular;
@@ -177,7 +177,7 @@ nav {
   }
 }
 
-// TODO: footer
+// footer
 footer {
   text-align: center;
   margin-top: 56px;

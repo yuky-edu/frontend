@@ -62,3 +62,12 @@
     color: $white;
   }
 }
+
+.btn-green{
+  background: $green;
+  color: $white;
+
+  &:hover{
+    color: $white;
+  }
+}
