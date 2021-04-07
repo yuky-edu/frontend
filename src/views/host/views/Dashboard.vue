@@ -69,7 +69,7 @@
 
       <div class="y-wrapper">
         <div class="row">
-          <div class="col-lg-9 mb-4">
+          <div class="col-lg-8 mb-4">
             <div class="y-class">
               <div class="card y-card">
                 <div class="card-header d-center-b">
@@ -93,7 +93,7 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="name">XII-Agama Islam</td>
+                          <td class="class-name">XII-Agama Islam</td>
                           <td>
                             <i class="fa fa-user"></i>
                             <span> Agama</span>
@@ -105,7 +105,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td class="name">XII-Bahasa Inggris</td>
+                          <td class="class-name">XII-Bahasa Inggris</td>
                           <td>
                             <i class="fa fa-user"></i>
                             <span> Bahasa</span>
@@ -152,9 +152,57 @@
                   </div>
                   <div class="card-body">
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Cras justo odio</li>
-                      <li class="list-group-item">Dapibus ac facilisis in</li>
-                      <li class="list-group-item">Vestibulum at eros</li>
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col">
+                            <div class="class-name mb-2">XII-Agama Islam</div>
+                            <div class="category">
+                              <i class="fa fa-user"></i>
+                              <span> Bahasa</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="badge badge-green size-2x">
+                              <i class="far fa-times-circle"></i>
+                              <span>Aktif</span>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col">
+                            <div class="class-name mb-2">XII-Agama Islam</div>
+                            <div class="category">
+                              <i class="fa fa-user"></i>
+                              <span> Bahasa</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="badge badge-green size-2x">
+                              <i class="far fa-times-circle"></i>
+                              <span>Aktif</span>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col">
+                            <div class="class-name mb-2">XII-Agama Islam</div>
+                            <div class="category">
+                              <i class="fa fa-user"></i>
+                              <span> Bahasa</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="badge badge-green size-2x">
+                              <i class="far fa-times-circle"></i>
+                              <span>Aktif</span>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
                     </ul>
                   </div>
                 </div>
