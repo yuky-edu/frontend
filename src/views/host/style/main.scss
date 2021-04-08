@@ -1,16 +1,15 @@
-@import '/src/assets/style/main';
+@import '/src/assets/style/main'; // APP
 
-// APP
-#app{
+#app {
   min-height: 100vh;
   position: relative;
 
-  .host-view{
+  .host-view {
     padding-bottom: 106px;
   }
 }
-
 // navbar
+
 nav {
   background: $dark-blue;
 
@@ -138,7 +137,7 @@ nav {
     margin-right: 8px;
   }
 
-  &.size-2x{
+  &.size-2x {
     padding: 6px 12px;
   }
 }
@@ -168,16 +167,16 @@ nav {
     }
   }
 }
-
 // form-group
-.form-group{
-  .invalid-feedback{
+
+.form-group {
+  .invalid-feedback {
     font-family: rubik-regular;
     display: none;
   }
 }
-
 // footer
+
 footer {
   text-align: center;
   margin-top: 56px;
@@ -192,6 +191,61 @@ footer {
     line-height: 14px;
     color: $dark-blue;
     margin: 0;
+  }
+}
+// Text
+.text-bold {
+  font-family: rubik-medium;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 38px;
+  letter-spacing: 0.04em;
+
+  &.bold-12 {
+    font-size: 12px;
+  }
+
+  &.bold-16 {
+    font-size: 16px;
+  }
+
+  &.bold-20 {
+    font-size: 20px;
+  }
+
+  &.bold-24 {
+    font-size: 24px;
+  }
+
+  &.bold-32 {
+    font-size: 32px;
+  }
+}
+
+.text-regular {
+  font-family: rubik-regular;
+  font-size: 12px;
+  line-height: 38px;
+  letter-spacing: 0.04em;
+
+  &.text-12 {
+    font-size: 12px;
+  }
+
+  &.text-16 {
+    font-size: 16px;
+  }
+
+  &.text-20 {
+    font-size: 20px;
+  }
+
+  &.text-24 {
+    font-size: 24px;
+  }
+
+  &.text-32 {
+    font-size: 32px;
   }
 }
 

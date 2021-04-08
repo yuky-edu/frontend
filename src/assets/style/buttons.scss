@@ -71,3 +71,20 @@
     color: $white;
   }
 }
+
+.btn-right-icon{
+  position: relative;
+  padding-right: 42px;
+
+  i{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    background: #ffffff61;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

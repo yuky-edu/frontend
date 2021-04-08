@@ -77,7 +77,7 @@
                   <div class="no-arrow">
                     <button class="btn btn-purple">
                       <span>Buat Kelas </span>
-                      <i class="fa fa-plus"></i>
+                      <i class="ml-1 fa fa-plus"></i>
                     </button>
                   </div>
                 </div>
@@ -93,28 +93,29 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="class-name">XII-Agama Islam</td>
-                          <td>
+                          <td class="text-bold bold-16 class-name">XII-Agama Islam</td>
+                          <td class="text-regular text-16">
                             <i class="fa fa-user"></i>
                             <span> Agama</span>
                           </td>
                           <td class="text-right">
-                            <button class="btn btn-green">
+                            <button class="btn btn-green btn-right-icon">
                               <span>Mainkan</span>
+                              <i class="fas fa-chevron-right"></i>
                             </button>
                           </td>
                         </tr>
                         <tr>
-                          <td class="class-name">XII-Bahasa Inggris</td>
-                          <td>
+                          <td class="text-bold bold-16 class-name">XII-Bahasa Inggris</td>
+                          <td class="text-regular text-16">
                             <i class="fa fa-user"></i>
                             <span> Bahasa</span>
                           </td>
-                          <td lass="text-right">
-                            <div class="badge badge-orange size-2x">
-                              <i class="far fa-times-circle"></i>
-                              <span>Non-Aktif</span>
-                            </div>
+                          <td class="text-right">
+                            <button class="btn btn-green btn-right-icon">
+                              <span>Mainkan</span>
+                              <i class="fas fa-chevron-right"></i>
+                            </button>
                           </td>
                         </tr>
                       </tbody>
@@ -155,14 +156,14 @@
                       <li class="list-group-item">
                         <div class="row">
                           <div class="col">
-                            <div class="class-name mb-2">XII-Agama Islam</div>
-                            <div class="category">
+                            <div class="text-bold bold-16 class-name mb-2">XII-Agama Islam</div>
+                            <div class="text-regular text-16 category">
                               <i class="fa fa-user"></i>
                               <span> Bahasa</span>
                             </div>
                           </div>
                           <div class="col-auto">
-                            <div class="badge badge-green size-2x">
+                            <div class="badge badge-green size-2x mt-2">
                               <i class="far fa-times-circle"></i>
                               <span>Aktif</span>
                             </div>
@@ -172,14 +173,14 @@
                       <li class="list-group-item">
                         <div class="row">
                           <div class="col">
-                            <div class="class-name mb-2">XII-Agama Islam</div>
-                            <div class="category">
+                            <div class="text-bold bold-16 class-name mb-2">XII-Agama Islam</div>
+                            <div class="text-regular text-16 category">
                               <i class="fa fa-user"></i>
                               <span> Bahasa</span>
                             </div>
                           </div>
                           <div class="col-auto">
-                            <div class="badge badge-green size-2x">
+                            <div class="badge badge-green size-2x mt-2">
                               <i class="far fa-times-circle"></i>
                               <span>Aktif</span>
                             </div>
@@ -225,13 +226,11 @@ export default {
   },
 
   methods: {
-    checkToken: function() {
-      //
-    }
+    //
   },
 
   mounted() {
-    this.checkToken()
+    //
   },
 
   data() {
