@@ -48,6 +48,55 @@ Vue.prototype.Xprofile = {
 }
 
 /**
+ * * YClass host
+ */
+const yclass = {
+
+  namespaced: true,
+
+  state: {
+    data: [], // // yclass data
+    totalClass: 0,
+  },
+
+  getters: {
+    getState: (state) => {
+      //
+    },
+
+    getStateData: (state) => {
+      return state.data
+    },
+
+    getTotalClass: (state) => {
+      return state.totalClass
+    }
+  },
+
+  mutations: {
+    updateState: (state) => {
+      //
+    },
+    updateStateData: (state, data) => {
+      state.data = data
+      state.totalClass = data.length
+    }
+  }
+}
+
+Vue.prototype.Xyclass = {
+  g: [
+    'yclass/getState',
+    'yclass/getStateData',
+    'yclass/getTotalClass',
+  ],
+  m: [
+    'yclass/updateState',
+    'yclass/updateStateData',
+  ]
+}
+
+/**
  * * Vuex Main
  */
 export default new Vuex.Store({
@@ -65,6 +114,7 @@ export default new Vuex.Store({
   },
 
   modules: {
-    profile
+    profile,
+    yclass,
   },
 })

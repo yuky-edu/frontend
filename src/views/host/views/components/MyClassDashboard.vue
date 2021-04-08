@@ -21,11 +21,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="text-bold bold-16 class-name">XII-Agama Islam</td>
+
+            <tr v-for="(item, index) in yClass">
+              <td class="text-bold bold-16 class-name">{{ item.title }}</td>
               <td class="text-regular text-16">
-                <i class="fa fa-user"></i>
-                <span> Agama</span>
+                <i class="fa fa-user mr-2"></i>
+                <span>{{ item.yclass_category.name }}</span>
               </td>
               <td class="text-right">
                 <button class="btn btn-green btn-right-icon">
@@ -34,19 +35,7 @@
                 </button>
               </td>
             </tr>
-            <tr>
-              <td class="text-bold bold-16 class-name">XII-Bahasa Inggris</td>
-              <td class="text-regular text-16">
-                <i class="fa fa-user"></i>
-                <span> Bahasa</span>
-              </td>
-              <td class="text-right">
-                <button class="btn btn-green btn-right-icon">
-                  <span>Mainkan</span>
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </td>
-            </tr>
+
           </tbody>
         </table>
       </div>
@@ -78,20 +67,38 @@
 export default {
 
   computed: {
-    //
+    yClass: function()
+    {
+      return this.$store.getters[this.Xyclass.g[1]]
+    }
   },
 
   methods: {
-    //
+    getDataClass: function() {
+      this.Nprogress.start()
+
+      this.axios.get(this.API_URL + '/hosts/yclass/myclass')
+        .then(({
+          data
+        }) => {
+          if (data.status) {
+            this.$store.commit(this.Xyclass.m. [1], data.data)
+            this.Nprogress.done()
+          }
+        })
+    }
   },
 
   mounted() {
-    //
+    this.getDataClass()
   },
 
   data() {
     return {
-      //
+      nn: [
+        {name: '123123'},
+        {name: 'asdfasdf'},
+      ]
     }
   },
 }

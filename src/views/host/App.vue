@@ -25,7 +25,7 @@ export default {
       const token = this.Global.getCookie('token')
 
       if (token) {
-        this.axios(this.API_URL + '/hosts/user/myInfo')
+        this.axios.get(this.API_URL + '/hosts/user/myInfo')
           .then(({
             data
           }) => {
