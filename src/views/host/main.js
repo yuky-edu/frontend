@@ -1,16 +1,17 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Axios from 'axios'
-import Nprogress from 'nprogress'
 import router from './router'
 import store from './store'
+import vueCookies from 'vue-cookies'
+import Global from './variable'
 
 require('./style/main.scss')
 const _var = require('./variable').default
 
-Axios.defaults.headers.common['Authorization'] = 'Bearer ' + _var.getCookie('token')
+Vue.use(vueCookies)
+Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
 Vue.prototype.axios = Axios
-Vue.prototype.Nprogress = Nprogress
 
 Vue.config.productionTip = false
 

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Global from './variable'
+import NProgress from 'nprogress'
 
 import Home from './views/Home.vue'
 import AuthLayout from './views/AuthLayout.vue'
@@ -42,5 +43,14 @@ const router = new VueRouter({
   // mode: 'history',
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  NProgress.start();
+  NProgress.set(0.5);
+  next();
+});
+router.afterEach(() => {
+  setTimeout(() => NProgress.done(), 20);
+});
 
 export default router

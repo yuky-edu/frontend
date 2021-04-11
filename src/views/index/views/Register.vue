@@ -1,6 +1,6 @@
 <template>
 <div>
-  <ExternalAuth text="Register"></ExternalAuth>
+  <ExternalAuth text="Register"/>
 
   <div class="line-space">
     <hr>
@@ -50,7 +50,6 @@ export default {
   methods: {
     registerHost: function() {
       this.btnLoading = true
-      this.Nprogress.start()
 
       this.axios.post(this.API_URL + '/auth/register', {
           first_name: this.register.firstName,
@@ -73,7 +72,6 @@ export default {
             window.console.log("Register gagal")
           }
           this.btnLoading = false
-          this.Nprogress.done()
         })
     },
 

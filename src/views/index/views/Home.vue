@@ -1,7 +1,7 @@
 <template>
 <div class="home">
 
-  <navbar></navbar>
+  <Navbar/>
 
   <header id="banner">
     <div class="body">
@@ -176,7 +176,7 @@ export default {
 
   name: 'Beranda',
   components: {
-    'navbar': Navbar
+    Navbar
   }
 }
 </script>

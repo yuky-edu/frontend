@@ -15,16 +15,20 @@
               <a class="nav-link active" :href="v.link">{{ v.label }}</a>
             </li>
 
-            <li class="nav-item nav-link button">
+            <li v-if="!$cookies.get(TOKEN)" class="nav-item nav-link button">
               <router-link :to="{ name: 'Login'}">
                 <button class="btn btn-outline-light btn-login">Masuk</button>
               </router-link>
             </li>
 
-            <li class="nav-item nav-link">
+            <li v-if="!$cookies.get(TOKEN)" class="nav-item nav-link">
               <router-link :to="{ name: 'Register'}">
                 <button class="btn btn-outline-light btn-register">Daftar</button>
               </router-link>
+            </li>
+
+            <li v-if="$cookies.get(TOKEN)" class="nav-item nav-link">
+              <a href="/host" class="btn btn-outline-light">Dasbor</a>
             </li>
           </ul>
         </div>

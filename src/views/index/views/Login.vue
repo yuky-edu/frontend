@@ -1,6 +1,6 @@
 <template>
 <div>
-  <ExternalAuth text="Login"></ExternalAuth>
+  <ExternalAuth text="Login"/>
 
   <div class="line-space">
     <hr>
@@ -48,7 +48,6 @@ export default {
   methods: {
     loginHost: function() {
       this.btnLoginLoading = true
-      this.Nprogress.start()
       this.invalid = false
 
       this.axios.post(this.API_URL + '/auth/login', this.login)
@@ -65,7 +64,6 @@ export default {
             this.invalid = true
           }
           this.btnLoginLoading = false
-          this.Nprogress.done()
         })
     },
 

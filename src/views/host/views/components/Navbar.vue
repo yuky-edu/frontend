@@ -110,15 +110,15 @@ export default {
 
   methods: {
     logOut: function() {
-      this.Nprogress.start()
-      const token = this.Global.getCookie('token')
+      const token = this.$cookies.get(this.TOKEN)
       this.axios.get(this.API_URL + '/auth/logout', {
           params: {
             token: token
           }
         })
         .then(() => {
-          this.Global.expiredToken()
+          this.$cookies.remove(this.TOKEN)
+          window.location.href = '/#/auth/login'
         })
     },
   },

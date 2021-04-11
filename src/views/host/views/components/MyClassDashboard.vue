@@ -111,15 +111,12 @@ export default {
 
   methods: {
     getDataClass: function() {
-      this.Nprogress.start()
-
       this.axios.get(this.API_URL + '/hosts/yclass/myclass')
         .then(({
           data
         }) => {
           if (data.status) {
             this.$store.commit(this.Xyclass.m. [1], data.data)
-            this.Nprogress.done()
           }
         })
     },
