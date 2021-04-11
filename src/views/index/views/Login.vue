@@ -17,7 +17,7 @@
             </div>
           </div>
           <div class="v-panel-body">
-            <h1>LOREM IPSUM DOLOR SIT AMET</h1>
+            <h1>LOGIN_ IPSUM DOLOR SIT AMET</h1>
             <p>LOREM IPSUM DOLOR SIT AMET</p>
           </div>
           <div class="back">

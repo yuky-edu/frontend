@@ -1,3 +1,5 @@
+// ROOT ELEMENT
+
 a{
   color: $blue-1;
 
@@ -14,6 +16,28 @@ a{
 .sub-fluid {
   margin: 0;
 }
+
+.line-space {
+  text-align: center;
+  margin: 26px 0;
+  display: flex;
+  color: $gray-2;
+  align-items: center;
+  font-family: 'rubik';
+  font-size: 18px;
+
+  span{
+    margin: 0 12px;
+  }
+
+  hr {
+    height: 3px;
+    width: 100%;
+    background: $gray-1;
+  }
+}
+
+// ++++ y-panel-left
 
 .y-panel-left {
   height: 100vh;
@@ -36,7 +60,7 @@ a{
 
     p {
       font-size: 24px;
-      font-family: rubik-regular;
+      font-family: 'rubik';
     }
   }
 
@@ -50,7 +74,7 @@ a{
       display: flex;
       align-items: center;
       margin: 26px 56px;
-      font-family: rubik-regular;
+      font-family: 'rubik';
       text-decoration: none;
 
       &:hover {
@@ -64,6 +88,8 @@ a{
   }
 }
 
+// ++++ y-panel-right
+
 .y-panel-right {
   height: 100vh;
   overflow-y: scroll;
@@ -73,25 +99,7 @@ a{
   }
 }
 
-.line-space {
-  text-align: center;
-  margin: 26px 0;
-  display: flex;
-  color: $gray-1;
-  align-items: center;
-  font-family: rubik-regular;
-  font-size: 18px;
-
-  span{
-    margin: 0 12px;
-  }
-
-  hr {
-    height: 3px;
-    width: 100%;
-    background: $gray-1;
-  }
-}
+// OTHER ELEMENT
 
 .y-form{
   .form-control-lg{
@@ -100,7 +108,7 @@ a{
     border-radius: 20px;
     padding: 0 28px;
     background: $gray-1;
-    font-family: rubik-regular;
+    font-family: 'rubik';
 
     &:focus{
       background: $white;
@@ -117,11 +125,5 @@ a{
 .y-more-action{
   text-align: center;
   font-size: 18px;
-  font-family: rubik-regular;
+  font-family: 'rubik';
 }
-
-.y-panel-body {}
-
-#login {}
-
-#register {}

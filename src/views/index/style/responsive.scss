@@ -1,5 +1,6 @@
 /* Large devices (large laptops and desktops, 1200px and down) */
 @media only screen and (max-width: 1200px) {
+  // ++++ HOME
   .home {
     nav {
       padding-left: 22px !important;
@@ -31,7 +32,14 @@
 }
 /* Medium devices (laptops/desktops, 992px and down) */
 @media only screen and (max-width: 992px) {
+  // ++++ HOME
   .home {
+    nav {
+      li{
+        display: block;
+      }
+    }
+
     #about {
       .card-wrapper {
         display: block $im;
@@ -45,8 +53,8 @@
     }
   }
 
-  .y-panel-right{
-    .y-wrapper{
+  .y-panel-right {
+    .y-wrapper {
       margin-left: 36px;
       margin-right: 36px;
     }
@@ -97,8 +105,8 @@
     }
   }
 
-  .y-panel-right{
-    .y-wrapper{
+  .y-panel-right {
+    .y-wrapper {
       margin-left: 12px;
       margin-right: 12px;
     }

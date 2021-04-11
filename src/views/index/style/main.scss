@@ -1,5 +1,7 @@
-@import '@/plugin/bootstrap/scss/bootstrap.scss';
+@import '@/plugin/bootstrap/scss/bootstrap-index.scss';
 @import '/src/assets/style/main';
+
 @import 'page/home';
 @import 'page/login-register';
+
 @import 'responsive';

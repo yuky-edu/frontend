@@ -1,11 +1,77 @@
 @font-face {
-  font-family: rubik-medium;
-  src: url("/assets/fonts/rubik-medium.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: rubik-regular;
+  font-family: 'rubik';
+  font-style: normal;
+  font-weight: 400;
   src: url("/assets/fonts/rubik-regular.ttf") format("truetype");
 }
 
-$font-main: rubik-medium, rubik-regular , sans-serif;
+@font-face {
+  font-family: 'rubik-medium';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/rubik-medium.ttf") format("truetype");
+}
+
+$font-main: 'Rubik' , sans-serif;
+
+// TEXT STYLE
+.text-bold {
+  font-family: 'rubik-medium';
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 38px;
+  letter-spacing: 0.04em;
+
+  &.bold-12 {
+    font-size: 12px;
+  }
+
+  &.bold-16 {
+    font-size: 16px;
+  }
+
+  &.bold-20 {
+    font-size: 20px;
+  }
+
+  &.bold-24 {
+    font-size: 24px;
+  }
+
+  &.bold-32 {
+    font-size: 32px;
+  }
+}
+
+.text-regular {
+  font-family: 'rubik';
+  font-size: 12px;
+  line-height: 38px;
+  letter-spacing: 0.04em;
+
+  &.regular-12 {
+    font-size: 12px;
+  }
+
+  &.regular-16 {
+    font-size: 16px;
+  }
+
+  &.regular-20 {
+    font-size: 20px;
+  }
+
+  &.regular-24 {
+    font-size: 24px;
+  }
+
+  &.regular-32 {
+    font-size: 32px;
+  }
+}
+
+.sub-title{
+  font-size: 36px;
+  font-weight: bold;
+  color: $dark-blue;
+}

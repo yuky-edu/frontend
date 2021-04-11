@@ -22,7 +22,7 @@
   <section id="about">
 
     <div class="header">
-      <div class="title">
+      <div class="title text-center">
         <h2 class="sub-title">Kenalin Nih Yuky</h2>
         <h2 class="sub-title">Aplikasi Keren Untuk Belajar</h2>
       </div>
@@ -77,7 +77,7 @@
   </section>
 
   <section id="tutorial">
-    <div class="title">
+    <div class="title text-center">
       <h2 class="sub-title">Belum Pernah Coba Yuky ?</h2>
       <h2 class="sub-title">Lihat Tutorial ini</h2>
     </div>
@@ -92,7 +92,9 @@
 
   <section id="contact">
     <div class="container">
-      <h2 class="sub-title mb-5">Punya Pertanyaan? Hubungi Kami.</h2>
+      <div class="text-center">
+        <h2 class="sub-title mb-5 text-white">Punya Pertanyaan? Hubungi Kami.</h2>
+      </div>
       <div class="row">
         <div class="col-lg-2 col-xl-3"></div>
         <div class="col-lg-8 col-xl-6">
@@ -134,17 +136,18 @@
           </div>
         </div>
         <hr>
+
         <div class="footer">
           <p class="copyright">© 2021 Yuky - ARNAV Developer. All rights reserved.</p>
           <div class="to-top">
             <a href="#">Kembali ke atas</a>
           </div>
         </div>
+
       </footer>
 
     </div>
   </section>
-
 </div>
 </template>
 
