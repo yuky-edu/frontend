@@ -29,20 +29,20 @@ module.exports = {
         // extracted common chunks and vendor chunks.
         chunks: ['chunk-vendors', 'chunk-common', 'host']
     },
-    // join: {
-    //     // entry for the page
-    //     entry: 'src/views/join/main.js',
-    //     // the source template
-    //     template: 'public/join.html',
-    //     // output as dist/join/index.html
-    //     filename: 'join/index.html',
-    //     // when using title option,
-    //     // template title tag needs to be <title><%= htmlWebpackPlugin.options.title %></title>
-    //     title: 'Join - Yuky',
-    //     // chunks to include on this page, by default includes
-    //     // extracted common chunks and vendor chunks.
-    //     chunks: ['chunk-vendors', 'chunk-common', 'join']
-    // },
+    play: {
+        // entry for the page
+        entry: 'src/views/play/main.js',
+        // the source template
+        template: 'public/play.html',
+        // output as dist/play/index.html
+        filename: 'play/index.html',
+        // when using title option,
+        // template title tag needs to be <title><%= htmlWebpackPlugin.options.title %></title>
+        title: 'Join - Yuky',
+        // chunks to include on this page, by default includes
+        // extracted common chunks and vendor chunks.
+        chunks: ['chunk-vendors', 'chunk-common', 'play']
+    },
   },
   // runtimeCompiler: true,
   // transpileDependencies: [

@@ -1,8 +1,7 @@
 <template>
-	<v-app>
-		<h1>Halaman Join</h1>
-		<a href="/">Home</a>
-	</v-app>
+	<div class="text-center" style="text-align: center">
+		<h1>COMING SOON!</h1>
+	</div>
 </template>
 
 <script>
@@ -30,7 +29,7 @@
 			}
 		},
 	}
-	
+
 </script>
 
 <style lang="scss">
