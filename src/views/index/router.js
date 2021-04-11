@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Global from './variable'
 
 import Home from './views/Home.vue'
+import AuthLayout from './views/AuthLayout.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 
@@ -14,15 +16,26 @@ const routes = [
     component: Home
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: Login
+    path: '/auth',
+    component: AuthLayout,
+    beforeEnter: function (to, from, next) {
+      const token = window.$cookies.get(Global.TOKEN)
+      if (token) window.location.href = '/host'
+      else next()
+    },
+    children: [
+      {
+        path: 'login',
+        name: 'Login',
+        component: Login
+      },
+      {
+        path: 'register',
+        name: 'Register',
+        component: Register
+      }
+    ]
   },
-  {
-    path: '/register',
-    name: 'Register',
-    component: Register
-  }
 ]
 
 const router = new VueRouter({
