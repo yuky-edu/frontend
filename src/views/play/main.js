@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Nprogress from 'nprogress'
 import router from './router'
 import store from './store'
 
-import variable from './variable'
-window._var = variable
+require('./variable')
+require('./style/main.scss').default
+Vue.prototype.axios = require('axios').default
+Vue.prototype.Nprogress = Nprogress
 
 Vue.config.productionTip = false
 

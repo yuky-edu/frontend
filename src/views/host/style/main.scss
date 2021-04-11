@@ -197,6 +197,19 @@ footer {
   }
 }
 
+// y-modal
+
+.y-modal{
+
+  .modal-content{
+    border-radius: 30px;
+  }
+
+  .modal-body{
+    padding: 80px 120px 24px 120px;
+  }
+}
+
 // MORE
 @import 'page/dashboard';
 @import 'responsive';

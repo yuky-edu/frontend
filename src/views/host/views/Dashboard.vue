@@ -86,13 +86,10 @@
 </template>
 
 <script>
-
 export default {
 
   computed: {
-    totalClass: function()
-    {
-      // window.console.log(this.$store.getters[this.Xyclass.g[2]])
+    totalClass: function() {
       return this.$store.getters[this.Xyclass.g[2]]
     }
   },

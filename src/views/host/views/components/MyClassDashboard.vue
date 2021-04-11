@@ -4,7 +4,7 @@
     <div class="card-header d-center-b">
       <h6 class="m-0">Kelas Saya</h6>
       <div class="no-arrow">
-        <button class="btn btn-purple">
+        <button class="btn btn-purple" data-toggle="modal" data-target="#exampleModal">
           <span>Buat Kelas </span>
           <i class="ml-1 fa fa-plus"></i>
         </button>
@@ -60,6 +60,43 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade y-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form @submit.prevent="addClass()">
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group y-form">
+                  <input ref="name" type="text" class="form-control form-control-lg" placeholder="Nama Kelas" name="class-name">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group y-form">
+                  <input ref="kode" type="text" class="form-control form-control-lg" placeholder="Kode Kelas" name="class-name" disabled>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group y-form">
+                  <input ref="kode" type="text" class="form-control form-control-lg" placeholder="Kode Kelas" name="class-name" disabled>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-block y-btn-lg btn-purple mb-4 mt-3">
+                <span>Masuk</span>
+              </button>
+              <button type="submit" class="btn btn-block y-btn-lg btn-purple mb-4 mt-3">
+                <span>Masuk</span>
+              </button>
+            </div>
+          </form>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </template>
 
@@ -67,8 +104,7 @@
 export default {
 
   computed: {
-    yClass: function()
-    {
+    yClass: function() {
       return this.$store.getters[this.Xyclass.g[1]]
     }
   },
@@ -86,6 +122,10 @@ export default {
             this.Nprogress.done()
           }
         })
+    },
+
+    addClass: function() {
+      window.console.log('add class')
     }
   },
 
@@ -95,9 +135,12 @@ export default {
 
   data() {
     return {
-      nn: [
-        {name: '123123'},
-        {name: 'asdfasdf'},
+      nn: [{
+          name: '123123'
+        },
+        {
+          name: 'asdfasdf'
+        },
       ]
     }
   },

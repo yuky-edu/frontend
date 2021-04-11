@@ -345,3 +345,26 @@ textarea.form-control {
     }
   }
 }
+
+// CUSMTOM
+
+.y-form{
+  .form-control-lg{
+    font-size: 18px;
+    height: 76px;
+    border-radius: 20px;
+    padding: 0 28px;
+    background: $gray-1;
+    font-family: 'rubik';
+
+    &:focus{
+      background: $white;
+      font-family: rubik-medium;
+    }
+
+    &::placeholder{
+      opacity: 0.4;
+    }
+  }
+
+}
