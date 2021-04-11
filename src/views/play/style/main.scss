@@ -1,7 +1,16 @@
-@import '@/plugin/bootstrap/bootstrap-play';
+@import '@/plugin/bootstrap/bootstrap-index';
 @import '@/assets/style/main';
 
-// @import 'page/home';
-// @import 'page/login-register';
+@import './page/join';
+
+// ROOT STYLE
+body{
+  background: linear-gradient(180deg, #6935F0 0%, #5534CE 100%);
+  padding: 40px 32px;
+  height: 100vh;
+  position: relative;
+}
+
+
 
 @import 'responsive';

@@ -233,7 +233,17 @@ input[type="button"] {
   }
 }
 
-.btn-play {
+.y-btn{
+  border-radius: 6px;
+  border-width: 1px;
+
+  &.btn-xs{
+    font-size: 12px;
+    padding: 7px 16px;
+  }
+}
+
+.btn-warning-gradient {
   color: #fff;
   background: $btn-orange-gradient;
   font-size: 24px;
@@ -257,4 +267,10 @@ input[type="button"] {
     box-shadow: 0 0 0 8px rgb(255 255 255 / 35%) !important;
     color: $white !important;
   }
+}
+
+.btn-circle-sm{
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
 }

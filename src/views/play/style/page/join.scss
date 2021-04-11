@@ -1,3 +1,29 @@
-body{
-  background: pink;
+.brand {
+  width: 100%;
+  margin: 72px 0;
+
+  img {
+    margin: auto;
+    display: block;
+  }
+}
+
+.join-form{
+  button{
+    margin: 54px 0;
+
+    svg{
+      margin-left: -6px;
+    }
+  }
+}
+
+.footer{
+  position: absolute;
+  left: 0;
+  bottom: 12px;
+  width: 100%;
+  color: $white;
+  text-align: center;
+  font-size: 12px;
 }
