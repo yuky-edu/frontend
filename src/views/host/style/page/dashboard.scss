@@ -1,8 +1,8 @@
+// ROOT ELEMENT
+
 body {
   background: $bg-1;
-  display: none;
 }
-// y-banner
 
 .y-banner {
   width: 100%;
@@ -15,6 +15,7 @@ body {
   margin-top: -100px;
 }
 
+// ++++ y-card
 .y-card {
   border: 1px solid $gray-1;
   box-sizing: border-box;
@@ -55,7 +56,7 @@ body {
   .title {
     margin-top: 34px;
     font-size: 24px;
-    font-family: rubik-regular;
+    font-family: 'rubik';
   }
 
   .card-footer {
@@ -63,6 +64,7 @@ body {
   }
 }
 
+// ++++ y-table
 .y-table {
   tbody {
     td {
@@ -81,10 +83,6 @@ body {
     height: 56px;
     vertical-align: middle;
   }
-}
-
-.class-name {
-  color: $dark-blue;
 }
 
 .y-simple-log{

@@ -1,5 +1,7 @@
-@import '/src/assets/style/main'; // APP
+@import '@/plugin/bootstrap/scss/bootstrap-index';
+@import '@/assets/style/main';
 
+// ROOT ELEMENT
 #app {
   min-height: 100vh;
   position: relative;
@@ -8,6 +10,8 @@
     padding-bottom: 106px;
   }
 }
+
+// ++++ Navbar host
 nav {
   background: $dark-blue;
 
@@ -69,7 +73,7 @@ nav {
       }
 
       a {
-        font-family: rubik-regular;
+        font-family: 'rubik';
         font-weight: 500;
         font-size: 18px;
         line-height: 21px;
@@ -87,6 +91,7 @@ nav {
   }
 }
 
+// ++++ Icon avatar
 .icon-rounded {
   display: flex;
   justify-content: center;
@@ -124,10 +129,10 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-// badge
 
+// badge nav
 .badge {
-  font-family: rubik-regular;
+  font-family: 'rubik';
   font-size: 12px;
   font-weight: normal;
 
@@ -149,8 +154,8 @@ nav {
   color: $orange;
   background: lighten($orange, 35%);
 }
-// pagination
 
+// ++++ Pagination
 .pagination {
   .page-item {
     a {
@@ -165,16 +170,16 @@ nav {
     }
   }
 }
-// form-group
 
+// form-group
 .form-group {
   .invalid-feedback {
-    font-family: rubik-regular;
+    font-family: 'rubik';
     display: none;
   }
 }
-// footer
 
+// footer
 footer {
   text-align: center;
   margin-top: 56px;
@@ -192,5 +197,6 @@ footer {
   }
 }
 
+// MORE
 @import 'page/dashboard';
 @import 'responsive';

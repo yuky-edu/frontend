@@ -27,7 +27,7 @@
           <li class="list-group-item">
             <div class="row">
               <div class="col">
-                <div class="text-bold bold-16 class-name mb-2">XII-Agama Islam</div>
+                <div class="text-bold bold-16 mb-2">XII-Agama Islam</div>
                 <div class="text-regular text-16 category">
                   <i class="fa fa-user"></i>
                   <span> Bahasa</span>
