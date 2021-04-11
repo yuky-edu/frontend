@@ -63,7 +63,7 @@ export default {
 
   methods: {
     join: function() {
-
+			this.$router.push('Joined')
     }
   },
 

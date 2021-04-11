@@ -10,7 +10,7 @@
           <div class="col-lg-8 mx-auto text-center">
             <h1 class="text-light">Belajar Kreatif & Inovatif Dengan Yuky!</h1>
             <a href="/play">
-              <button class="btn btn-warning btn-lg btn-play">Mulai Sekarang</button>
+              <button class="btn btn-warning-gradient btn-lg btn-play">Mulai Sekarang</button>
             </a>
           </div>
         </div>
