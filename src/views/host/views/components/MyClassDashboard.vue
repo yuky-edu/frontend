@@ -96,7 +96,7 @@ export default {
 
   mounted() {
     this.getDataClass()
-    this.modalAddClass('#make-class-code')
+    // this.modalAddClass('#make-class-code')
   },
 
   data() {

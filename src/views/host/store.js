@@ -1,10 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Axios from 'axios'
-import Global from './variable'
-
-Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
-const axios = Axios
 
 Vue.use(Vuex)
 
@@ -49,92 +44,6 @@ Vue.prototype.Xprofile = {
 }
 
 /**
- * * YClass host
- */
-const yclass = {
-
-  namespaced: true,
-  axios: Axios,
-  Global,
-
-  state: {
-    data: [], // yclass data
-    totalClass: 0,
-
-    // Store untuk menembahkan kelas baru
-    newClass: {
-      name: 'Untitled',
-      code: '-',
-      category: 1,
-      loading: true
-    },
-
-  },
-
-  getters: {
-    state: (state) => null,
-    data: (state) => state.data,
-    totalClass: (state) => state.totalClass,
-    newClass: (state) => state.newClass
-  },
-
-  mutations: {
-    updateState: (state) => {
-      //
-    },
-
-    updateData: (state, data) => {
-      state.data = data
-      state.totalClass = data.length
-    }
-  },
-
-  actions: {
-    generateCode: function({ // Generate Class Code
-      state
-    }) {
-
-      // Reset
-      state.newClass = {
-        name: 'Untitled',
-        code: '-',
-        category: 1,
-        loading: true
-      }
-
-      axios.get(Global.API_URL + '/hosts/yclass/generateCode')
-        .then(({
-          data
-        }) => {
-          if (data.status) {
-            state.newClass.code = data.code
-            state.newClass.loading = false
-          }
-        })
-    },
-
-  }
-}
-
-const _yClass = 'yclass/'
-Vue.prototype.Xyclass = {
-  g: [
-    _yClass + 'state',
-    _yClass + 'data',
-    _yClass + 'totalClass',
-    _yClass + 'newClass',
-  ],
-  m: [
-    _yClass + 'updateState',
-    _yClass + 'updateData',
-  ],
-  a: [
-    _yClass + 'generateCode',
-    _yClass + '',
-  ]
-}
-
-/**
  * * Vuex Main
  */
 export default new Vuex.Store({
@@ -153,6 +62,6 @@ export default new Vuex.Store({
 
   modules: {
     profile,
-    yclass,
+    yclass: require('./store/yclass').default
   },
 })
