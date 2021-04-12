@@ -324,13 +324,11 @@ textarea.form-control {
 
   .form-control-sm {
     padding: 26px 16px;
-    background: $gray-1;
   }
 
   .form-control-lg {
     height: 76px;
     padding: 0 28px;
-    background: $gray-1;
   }
 
   .play-form {
@@ -344,6 +342,7 @@ textarea.form-control {
   }
 
   input {
+    background: $gray-1;
     border-radius: 20px;
 
     &:focus {
@@ -354,5 +353,11 @@ textarea.form-control {
     &::placeholder {
       opacity: 0.4;
     }
+  }
+
+  select{
+    border-radius: 20px;
+    border-color: $dark-blue;
+    border-width: 2px;
   }
 }

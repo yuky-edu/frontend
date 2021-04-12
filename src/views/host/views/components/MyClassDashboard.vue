@@ -75,23 +75,30 @@
               </div>
               <div class="col-sm-6">
                 <div class="form-group y-form">
-                  <input ref="kode" type="text" class="form-control form-control-lg" placeholder="Kode Kelas" name="class-name" disabled>
+                  <input ref="kode" type="text" class="form-control form-control-lg" placeholder="Kode Kelas" name="class-name">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group y-form">
-                  <input ref="kode" type="text" class="form-control form-control-lg" placeholder="Kode Kelas" name="class-name" disabled>
+                  <select class="form-control form-control-lg">
+                    <option>Lainnya</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
                 </div>
               </div>
-              <button type="submit" class="btn btn-block y-btn-lg btn-purple mb-4 mt-3">
-                <span>Masuk</span>
-              </button>
-              <button type="submit" class="btn btn-block y-btn-lg btn-purple mb-4 mt-3">
-                <span>Masuk</span>
-              </button>
+              <div class="col-12">
+                <button type="submit" class="btn btn-block y-btn-lg btn-warning mb-4 mt-3">
+                  <span class="text-bold bold-24">Buat Kelas</span>
+                </button>
+              </div>
             </div>
           </form>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <div class="w-100 text-center">
+            <button type="button" class="btn" data-dismiss="modal">Tutup</button>
+          </div>
         </div>
       </div>
     </div>
