@@ -72,31 +72,20 @@ export default {
 
   computed: {
     yClass: function() {
-      return this.$store.getters[this.Xyclass.g[1]]
+      return this.$store.getters[this.Xyclass.g[1]] // data
     }
   },
 
   methods: {
-    getDataClass: function() {
-      this.axios.get(this.API_URL + '/hosts/yclass/myclass')
-        .then(({
-          data
-        }) => {
-          if (data.status) {
-            this.$store.commit(this.Xyclass.m. [1], data.data)
-          }
-        })
-    },
-
     modalAddClass: function(id) { // Open modal
       $(id).modal()
-      this.$store.dispatch(this.Xyclass.a[0])
+      this.$store.dispatch(this.Xyclass.a[0]) // generateCode_
     }
   },
 
   mounted() {
-    this.getDataClass()
-    // this.modalAddClass('#make-class-code')
+    this.$store.dispatch(this.Xyclass.a[1]) // getClassCategories_
+    this.$store.dispatch(this.Xyclass.a[2]) // getDataClass_
   },
 
   data() {
@@ -106,7 +95,7 @@ export default {
   },
 
   components: {
-    ModalAddClass: require('./ModalAddClass').default,
+    ModalAddClass: require('./ModalAddClass').default
   }
 }
 </script>

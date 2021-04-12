@@ -51,7 +51,6 @@ export default {
     },
 
   }
-
 }
 
 const _profile = 'profile/'

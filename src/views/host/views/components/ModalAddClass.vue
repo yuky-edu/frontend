@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-body">
-        <form @submit.prevent="addClass()">
+        <form @submit.prevent="$store.dispatch(Xyclass.a[3])">
           <div class="row">
             <div class="col-12">
               <div class="form-group y-form">
@@ -17,9 +17,8 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group y-form">
-                <select :disabled="newClass.loading" class="form-control form-control-lg">
-                  <option>Lainnya</option>
-                  <option>2</option>
+                <select v-model="newClass.category" class="form-control form-control-lg" :disabled="newClass.loading">
+                  <option v-for="(item, index) in categories" :value="item.id">{{ item.name }}</option>
                 </select>
               </div>
             </div>
@@ -45,6 +44,10 @@ export default {
   computed: {
     newClass: function() {
       return this.$store.getters[this.Xyclass.g[3]]
+    },
+
+    categories: function(){
+      return this.$store.getters[this.Xyclass.g[4]]
     }
   },
 

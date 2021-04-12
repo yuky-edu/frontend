@@ -14,14 +14,14 @@ export default {
 
   state: {
     data: [], // yclass data
-    totalClass: 0,
+    totalClass: 1,
     categories: [],
 
     // Store untuk menembahkan kelas baru
     newClass: {
       name: 'Untitled',
       code: '-',
-      category: 1,
+      category: 0,
       loading: true
     },
 
@@ -32,7 +32,8 @@ export default {
     state: (state) => null,
     data: (state) => state.data,
     totalClass: (state) => state.totalClass,
-    newClass: (state) => state.newClass
+    newClass: (state) => state.newClass,
+    categories: (state) => state.categories,
 
   },
 
@@ -62,7 +63,6 @@ export default {
         loading: true
       }
 
-      // Get class code
       axios.get(Global.API_URL + '/hosts/yclass/generateCode')
         .then(({
           data
@@ -81,11 +81,43 @@ export default {
         .then(({
           data
         }) => {
+          // window.console.log(data)
           if (data.status)
             state.categories = data.data
-            window.console.log(data)
         })
-    }
+    },
+
+    getDataClass_: function({
+      state
+    }) {
+      axios.get(Global.API_URL + '/hosts/yclass/myclass')
+        .then(({
+          data
+        }) => {
+          window.console.log(data)
+          if (data.status) state.data = data.data
+        })
+    },
+
+    addClass_: function({
+      state, dispatch
+    }) {
+      const data = state.newClass
+
+      data.loading = true
+      axios.post(Global.API_URL + '/hosts/yclass', {
+        category: data.category,
+        code: data.code,
+        title: data.name,
+        description: 'Lorem ipsum dolor.'
+      })
+      .then( response => {
+        window.console.log(response)
+        data.loading = false
+        dispatch('getDataClass_')
+        $('#make-class-code').modal('toggle')
+      })
+    },
 
   }
 }
@@ -97,6 +129,7 @@ Vue.prototype.Xyclass = {
     _yClass + 'data',
     _yClass + 'totalClass',
     _yClass + 'newClass',
+    _yClass + 'categories',
   ],
   m: [
     _yClass + 'updateState',
@@ -105,5 +138,7 @@ Vue.prototype.Xyclass = {
   a: [
     _yClass + 'generateCode_',
     _yClass + 'getClassCategories_',
+    _yClass + 'getDataClass_',
+    _yClass + 'addClass_',
   ]
 }
