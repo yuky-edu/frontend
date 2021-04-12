@@ -24,7 +24,7 @@ export default {
   },
 
   mounted() {
-    // this.$store.dispatch(this.Xyclass.a[1])
+    this.$store.dispatch(this.Xprofile.a[0])
   },
 
   data() {

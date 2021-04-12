@@ -50,7 +50,7 @@ export default {
 
   actions: {
 
-    generateCode: function({ // Generate Class Code
+    generateCode_: function({ // Generate Class Code
       state
     }) {
 
@@ -74,19 +74,7 @@ export default {
         })
     },
 
-    // getProfile: function({
-    //   state
-    // }) {
-    //   axios.get(Global.API_URL + '/hosts/user/myInfo')
-    //   .then(({
-    //     data
-    //   }) => {
-    //     window.console.log(data)
-    //     state.data = data
-    //   })
-    // },
-
-    getClassCategories: function({
+    getClassCategories_: function({
       state
     }) {
       axios.get(Global.API_URL + '/hosts/yclass_categories')
@@ -95,6 +83,7 @@ export default {
         }) => {
           if (data.status)
             state.categories = data.data
+            window.console.log(data)
         })
     }
 
@@ -114,7 +103,7 @@ Vue.prototype.Xyclass = {
     _yClass + 'updateData',
   ],
   a: [
-    _yClass + 'generateCode',
-    _yClass + 'getClassCategories',
+    _yClass + 'generateCode_',
+    _yClass + 'getClassCategories_',
   ]
 }

@@ -37,7 +37,18 @@ export default {
 
   },
 
-  action: {
+  actions: {
+
+    getProfile_: function({
+      state
+    }) {
+      axios.get(Global.API_URL + '/hosts/user/myInfo')
+      .then(({
+        data
+      }) => {
+        state.profile = data
+      })
+    },
 
   }
 
@@ -54,7 +65,7 @@ Vue.prototype.Xprofile = {
     _profile + 'updateStateProfile',
   ],
   a: [
-    _profile + '',
+    _profile + 'getProfile_',
     _profile + '',
     _profile + '',
   ]
