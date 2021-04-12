@@ -1,5 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Axios from 'axios'
+import Global from './variable'
+
+Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
+const axios = Axios
 
 Vue.use(Vuex)
 
@@ -17,19 +22,15 @@ const profile = {
   },
 
   getters: {
-    getState: (state) => {
-      //
-    },
-
-    getStateProfile: (state) => {
-      return state.profile
-    }
+    getState: (state) => null,
+    getStateProfile: (state) => state.profile
   },
 
   mutations: {
     updateState: (state) => {
       //
     },
+
     updateStateProfile: (state, data) => {
       state.profile = data
     }
@@ -53,51 +54,83 @@ Vue.prototype.Xprofile = {
 const yclass = {
 
   namespaced: true,
+  axios: Axios,
+  Global,
 
   state: {
-    data: [], // // yclass data
+    data: [], // yclass data
     totalClass: 0,
-    addNewClass: {
-      name: '',
-      code: '',
-      category: ''
+
+    // Store untuk menembahkan kelas baru
+    newClass: {
+      name: 'Untitled',
+      code: '-',
+      category: 1,
+      loading: true
     },
+
   },
 
   getters: {
-    getState: (state) => {
-      //
-    },
-
-    getStateData: (state) => {
-      return state.data
-    },
-
-    getTotalClass: (state) => {
-      return state.totalClass
-    }
+    state: (state) => null,
+    data: (state) => state.data,
+    totalClass: (state) => state.totalClass,
+    newClass: (state) => state.newClass
   },
 
   mutations: {
     updateState: (state) => {
       //
     },
-    updateStateData: (state, data) => {
+
+    updateData: (state, data) => {
       state.data = data
       state.totalClass = data.length
     }
+  },
+
+  actions: {
+    generateCode: function({ // Generate Class Code
+      state
+    }) {
+
+      // Reset
+      state.newClass = {
+        name: 'Untitled',
+        code: '-',
+        category: 1,
+        loading: true
+      }
+
+      axios.get(Global.API_URL + '/hosts/yclass/generateCode')
+        .then(({
+          data
+        }) => {
+          if (data.status) {
+            state.newClass.code = data.code
+            state.newClass.loading = false
+          }
+        })
+    },
+
   }
 }
 
+const _yClass = 'yclass/'
 Vue.prototype.Xyclass = {
   g: [
-    'yclass/getState',
-    'yclass/getStateData',
-    'yclass/getTotalClass',
+    _yClass + 'state',
+    _yClass + 'data',
+    _yClass + 'totalClass',
+    _yClass + 'newClass',
   ],
   m: [
-    'yclass/updateState',
-    'yclass/updateStateData',
+    _yClass + 'updateState',
+    _yClass + 'updateData',
+  ],
+  a: [
+    _yClass + 'generateCode',
+    _yClass + '',
   ]
 }
 

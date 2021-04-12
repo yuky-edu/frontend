@@ -4,7 +4,7 @@
     <div class="card-header d-center-b">
       <h6 class="m-0">Kelas Saya</h6>
       <div class="no-arrow">
-        <button @click="modalAddClass()" class="btn btn-purple" data-toggle="modal" data-target="#make-class-code">
+        <button @click="modalAddClass('#make-class-code')" class="btn btn-purple">
           <span>Buat Kelas </span>
           <i class="ml-1 fa fa-plus"></i>
         </button>
@@ -88,13 +88,15 @@ export default {
         })
     },
 
-    addClass: function() {
-      window.console.log('add class')
+    modalAddClass: function(id) { // Open modal
+      $(id).modal()
+      this.$store.dispatch(this.Xyclass.a[0])
     }
   },
 
   mounted() {
     this.getDataClass()
+    this.modalAddClass('#make-class-code')
   },
 
   data() {
