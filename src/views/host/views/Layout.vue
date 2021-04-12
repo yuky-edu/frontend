@@ -20,18 +20,11 @@ export default {
   },
 
   methods: {
-    getProfile: function() {
-      this.axios.get(this.API_URL + '/hosts/user/myInfo')
-      .then(({
-        data
-      }) => {
-        this.$store.commit(this.Xprofile.m[1], data)
-      })
-    },
+    //
   },
 
   mounted() {
-    this.getProfile()
+    // this.$store.dispatch(this.Xyclass.a[1])
   },
 
   data() {

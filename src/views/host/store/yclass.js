@@ -28,13 +28,16 @@ export default {
   },
 
   getters: {
+
     state: (state) => null,
     data: (state) => state.data,
     totalClass: (state) => state.totalClass,
     newClass: (state) => state.newClass
+
   },
 
   mutations: {
+
     updateState: (state) => {
       //
     },
@@ -46,6 +49,7 @@ export default {
   },
 
   actions: {
+
     generateCode: function({ // Generate Class Code
       state
     }) {
@@ -69,6 +73,18 @@ export default {
           }
         })
     },
+
+    // getProfile: function({
+    //   state
+    // }) {
+    //   axios.get(Global.API_URL + '/hosts/user/myInfo')
+    //   .then(({
+    //     data
+    //   }) => {
+    //     window.console.log(data)
+    //     state.data = data
+    //   })
+    // },
 
     getClassCategories: function({
       state
@@ -99,6 +115,6 @@ Vue.prototype.Xyclass = {
   ],
   a: [
     _yClass + 'generateCode',
-    _yClass + '',
+    _yClass + 'getClassCategories',
   ]
 }
