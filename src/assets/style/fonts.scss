@@ -12,7 +12,14 @@
   src: url("/assets/fonts/rubik-medium.ttf") format("truetype");
 }
 
-$font-main: 'Rubik' , sans-serif;
+@font-face {
+  font-family: 'rubik-bold';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/rubik-Bold.ttf") format("truetype");
+}
+
+$font-main: 'rubik' , sans-serif;
 
 // TEXT STYLE
 .text-bold {

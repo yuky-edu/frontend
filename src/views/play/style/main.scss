@@ -1,16 +1,25 @@
-@import '@/plugin/bootstrap/bootstrap-index';
+@import '@/plugin/bootstrap/bootstrap-play';
 @import '@/assets/style/main';
 
 @import './page/join';
+@import './page/joined';
+@import './page/waiting';
+@import './page/jawab';
+@import './page/card';
 
 // ROOT STYLE
 body{
   background: linear-gradient(180deg, #6935F0 0%, #5534CE 100%);
   padding: 40px 32px;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 }
 
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 @import 'responsive';

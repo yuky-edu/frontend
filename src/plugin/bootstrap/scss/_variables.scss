@@ -59,6 +59,9 @@ $green: #0DB130;
 $btn-orange-gradient: linear-gradient(to bottom, $yellow 0%, $orange 100%);
 $btn-orange-gradient-hover: linear-gradient(to bottom, darken($yellow, 10%) 0%, darken($orange, 10%) 100%);
 
+$btn-success-gradient: linear-gradient(180deg, #24E95B 0%, #03AD46 96.35%, #02B64A 100%);
+$btn-success-gradient-hover: linear-gradient(180deg, #24E95B 0%, #03AD46 96.35%, #02B64A 100%);
+
 $T_nav: 0.4s;
 
 $im: !important;

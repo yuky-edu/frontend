@@ -1,5 +1,4 @@
 // stylelint-disable selector-no-qualifying-type
-
 //
 // Base styles
 //
@@ -18,18 +17,16 @@
   border: $btn-border-width solid transparent;
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
   @include transition($btn-transition);
-
   @include hover() {
     color: $body-color;
     text-decoration: none;
   }
 
-  &:focus,
-  &.focus {
+  &.focus,
+  &:focus {
     outline: 0;
     box-shadow: $btn-focus-box-shadow;
   }
-
   // Disabled comes first so active can properly restyle
   &.disabled,
   &:disabled {
@@ -40,8 +37,8 @@
   &:not(:disabled):not(.disabled) {
     cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
 
-    &:active,
-    &.active {
+    &.active,
+    &:active {
       @include box-shadow($btn-active-box-shadow);
 
       &:focus {
@@ -50,61 +47,51 @@
     }
   }
 }
-
 // Future-proof disabling of clicks on `<a>` elements
+
 a.btn.disabled,
 fieldset:disabled a.btn {
   pointer-events: none;
 }
-
-
 //
 // Alternate buttons
 //
-
 @each $color, $value in $theme-colors {
   .btn-#{$color} {
     @include button-variant($value, $value);
   }
 }
-
 @each $color, $value in $theme-colors {
   .btn-outline-#{$color} {
     @include button-outline-variant($value);
   }
 }
-
-
 //
 // Link buttons
 //
-
 // Make a button look and behave like a link
+
 .btn-link {
   font-weight: $font-weight-normal;
   color: $link-color;
   text-decoration: $link-decoration;
-
   @include hover() {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
   }
 
-  &:focus,
-  &.focus {
+  &.focus,
+  &:focus {
     text-decoration: $link-hover-decoration;
   }
 
-  &:disabled,
-  &.disabled {
+  &.disabled,
+  &:disabled {
     color: $btn-link-disabled-color;
     pointer-events: none;
   }
-
   // No need for an active state here
 }
-
-
 //
 // Button Sizes
 //
@@ -116,8 +103,6 @@ fieldset:disabled a.btn {
 .btn-sm {
   @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
 }
-
-
 //
 // Block button
 //
@@ -125,14 +110,13 @@ fieldset:disabled a.btn {
 .btn-block {
   display: block;
   width: 100%;
-
   // Vertically space out multiple block buttons
   + .btn-block {
     margin-top: $btn-block-spacing-y;
   }
 }
-
 // Specificity overrides
+
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
@@ -140,9 +124,7 @@ input[type="button"] {
     width: 100%;
   }
 }
-
 // CUMSTOM
-
 .btn-outline-light {
   color: $white;
   border-width: 3px;
@@ -176,51 +158,51 @@ input[type="button"] {
     left: 14px;
   }
 
-  &:hover{
+  &:hover {
     color: $white;
   }
 }
 
-.btn-with-google{
+.btn-with-google {
   height: 76px;
   border-radius: 20px;
   font-size: 18px;
   border-width: 2px;
 
-  svg{
+  svg {
     margin: 0 12px;
   }
 }
 
-.y-btn-lg{
+.y-btn-lg {
   height: 76px;
   border-radius: 20px;
   font-size: 24px;
 }
 
-.btn-purple{
+.btn-purple {
   background: $blue-1;
   color: $white;
 
-  &:hover{
+  &:hover {
     color: $white;
   }
 }
 
-.btn-green{
+.btn-green {
   background: $green;
   color: $white;
 
-  &:hover{
+  &:hover {
     color: $white;
   }
 }
 
-.btn-right-icon{
+.btn-right-icon {
   position: relative;
   padding-right: 42px;
 
-  i{
+  i {
     position: absolute;
     top: 0;
     right: 0;
@@ -233,13 +215,25 @@ input[type="button"] {
   }
 }
 
-.y-btn{
+.y-btn {
   border-radius: 6px;
   border-width: 1px;
 
-  &.btn-xs{
+  &.btn-xs {
     font-size: 12px;
     padding: 7px 16px;
+  }
+}
+
+.y-btn-icon {
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  padding: 0;
+
+  &.btn-sm {
+    font-size: 26px;
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -251,6 +245,19 @@ input[type="button"] {
   border-radius: 18px;
   border: none;
   box-shadow: 0 0 0 8px rgb(255 255 255 / 25%);
+  font-family: 'rubik-medium';
+
+  &.btn-xs{
+    font-size: 10px;
+    padding: 7px;
+    box-shadow: 0 0 0 6px rgb(255 255 255 / 25%);
+  }
+
+  &.btn-sm{
+    font-size: 16px;
+    padding: 12px 32px;
+    box-shadow: 0 0 0 6px rgb(255 255 255 / 25%);
+  }
 
   &:hover {
     box-shadow: 0 0 0 8px rgb(255 255 255 / 30%);
@@ -269,7 +276,40 @@ input[type="button"] {
   }
 }
 
-.btn-circle-sm{
+.btn-success-gradient {
+  color: #fff;
+  background: $btn-success-gradient;
+  font-size: 24px;
+  padding: 14px 33px;
+  border-radius: 18px;
+  border: none;
+  box-shadow: 0 0 0 8px rgb(255 255 255 / 25%);
+  font-family: 'rubik-medium';
+
+  &.btn-sm{
+    font-size: 16px;
+    padding: 12px 32px;
+    box-shadow: 0 0 0 6px rgb(255 255 255 / 25%);
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 8px rgb(255 255 255 / 30%);
+    background: $btn-success-gradient-hover;
+    color: $white;
+  }
+
+  &:active {
+    box-shadow: 0 0 0 8px rgb(255 255 255 / 35%);
+    color: $white !important;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 8px rgb(255 255 255 / 35%) !important;
+    color: $white !important;
+  }
+}
+
+.btn-circle-sm {
   height: 100px;
   width: 100px;
   border-radius: 100%;

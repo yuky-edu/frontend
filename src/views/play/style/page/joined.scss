@@ -1,3 +1,33 @@
-body{
-  background: pink;
+#joined {
+  .body {
+    p {
+      font-size: 16px;
+      margin: 0 46px 24px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 76px;
+      font-family: 'rubik-bold';
+    }
+
+    .wrapper{
+      margin-bottom: 76px;
+
+    }
+  }
+}
+
+.avatar-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  overflow: hidden;
+  background: $white;
+  box-shadow: 0 0 0 8px rgb(255 255 255 / 25%);
+
+  img {
+    display: block;
+    width: 100%;
+  }
 }
