@@ -4,7 +4,7 @@
     <div class="card-header d-center-b">
       <h6 class="m-0">Kelas Saya</h6>
       <div class="no-arrow">
-        <button class="btn btn-purple" data-toggle="modal" data-target="#exampleModal">
+        <button @click="modalAddClass()" class="btn btn-purple" data-toggle="modal" data-target="#make-class-code">
           <span>Buat Kelas </span>
           <i class="ml-1 fa fa-plus"></i>
         </button>
@@ -62,47 +62,7 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade y-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <form @submit.prevent="addClass()">
-            <div class="row">
-              <div class="col-12">
-                <div class="form-group y-form">
-                  <input ref="name" type="text" class="form-control form-control-lg" placeholder="Nama Kelas" name="class-name">
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group y-form">
-                  <input ref="kode" type="text" class="form-control form-control-lg" placeholder="Kode Kelas" name="class-name">
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group y-form">
-                  <select class="form-control form-control-lg">
-                    <option>Lainnya</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-12">
-                <button type="submit" class="btn btn-block y-btn-lg btn-warning mb-4 mt-3">
-                  <span class="text-bold bold-24">Buat Kelas</span>
-                </button>
-              </div>
-            </div>
-          </form>
-          <div class="w-100 text-center">
-            <button type="button" class="btn" data-dismiss="modal">Tutup</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ModalAddClass/>
 
 </div>
 </template>
@@ -139,14 +99,12 @@ export default {
 
   data() {
     return {
-      nn: [{
-          name: '123123'
-        },
-        {
-          name: 'asdfasdf'
-        },
-      ]
+      //
     }
   },
+
+  components: {
+    ModalAddClass: require('./ModalAddClass').default,
+  }
 }
 </script>

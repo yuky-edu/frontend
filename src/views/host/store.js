@@ -57,6 +57,11 @@ const yclass = {
   state: {
     data: [], // // yclass data
     totalClass: 0,
+    addNewClass: {
+      name: '',
+      code: '',
+      category: ''
+    },
   },
 
   getters: {
