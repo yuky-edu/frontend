@@ -207,6 +207,22 @@ footer {
     padding: 80px 120px 24px;
   }
 }
+
+.breadcrumb{
+  background: $bg-1;
+  font-size: 16px;
+  padding: 20px 0;
+
+  a{
+    color: $gray-2;
+  }
+
+  .active{
+    color: $dark-blue;
+  }
+}
+
 // MORE
 @import 'page/dashboard';
+@import 'page/list-class';
 @import 'responsive';

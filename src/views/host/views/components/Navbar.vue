@@ -71,9 +71,9 @@
             <span class="d-none d-lg-inline">Hai, {{_profile.first_name}}</span>
           </a>
           <div role="menu" class="dropdown-menu dropdown-menu-right animated--grow-in">
-            <a class="dropdown-item active" href="#">
+            <router-link class="dropdown-item active" :to="{name: 'Dashboard'}">
               <i class="fas fa-bars fa-sm fa-fw"></i> Dashboard
-            </a>
+            </router-link>
             <a class="dropdown-item" href="#">
               <i class="fas fa-user fa-sm fa-fw"></i> Profile Akun
             </a>
@@ -81,9 +81,9 @@
               <i class="fas fa-signal fa-sm fa-fw"></i> Analisis
             </a>
             <!-- <div class="dropdown-divider"></div> -->
-            <a class="dropdown-item" href="#">
+            <router-link class="dropdown-item" :to="{name: 'ListClass'}">
               <i class="fas fa-sign-out-alt fa-sm fa-fw"></i> Kelas
-            </a>
+            </router-link>
             <a class="dropdown-item" href="#">
               <i class="fas fa-cogs fa-sm fa-fw"></i> Pengaturan
             </a>
