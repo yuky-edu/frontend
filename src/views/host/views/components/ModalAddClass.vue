@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-12">
               <div class="form-group y-form">
-                <input v-model="newClass.name" ref="name" type="text" class="form-control form-control-lg" placeholder="Nama Kelas" name="class-name" :disabled="newClass.loading">
+                <input v-model="newClass.title" ref="title" type="text" class="form-control form-control-lg title" placeholder="Nama Kelas" name="class-name">
               </div>
             </div>
             <div class="col-sm-6">
@@ -23,7 +23,7 @@
               </div>
             </div>
             <div class="col-12">
-              <button :disabled="newClass.loading" type="submit" class="btn btn-block y-btn-lg btn-warning mb-4 mt-3">
+              <button :disabled="newClass.loading" type="submit" class="btn btn-block y-btn-lg btn-warning waves-effect waves-light mb-4 mt-3">
                 <span class="text-bold bold-24">Buat Kelas</span>
               </button>
             </div>

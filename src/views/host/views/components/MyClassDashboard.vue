@@ -62,7 +62,7 @@
   </div>
 
   <!-- Modal -->
-  <ModalAddClass/>
+  <ModalAddClass />
 
 </div>
 </template>

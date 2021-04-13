@@ -19,7 +19,7 @@ export default {
 
     // Store untuk menembahkan kelas baru
     newClass: {
-      name: 'Untitled',
+      title: 'Untitled',
       code: '-',
       category: 0,
       loading: true
@@ -57,7 +57,7 @@ export default {
 
       // Reset
       state.newClass = {
-        name: 'Untitled',
+        title: 'Untitled',
         code: '-',
         category: 1,
         loading: true
@@ -108,7 +108,7 @@ export default {
       axios.post(Global.API_URL + '/hosts/yclass', {
         category: data.category,
         code: data.code,
-        title: data.name,
+        title: data.title,
         description: 'Lorem ipsum dolor.'
       })
       .then( response => {
