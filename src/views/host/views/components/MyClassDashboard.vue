@@ -4,7 +4,7 @@
     <div class="card-header d-center-b">
       <h6 class="m-0">Kelas Saya</h6>
       <div class="no-arrow">
-        <button @click="modalAddClass('#make-class-code')" class="btn btn-purple">
+        <button @click="modalAddClass('#make-class-code')" class="btn btn-purple aves-effect waves-light">
           <span>Buat Kelas </span>
           <i class="ml-1 fa fa-plus"></i>
         </button>
@@ -29,7 +29,7 @@
                 <span>{{ item.yclass_category.name }}</span>
               </td>
               <td class="text-right">
-                <button class="btn btn-green btn-right-icon">
+                <button class="btn btn-green btn-right-icon waves-effect waves-light">
                   <span>Mainkan</span>
                   <i class="fas fa-chevron-right"></i>
                 </button>

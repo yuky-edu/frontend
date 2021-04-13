@@ -1,7 +1,8 @@
-@import '@/plugin/bootstrap/bootstrap-host';
+@import '@/plugin/host';
 @import '@/assets/style/main';
 
 // ROOT ELEMENT
+
 #app {
   min-height: 100vh;
   position: relative;
@@ -10,8 +11,8 @@
     padding-bottom: 106px;
   }
 }
-
 // ++++ Navbar host
+
 nav {
   background: $dark-blue;
 
@@ -90,8 +91,8 @@ nav {
     }
   }
 }
-
 // ++++ Icon avatar
+
 .icon-rounded {
   display: flex;
   justify-content: center;
@@ -129,8 +130,8 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-
 // badge nav
+
 .badge {
   font-family: 'rubik';
   font-size: 12px;
@@ -154,8 +155,8 @@ nav {
   color: $orange;
   background: lighten($orange, 35%);
 }
-
 // ++++ Pagination
+
 .pagination {
   .page-item {
     a {
@@ -170,16 +171,16 @@ nav {
     }
   }
 }
-
 // form-group
+
 .form-group {
   .invalid-feedback {
     font-family: 'rubik';
     display: none;
   }
 }
-
 // footer
+
 footer {
   text-align: center;
   margin-top: 56px;
@@ -196,20 +197,16 @@ footer {
     margin: 0;
   }
 }
-
 // y-modal
-
-.y-modal{
-
-  .modal-content{
+.y-modal {
+  .modal-content {
     border-radius: 30px;
   }
 
-  .modal-body{
-    padding: 80px 120px 24px 120px;
+  .modal-body {
+    padding: 80px 120px 24px;
   }
 }
-
 // MORE
 @import 'page/dashboard';
 @import 'responsive';

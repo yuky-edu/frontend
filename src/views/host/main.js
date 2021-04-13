@@ -7,7 +7,7 @@ import vueCookies from 'vue-cookies'
 import Global from './variable'
 
 require('./style/main.scss')
-const _var = require('./variable').default
+require('@/plugin/host.js')
 
 Vue.use(vueCookies)
 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
