@@ -1,1 +1,1 @@
-require('./js/bin/materialize.js')
+require('./js/waves')

@@ -4,7 +4,7 @@
     <div class="card-header d-center-b">
       <h6 class="m-0">Kelas Saya</h6>
       <div class="no-arrow">
-        <button @click="modalAddClass('#make-class-code')" class="btn btn-purple aves-effect waves-light">
+        <button @click="modalAddClass('#make-class-code')" class="btn btn-purple waves-effect waves-light">
           <span>Buat Kelas </span>
           <i class="ml-1 fa fa-plus"></i>
         </button>
@@ -78,6 +78,7 @@ export default {
 
   methods: {
     modalAddClass: function(id) { // Open modal
+      console.log('Open modal')
       $(id).modal()
       this.$store.dispatch(this.Xyclass.a[0]) // generateCode_
     }
