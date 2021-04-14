@@ -12,7 +12,7 @@
 
       <div class="main-title d-center-b">
         <h1>Daftar Kelas <i class="fa fa-user"></i></h1>
-        <button class="btn btn-purple btn-xl shadow waves-effect waves-light">
+        <button class="btn btn-blue btn-xl shadow waves-effect waves-light">
           <span>Buat Kelas </span>
           <i class="ml-1 fa fa-plus"></i>
         </button>
