@@ -1,5 +1,5 @@
 <template>
-<div id="list-class">
+<div id="class-list">
   <div class="y-body">
     <div class="container-fluid">
 
@@ -37,7 +37,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  
+
                   <tr v-for="(item, index) in yClass">
                     <td>1.</td>
                     <td>{{ item.title }}</td>
