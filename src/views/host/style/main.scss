@@ -222,6 +222,11 @@ footer {
   }
 }
 
+.d-center{
+  display: flex;
+  justify-content: center;
+}
+
 // MORE
 @import 'page/dashboard';
 @import 'page/class';

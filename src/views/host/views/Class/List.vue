@@ -49,7 +49,7 @@
                     <td>...</td>
                     <td>...</td>
                     <td class="text-right">
-                      <router-link :to="{name: 'ClassDetail', params: {idClass: item.id}}" class="btn btn-warning btn-right-icon waves-effect waves-light mr-2">
+                      <router-link :to="{name: 'ClassDetail', params: {idClass: item.id}}" class="btn btn-warning btn-right-icon waves-effect waves-light text-white mr-2">
                         <span>Detail</span>
                         <i class="fas fa-chevron-right"></i>
                       </router-link>

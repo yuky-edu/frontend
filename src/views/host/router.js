@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import vueCookies from 'vue-cookies'
+import VueCookies from 'vue-cookies'
 import VueRouter from 'vue-router'
 import NProgress from 'nprogress'
 import Global from './variable'
@@ -11,7 +11,7 @@ import ClassList from './views/Class/List'
 import ClassDetail from './views/Class/Detail'
 
 Vue.use(VueRouter)
-Vue.use(vueCookies)
+Vue.use(VueCookies)
 
 const routes = [{
   path: '/',

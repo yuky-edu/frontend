@@ -17,11 +17,11 @@
         <div class="col-11">
           <div class="main-title d-center-b">
             <div class="left">
-              <h1>XII - Fisika Kuantum <i class="fa fa-pen"></i></h1>
+              <h1>XII - Fisika Kuantum <i class="fa fa-pen edit-icon"></i></h1>
             </div>
             <div class="right d-flex">
-              <h1>qwerty <i class="fa fa-pen"></i></h1>
-              <div class="form-group y-form">
+              <h1>qwerty <i class="fa fa-pen edit-icon"></i></h1>
+              <div class="form-group y-form ml-4">
                 <select class="form-control form-control-xs">
                   <option value="item.id">Sains</option>
                 </select>
