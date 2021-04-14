@@ -5,7 +5,7 @@
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <router-link :to="{name: 'Dashboard'}">Dashboard</router-link>
         </li>
         <li class="breadcrumb-item active">Daftar Kelas</li>
       </ol>

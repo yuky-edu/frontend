@@ -4,7 +4,7 @@
     <div class="card-header d-center-b">
       <h6 class="m-0">Kelas Saya</h6>
       <div class="no-arrow">
-        <button @click="modalAddClass('#make-class-code')" class="btn btn-purple waves-effect waves-light">
+        <button @click="modalAddClass('#make-class-code')" class="btn btn-blue waves-effect waves-light">
           <span>Buat Kelas </span>
           <i class="ml-1 fa fa-plus"></i>
         </button>
