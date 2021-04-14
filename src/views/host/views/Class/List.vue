@@ -49,10 +49,10 @@
                     <td>...</td>
                     <td>...</td>
                     <td class="text-right">
-                      <a class="btn btn-warning btn-right-icon waves-effect waves-light mr-2">
+                      <router-link :to="{name: 'ClassDetail', params: {idClass: item.id}}" class="btn btn-warning btn-right-icon waves-effect waves-light mr-2">
                         <span>Detail</span>
                         <i class="fas fa-chevron-right"></i>
-                      </a>
+                      </router-link>
                       <a class="btn btn-green btn-right-icon waves-effect waves-light">
                         <span>Mainkan</span>
                         <i class="fas fa-chevron-right"></i>

@@ -81,7 +81,7 @@
               <i class="fas fa-signal fa-sm fa-fw"></i> Analisis
             </a>
             <!-- <div class="dropdown-divider"></div> -->
-            <router-link class="dropdown-item" :to="{name: 'ListClass'}">
+            <router-link class="dropdown-item" :to="{name: 'ClassList'}">
               <i class="fas fa-sign-out-alt fa-sm fa-fw"></i> Kelas
             </router-link>
             <a class="dropdown-item" href="#">
