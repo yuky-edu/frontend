@@ -37,62 +37,26 @@
                   </tr>
                 </thead>
                 <tbody>
-
-                  <!-- <tr v-for="(item, index) in yClass">
-                    <td class="text-bold bold-16">{{ item.title }}</td>
-                    <td class="text-regular text-16">
+                  
+                  <tr v-for="(item, index) in yClass">
+                    <td>1.</td>
+                    <td>{{ item.title }}</td>
+                    <td>
                       <i class="fa fa-user mr-2"></i>
                       <span>{{ item.yclass_category.name }}</span>
                     </td>
+                    <td>{{ item.code }}</td>
+                    <td>...</td>
+                    <td>...</td>
                     <td class="text-right">
-                      <button class="btn btn-green btn-right-icon waves-effect waves-light">
+                      <a class="btn btn-warning btn-right-icon waves-effect waves-light mr-2">
+                        <span>Detail</span>
+                        <i class="fas fa-chevron-right"></i>
+                      </a>
+                      <a class="btn btn-green btn-right-icon waves-effect waves-light">
                         <span>Mainkan</span>
                         <i class="fas fa-chevron-right"></i>
-                      </button>
-                    </td>
-                  </tr> -->
-
-                  <tr>
-                    <td>1.</td>
-                    <td>Matematika</td>
-                    <td>
-                      <i class="fa fa-user mr-2"></i>
-                      <span>Sains</span>
-                    </td>
-                    <td>QWERT</td>
-                    <td>20</td>
-                    <td>09:00 09/01/2021</td>
-                    <td class="text-right">
-                      <button class="btn btn-green btn-right-icon waves-effect waves-light">
-                        <span>Mainkan</span>
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-                      <button class="btn btn-green btn-right-icon waves-effect waves-light">
-                        <span>Mainkan</span>
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>2.</td>
-                    <td>Ngoding 1</td>
-                    <td>
-                      <i class="fa fa-user mr-2"></i>
-                      <span>Sains</span>
-                    </td>
-                    <td>ASDFG</td>
-                    <td>200</td>
-                    <td>17:00 04/01/2021</td>
-                    <td class="text-right">
-                      <button class="btn btn-green btn-right-icon waves-effect waves-light">
-                        <span>Mainkan</span>
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-                      <button class="btn btn-green btn-right-icon waves-effect waves-light">
-                        <span>Mainkan</span>
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
+                      </a>
                     </td>
                   </tr>
 
@@ -135,7 +99,11 @@
 export default {
 
   computed: {
-    //
+    yClass: function() {
+      const data = this.$store.getters[this.Xyclass.g[1]] // data
+      console.log(data)
+      return data
+    }
   },
 
   methods: {
@@ -143,7 +111,7 @@ export default {
   },
 
   mounted() {
-    //
+    this.$store.dispatch(this.Xyclass.a[2]) // getDataClass_
   },
 
   data() {
