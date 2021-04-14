@@ -12,7 +12,7 @@
 
       <div class="main-title d-center-b">
         <h1>Daftar Kelas <i class="fa fa-user"></i></h1>
-        <button class="btn btn-blue btn-xl shadow waves-effect waves-light">
+        <button @click="modalAddClass('#make-class-code')" class="btn btn-blue btn-xl shadow waves-effect waves-light">
           <span>Buat Kelas </span>
           <i class="ml-1 fa fa-plus"></i>
         </button>
@@ -39,7 +39,7 @@
                 <tbody>
 
                   <tr v-for="(item, index) in yClass">
-                    <td>1.</td>
+                    <td>{{ index+1 }}.</td>
                     <td>{{ item.title }}</td>
                     <td>
                       <i class="fa fa-user mr-2"></i>
@@ -86,7 +86,7 @@
         </div>
 
         <!-- Modal -->
-        <!-- <ModalAddClass /> -->
+        <ModalAddClass />
 
       </div>
 
@@ -107,7 +107,11 @@ export default {
   },
 
   methods: {
-    //
+    modalAddClass: function(id) { // Open modal
+      console.log('Open modal')
+      $(id).modal()
+      this.$store.dispatch(this.Xyclass.a[0]) // generateCode_
+    }
   },
 
   mounted() {
@@ -121,7 +125,7 @@ export default {
   },
 
   components: {
-    //
+    ModalAddClass: require('../components/ModalAddClass').default
   }
 }
 </script>

@@ -85,7 +85,6 @@ export default {
   },
 
   mounted() {
-    this.$store.dispatch(this.Xyclass.a[1]) // getClassCategories_
     this.$store.dispatch(this.Xyclass.a[2]) // getDataClass_
   },
 

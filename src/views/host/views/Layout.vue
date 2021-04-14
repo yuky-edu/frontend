@@ -7,7 +7,7 @@
   <footer>
     <p>© 2021 Yuky - ARNAV Developer. All rights reserved.</p>
   </footer>
-  
+
 </div>
 </template>
 
@@ -24,6 +24,7 @@ export default {
   },
 
   mounted() {
+    this.$store.dispatch(this.Xyclass.a[1]) // getClassCategories_
     this.$store.dispatch(this.Xprofile.a[0])
   },
 
