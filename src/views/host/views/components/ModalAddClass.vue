@@ -69,6 +69,7 @@ export default {
       this.isInputed = true
       await this.$store.dispatch('yclass/addClass', this.input)
       this.isInputed = false
+      $("#make-class-code").modal("hide")
     }
   },
 

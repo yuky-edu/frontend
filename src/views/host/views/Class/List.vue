@@ -96,6 +96,9 @@
 </template>
 
 <script>
+/*
+  deleteClass(id) -> hapus kelas. param: id adalah id kelas
+*/
 export default {
 
   computed: {
@@ -105,8 +108,12 @@ export default {
   },
 
   methods: {
-    modalAddClass: function(id) { // Open modal
+    modalAddClass: function(id) {
+      this.$store.dispatch('yclass/generateCode')
       $(id).modal()
+    },
+    deleteClass(id) {
+      this.$store.dispatch('yclass/deleteClass', id)
     }
   },
 

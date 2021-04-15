@@ -69,5 +69,16 @@ export default {
         })
     },
 
+    deleteClass: async function({
+      state, dispatch
+    }, id) {
+      await axios.delete(Global.API_URL + '/hosts/yclass/delete/' + id)
+        .then(({
+          data
+        }) => {
+          if (data.status) dispatch('getMyClass')
+        })
+    },
+
   }
 }
