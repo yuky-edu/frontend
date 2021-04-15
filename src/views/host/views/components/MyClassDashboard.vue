@@ -68,24 +68,20 @@
 </template>
 
 <script>
+
 export default {
 
   computed: {
     yClass: function() {
-      return this.$store.getters[this.Xyclass.g[1]] // data
+      return this.$store.state.yclass.myClass
     }
   },
 
   methods: {
     modalAddClass: function(id) { // Open modal
-      console.log('Open modal')
+      this.$store.dispatch('yclass/generateCode')
       $(id).modal()
-      this.$store.dispatch(this.Xyclass.a[0]) // generateCode_
     }
-  },
-
-  mounted() {
-    this.$store.dispatch(this.Xyclass.a[2]) // getDataClass_
   },
 
   data() {
