@@ -67,13 +67,13 @@
 
     </div>
     <div class="col question-action text-center">
-      <button class="btn btn-warning btn-lg btn-icon shadow waves-effect waves-light mb-3">
+      <a href="/host#/class/2/123" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-pen"></i>
-      </button>
-      <button class="btn btn-aqua btn-lg btn-icon shadow waves-effect waves-light mb-3">
+      </a>
+      <a class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-eye"></i>
-      </button>
-      <button class="btn btn-danger btn-lg btn-icon shadow waves-effect waves-light">
+      </a>
+      <button class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
         <i class="fa fa-trash"></i>
       </button>
     </div>

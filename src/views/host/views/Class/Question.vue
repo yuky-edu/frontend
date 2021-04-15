@@ -11,7 +11,7 @@
           <router-link :to="{name: 'ClassList'}">Daftar Kelas</router-link>
         </li>
         <li class="breadcrumb-item">
-          <router-link :to="{name: 'ClassList'}">Detail Kelas</router-link>
+          <a href="/host#/class/2">Detail Kelas</a>
         </li>
         <li class="breadcrumb-item active">Detail Soal</li>
       </ol>
@@ -97,13 +97,13 @@
               <div class="card-body">
                 <div class="media-wrapper">
                   <div class="media-button">
-                    <button class="btn btn-warning btn-lg btn-icon shadow waves-effect waves-light mb-3">
+                    <button class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light">
                       <i class="fa fa-pen"></i>
                     </button>
-                    <button class="btn btn-aqua btn-lg btn-icon shadow waves-effect waves-light mb-3">
+                    <button class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light">
                       <i class="fa fa-eye"></i>
                     </button>
-                    <button class="btn btn-danger btn-lg btn-icon shadow waves-effect waves-light">
+                    <button class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
                       <i class="fa fa-trash"></i>
                     </button>
                   </div>
@@ -112,10 +112,10 @@
                   </div>
                 </div>
                 <div class="action-button">
-                  <button class="btn btn-lg btn-blue btn-block mb-">
+                  <button class="btn btn-lg btn-blue shadow btn-block mb-3">
                     <span>Simpan Soal</span>
                   </button>
-                  <button class="btn btn-lg btn-danger btn-block mb-">
+                  <button class="btn btn-lg btn-danger shadow btn-block mb-3">
                     <span>Batalkan</span>
                   </button>
                 </div>

@@ -1,22 +1,6 @@
-.main-title {
-  h1 {
-    font-style: 'rubik-medium';
-    font-weight: bold;
-    color: $dark-blue;
-    font-size: 36px;
-    margin-top: 0;
-
-    i {
-      font-size: 26px;
-    }
-
-    .edit-icon {
-      color: $gray-2;
-      font-size: 18px $im;
-      margin-left: 8px;
-    }
-  }
-}
+@import "detail";
+@import "list";
+@import "question";
 
 .q-number {
   .btn {
@@ -25,19 +9,6 @@
     padding: 12px 16px;
     border-radius: 10px;
     font-family: 'rubik-medium';
-  }
-}
-
-.question-action {
-  .btn-icon {
-    width: 54px;
-    height: 50px;
-    padding: 0;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
   }
 }
 

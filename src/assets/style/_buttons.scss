@@ -1,6 +1,7 @@
 .btn {
+  border-radius: 10px;
+
   &.shadow {
-    border-radius: 10px;
     box-shadow: 0 5px 0 $gray-2 $im;
   }
 
@@ -12,7 +13,7 @@
   }
 }
 
-.btn-warning{
+.btn-warning {
   &.shadow {
     box-shadow: 0 5px 0 #D19B17 $im;
   }
@@ -34,7 +35,6 @@
   }
 
   &.shadow {
-    border-radius: 10px;
     box-shadow: 0 5px 0 #767086 $im;
   }
 
@@ -78,7 +78,7 @@
   }
 }
 
-.btn-danger{
+.btn-danger {
   &.shadow {
     box-shadow: 0 5px 0 #BF1212 $im;
   }
@@ -276,4 +276,19 @@
   height: 100px;
   width: 100px;
   border-radius: 100%;
+}
+
+.y-btn-icon-only {
+  width: 54px;
+  height: 50px;
+  padding: 0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  i {
+    color: $white;
+  }
 }
