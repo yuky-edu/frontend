@@ -1,0 +1,65 @@
+.y-form {
+  font-family: 'rubik-medium';
+  font-size: 18px;
+
+  input {
+    background: $gray-1;
+    border-radius: 10px;
+
+    &:focus {
+      background: $white;
+      font-family: 'rubik-medium';
+    }
+
+    &::placeholder {
+      opacity: 0.4;
+    }
+  }
+
+  textarea{
+    background: $gray-3;
+    border-radius: 10px;
+    padding: 22px 24px;
+  }
+
+  select {
+    border-radius: 20px;
+    border-color: $dark-blue;
+    border-width: 2px;
+  }
+
+  .play-form {
+    background: rgba(7, 7, 68, 0.25);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+    }
+  }
+
+  .form-control{
+    background: $gray-3;
+    border-width: 1.5px;
+
+    &::placeholder{
+      font-size: 16px;
+      color: $gray-2;
+      font-family: 'rubik';
+    }
+  }
+
+  .form-control-sm {
+    padding: 26px 16px;
+  }
+
+  .form-control-md{
+    padding: 26px 18px;
+  }
+
+  .form-control-lg {
+    height: 76px;
+    padding: 0 28px;
+  }
+
+}

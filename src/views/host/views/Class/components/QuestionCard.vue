@@ -68,13 +68,13 @@
     </div>
     <div class="col question-action text-center">
       <button class="btn btn-warning btn-lg btn-icon shadow waves-effect waves-light mb-3">
-        <i class="ml-1 fa fa-pen"></i>
+        <i class="fa fa-pen"></i>
       </button>
       <button class="btn btn-aqua btn-lg btn-icon shadow waves-effect waves-light mb-3">
-        <i class="ml-1 fa fa-eye"></i>
+        <i class="fa fa-eye"></i>
       </button>
       <button class="btn btn-danger btn-lg btn-icon shadow waves-effect waves-light">
-        <i class="ml-1 fa fa-trash"></i>
+        <i class="fa fa-trash"></i>
       </button>
     </div>
   </div>

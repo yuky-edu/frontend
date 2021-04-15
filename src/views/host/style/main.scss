@@ -1,7 +1,9 @@
 @import '@/plugin/host';
 @import '@/assets/style/main';
-
 // ROOT ELEMENT
+* {
+  // border: 1px solid red;
+}
 
 #app {
   min-height: 100vh;
@@ -198,6 +200,7 @@ footer {
   }
 }
 // y-modal
+
 .y-modal {
   .modal-content {
     border-radius: 30px;
@@ -208,25 +211,34 @@ footer {
   }
 }
 
-.breadcrumb{
+.breadcrumb {
   background: $bg-1;
   font-size: 16px;
   padding: 20px 0;
 
-  a{
+  a {
     color: $gray-2;
   }
 
-  .active{
+  .active {
     color: $dark-blue;
   }
 }
 
-.d-center{
+.d-center {
   display: flex;
   justify-content: center;
 }
 
+.card {
+  border: 2px solid $gray-1;
+  border-radius: 10px;
+  width: 100%;
+
+  .card-body {
+    padding: 24px;
+  }
+}
 // MORE
 @import 'page/dashboard';
 @import 'page/class';
