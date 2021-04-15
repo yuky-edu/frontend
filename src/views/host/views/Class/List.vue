@@ -100,22 +100,17 @@ export default {
 
   computed: {
     yClass: function() {
-      const data = this.$store.getters[this.Xyclass.g[1]] // data
-      console.log(data)
-      return data
+      return this.$store.state.yclass.myClass
     }
   },
 
   methods: {
     modalAddClass: function(id) { // Open modal
-      console.log('Open modal')
       $(id).modal()
-      this.$store.dispatch(this.Xyclass.a[0]) // generateCode_
     }
   },
 
   mounted() {
-    this.$store.dispatch(this.Xyclass.a[2]) // getDataClass_
   },
 
   data() {

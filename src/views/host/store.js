@@ -3,6 +3,9 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import profile from './modules/profile';
+import yclass from './modules/yclass';
+
 /**
  * * Vuex Main
  */
@@ -21,7 +24,7 @@ export default new Vuex.Store({
   },
 
   modules: {
-    profile: require('./store/profile').default,
-    yclass: require('./store/yclass').default,
+    profile,
+    yclass,
   },
 })

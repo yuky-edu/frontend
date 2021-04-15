@@ -13,7 +13,7 @@
                 <div class="row no-gutters">
                   <div class="col">
                     <div class="wrapper">
-                      <h3>{{ totalClass }}</h3>
+                      <h3>{{ $store.state.yclass.myClass.length }}</h3>
                       <div class="icon-rounded icon-blue">
                         <i class="fas fa-calendar fa-2x"></i>
                       </div>
@@ -90,7 +90,7 @@ export default {
 
   computed: {
     totalClass: function() {
-      return this.$store.getters[this.Xyclass.g[2]]
+      // return this.$store.getters[this.Xyclass.g[2]]
     }
   },
 

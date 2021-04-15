@@ -104,7 +104,7 @@ export default {
 
   computed: {
     _profile: function() {
-      return this.$store.getters[this.Xprofile.g[1]]
+      return this.$store.state.profile.profile
     }
   },
 
@@ -123,8 +123,12 @@ export default {
     },
   },
 
+  beforeMount() {
+    this.$store.dispatch('profile/myInfo')
+  },
+
   mounted() {
-    //
+
   },
 
   data() {

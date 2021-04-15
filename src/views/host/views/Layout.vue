@@ -12,7 +12,6 @@
 </template>
 
 <script>
-
 export default {
 
   computed: {
@@ -20,12 +19,11 @@ export default {
   },
 
   methods: {
-    //
   },
 
-  mounted() {
-    this.$store.dispatch(this.Xyclass.a[1]) // getClassCategories_
-    this.$store.dispatch(this.Xprofile.a[0])
+  beforeMount() {
+    this.$store.dispatch('yclass/getCategories')
+    this.$store.dispatch('yclass/getMyClass')
   },
 
   data() {

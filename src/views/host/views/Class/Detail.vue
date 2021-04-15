@@ -75,8 +75,6 @@ export default {
 
   computed: {
     yClass: function() {
-      const data = this.$store.getters[this.Xyclass.g[1]] // data
-      return data
     }
   },
 
@@ -85,7 +83,6 @@ export default {
   },
 
   mounted() {
-    this.$store.dispatch(this.Xyclass.a[2]) // getDataClass_
   },
 
   data() {
