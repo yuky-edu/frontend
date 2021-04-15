@@ -70,7 +70,7 @@
       <button class="btn btn-warning btn-lg btn-icon shadow waves-effect waves-light mb-3">
         <i class="ml-1 fa fa-pen"></i>
       </button>
-      <button class="btn btn-blue btn-lg btn-icon shadow waves-effect waves-light mb-3">
+      <button class="btn btn-aqua btn-lg btn-icon shadow waves-effect waves-light mb-3">
         <i class="ml-1 fa fa-eye"></i>
       </button>
       <button class="btn btn-danger btn-lg btn-icon shadow waves-effect waves-light">

@@ -56,6 +56,19 @@
   }
 }
 
+.btn-aqua {
+  background: $blue-3;
+  color: $white;
+
+  &.shadow {
+    box-shadow: 0 5px 0 #0A6A9F $im;
+  }
+
+  &:hover {
+    color: $white;
+  }
+}
+
 .btn-green {
   background: $green;
   color: $white;
