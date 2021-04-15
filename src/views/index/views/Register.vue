@@ -26,7 +26,7 @@
       <div class="form-group y-form">
         <input v-model="register.repeatPassword" type="password" class="form-control form-control-lg" placeholder="Konfirmasi Password">
       </div>
-      <button type="submit" class="btn btn-block y-btn-lg btn-purple mb-4 mt-5" :disabled="btnLoading">
+      <button type="submit" class="btn btn-block y-btn-lg btn-blue mb-4 mt-5" :disabled="btnLoading">
         <span>Daftar Sekarang</span>
       </button>
     </form>

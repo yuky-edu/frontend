@@ -24,7 +24,7 @@
           <span> Remember me</span>
         </label>
       </div>
-      <button type="submit" class="btn btn-block y-btn-lg btn-purple mb-4 mt-3" :disabled="btnLoginLoading">
+      <button type="submit" class="btn btn-block y-btn-lg btn-blue mb-4 mt-3" :disabled="btnLoginLoading">
         <span>Masuk</span>
       </button>
     </form>
