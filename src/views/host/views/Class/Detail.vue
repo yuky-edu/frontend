@@ -57,7 +57,6 @@ export default {
   computed: {
     yClass: function() {
       const data = this.$store.getters[this.Xyclass.g[1]] // data
-      console.log(data)
       return data
     }
   },
