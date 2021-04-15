@@ -31,9 +31,20 @@
         </div>
       </div>
 
-      <QuestionCard/>
-      <QuestionCard/>
-      <QuestionCard/>
+      <QuestionCard />
+      <QuestionCard />
+      <QuestionCard />
+
+      <div class="row">
+        <div class="col-11">
+          <div class="action-bottom text-center">
+            <button class="btn btn-blue">
+              <span>Tambah Soal</span>
+              <i class="fa fa-plus ml-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
