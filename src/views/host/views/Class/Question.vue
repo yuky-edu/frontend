@@ -132,6 +132,9 @@
 </template>
 
 <script>
+/*
+  createQuestion() = buat soal
+ */
 export default {
 
   computed: {
@@ -142,7 +145,15 @@ export default {
   },
 
   methods: {
-    //
+    createQuestion() {
+      this.$store.dispatch('question/createQuestion', {
+        // question: "asd",
+        // correct: "a1",
+        // id_yclass: 2,
+        // a1: "jawaban 1",
+        // a2: "jawaban 2"
+      })
+    }
   },
 
   mounted() {

@@ -31,5 +31,21 @@ export default {
         })
     },
 
+    createQuestion: function({
+      state
+    }, input) {
+      const fd = new FormData()
+      for (var key in input) {
+        fd.append(key, input[key])
+      }
+      axios.post(Global.API_URL + '/hosts/question', fd)
+        .then(({
+          data
+        }) => {
+          if (data.status)
+            console.log("posted");
+        })
+    },
+
   }
 }
