@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Axios from 'axios'
+import moment from 'moment'
 import router from './router'
 import store from './store'
 import vueCookies from 'vue-cookies'
@@ -13,7 +14,9 @@ Vue.use(vueCookies)
 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
 Vue.prototype.axios = Axios
 
+moment.locale('id');
 Vue.config.productionTip = false
+Vue.prototype.moment = moment
 
 new Vue({
   router,

@@ -32,7 +32,7 @@
                 <div class="row no-gutters">
                   <div class="col">
                     <div class="wrapper">
-                      <h3>0</h3>
+                      <h3>{{$store.state.question.myQuestion.total}}</h3>
                       <div class="icon-rounded icon-orange">
                         <i class="fas fa-calendar fa-2x"></i>
                       </div>

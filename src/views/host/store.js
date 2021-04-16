@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 import profile from './modules/profile';
 import yclass from './modules/yclass';
+import question from './modules/question';
 
 /**
  * * Vuex Main
@@ -26,5 +27,6 @@ export default new Vuex.Store({
   modules: {
     profile,
     yclass,
+    question,
   },
 })

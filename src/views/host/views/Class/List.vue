@@ -46,8 +46,11 @@
                       <span>{{ item.yclass_category.name }}</span>
                     </td>
                     <td>{{ item.code }}</td>
-                    <td>...</td>
-                    <td>...</td>
+                    <td>{{ item.questions_count }}</td>
+                    <td>
+                      <span v-if="item.last_session !== null">{{ moment(item.last_session.created_at).format('DD MMMM YYYY HH:mm') }}</span>
+                      <span v-else>-</span>
+                    </td>
                     <td class="text-right">
                       <router-link :to="{name: 'ClassDetail', params: {idClass: item.id}}" class="btn btn-warning btn-right-icon waves-effect waves-light text-white mr-2">
                         <span>Detail</span>
