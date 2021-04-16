@@ -20,32 +20,39 @@
           </div>
         </div>
         <div class="col-sm-8">
-            <div class="right d-flex">
-              <div class="col-6">
-                <div class="dropdown y-dropdown">
+          <div class="right d-flex">
+            <div class="col-6 pl-0">
+              <div class="dropdown y-dropdown">
 
-                  <button class="btn dropdown-toggle" type="button" id="y-category" data-toggle="dropdown">
+                <button class="btn dropdown-toggle" type="button" id="y-category" data-toggle="dropdown">
+                  <div class="left">
                     <i class="fa fa-user"></i>
                     <span>Sains</span>
-                  </button>
-
-                  <div class="dropdown-menu" aria-labelledby="y-category">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
                   </div>
+                </button>
 
+                <div class="dropdown-menu" aria-labelledby="y-category">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
                 </div>
-              </div>
-              <div class="col-6">
-                <h1>qwerty <i class="fa fa-pen edit-icon"></i></h1>
+
               </div>
             </div>
+            <div class="col-6 pr-0">
+              <div class="form-group y-form">
+                <input value="QWERTY" type="text" class="form-control form-control-md" placeholder="Kode Kelas">
+              </div>
+            </div>
+          </div>
+          <div class="form-group y-form mt-3">
+            <textarea class="form-control" rows="3" placeholder="Ketik Deskripsi Kelas Disini..."></textarea>
+          </div>
         </div>
         <div class="col-sm-3 text-right">
-          <button class="btn btn-blue">
-            <span>Tambah Jawaban</span>
-            <i class="fa fa-plus ml-2"></i>
+          <button class="btn btn-green btn-lg">
+            <span>Mainkan</span>
+            <!-- <i class="fa fa-plus ml-2"></i> -->
           </button>
         </div>
       </div>
@@ -74,16 +81,14 @@
 export default {
 
   computed: {
-    yClass: function() {
-    }
+    yClass: function() {}
   },
 
   methods: {
     //
   },
 
-  mounted() {
-  },
+  mounted() {},
 
   data() {
     return {
