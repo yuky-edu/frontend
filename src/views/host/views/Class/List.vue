@@ -52,11 +52,24 @@
                       <span v-else>-</span>
                     </td>
                     <td class="text-right">
-                      <router-link :to="{name: 'ClassDetail', params: {idClass: item.id}}" class="btn btn-warning btn-right-icon waves-effect waves-light text-white mr-2">
-                        <span>Detail</span>
-                        <i class="fas fa-chevron-right"></i>
-                      </router-link>
-                      <a class="btn btn-green btn-right-icon waves-effect waves-light">
+
+                      <div class="btn-group mr-2">
+                        <button class="btn br-5 btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                          <router-link class="dropdown-item" :to="{name: 'ClassDetail', params: {idClass: item.id}}">
+                            <i class="fas fa-pen mr-2"></i>
+                            <span>Detail</span>
+                          </router-link>
+                          <a class="dropdown-item text-danger" @click="deleteClass(item.id)">
+                            <i class="fa fa-trash mr-2"></i>
+                            <span>Hapus</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      <a class="btn br-5 btn-green btn-right-icon waves-effect waves-light">
                         <span>Mainkan</span>
                         <i class="fas fa-chevron-right"></i>
                       </a>
@@ -120,8 +133,7 @@ export default {
     }
   },
 
-  mounted() {
-  },
+  mounted() {},
 
   data() {
     return {

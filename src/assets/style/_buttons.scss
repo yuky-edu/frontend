@@ -1,6 +1,10 @@
 .btn {
   border-radius: 10px;
 
+  &.br-5{
+    border-radius: 5px;
+  }
+
   &.shadow {
     box-shadow: 0 5px 0 $gray-2 $im;
   }

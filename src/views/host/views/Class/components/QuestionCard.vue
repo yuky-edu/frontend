@@ -9,9 +9,9 @@
             <div class="q-number mr-3">
               <button class="btn btn-sm btn-gray waves-effect waves-light">32</button>
             </div>
-            <div class="d-flex">
-              <div class="col">
-                <span>Gerakan suatu benda dimana setiap titik pada benda tersebut mempunyai jarak yang tetap terhadapsuatu sumbu tertentu, merupakan pengertian dari ?</span>
+            <div class="d-flex d-center-b w-100">
+              <div class="col-10">
+                <span>{{ data.question }}</span>
               </div>
               <div class="col-2">
                 <button class="btn btn-gray-2 btn-sm shadow d-flex waves-effect waves-light">
@@ -80,3 +80,28 @@
   </div>
 </div>
 </template>
+
+<script>
+  export default {
+
+    computed: {
+      //
+    },
+
+    methods: {
+      //
+    },
+
+    mounted() {
+      console.log(this.data)
+    },
+
+    data() {
+      return {
+        //
+      }
+    },
+
+    props: ['data']
+  }
+</script>

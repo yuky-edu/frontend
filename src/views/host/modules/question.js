@@ -13,7 +13,8 @@ export default {
 
   state: {
     myQuestion: {
-      total: 0
+      total: 0,
+      data: {}, // {id: idClass, data: []}
     }
   },
 
@@ -43,7 +44,19 @@ export default {
           data
         }) => {
           if (data.status)
-            console.log("posted");
+            console.log("posted")
+        })
+    },
+
+    getAllQuestionById: function({
+      state
+    }, idClass) {
+      axios.get(Global.API_URL + '/hosts/question/myquestion/yclass/' + idClass) // WARNING: API tidak menampilkan status
+        .then(({
+          data
+        }) => {
+          // console.log(data)
+          state.myQuestion.data = data
         })
     },
 
