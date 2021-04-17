@@ -76,7 +76,7 @@
               <button class="btn btn-lg btn-blue shadow btn-block mb-3">
                 <span>Simpan Soal</span>
               </button>
-              <a href="/host#/class/2" class="btn btn-lg btn-danger shadow btn-block mb-3">
+              <a href="/host#/class?id=2" class="btn btn-lg btn-danger shadow btn-block mb-3">
                 <span>Batalkan</span>
               </a>
             </div>
