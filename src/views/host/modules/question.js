@@ -72,19 +72,20 @@ export default {
         })
     },
 
-    createQuestion: function({
+    updateQuestion: function({
       state
-    }, input) {
+    }, {input, idQuestion}) {
       const fd = new FormData()
       for (var key in input) {
         fd.append(key, input[key])
       }
-      axios.post(Global.API_URL + '/hosts/question', fd)
+      axios.post(Global.API_URL + '/hosts/question/myquestion/'+idQuestion+'/update', fd) // WARNING: Methot + URL tidak pas
         .then(({
           data
         }) => {
           if (data.status)
-            console.log("posted")
+            console.log("updated")
+            // TODO: Update data to store
         })
     },
 

@@ -12,7 +12,7 @@
           <router-link :to="{name: 'Class'}">Daftar Kelas</router-link>
         </li>
         <li class="breadcrumb-item">
-          <a href="/host#/class/2">Detail Kelas</a>
+          <a href="/host#/class?id=2">Detail Kelas</a>
         </li>
         <li class="breadcrumb-item active">Detail Soal</li>
       </ol>

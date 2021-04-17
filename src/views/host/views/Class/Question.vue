@@ -73,11 +73,11 @@
         <div class="card mt-4">
           <div class="card-body">
             <div class="action-button">
-              <button class="btn btn-lg btn-blue shadow btn-block mb-3 waves-effect waves-light">
+              <button @click="updateQuestion()" class="btn btn-lg btn-blue shadow btn-block mb-3 waves-effect waves-light">
                 <span>Simpan Soal</span>
               </button>
               <a href="/host#/class?id=2" class="btn btn-lg btn-danger shadow btn-block mb-3 waves-effect waves-light">
-                <span>Batalkan</span>
+                <span>Kembali</span>
               </a>
             </div>
           </div>
@@ -91,9 +91,6 @@
 </template>
 
 <script>
-/*
-  createQuestion() = buat soal
- */
 export default {
 
   computed: {
@@ -104,14 +101,29 @@ export default {
   },
 
   methods: {
-    createQuestion() {
-      this.$store.dispatch('question/createQuestion', {
-        // question: "asd",
-        // correct: "a1",
-        // id_yclass: 2,
-        // a1: "jawaban 1",
-        // a2: "jawaban 2"
+    updateQuestion() {
+      const data = this.rebuildQuestionBeforeSave(this.dataQuestion)
+      // console.log(data)
+      this.$store.dispatch('question/updateQuestion', {
+        input: data,
+        idQuestion: this.$route.query.question
       })
+    },
+
+    rebuildQuestionBeforeSave(data) {
+      const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
+      const newData = {
+        question: data.question,
+        id_yclass: this.$route.query.id,
+        correct: '',
+      }
+
+      data.answer.forEach((item, i) => {
+        newData[answerKey[i]] = item.value
+        if (item.correct) newData.correct = answerKey[i]
+      })
+
+      return newData
     },
 
     loadQuestion() {
