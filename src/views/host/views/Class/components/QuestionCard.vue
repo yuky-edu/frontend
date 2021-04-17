@@ -30,7 +30,7 @@
             <div class="col-sm-10">
               <div class="row">
 
-                <div v-for="(item, index) in answer" class="col-4">
+                <div v-for="(item, index) in data.answer" class="col-4">
                   <div class="answer">
                     <button class="btn btn-sm btn-outline-gray-2" :class="{selected: item.correct}" disabled>
                       {{ item.label }}
@@ -67,23 +67,23 @@ export default {
 
   computed: {
     answer: function() {
-      const correct = this.data.correct
+      // const correct = this.data.correct
       var answerList = []
-      this.answerKey.forEach((key, i) => {
-        if (this.data[key]) {
-          var _answer = {
-            correct: false,
-            label: this.label[i],
-            value: this.data[key],
-          }
-          if (key == correct) _answer.correct = true
-          answerList.push(_answer)
-        }
-      })
+      // this.answerKey.forEach((key, i) => {
+      //   if (this.data[key]) {
+      //     var _answer = {
+      //       correct: false,
+      //       label: this.label[i],
+      //       value: this.data[key],
+      //     }
+      //     if (key == correct) _answer.correct = true
+      //     answerList.push(_answer)
+      //   }
+      // })
 
       // console.log(answerList)
 
-      if (answerList.length) return answerList
+      // if (answerList.length) return answerList
       return []
     }
   },
@@ -93,13 +93,14 @@ export default {
   },
 
   mounted() {
+    //
     console.log(this.data)
   },
 
   data() {
     return {
-      label: ['A', 'B', 'C', 'D', 'E', 'F'],
-      answerKey: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'],
+      // label: ['A', 'B', 'C', 'D', 'E', 'F'],
+      // answerKey: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'],
     }
   },
 

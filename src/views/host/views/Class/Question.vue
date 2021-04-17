@@ -115,17 +115,21 @@ export default {
     },
 
     loadQuestion() {
-      const idClass = this.$route.params.idClass
-      const idQuestion = this.$route.params.idQuestion
+      const query = this.$route.query
+      const questions = this.$store.state.question.myQuestion.data
+      // console.log(questions)
+      // const question = questions.find(data => data.id == idClass)
 
-      const questions = this.$store.state.myQuestion.data
-      const question = questions.find(data => data.id == idClass)
-      console.log(question)
+    },
 
-    }
+    getAllQuestion_() {
+      const idClass = this.$route.query.id
+      this.$store.dispatch('question/getAllQuestionById', idClass)
+    },
   },
 
   mounted() {
+    this.getAllQuestion_() // sementara
     this.loadQuestion()
   },
 
