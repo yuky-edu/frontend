@@ -62,7 +62,7 @@
         </div>
       </div>
 
-      <QuestionCard v-for="(item, index) in question" :data="item" />
+      <QuestionCard v-for="(item, index) in question" :data="item" :number="index+1" />
 
       <div class="row">
         <div class="col-11">

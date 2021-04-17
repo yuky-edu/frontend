@@ -7,7 +7,9 @@
         <div class="card-body">
           <div class="d-flex">
             <div class="q-number mr-3">
-              <button class="btn btn-sm btn-gray waves-effect waves-light">32</button>
+              <button class="btn btn-sm btn-gray waves-effect waves-light">
+                {{ number }}
+              </button>
             </div>
             <div class="d-flex d-center-b w-100">
               <div class="col-10">
@@ -27,34 +29,13 @@
           <div class="row">
             <div class="col-sm-10">
               <div class="row">
-                <div class="col-4">
+
+                <div v-for="(item, index) in answer" class="col-4">
                   <div class="answer">
-                    <button class="btn btn-sm btn-outline-gray-2">A</button>
-                    <span>Lorem ipsum dolor sit.</span>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="answer">
-                    <button class="btn btn-sm btn-outline-gray-2 selected">B</button>
-                    <span>Lorem ipsum dolor sit.</span>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="answer">
-                    <button class="btn btn-sm btn-outline-gray-2">C</button>
-                    <span>Lorem ipsum dolor sit.</span>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="answer">
-                    <button class="btn btn-sm btn-outline-gray-2">D</button>
-                    <span>Lorem ipsum dolor sit.</span>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="answer">
-                    <button class="btn btn-sm btn-outline-gray-2">E</button>
-                    <span>Lorem ipsum dolor sit.</span>
+                    <button class="btn btn-sm btn-outline-gray-2" :class="{selected: item.correct}">
+                      {{ item.label }}
+                    </button>
+                    <span>{{ item.value }}</span>
                   </div>
                 </div>
 
@@ -82,26 +63,46 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    computed: {
-      //
-    },
+  computed: {
+    answer: function() {
+      const correct = this.data.correct
+      var answerList = []
+      this.answerKey.forEach((key, i) => {
+        if (this.data[key]) {
+          var _answer = {
+            correct: false,
+            label: this.label[i],
+            value: this.data[key],
+          }
+          if (key == correct) _answer.correct = true
+          answerList.push(_answer)
+        }
+      })
 
-    methods: {
-      //
-    },
+      // console.log(answerList)
 
-    mounted() {
-      console.log(this.data)
-    },
+      if (answerList.length) return answerList
+      return []
+    }
+  },
 
-    data() {
-      return {
-        //
-      }
-    },
+  methods: {
+    //
+  },
 
-    props: ['data']
-  }
+  mounted() {
+    //
+  },
+
+  data() {
+    return {
+      label: ['A', 'B', 'C', 'D', 'E', 'F'],
+      answerKey: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'],
+    }
+  },
+
+  props: ['data', 'number']
+}
 </script>
