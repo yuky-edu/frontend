@@ -5,7 +5,7 @@
       <div class="left-panel d-flex">
         <div class="q-number mr-3">
           <button class="btn btn-sm btn-gray waves-effect waves-light">
-            {{ dataQuestion.number }}
+            {{ dataQuestion.id }}
           </button>
         </div>
         <div class="card card-question">
@@ -22,14 +22,14 @@
 
                 <li v-for="(item, index) in dataQuestion.answer" class="list-group-item">
                   <div class="answer">
-                    <button :class="{selected: item.correct}" class="btn btn-md btn-outline-gray-2">
-                      {{ label[index]}}
+                    <button @click="selectAnswer(item, index)" :class="{selected: item.correct}" class="btn btn-md btn-outline-gray-2">
+                      {{ item.label}}
                     </button>
                     <div class="form-group y-form">
                       <input v-model="item.value" type="text" class="form-control form-control-md" placeholder="Ketik Soal Kamu Disini...">
                     </div>
                     <div class="y-action">
-                      <i class="fa fa-times"></i>
+                      <i v-if="dataQuestion.answer.length > 2" @click="removeAnswer(index)" class="fa fa-times"></i>
                     </div>
                   </div>
                 </li>
@@ -37,7 +37,7 @@
               </ul>
             </div>
 
-            <div class="action-bottom text-center">
+            <div v-if="dataQuestion.answer.length < 6" @click="addAnswer()" class="action-bottom text-center">
               <button class="btn btn-blue">
                 <span>Tambah Jawaban</span>
                 <i class="fa fa-plus ml-2"></i>
@@ -116,16 +116,49 @@ export default {
 
     loadQuestion() {
       const query = this.$route.query
-      const questions = this.$store.state.question.myQuestion.data
-      // console.log(questions)
-      // const question = questions.find(data => data.id == idClass)
-
+      const dataQuestions = this.$store.state.question.myQuestion.data.find(data => data.id == query.id)
+      if (dataQuestions) {
+        // console.log(dataQuestions)
+        // console.log(dataQuestions.questions[query.question - 1])
+        this.dataQuestion = JSON.parse(JSON.stringify(dataQuestions.questions[query.question - 1]))
+      }
     },
 
     getAllQuestion_() {
       const idClass = this.$route.query.id
       this.$store.dispatch('question/getAllQuestionById', idClass)
     },
+
+    selectAnswer(item, i) {
+      console.log(item)
+      this.dataQuestion.answer.filter(data => data.correct = false)
+      item.correct = !item.correct
+    },
+
+    removeAnswer(i) {
+      this.dataQuestion.answer.splice(i, 1)
+    },
+
+    rebuildAnswer() {
+      const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
+      const label = ['A', 'B', 'C', 'D', 'E', 'F']
+
+      var i = 0
+      this.dataQuestion.answer.filter(item => {
+        item.label = label[i]
+        i++
+      })
+    },
+
+    addAnswer() {
+      const answer = this.dataQuestion.answer
+      if (answer.length < 6)
+        answer.push({
+          correct: false,
+          label: '',
+          value: ''
+        })
+    }
   },
 
   mounted() {
@@ -136,24 +169,29 @@ export default {
   watch: {
     '$store.state.question.myQuestion.data': function() {
       this.loadQuestion()
+    },
+
+    'dataQuestion.answer': function() {
+      this.rebuildAnswer()
     }
   },
 
   data() {
     return {
+      type: 'radio',
       dataQuestion: {
-        number: 1,
+        id: 1,
         question: '',
         answer: [{
           correct: false,
-          value: ''
+          label: 'A',
+          value: '',
         }, {
-          correct: true,
-          value: ''
+          correct: false,
+          label: 'B',
+          value: '',
         }]
       },
-      label: ['A', 'B', 'C', 'D', 'E', 'F'],
-      answerKey: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'],
     }
   },
 
