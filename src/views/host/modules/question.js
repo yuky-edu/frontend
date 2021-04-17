@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import Axios from 'axios'
 import Global from '../variable'
 
@@ -14,7 +15,8 @@ export default {
   state: {
     myQuestion: {
       total: 0,
-      data: [], // {id: idClass, questions: [...]}, ...
+      // data: [], // {id: idClass, questions: [...]}, ...
+      data: {}, // {question_:id : data}, ...
     }
   },
 
@@ -50,16 +52,7 @@ export default {
       // window.console.log(data)
 
       // Set to state data
-      const find = myQuestion.data.find(data => data.id == data.idClass)
-      // console.log(find)
-      if (!find) {
-        myQuestion.data.push({
-          id: data.idClass,
-          questions: data.questions
-        })
-      }{
-        // +++++++ Update question
-      }
+      Vue.set(myQuestion.data, 'questions_' + data.idClass, data.questions)
 
       // console.log(myQuestion)
     }
@@ -111,24 +104,32 @@ export default {
         })
     },
 
-    getQuestionById: function({
-      state
+    // getQuestionById: function({
+    //   state
+    // }, idQuestion) {
+    //   axios.get(Global.API_URL + '/hosts/question/myquestion/' + idQuestion) // WARNING: API tidak menampilkan status
+    //     .then(({
+    //       data
+    //     }) => {
+    //       // console.log(data)
+    // },
+
+    removeQuestionByid: function({
+      dispatch
     }, idQuestion) {
-      axios.get(Global.API_URL + '/hosts/question/myquestion/' + idQuestion) // WARNING: API tidak menampilkan status
-        .then(({
-          data
-        }) => {
-          // console.log(data)
-          // const find = state.myQuestion.data.find(data => data.id == idClass)
-          //
-          // if (!find) {
-          //   state.myQuestion.data.push({
-          //     id: idClass,
-          //     data: data
-          //   })
-          // }
-        })
-    },
+      console.log(idQuestion)
+      // axios.get(Global.API_URL + '/hosts/question/myquestion/3' + idQuestion)
+      //   .then(({
+      //     data
+      //   }) => {
+      //     if(data.status)
+      //     {
+      //       // delete data question in state
+      //     }
+      //   })
+
+      console.log(dispatch)
+    }
 
   }
 }

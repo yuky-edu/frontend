@@ -73,10 +73,10 @@
         <div class="card mt-4">
           <div class="card-body">
             <div class="action-button">
-              <button class="btn btn-lg btn-blue shadow btn-block mb-3">
+              <button class="btn btn-lg btn-blue shadow btn-block mb-3 waves-effect waves-light">
                 <span>Simpan Soal</span>
               </button>
-              <a href="/host#/class?id=2" class="btn btn-lg btn-danger shadow btn-block mb-3">
+              <a href="/host#/class?id=2" class="btn btn-lg btn-danger shadow btn-block mb-3 waves-effect waves-light">
                 <span>Batalkan</span>
               </a>
             </div>

@@ -81,9 +81,9 @@ export default {
     question: function() {
       const idClass = this.$route.query.id
       const classQuestions = this.$store.state.question.myQuestion.data
-      const data = classQuestions.find(data => data.id == idClass)
-      // console.log(data.questions)
-      if (data) return data.questions
+      const data = classQuestions['questions_' + idClass]
+      // console.log(data)
+      if (data) return data
       return []
     }
 

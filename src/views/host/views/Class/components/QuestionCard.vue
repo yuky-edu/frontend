@@ -51,10 +51,10 @@
       <router-link :to="{name: 'Class', query: {id: $route.query.id, question: data.id}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-pen"></i>
       </router-link>
-      <a class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
+      <button class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-eye"></i>
-      </a>
-      <button class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
+      </button>
+      <button @click="$store.dispatch('question/removeQuestionByid', data.id)" class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
         <i class="fa fa-trash"></i>
       </button>
     </div>
@@ -66,26 +66,7 @@
 export default {
 
   computed: {
-    answer: function() {
-      // const correct = this.data.correct
-      var answerList = []
-      // this.answerKey.forEach((key, i) => {
-      //   if (this.data[key]) {
-      //     var _answer = {
-      //       correct: false,
-      //       label: this.label[i],
-      //       value: this.data[key],
-      //     }
-      //     if (key == correct) _answer.correct = true
-      //     answerList.push(_answer)
-      //   }
-      // })
-
-      // console.log(answerList)
-
-      // if (answerList.length) return answerList
-      return []
-    }
+    //
   },
 
   methods: {
@@ -94,13 +75,11 @@ export default {
 
   mounted() {
     //
-    console.log(this.data)
   },
 
   data() {
     return {
-      // label: ['A', 'B', 'C', 'D', 'E', 'F'],
-      // answerKey: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'],
+      //
     }
   },
 
