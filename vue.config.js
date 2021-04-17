@@ -1,5 +1,4 @@
 module.exports = {
-
   pages: {
     index: {
       // entry for the page
@@ -49,4 +48,7 @@ module.exports = {
   // 	'vuetify'
   // ],
   lintOnSave: false,
+  devServer: {
+    host: '192.168.137.1',
+  },
 }

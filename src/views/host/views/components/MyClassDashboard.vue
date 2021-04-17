@@ -23,7 +23,11 @@
           <tbody>
 
             <tr v-for="(item, index) in yClass">
-              <td class="text-bold bold-16">{{ item.title }}</td>
+              <td class="text-bold bold-16">
+                <router-link :to="{ name: 'Class', query: {id: item.id} }">
+                  {{ item.title }}
+                </router-link>
+              </td>
               <td class="text-regular text-16">
                 <i class="fa fa-user mr-2"></i>
                 <span>{{ item.yclass_category.name }}</span>

@@ -32,7 +32,7 @@
 
                 <div v-for="(item, index) in answer" class="col-4">
                   <div class="answer">
-                    <button class="btn btn-sm btn-outline-gray-2" :class="{selected: item.correct}">
+                    <button class="btn btn-sm btn-outline-gray-2" :class="{selected: item.correct}" disabled>
                       {{ item.label }}
                     </button>
                     <span>{{ item.value }}</span>
@@ -48,9 +48,9 @@
 
     </div>
     <div class="col question-action text-center">
-      <a href="/host#/class/2/123" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
+      <router-link :to="{name: 'Class', query: {id: $route.query.id, question: data.id}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-pen"></i>
-      </a>
+      </router-link>
       <a class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-eye"></i>
       </a>
@@ -93,7 +93,7 @@ export default {
   },
 
   mounted() {
-    //
+    console.log(this.data)
   },
 
   data() {

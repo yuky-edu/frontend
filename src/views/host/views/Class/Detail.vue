@@ -1,82 +1,72 @@
 <template>
 <div id="class-detail">
-  <div class="y-body">
-    <div class="container-fluid">
 
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <router-link :to="{name: 'Dashboard'}">Dashboard</router-link>
-        </li>
-        <li class="breadcrumb-item">
-          <router-link :to="{name: 'ClassList'}">Daftar Kelas</router-link>
-        </li>
-        <li class="breadcrumb-item active">Detail Kelas</li>
-      </ol>
-
-      <div class="row">
-        <div class="col-12">
-          <div class="main-title">
-            <h1>
-              <span>{{ dataClass.title }}</span>
-              <i class="fa fa-pen edit-icon"></i>
-            </h1>
-          </div>
-        </div>
-        <div class="col-sm-8">
-          <div class="right d-flex">
-            <div class="col-6 pl-0">
-
-              <div class="dropdown y-dropdown">
-
-                <button class="btn dropdown-toggle" type="button" id="y-category" data-toggle="dropdown">
-                  <div class="left">
-                    <i class="fa fa-user"></i>
-                    <span>Sains</span>
-                  </div>
-                </button>
-
-                <div class="dropdown-menu" aria-labelledby="y-category">
-                  <a v-for="(item, value) in categories" class="dropdown-item" href="#">
-                    <i class="fa fa-user mr-2"></i>
-                    <span>{{ item.name }}</span>
-                  </a>
-                </div>
-
-              </div>
-            </div>
-            <div class="col-6 pr-0">
-              <div class="form-group y-form">
-                <input v-model="dataClass.code" type="text" class="form-control form-control-md" placeholder="Kode Kelas">
-              </div>
-            </div>
-          </div>
-          <div class="form-group y-form mt-3">
-            <textarea v-model="dataClass.description" class="form-control" rows="3" placeholder="Ketik Deskripsi Kelas Disini..."></textarea>
-          </div>
-        </div>
-        <div class="col-sm-3 text-right">
-          <button class="btn btn-green btn-lg">
-            <span>Mainkan</span>
-            <i class="fa fa-play ml-2"></i>
-          </button>
-        </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="main-title">
+        <h1>
+          <span>{{ dataClass.title }}</span>
+          <i class="fa fa-pen edit-icon"></i>
+        </h1>
       </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="right d-flex">
+        <div class="col-6 pl-0">
 
-      <QuestionCard v-for="(item, index) in question" :data="item" :number="index+1" />
+          <div class="dropdown y-dropdown">
 
-      <div class="row">
-        <div class="col-11">
-          <div class="action-bottom text-center">
-            <button class="btn btn-blue br-5">
-              <span>Tambah Soal</span>
-              <i class="fa fa-plus ml-2"></i>
+            <button class="btn dropdown-toggle" type="button" id="y-category" data-toggle="dropdown">
+              <div class="left">
+                <i class="fa fa-user"></i>
+                <span>Sains</span>
+              </div>
             </button>
+
+            <div class="dropdown-menu" aria-labelledby="y-category">
+              <a v-for="(item, value) in categories" class="dropdown-item" href="#">
+                <i class="fa fa-user mr-2"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-6 pr-0">
+          <div class="form-group y-form">
+            <input v-model="dataClass.code" type="text" class="form-control form-control-md" placeholder="Kode Kelas">
           </div>
         </div>
       </div>
-
+      <div class="form-group y-form mt-3">
+        <textarea v-model="dataClass.description" class="form-control" rows="3" placeholder="Ketik Deskripsi Kelas Disini..."></textarea>
+      </div>
+    </div>
+    <div class="col-sm-3 text-right">
+      <button class="btn br-5 btn-green btn-lg">
+        <span>Mainkan</span>
+        <i class="fa fa-play ml-2"></i>
+      </button>
     </div>
   </div>
+
+  <QuestionCard v-for="(item, index) in question" :key="item.id" :data="item" :number="index+1" />
+
+  <div v-if="!question.length" class="container text-center mt-3">
+    <h1>Tidak ada soal.</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-11">
+      <div class="action-bottom text-center">
+        <button class="btn btn-blue br-5">
+          <span>Tambah Soal</span>
+          <i class="fa fa-plus ml-2"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
 </div>
 </template>
 
@@ -89,38 +79,40 @@ export default {
     },
 
     question: function() {
-      const idClass = this.$route.params.idClass
-      const data = this.$store.state.question.myQuestion.data
-      // console.log(data)
-      if (data) return data
+      const idClass = this.$route.query.id
+      const questions = this.$store.state.question.myQuestion.data
+      // console.log(questions)
+      const question = questions.find(data => data.id == idClass)
+      if (question) return question.data
       return []
     }
 
   },
 
   methods: {
-    getAllQuestion() {
-      const idClass = this.$route.params.idClass
+    getAllQuestion_() {
+      const idClass = this.$route.query.id
       this.$store.dispatch('question/getAllQuestionById', idClass)
     },
 
     loadDataClass() {
-      const idClass = this.$route.params.idClass
+      const idClass = this.$route.query.id
       const myClass = this.$store.state.yclass.myClass
-      this.dataClass = myClass.find(data => data.id == idClass)
-      // console.log(myClass.find(data => data.id == idClass))
+      const data = myClass.find(data => data.id == idClass)
+      // console.log(data)
+      if(data) this.dataClass = data
     }
   },
 
   mounted() {
+    this.getAllQuestion_()
     this.loadDataClass()
-    this.getAllQuestion()
   },
 
   data() {
     return {
       dataClass: {
-        ttitle: 'Nama Kelas',
+        title: 'Nama Kelas',
         code: '',
         description: '',
         category: 0,

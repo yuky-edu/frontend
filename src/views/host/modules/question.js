@@ -14,7 +14,7 @@ export default {
   state: {
     myQuestion: {
       total: 0,
-      data: {}, // {id: idClass, data: []}
+      data: [], // {id: idClass, data: [...]}, ...
     }
   },
 
@@ -56,7 +56,14 @@ export default {
           data
         }) => {
           // console.log(data)
-          state.myQuestion.data = data
+          const find = state.myQuestion.data.find(data => data.id == idClass)
+
+          if (!find) {
+            state.myQuestion.data.push({
+              id: idClass,
+              data: data
+            })
+          }
         })
     },
 

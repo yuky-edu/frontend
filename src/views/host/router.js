@@ -7,9 +7,7 @@ import Axios from 'axios'
 
 import Layout from './views/Layout'
 import Dashboard from './views/Dashboard'
-import ClassList from './views/Class/List'
-import ClassDetail from './views/Class/Detail'
-import ClassQuestion from './views/Class/Question'
+import ClassLayout from './views/Class/Layout'
 
 Vue.use(VueRouter)
 Vue.use(VueCookies)
@@ -36,16 +34,8 @@ const routes = [{
       component: Dashboard
     }, {
       path: 'class',
-      name: 'ClassList',
-      component: ClassList
-    }, {
-      path: 'class/:idClass',
-      name: 'ClassDetail',
-      component: ClassDetail
-    }, {
-      path: 'class/:idClass/:idQuestion',
-      name: 'ClassQuestion',
-      component: ClassQuestion
+      name: 'Class',
+      component: ClassLayout
     }
   ]
 }]
