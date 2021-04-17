@@ -38,7 +38,7 @@
             </div>
 
             <div v-if="dataQuestion.answer.length < 6" @click="addAnswer()" class="action-bottom text-center">
-              <button class="btn btn-blue">
+              <button class="btn btn-blue br-5">
                 <span>Tambah Jawaban</span>
                 <i class="fa fa-plus ml-2"></i>
               </button>
@@ -116,11 +116,15 @@ export default {
 
     loadQuestion() {
       const query = this.$route.query
-      const dataQuestions = this.$store.state.question.myQuestion.data.find(data => data.id == query.id)
+      const dataQuestions = this.$store.state.question.myQuestion.data['questions_' + query.id]
+      console.log(dataQuestions)
       if (dataQuestions) {
-        // console.log(dataQuestions)
-        // console.log(dataQuestions.questions[query.question - 1])
-        this.dataQuestion = JSON.parse(JSON.stringify(dataQuestions.questions[query.question - 1]))
+        // console.log(dataQuestions.find(data => data.id == query.question))
+        this.dataQuestion = JSON.parse(
+          JSON.stringify(
+            dataQuestions.find(data => data.id == query.question)
+          )
+        )
       }
     },
 
