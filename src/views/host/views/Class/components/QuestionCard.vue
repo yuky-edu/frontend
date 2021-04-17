@@ -54,7 +54,7 @@
       <button class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-eye"></i>
       </button>
-      <button @click="$store.dispatch('question/removeQuestionByid', data.id)" class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
+      <button @click="$store.dispatch('question/removeQuestionByid', {idClass: $route.query.id, idQuestion: data.id})" class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
         <i class="fa fa-trash"></i>
       </button>
     </div>

@@ -115,20 +115,25 @@ export default {
     // },
 
     removeQuestionByid: function({
-      dispatch
-    }, idQuestion) {
-      console.log(idQuestion)
-      // axios.get(Global.API_URL + '/hosts/question/myquestion/3' + idQuestion)
-      //   .then(({
-      //     data
-      //   }) => {
-      //     if(data.status)
-      //     {
-      //       // delete data question in state
-      //     }
-      //   })
+      state
+    }, id) {
+      // console.log(id)
+      axios.delete(Global.API_URL + '/hosts/question/myquestion/' + id.idQuestion)
+        .then(({
+          data
+        }) => {
+          if (data.status) {
+            console.log('remove question')
+            // remove data question in state
+            const data = state.myQuestion.data['questions_' + id.idClass]
 
-      console.log(dispatch)
+            data.forEach((item, i) => {
+              if (item.id == id.idQuestion)
+                data.splice(i, 1)
+            })
+          }
+        })
+
     }
 
   }
