@@ -5,6 +5,10 @@
     border-radius: 5px;
   }
 
+  &.br-10{
+    border-radius: 10px;
+  }
+
   &.shadow {
     box-shadow: 0 5px 0 $gray-2 $im;
   }

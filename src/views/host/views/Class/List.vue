@@ -3,17 +3,17 @@
 
   <div class="main-title d-center-b">
     <h1>Daftar Kelas <i class="fa fa-user"></i></h1>
-    <button @click="modalAddClass('#make-class-code')" class="btn btn-blue btn-xl shadow waves-effect waves-light">
-      <span>Buat Kelas </span>
-      <i class="ml-1 fa fa-plus"></i>
+    <button @click="modalAddClass('#make-class-code')" class="btn btn-blue btn-xl br-10 shadow waves-effect waves-light">
+      <span>Buat Kelas</span>
+      <i class="ml-2 fa fa-plus"></i>
     </button>
   </div>
 
   <div class="y-class mt-4">
     <div class="card y-card">
       <div class="card-body pt-0">
-        <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-          <table class="table my-0 table-hover y-table" id="dataTable">
+        <div class="table-responsive">
+          <table class="table my-0 table-hover y-table">
             <thead>
               <tr>
                 <th>No.</th>
@@ -45,7 +45,7 @@
                 <td class="text-right">
 
                   <div class="btn-group mr-2">
-                    <button class="btn br-5 btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn br-5 btn-warning dropdown-toggle dropdown-toggle-split text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <div class="dropdown-menu">
@@ -60,10 +60,12 @@
                     </div>
                   </div>
 
-                  <a class="btn br-5 btn-green btn-right-icon waves-effect waves-light">
+                  <button class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
                     <span>Mainkan</span>
-                    <i class="fas fa-chevron-right"></i>
-                  </a>
+                    <span class="icon">
+                      <i class="fas fa-chevron-right"></i>
+                    </span>
+                  </button>
                 </td>
               </tr>
 
@@ -101,9 +103,7 @@
 </template>
 
 <script>
-/*
-  deleteClass(id) -> hapus kelas. param: id adalah id kelas
-*/
+
 export default {
 
   computed: {

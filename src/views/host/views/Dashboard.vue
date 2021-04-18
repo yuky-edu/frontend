@@ -7,7 +7,7 @@
 
       <div class="y-analytic mb-3">
         <div class="row">
-          <div class="col-sm-12 col-lg-4 mb-4">
+          <div class="col-sm-12 col-lg-3 mb-4">
             <div class="card y-card">
               <div class="card-body">
                 <div class="row no-gutters">
@@ -28,7 +28,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-12 col-lg-4 mb-4">
+          <div class="col-sm-12 col-lg-3 mb-4">
             <div class="card y-card">
               <div class="card-body">
                 <div class="row no-gutters">
@@ -49,7 +49,28 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-12 col-lg-4 mb-4">
+          <div class="col-sm-12 col-lg-3 mb-4">
+            <div class="card y-card">
+              <div class="card-body">
+                <div class="row no-gutters">
+                  <div class="col">
+                    <div class="wrapper">
+                      <div class="counter">
+                        {{$store.state.question.myQuestion.total}}
+                      </div>
+                      <div class="icon-rounded icon-orange">
+                        <i class="fas fa-calendar fa-2x"></i>
+                      </div>
+                    </div>
+                    <div class="title">
+                      <span>Materi</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-lg-3 mb-4">
             <div class="card y-card">
               <div class="card-body">
                 <div class="row no-gutters">
