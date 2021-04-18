@@ -1,6 +1,6 @@
 <template>
 <nav class="navbar navbar-light navbar-expand topbar static-top">
-  <div class="container">
+  <div class="container-fluid">
     <a class="navbar-brand logo" href="#">
       <img src="/assets/img/logo.svg">
     </a>

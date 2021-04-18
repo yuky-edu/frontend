@@ -13,6 +13,29 @@
 }
 
 .card-question {
+  position: relative;
+
+  .card-label {
+    position: absolute;
+    left: -48px;
+    top: 24px;
+    border-radius: 10px 0 0 10px;
+
+    &.question {
+      background: $green;
+    }
+
+    &.theory {
+      background: $yellow;
+    }
+
+    .icon {
+      color: $white;
+      padding: 10px 24px 10px 12px;
+      font-size: 14px;
+    }
+  }
+
   .question-form {
     margin-bottom: 24px;
   }

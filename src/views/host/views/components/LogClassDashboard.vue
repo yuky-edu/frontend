@@ -3,9 +3,11 @@
   <div class="y-class">
     <div class="card y-card">
       <div class="card-header d-center-b">
-        <h6 class="m-0">Riwayat Kelas</h6>
+        <div class="card-title">
+          Riwayat Kelas
+        </div>
       </div>
-      <div class="card-body">
+      <div class="card-body pt-0">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <div class="row">
@@ -35,23 +37,6 @@
               </div>
               <div class="col-auto">
                 <div class="badge badge-green size-2x mt-2">
-                  <i class="far fa-times-circle"></i>
-                  <span>Aktif</span>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <div class="row">
-              <div class="col">
-                <div class="class-name mb-2">XII-Agama Islam</div>
-                <div class="category">
-                  <i class="fa fa-user"></i>
-                  <span> Bahasa</span>
-                </div>
-              </div>
-              <div class="col-auto">
-                <div class="badge badge-green size-2x">
                   <i class="far fa-times-circle"></i>
                   <span>Aktif</span>
                 </div>

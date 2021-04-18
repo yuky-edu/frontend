@@ -1,10 +1,10 @@
 <template>
-<div class="questions-list mt-3">
+<div class="theory-list mt-3">
   <div class="row">
     <div class="col-sm-11">
 
       <div class="card card-question">
-        <div class="card-label question">
+        <div class="card-label theory">
           <div class="icon">
             <i class="fa fa-bars"></i>
           </div>
@@ -13,12 +13,12 @@
           <div class="d-flex">
             <div class="q-number mr-3">
               <button class="btn btn-sm btn-gray waves-effect waves-light">
-                {{ number }}
+                2
               </button>
             </div>
             <div class="d-flex d-center-b w-100">
               <div class="col-10">
-                <span>{{ data.question }}</span>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium facere eius cupiditate aperiam nisi? Perspiciatis fugiat, excepturi nemo blanditiis obcaecati repellat modi voluptate assumenda necessitatibus, molestias iste ipsa voluptatum inventore? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste dolorum expedita at debitis, iusto voluptate dolor commodi, recusandae accusamus, architecto, eaque maiores eveniet laboriosam impedit quos esse incidunt odit. Nemo.
               </div>
               <div class="col-2">
                 <button class="btn btn-gray-2 btn-sm shadow d-flex waves-effect waves-light">
@@ -29,31 +29,12 @@
             </div>
           </div>
 
-          <hr>
-
-          <div class="row">
-            <div class="col-sm-10">
-              <div class="row">
-
-                <div v-for="(item, index) in data.answer" class="col-4">
-                  <div class="answer">
-                    <button class="btn btn-sm btn-outline-gray-2" :class="{selected: item.correct}" disabled>
-                      {{ item.label }}
-                    </button>
-                    <span>{{ item.value }}</span>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
 
     </div>
     <div class="col question-action text-center">
-      <router-link :to="{name: 'Class', query: {id: $route.query.id, question: data.id}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
+      <!-- <router-link :to="{name: 'Class', query: {id: $route.query.id, question: data.id}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-pen"></i>
       </router-link>
       <button class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
@@ -61,7 +42,7 @@
       </button>
       <button @click="$store.dispatch('question/removeQuestionByid', {idClass: $route.query.id, idQuestion: data.id})" class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
         <i class="fa fa-trash"></i>
-      </button>
+      </button> -->
     </div>
   </div>
 </div>

@@ -43,14 +43,20 @@
       </div>
     </div>
     <div class="col-sm-3 text-right">
-      <button class="btn br-5 btn-green btn-lg">
+      <button class="btn br-5 btn-green btn-lg mb-2">
         <span>Mainkan</span>
+        <i class="fa fa-play ml-2"></i>
+      </button>
+      <button class="btn br-5 btn-primary btn-lg">
+        <span>Demo</span>
         <i class="fa fa-play ml-2"></i>
       </button>
     </div>
   </div>
 
   <QuestionCard v-for="(item, index) in question" :key="item.id" :data="item" :number="index+1" />
+
+  <TheoryCard data="[]"/>
 
   <div v-if="!question.length" class="container text-center mt-3">
     <h1>Tidak ada soal.</h1>
@@ -59,8 +65,12 @@
   <div class="row">
     <div class="col-11">
       <div class="action-bottom text-center">
-        <button @click="createQuestion()" class="btn btn-blue br-5">
+        <button @click="createQuestion()" class="btn btn-green shadow br-5 mr-2">
           <span>Tambah Soal</span>
+          <i class="fa fa-plus ml-2"></i>
+        </button>
+        <button @click="createQuestion()" class="btn btn-warning shadow br-5">
+          <span>Tambah Materi</span>
           <i class="fa fa-plus ml-2"></i>
         </button>
       </div>
@@ -146,7 +156,8 @@ export default {
   },
 
   components: {
-    QuestionCard: require('./components/QuestionCard').default
+    QuestionCard: require('./components/QuestionCard').default,
+    TheoryCard: require('./components/TheoryCard').default,
   }
 }
 </script>

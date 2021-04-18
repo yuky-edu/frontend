@@ -2,17 +2,20 @@
 <div class="y-class">
   <div class="card y-card">
     <div class="card-header d-center-b">
-      <h6 class="m-0">Kelas Saya</h6>
+      <div class="card-title">
+        Kelas Saya
+      </div>
       <div class="no-arrow">
-        <button @click="modalAddClass('#make-class-code')" class="btn br-5 btn-blue waves-effect waves-light">
+        <button @click="modalAddClass('#make-class-code')" class="btn br-5 shadow btn-blue waves-effect waves-light">
           <span>Buat Kelas </span>
           <i class="ml-1 fa fa-plus"></i>
         </button>
       </div>
     </div>
     <div class="card-body pt-0">
-      <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-        <table class="table my-0 table-hover y-table" id="dataTable">
+      <div class="table-responsive">
+
+        <table class="table my-0 table-hover y-table">
           <thead>
             <tr>
               <th>Nama Kelas</th>
@@ -33,9 +36,11 @@
                 <span>{{ item.yclass_category.name }}</span>
               </td>
               <td class="text-right">
-                <button class="btn br-5 btn-green btn-right-icon waves-effect waves-light">
+                <button class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
                   <span>Mainkan</span>
-                  <i class="fas fa-chevron-right"></i>
+                  <span class="icon">
+                    <i class="fas fa-chevron-right"></i>
+                  </span>
                 </button>
               </td>
             </tr>

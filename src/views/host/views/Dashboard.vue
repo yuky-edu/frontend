@@ -13,13 +13,15 @@
                 <div class="row no-gutters">
                   <div class="col">
                     <div class="wrapper">
-                      <h3>{{ $store.state.yclass.myClass.length }}</h3>
+                      <div class="counter">
+                        {{ $store.state.yclass.myClass.length }}
+                      </div>
                       <div class="icon-rounded icon-blue">
                         <i class="fas fa-calendar fa-2x"></i>
                       </div>
                     </div>
                     <div class="title">
-                      <span>Kelas Tersedia</span>
+                      <span>Kelas</span>
                     </div>
                   </div>
                 </div>
@@ -32,13 +34,15 @@
                 <div class="row no-gutters">
                   <div class="col">
                     <div class="wrapper">
-                      <h3>{{$store.state.question.myQuestion.total}}</h3>
+                      <div class="counter">
+                        {{$store.state.question.myQuestion.total}}
+                      </div>
                       <div class="icon-rounded icon-orange">
                         <i class="fas fa-calendar fa-2x"></i>
                       </div>
                     </div>
                     <div class="title">
-                      <span>Soal Tersedia</span>
+                      <span>Soal</span>
                     </div>
                   </div>
                 </div>
@@ -51,7 +55,9 @@
                 <div class="row no-gutters">
                   <div class="col">
                     <div class="wrapper">
-                      <h3>....</h3>
+                      <div class="card-title">
+                        ....
+                      </div>
                       <div class="icon-rounded">
                         <i class="fas fa-clipboard-list fa-2x"></i>
                       </div>
