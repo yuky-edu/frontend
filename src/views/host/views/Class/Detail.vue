@@ -59,7 +59,7 @@
   <div class="row">
     <div class="col-11">
       <div class="action-bottom text-center">
-        <button class="btn btn-blue br-5">
+        <button @click="createQuestion()" class="btn btn-blue br-5">
           <span>Tambah Soal</span>
           <i class="fa fa-plus ml-2"></i>
         </button>
@@ -100,7 +100,26 @@ export default {
       const myClass = this.$store.state.yclass.myClass
       const data = myClass.find(data => data.id == idClass)
       // console.log(data)
-      if(data) this.dataClass = data
+      if (data) this.dataClass = data
+    },
+
+    createQuestion() {
+      const idClass = this.$route.query.id
+      this.$store.dispatch('question/createQuestion', {
+        id_yclass: idClass,
+        question: 'Tidak ada soal',
+        a1: 'Jawaban 1',
+        a2: 'Jawaban 2',
+        correct: 'a1',
+      }).then(data => {
+        this.$router.push({ // redirect
+          name: 'Class',
+          query: {
+            id: idClass,
+            question: data.id
+          }
+        })
+      })
     }
   },
 

@@ -5,6 +5,30 @@ import Global from '../variable'
 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
 const axios = Axios
 
+// FUNCTIONS
+const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
+const label = ['A', 'B', 'C', 'D', 'E', 'F']
+
+function rebuildQuestion(data) {
+  var answerList = []
+
+  answerKey.forEach((key, i) => {
+    if (data[key]) {
+      var _answer = {
+        correct: false,
+        label: label[i],
+        value: data[key],
+      }
+      if (key == data.correct) _answer.correct = true
+      answerList.push(_answer)
+    }
+    delete data[key]
+  })
+  delete data.correct
+  data.answer = answerList
+  // console.log(data)
+}
+
 /**
  * * question host
  */
@@ -21,41 +45,29 @@ export default {
   },
 
   mutations: {
-    rebuildQuestion: ({ // Menyusun ulang data soal
+    setQuestion: ({ // Menyusun ulang data soal
       myQuestion
     }, data) => {
       const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
       const label = ['A', 'B', 'C', 'D', 'E', 'F']
-      var dataQuestion = []
 
       // filter data
       data.questions.filter(item => {
-        var answerList = []
-
-        answerKey.forEach((key, i) => {
-          if (item[key]) {
-            var _answer = {
-              correct: false,
-              label: label[i],
-              value: item[key],
-            }
-            if (key == item.correct) _answer.correct = true
-            answerList.push(_answer)
-            delete item[key]
-            // delete item.correct
-          }
-        })
-
-        item.answer = answerList
+        rebuildQuestion(item)
       })
 
       // window.console.log(data)
 
       // Set to state data
-      Vue.set(myQuestion.data, 'questions_' + data.idClass, data.questions)
+      // if (!myQuestion.data['questions_' + data.idClass])
+        Vue.set(myQuestion.data, 'questions_' + data.idClass, data.questions)
+      // else
+        // myQuestion.data['question_' + data.idClass].push(data.questions[0])
+
 
       // console.log(myQuestion)
-    }
+    },
+
   },
 
   actions: {
@@ -72,20 +84,45 @@ export default {
         })
     },
 
-    updateQuestion: function({
-      state
-    }, {input, idQuestion}) {
+    createQuestion: async function({
+      state,
+      commit
+    }, input) {
       const fd = new FormData()
       for (var key in input) {
         fd.append(key, input[key])
       }
-      axios.post(Global.API_URL + '/hosts/question/myquestion/'+idQuestion+'/update', fd) // WARNING: Methot + URL tidak pas
+      return await axios.post(Global.API_URL + '/hosts/question', fd)
+        .then(({
+          data
+        }) => {
+          if (data.status) {
+            commit('setQuestion', {
+              questions: [data.data],
+              idClass: input.id_yclass
+            })
+            return data.data
+          }
+        })
+    },
+
+    updateQuestion: function({
+      state
+    }, {
+      input,
+      idQuestion
+    }) {
+      const fd = new FormData()
+      for (var key in input) {
+        fd.append(key, input[key])
+      }
+      axios.post(Global.API_URL + '/hosts/question/myquestion/' + idQuestion + '/update', fd) // WARNING: Methot + URL tidak pas
         .then(({
           data
         }) => {
           if (data.status)
             console.log("updated")
-            // TODO: Update data to store
+          // TODO: Update data to store
         })
     },
 
@@ -98,7 +135,7 @@ export default {
           data
         }) => {
           // console.log(data)
-          commit('rebuildQuestion', {
+          commit('setQuestion', {
             questions: data,
             idClass
           })
