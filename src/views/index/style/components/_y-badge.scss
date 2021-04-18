@@ -1,0 +1,23 @@
+.badge {
+  font-family: 'rubik';
+  font-size: 12px;
+  font-weight: normal;
+
+  i {
+    margin-right: 8px;
+  }
+
+  &.size-2x {
+    padding: 6px 12px;
+  }
+}
+
+.badge-green {
+  color: $green;
+  background: lighten($green, 45%);
+}
+
+.badge-orange {
+  color: $orange;
+  background: lighten($orange, 35%);
+}

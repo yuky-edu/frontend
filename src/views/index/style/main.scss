@@ -1,6 +1,14 @@
 @import '@/plugin/bootstrap/bootstrap-index';
 @import '@/assets/style/main';
 
+// Components
+@import "components/y-badge";
+@import "components/y-button";
+@import "components/y-card";
+@import "components/y-forms";
+@import "components/y-table";
+
+
 @import 'page/home';
 @import 'page/login-register';
 
