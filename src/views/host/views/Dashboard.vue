@@ -35,7 +35,7 @@
                   <div class="col">
                     <div class="wrapper">
                       <div class="counter">
-                        {{$store.state.question.myQuestion.total}}
+                        {{$store.state.counter.question}}
                       </div>
                       <div class="icon-rounded icon-orange">
                         <i class="fas fa-calendar fa-2x"></i>
@@ -56,7 +56,7 @@
                   <div class="col">
                     <div class="wrapper">
                       <div class="counter">
-                        {{$store.state.question.myQuestion.total}}
+                        {{$store.state.counter.theory}}
                       </div>
                       <div class="icon-rounded icon-orange">
                         <i class="fas fa-calendar fa-2x"></i>
@@ -126,7 +126,8 @@ export default {
   },
 
   mounted() {
-    //
+    this.$store.dispatch('questionCount')
+    this.$store.dispatch('theoryCount')
   },
 
   data() {

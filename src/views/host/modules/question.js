@@ -38,8 +38,6 @@ export default {
 
   state: {
     myQuestion: {
-      total: 0,
-      // data: [], // {id: idClass, questions: [...]}, ...
       data: {}, // {question_:id : data}, ...
     }
   },
