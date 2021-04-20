@@ -7,13 +7,12 @@ import Axios from 'axios'
 import Global from './variable'
 
 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
-const axios = Axios
 
 Vue.use(Vuex)
 
 import profile from './modules/profile';
 import yclass from './modules/yclass';
-import question from './modules/question';
+import entity from './modules/entity';
 
 /**
  * * Vuex Main
@@ -37,7 +36,7 @@ export default new Vuex.Store({
       state
     }) {
       // console.log(state)
-      axios.get(Global.API_URL + '/hosts/entity/question/myquestion/count/all')
+      Axios.get(Global.API_URL + '/hosts/entity/question/myquestion/count/all')
         .then(({
           data
         }) => {
@@ -49,7 +48,7 @@ export default new Vuex.Store({
       state
     }) {
       // console.log(state)
-      axios.get(Global.API_URL + '/hosts/entity/theory/mytheory/count/all')
+      Axios.get(Global.API_URL + '/hosts/entity/theory/mytheory/count/all')
         .then(({
           data
         }) => {
@@ -62,6 +61,6 @@ export default new Vuex.Store({
   modules: {
     profile,
     yclass,
-    question,
+    entity,
   },
 })

@@ -3,7 +3,6 @@ import Axios from 'axios'
 import Global from '../variable'
 
 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
-const axios = Axios
 
 // FUNCTIONS
 const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
@@ -70,15 +69,19 @@ export default {
 
   actions: {
 
-    countMyQuestion: function({
-      state
-    }) {
-      axios.get(Global.API_URL + '/hosts/question/myquestion/count/all')
+    getEntity: function({
+      state,
+      commit
+    }, idClass) {
+      Axios.get(Global.API_URL + '/hosts/entity/myentity/yclass/' + idClass) // WARNING: API tidak menampilkan status
         .then(({
           data
         }) => {
-          if (data.status)
-            state.myQuestion.total = data.count
+          console.log(data)
+          // commit('setQuestion', {
+          //   questions: data,
+          //   idClass
+          // })
         })
     },
 
@@ -90,7 +93,7 @@ export default {
       for (var key in input) {
         fd.append(key, input[key])
       }
-      return await axios.post(Global.API_URL + '/hosts/question', fd)
+      return await Axios.post(Global.API_URL + '/hosts/question', fd)
         .then(({
           data
         }) => {
@@ -114,7 +117,7 @@ export default {
       for (var key in input) {
         fd.append(key, input[key])
       }
-      axios.post(Global.API_URL + '/hosts/question/myquestion/' + idQuestion + '/update', fd) // WARNING: Methot + URL tidak pas
+      Axios.post(Global.API_URL + '/hosts/question/myquestion/' + idQuestion + '/update', fd) // WARNING: Methot + URL tidak pas
         .then(({
           data
         }) => {
@@ -124,26 +127,10 @@ export default {
         })
     },
 
-    getAllQuestionById: function({
-      state,
-      commit
-    }, idClass) {
-      axios.get(Global.API_URL + '/hosts/question/myquestion/yclass/' + idClass) // WARNING: API tidak menampilkan status
-        .then(({
-          data
-        }) => {
-          // console.log(data)
-          commit('setQuestion', {
-            questions: data,
-            idClass
-          })
-        })
-    },
-
     // getQuestionById: function({
     //   state
     // }, idQuestion) {
-    //   axios.get(Global.API_URL + '/hosts/question/myquestion/' + idQuestion) // WARNING: API tidak menampilkan status
+    //   Axios.get(Global.API_URL + '/hosts/question/myquestion/' + idQuestion) // WARNING: API tidak menampilkan status
     //     .then(({
     //       data
     //     }) => {
@@ -154,7 +141,7 @@ export default {
       state
     }, id) {
       // console.log(id)
-      axios.delete(Global.API_URL + '/hosts/question/myquestion/' + id.idQuestion)
+      Axios.delete(Global.API_URL + '/hosts/question/myquestion/' + id.idQuestion)
         .then(({
           data
         }) => {

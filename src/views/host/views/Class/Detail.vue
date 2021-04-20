@@ -1,7 +1,7 @@
 <template>
 <div id="class-detail">
 
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-12">
       <div class="main-title">
         <h1>
@@ -75,7 +75,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> -->
 
 </div>
 </template>
@@ -100,9 +100,9 @@ export default {
   },
 
   methods: {
-    getAllQuestion_() {
+    getEntity() {
       const idClass = this.$route.query.id
-      this.$store.dispatch('question/getAllQuestionById', idClass)
+      this.$store.dispatch('entity/getEntity', idClass)
     },
 
     loadDataClass() {
@@ -134,7 +134,7 @@ export default {
   },
 
   mounted() {
-    this.getAllQuestion_()
+    this.getEntity()
     this.loadDataClass()
   },
 
