@@ -8,6 +8,7 @@ import Axios from 'axios'
 import Layout from './views/Layout'
 import Dashboard from './views/Dashboard'
 import ClassLayout from './views/Class/Layout'
+import PlayLayout from './views/Play/Layout'
 
 Vue.use(VueRouter)
 Vue.use(VueCookies)
@@ -29,15 +30,22 @@ const routes = [{
       })
   },
   children: [{
-      path: '',
-      name: 'Dashboard',
-      component: Dashboard
-    }, {
-      path: 'class',
-      name: 'Class',
-      component: ClassLayout
-    }
-  ]
+    path: '',
+    name: 'Dashboard',
+    component: Dashboard
+  }, {
+    path: 'class',
+    name: 'Class',
+    component: ClassLayout
+  }, {
+    path: 'play',
+    name: 'Play',
+    component: PlayLayout,
+    beforeEnter:  function(to, from, next) {
+      // middleware here
+      next()
+    },
+  }]
 }]
 
 const router = new VueRouter({

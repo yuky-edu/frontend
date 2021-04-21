@@ -1,10 +1,10 @@
 <template>
 <div id="y-lauout">
-  <Navbar/>
+  <Navbar v-if="!$route.name == 'Play'"/>
 
   <router-view class="host-view" />
 
-  <footer>
+  <footer v-if="!$route.name == 'Play'">
     <p>© 2021 Yuky - ARNAV Developer. All rights reserved.</p>
   </footer>
 

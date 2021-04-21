@@ -1,0 +1,16 @@
+@import "timer";
+@import "list";
+@import "question";
+
+#play-layout{
+  background: linear-gradient(180deg, #8034E1 0%, #6935F0 100%);
+  padding-bottom: 0 $im;
+
+  .bg-play{
+    position: relative;
+    background-image: url('/assets/img/bg-play.png');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+  }
+}
