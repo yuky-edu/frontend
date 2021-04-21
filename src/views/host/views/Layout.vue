@@ -34,7 +34,7 @@ export default {
   },
 
   components: {
-    Navbar: require('./components/Navbar').default
+    Navbar: require('./_components/Navbar').default
   }
 }
 </script>

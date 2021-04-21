@@ -137,8 +137,8 @@ export default {
   },
 
   components: {
-    MyClass: require('./components/MyClassDashboard').default,
-    LogClass: require('./components/LogClassDashboard').default,
+    MyClass: require('./_components/MyClassDashboard').default,
+    LogClass: require('./_components/LogClassDashboard').default,
   }
 }
 </script>

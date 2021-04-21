@@ -36,20 +36,19 @@ export default {
   namespaced: true,
 
   state: {
-    myQuestion: {
-      data: {}, // {question_:id : data}, ...
-    }
+    myEntity: {}, // {entity_:idClass : {...}}, ...
   },
 
   mutations: {
-    setQuestion: ({ // Menyusun ulang data soal
-      myQuestion
+    setEntity: ({ // Menyusun ulang data entitas
+      myEntity
     }, data) => {
+
       const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
       const label = ['A', 'B', 'C', 'D', 'E', 'F']
 
       // filter data
-      data.questions.filter(item => {
+      data.data.filter(item => {
         rebuildQuestion(item)
       })
 
@@ -78,10 +77,10 @@ export default {
           data
         }) => {
           console.log(data)
-          // commit('setQuestion', {
-          //   questions: data,
-          //   idClass
-          // })
+          commit('setEntity', {
+            data: data,
+            idClass
+          })
         })
     },
 

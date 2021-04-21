@@ -132,7 +132,7 @@ export default {
   },
 
   components: {
-    ModalAddClass: require('../components/ModalAddClass').default
+    ModalAddClass: require('../_components/ModalAddClass').default
   }
 }
 </script>
