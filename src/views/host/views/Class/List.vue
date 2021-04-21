@@ -117,6 +117,7 @@ export default {
       this.$store.dispatch('yclass/generateCode')
       $(id).modal()
     },
+
     deleteClass(id) {
       this.$store.dispatch('yclass/deleteClass', id)
     }
