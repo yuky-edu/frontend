@@ -41,6 +41,9 @@ const routes = [{
     path: 'play',
     name: 'Play',
     component: PlayLayout,
+    meta: {
+      clearLayout: true
+    },
     beforeEnter:  function(to, from, next) {
       // middleware here
       next()

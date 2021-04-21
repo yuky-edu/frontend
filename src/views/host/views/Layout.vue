@@ -1,10 +1,11 @@
 <template>
-<div id="y-lauout">
-  <Navbar v-if="!$route.name == 'Play'"/>
+<div id="y-layout">
+
+  <Navbar v-if="!$route.meta.clearLayout"/>
 
   <router-view class="host-view" />
 
-  <footer v-if="!$route.name == 'Play'">
+  <footer v-if="!$route.meta.clearLayout">
     <p>© 2021 Yuky - ARNAV Developer. All rights reserved.</p>
   </footer>
 

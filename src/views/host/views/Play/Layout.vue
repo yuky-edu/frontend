@@ -2,7 +2,8 @@
 <div id="play-layout">
   <div class="bg-play">
 
-    <Timer />
+    <!-- <Timer /> -->
+    <WaitingRoom />
 
   </div>
 </div>
@@ -30,7 +31,8 @@ export default {
   },
 
   components: {
-    Timer: require('./_components/Timer').default
+    Timer: require('./_components/Timer').default,
+    WaitingRoom: require('./_components/WaitingRoom').default,
   }
 }
 </script>

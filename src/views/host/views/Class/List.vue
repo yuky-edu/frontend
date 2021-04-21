@@ -60,12 +60,14 @@
                     </div>
                   </div>
 
-                  <button class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
-                    <span>Mainkan</span>
-                    <span class="icon">
-                      <i class="fas fa-chevron-right"></i>
-                    </span>
-                  </button>
+                  <router-link :to="{ name: 'Play'}">
+                    <button class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
+                      <span>Mainkan</span>
+                      <span class="icon">
+                        <i class="fas fa-chevron-right"></i>
+                      </span>
+                    </button>
+                  </router-link>
                 </td>
               </tr>
 
