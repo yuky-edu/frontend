@@ -23,11 +23,9 @@ export default {
   },
 
   beforeMount() {
-    // this.$store.dispatch('question/countMyQuestion')
     this.$store.dispatch('yclass/getCategories')
     this.$store.dispatch('yclass/getMyClass')
   },
-
   data() {
     return {
       //

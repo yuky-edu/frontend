@@ -100,7 +100,7 @@ export default {
   methods: {
     getEntity() {
       const code = this.$route.params.code
-      this.$store.dispatch('entity/getEntityByCodeClass', code)
+      this.$store.dispatch('entity/getEntitiesByCodeClass', code)
     },
 
     loadDataClass() {

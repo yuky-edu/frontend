@@ -62,7 +62,7 @@ export default {
 
   actions: {
 
-    getEntityByCodeClass: function({
+    getEntitiesByCodeClass: function({
       state,
       commit
     }, code) {
@@ -77,7 +77,40 @@ export default {
         })
     },
 
-    createQuestion: async function({
+    getEntityById: function({
+      state
+    }, id) {
+      Axios.get(Global.API_URL + '/hosts/entity/myentity/' + id)
+        .then(({
+          data
+        }) => {
+          console.log(data)
+        })
+    },
+
+    removeEntityById: function({
+      state
+    }, id) {
+      // console.log(id)
+      Axios.delete(Global.API_URL + '/hosts/entity/' + id)
+        .then(({
+          data
+        }) => {
+          if (data.status) {
+            console.log('remove question', data)
+            // remove data question in state
+            // const data = state.myEntity.data['entity_' + id.idClass]
+            //
+            // data.forEach((item, i) => {
+            //   if (item.id == id.idQuestion)
+            //     data.splice(i, 1)
+            // })
+          }
+        })
+
+    },
+
+    createEntity: async function({
       state,
       commit
     }, input) {
@@ -85,71 +118,41 @@ export default {
       for (var key in input) {
         fd.append(key, input[key])
       }
-      return await Axios.post(Global.API_URL + '/hosts/question', fd)
+      var type = input.type === 'q' ? 'question' : 'theory'
+      return await Axios.post(Global.API_URL + '/hosts/entity/' + type, fd)
         .then(({
           data
         }) => {
           if (data.status) {
-            commit('setQuestion', {
-              questions: [data.data],
-              idClass: input.id_yclass
-            })
-            return data.data
+            console.log('created', data)
+            // commit('setQuestion', {
+            //   questions: [data.data],
+            //   idClass: input.id_yclass
+            // })
+            // return data.data
           }
         })
     },
 
-    updateQuestion: function({
+    updateEntity: function({
       state
     }, {
       input,
-      idQuestion
+      id
     }) {
       const fd = new FormData()
       for (var key in input) {
         fd.append(key, input[key])
       }
-      Axios.post(Global.API_URL + '/hosts/question/myquestion/' + idQuestion + '/update', fd) // WARNING: Methot + URL tidak pas
+      var type = input.type === 'q' ? 'question' : 'theory'
+      Axios.post(Global.API_URL + '/hosts/entity/'+ type +'/m'+type+'/' + id + '/update', fd)
         .then(({
           data
         }) => {
           if (data.status)
-            console.log("updated")
-          // TODO: Update data to store
+            console.log("updated", data)
         })
     },
-
-    // getQuestionById: function({
-    //   state
-    // }, idQuestion) {
-    //   Axios.get(Global.API_URL + '/hosts/question/myquestion/' + idQuestion) // WARNING: API tidak menampilkan status
-    //     .then(({
-    //       data
-    //     }) => {
-    //       // console.log(data)
-    // },
-
-    removeQuestionByid: function({
-      state
-    }, id) {
-      // console.log(id)
-      Axios.delete(Global.API_URL + '/hosts/question/myquestion/' + id.idQuestion)
-        .then(({
-          data
-        }) => {
-          if (data.status) {
-            console.log('remove question')
-            // remove data question in state
-            const data = state.myQuestion.data['questions_' + id.idClass]
-
-            data.forEach((item, i) => {
-              if (item.id == id.idQuestion)
-                data.splice(i, 1)
-            })
-          }
-        })
-
-    }
 
   }
 }
