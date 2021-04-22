@@ -54,11 +54,14 @@
     </div>
   </div>
 
-  <QuestionCard v-for="(item, index) in question" :key="item.id" :data="item" :number="index+1" />
+  <div v-for="(item, index) in myEntities">
+    <QuestionCard v-if="item.type == 'q'" :key="item.id" :data="item" :number="index+1" />
+    <TheoryCard v-if="item.type == 't'" :data="item" :number="index+1"/>
+  </div>
 
-  <TheoryCard data="[]"/>
 
-  <div v-if="!question.length" class="container text-center mt-3">
+
+  <div v-if="!myEntities.length" class="container text-center mt-3">
     <h1>Tidak ada soal.</h1>
   </div>
 
@@ -69,7 +72,7 @@
           <span>Tambah Soal</span>
           <i class="fa fa-plus ml-2"></i>
         </button>
-        <button @click="createQuestion()" class="btn btn-warning shadow br-5">
+        <button @click="createTheory()" class="btn btn-warning shadow br-5">
           <span>Tambah Materi</span>
           <i class="fa fa-plus ml-2"></i>
         </button>
@@ -77,7 +80,6 @@
     </div>
   </div>
 
-  {{question}}
 
 </div>
 </template>
@@ -90,9 +92,12 @@ export default {
       return this.$store.state.yclass.categories
     },
 
-    question: function() {
+    myEntities: function() {
       const code = this.$route.params.code
-      return this.$store.state.entity.myEntity
+      const data = this.$store.state.entity.myEntity['entity_' + code]
+      if(data) return data
+      // console.log(data)
+      return []
     }
 
   },
@@ -112,23 +117,42 @@ export default {
     },
 
     createQuestion() {
-      const idClass = this.$route.query.id
-      this.$store.dispatch('question/createQuestion', {
+      const idClass = this.dataClass.id
+      this.$store.dispatch('entity/createEntity', {
         id_yclass: idClass,
-        question: 'Tidak ada soal',
-        a1: 'Jawaban 1',
-        a2: 'Jawaban 2',
+        question: 'Soal masih kosong!',
+        a1: 'Pilihan Jawaban 1',
+        a2: 'Pilihan Jawaban 2',
         correct: 'a1',
+        type:'q'
       }).then(data => {
-        this.$router.push({ // redirect
-          name: 'Class',
-          query: {
-            id: idClass,
-            question: data.id
-          }
-        })
+        // this.$router.push({ // redirect
+        //   name: 'Class',
+        //   query: {
+        //     id: idClass,
+        //     question: data.id
+        //   }
+        // })
       })
-    }
+    },
+
+    createTheory() {
+      const idClass = this.dataClass.id
+      this.$store.dispatch('entity/createEntity', {
+        id_yclass: idClass,
+        theory: 'Materi masih kosong!',
+        type:'t'
+      }).then(data => {
+        // this.$router.push({ // redirect
+        //   name: 'Class',
+        //   query: {
+        //     id: idClass,
+        //     question: data.id
+        //   }
+        // })
+      })
+    },
+
   },
 
   mounted() {
@@ -159,3 +183,9 @@ export default {
   }
 }
 </script>
+
+// this.$store.dispatch('entity/getEntityById', 32)
+
+// this.$store.dispatch('entity/removeEntityById', 25)
+
+// NOTE: untuk type theory, inputannya cuma {theory(required), media}

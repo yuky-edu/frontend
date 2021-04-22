@@ -29,7 +29,7 @@ function rebuildEntity(data) {
 }
 
 /**
- * * question host
+ * * entity host
  */
 export default {
 
@@ -55,7 +55,7 @@ export default {
       // Set to state data
       Vue.set(myEntity, 'entity_' + data.code, data.data)
 
-      console.log(myEntity)
+      // console.log(myEntity)
     },
 
   },
@@ -145,7 +145,7 @@ export default {
         fd.append(key, input[key])
       }
       var type = input.type === 'q' ? 'question' : 'theory'
-      Axios.post(Global.API_URL + '/hosts/entity/'+ type +'/m'+type+'/' + id + '/update', fd)
+        Axios.post(Global.API_URL + '/hosts/entity/'+ type +'/my'+type+'/' + id + '/update', fd)
         .then(({
           data
         }) => {

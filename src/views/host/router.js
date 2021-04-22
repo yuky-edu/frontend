@@ -11,6 +11,7 @@ import ClassLayout from './views/Class/Layout'
 import PlayLayout from './views/Play/Layout'
 import ClassList from './views/Class/List'
 import ClassDetail from './views/Class/Detail'
+import EditEntityLayout from './views/Class/EditEntityLayout'
 
 Vue.use(VueRouter)
 Vue.use(VueCookies)
@@ -39,14 +40,18 @@ const routes = [{
     path: 'class',
     component: ClassLayout,
     children: [{
-      path: '',
-      name: 'ClassList',
-      component: ClassList
-    }, {
-      path: ':code',
-      name: 'ClassDetail',
-      component: ClassDetail
-    }]
+        path: '',
+        name: 'ClassList',
+        component: ClassList
+      }, {
+        path: ':code',
+        name: 'ClassDetail',
+        component: ClassDetail
+      },{
+        path: ':code/:id',
+        name: 'EditEntityLayout',
+        component: EditEntityLayout
+      }]
   }, {
     path: 'play',
     name: 'Play',
@@ -54,7 +59,7 @@ const routes = [{
     meta: {
       clearLayout: true
     },
-    beforeEnter:  function(to, from, next) {
+    beforeEnter: function(to, from, next) {
       // middleware here
       next()
     },

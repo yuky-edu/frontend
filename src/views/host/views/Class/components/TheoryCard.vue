@@ -13,12 +13,12 @@
           <div class="d-flex">
             <div class="q-number mr-3">
               <button class="btn btn-sm btn-gray waves-effect waves-light">
-                2
+                {{ number }}
               </button>
             </div>
             <div class="d-flex d-center-b w-100">
               <div class="col-10">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium facere eius cupiditate aperiam nisi? Perspiciatis fugiat, excepturi nemo blanditiis obcaecati repellat modi voluptate assumenda necessitatibus, molestias iste ipsa voluptatum inventore? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste dolorum expedita at debitis, iusto voluptate dolor commodi, recusandae accusamus, architecto, eaque maiores eveniet laboriosam impedit quos esse incidunt odit. Nemo.
+                {{ data.theory }}
               </div>
               <div class="col-2">
                 <button class="btn btn-gray-2 btn-sm shadow d-flex waves-effect waves-light">
@@ -34,15 +34,15 @@
 
     </div>
     <div class="col question-action text-center">
-      <!-- <router-link :to="{name: 'Class', query: {id: $route.query.id, question: data.id}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
+      <router-link :to="{name: 'EditEntityLayout', params: {code: $route.params.code, id: data.id}, query: {type: 'theory'}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-pen"></i>
       </router-link>
       <button class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-eye"></i>
       </button>
-      <button @click="$store.dispatch('question/removeQuestionByid', {idClass: $route.query.id, idQuestion: data.id})" class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
+      <button @click="$store.dispatch('entity/removeEntityById', data.id)" class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
         <i class="fa fa-trash"></i>
-      </button> -->
+      </button>
     </div>
   </div>
 </div>

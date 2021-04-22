@@ -53,13 +53,13 @@
 
     </div>
     <div class="col question-action text-center">
-      <router-link :to="{name: 'ClassDetail', params: {code: $route.query.code}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
+      <router-link :to="{name: 'EditEntityLayout', params: {code: $route.params.code, id: data.id}, query: {type: 'question'}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-pen"></i>
       </router-link>
       <button class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-eye"></i>
       </button>
-      <button @click="$store.dispatch('question/removeQuestionByid', {idClass: $route.query.id, idQuestion: data.id})" class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
+      <button @click="$store.dispatch('entity/removeEntityById', data.id)" class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
         <i class="fa fa-trash"></i>
       </button>
     </div>
