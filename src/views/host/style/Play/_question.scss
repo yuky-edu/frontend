@@ -1,0 +1,30 @@
+#play-question {
+  nav {
+    background: #5534CE;
+    box-shadow: 0 1px 4px rgba(7, 7, 68, 0.5);
+
+    .avatar-list {
+      display: flex;
+      margin: 0;
+
+      .avatar-wrapper {
+        margin-right: 24px;
+      }
+
+      img {
+        height: 40px;
+        border: 1.5px solid #070744;
+      }
+    }
+
+    .more-list {
+      font-size: 18px;
+      line-height: 21px;
+      color: $white;
+
+      button {
+        color: rgba(255, 255, 255, 0.35);
+      }
+    }
+  }
+}
