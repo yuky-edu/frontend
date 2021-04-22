@@ -2,9 +2,9 @@
 <div id="play-layout">
   <div class="bg-play">
 
-    <Question />
+    <!-- <Question /> -->
 
-    <!-- <Timer /> -->
+    <Timer />
     <!-- <WaitingRoom /> -->
 
   </div>
