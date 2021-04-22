@@ -28,3 +28,64 @@
     }
   }
 }
+
+.q-card {
+  padding: 40px;
+
+  .q-body {
+    text-align: center;
+  }
+
+  .q-media {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .q-media-wrapper {
+    border: 8px solid $white;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 8px 0px #BDBDBD);
+    border-radius: 10px;
+  }
+
+  .q-text {
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    color: $white;
+  }
+
+  .answer-body {
+    margin-top: 60px;
+    
+    .answer {
+      padding: 18px 40px 18px 24px;
+      background: $white;
+      border-radius: 10px;
+      margin: 16px;
+      display: flex;
+      align-items: center;
+
+      button {
+        width: 56px;
+        height: 56px;
+        background: $gray-1;
+        border-radius: 100%;
+        font-size: 32px;
+        line-height: 38px;
+        color: $black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 32px;
+      }
+
+      span {
+        font-size: 32px;
+        line-height: 38px;
+        color: $black;
+      }
+    }
+  }
+}

@@ -31,12 +31,78 @@
           </div>
         </li>
         <li class="nav-item no-arrow mx-1">
-          <button class="btn br-10 shadow btn-green waves-effect waves-light"><span>Buat Kelas </span><i class="ml-1 fa fa-plus"></i></button>
+          <button class="btn br-10 shadow btn-green waves-effect waves-light">Selesai</button>
         </li>
 
       </ul>
     </div>
   </nav>
+
+  <div class="q-card">
+    <div class="q-body">
+      <div class="q-media">
+        <div class="q-media-wrapper">
+          <img src="/assets/img/images-media1.png" alt="Yuky media">
+        </div>
+      </div>
+      <div class="q-text container">
+        Dari Gambar Diatas Jelaskan Apa Perbedaan Reboisasi dan Konspirasi ?
+      </div>
+    </div>
+    <div class="answer-body">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="answer">
+            <button class="btn btn-sm">
+              A
+            </button>
+            <span>Pengikisan</span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="answer">
+            <button class="btn btn-sm">
+              A
+            </button>
+            <span>Pengikisan</span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="answer">
+            <button class="btn btn-sm">
+              A
+            </button>
+            <span>Pengikisan</span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="answer">
+            <button class="btn btn-sm">
+              Z
+            </button>
+            <span>Pengikisan</span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="answer">
+            <button class="btn btn-sm">
+              A
+            </button>
+            <span>Pengikisan</span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="answer">
+            <button class="btn btn-sm">
+              A
+            </button>
+            <span>Pengikisan</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 </div>
 </template>

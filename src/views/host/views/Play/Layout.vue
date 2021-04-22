@@ -2,9 +2,9 @@
 <div id="play-layout">
   <div class="bg-play">
 
-    <!-- <Question /> -->
+    <Question />
 
-    <Timer />
+    <!-- <Timer /> -->
     <!-- <WaitingRoom /> -->
 
   </div>
@@ -31,6 +31,8 @@ export default {
       //
     }
   },
+
+  // TODO: asdfasdf
 
   components: {
     Question: require('./_components/Question').default,
