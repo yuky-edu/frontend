@@ -17,7 +17,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -32,7 +32,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -47,7 +47,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -62,7 +62,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -77,7 +77,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -92,7 +92,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -107,7 +107,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -122,7 +122,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -137,7 +137,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -152,7 +152,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -167,7 +167,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -182,7 +182,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -197,7 +197,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -212,7 +212,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
@@ -227,7 +227,7 @@
                     <div class="icon-red">×</div>
                   </div>
                   <div class="avatar-wrapper">
-                    <img class="rounded-circle" src="/assets/avatars/avatar.png" alt="Avatar">
+                    <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
                   </div>
                   <div class="joined-name">
                     <span>Dhimas Putra Hartono</span>
