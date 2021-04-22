@@ -36,4 +36,6 @@
 //   correct:'a4',
 //   type: 'q'
 // })
+
+// NOTE: untuk type theory, inputannya cuma {theory(required), media} 
 </script>
