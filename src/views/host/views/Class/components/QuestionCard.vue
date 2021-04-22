@@ -53,7 +53,7 @@
 
     </div>
     <div class="col question-action text-center">
-      <router-link :to="{name: 'Class', query: {id: $route.query.id, question: data.id}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
+      <router-link :to="{name: 'ClassDetail', params: {code: $route.query.code}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
         <i class="fa fa-pen"></i>
       </router-link>
       <button class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">

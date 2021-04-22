@@ -1,7 +1,7 @@
 <template>
 <div id="class-detail">
 
-  <!-- <div class="row">
+  <div class="row">
     <div class="col-12">
       <div class="main-title">
         <h1>
@@ -75,7 +75,9 @@
         </button>
       </div>
     </div>
-  </div> -->
+  </div>
+
+  {{question}}
 
 </div>
 </template>
@@ -89,26 +91,22 @@ export default {
     },
 
     question: function() {
-      const idClass = this.$route.query.id
-      const classQuestions = this.$store.state.question.myQuestion.data
-      const data = classQuestions['questions_' + idClass]
-      // console.log(data)
-      if (data) return data
-      return []
+      const code = this.$route.params.code
+      return this.$store.state.entity.myEntity
     }
 
   },
 
   methods: {
     getEntity() {
-      const idClass = this.$route.query.id
-      this.$store.dispatch('entity/getEntity', idClass)
+      const code = this.$route.params.code
+      this.$store.dispatch('entity/getEntityByCodeClass', code)
     },
 
     loadDataClass() {
-      const idClass = this.$route.query.id
+      const code = this.$route.params.code
       const myClass = this.$store.state.yclass.myClass
-      const data = myClass.find(data => data.id == idClass)
+      const data = myClass.find(data => data.code == code)
       // console.log(data)
       if (data) this.dataClass = data
     },

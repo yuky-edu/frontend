@@ -43,7 +43,6 @@ export default {
     setEntity: ({ // Menyusun ulang data entitas
       myEntity
     }, data) => {
-
       const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
       const label = ['A', 'B', 'C', 'D', 'E', 'F']
 
@@ -56,7 +55,7 @@ export default {
 
       // Set to state data
       // if (!myQuestion.data['questions_' + data.idClass])
-        Vue.set(myQuestion.data, 'questions_' + data.idClass, data.questions)
+        // Vue.set(myQuestion.data, 'questions_' + data.idClass, data.questions)
       // else
         // myQuestion.data['question_' + data.idClass].push(data.questions[0])
 
@@ -68,18 +67,17 @@ export default {
 
   actions: {
 
-    getEntity: function({
+    getEntityByCodeClass: function({
       state,
       commit
-    }, idClass) {
-      Axios.get(Global.API_URL + '/hosts/entity/myentity/yclass/' + idClass) // WARNING: API tidak menampilkan status
+    }, code) {
+      Axios.get(Global.API_URL + '/hosts/entity/myentity/yclass/by?code=' + code)
         .then(({
           data
         }) => {
-          console.log(data)
           commit('setEntity', {
-            data: data,
-            idClass
+            data: data.data,
+            code
           })
         })
     },

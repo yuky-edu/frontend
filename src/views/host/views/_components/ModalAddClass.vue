@@ -1,45 +1,51 @@
 <template>
-<div class="modal fade y-modal" id="make-class-code">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal fade" id="make-class-code">
+  <div class="modal-dialog y-modal modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-body">
+        <div class="float-right">
+          <button type="button" class="btn btn-danger shadow waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <form @submit.prevent="createClass()">
           <div class="row">
             <div class="col-12">
               <div class="form-group y-form">
-                <input autocomplete="off" v-model="input.title" ref="title" type="text" class="form-control form-control-lg title" placeholder="Nama Kelas" name="class-name">
+                Nama Kelas
+                <input autocomplete="off" v-model="input.title" ref="title" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Kelas" name="class-name">
               </div>
             </div>
             <div class="col-12">
               <div class="form-group y-form">
-                <input autocomplete="off" v-model="input.description" ref="description" type="text" class="form-control form-control-lg title" placeholder="Deskripsi" name="class-name">
+                Deskripsi
+                <input autocomplete="off" v-model="input.description" ref="description" type="text" class="form-control form-control-lg" placeholder="Masukan Deskripsi" name="class-name">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group y-form">
+                Kode Kelas
                 <input v-model="input.code" ref="code" type="text" class="form-control form-control-lg" placeholder="Kode Kelas" name="class-name">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group y-form">
-                <select v-model="input.category" class="form-control form-control-lg" :disabled="isInputed">
+                Kategori
+                <select v-model="input.category" class="form-control form-control-lg">
                   <option v-for="(item, index) in categories" :value="item.id">{{ item.name }}</option>
                 </select>
               </div>
             </div>
             <div class="col-12">
-              <button :disabled="isInputed" type="submit" class="btn btn-block y-btn-lg btn-warning mb-4 mt-3">
+              <button :disabled="isInputed" type="submit" class="btn btn-block shadow waves-effect waves-light y-btn-lg btn-blue mb-4 mt-3">
                 <span class="text-bold bold-24">
                   <span v-if="isInputed">Sedang Membuat Kelas...</span>
-                  <span v-else>Buat Kelas</span>
+                  <span v-else>Buat Kelas <i class="fa fa-plus"></i></span>
                 </span>
               </button>
             </div>
           </div>
         </form>
-        <div class="w-100 text-center">
-          <button type="button" class="btn" data-dismiss="modal">Tutup</button>
-        </div>
       </div>
     </div>
   </div>

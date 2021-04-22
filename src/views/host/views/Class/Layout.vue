@@ -1,6 +1,5 @@
 <template>
 <div id="class-layout">
-
   <div class="y-body">
     <div class="container-fluid">
 
@@ -9,18 +8,14 @@
           <router-link :to="{name: 'Dashboard'}">Dashboard</router-link>
         </li>
         <li class="breadcrumb-item">
-          <router-link :to="{name: 'Class'}">Daftar Kelas</router-link>
+          <router-link :to="{name: 'ClassList'}">Kelas</router-link>
         </li>
-        <li class="breadcrumb-item">
-          <a href="/host#/class?id=2">Detail Kelas</a>
+        <li v-if="$route.params.code" class="breadcrumb-item">
+          <router-link class="active" :to="{name: 'ClassDetail', params: {code: $route.params.code}}">{{$route.params.code}}</router-link>
         </li>
-        <li class="breadcrumb-item active">Detail Soal</li>
       </ol>
 
-      <ClassQuestion v-if="$route.query.id && $route.query.question" />
-      <ClassDetail v-else-if="$route.query.id " />
-      <ClassList v-else />
-
+      <router-view/>
 
     </div>
   </div>
@@ -29,10 +24,6 @@
 </template>
 
 <script>
-import ClassList from './List'
-import ClassDetail from './Detail'
-import ClassQuestion from './Question'
-
 export default {
 
   computed: {
@@ -51,12 +42,6 @@ export default {
     return {
       //
     }
-  },
-
-  components: {
-    ClassList,
-    ClassDetail,
-    ClassQuestion
   }
 }
 </script>

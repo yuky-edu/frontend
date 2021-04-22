@@ -27,7 +27,7 @@
 
             <tr v-for="(item, index) in yClass">
               <td class="text-bold bold-16">
-                <router-link :to="{ name: 'Class', query: {id: item.id} }">
+                <router-link :to="{ name: 'ClassDetail', params: {code: item.code} }">
                   {{ item.title }}
                 </router-link>
               </td>

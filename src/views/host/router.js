@@ -9,6 +9,8 @@ import Layout from './views/Layout'
 import Dashboard from './views/Dashboard'
 import ClassLayout from './views/Class/Layout'
 import PlayLayout from './views/Play/Layout'
+import ClassList from './views/Class/List'
+import ClassDetail from './views/Class/Detail'
 
 Vue.use(VueRouter)
 Vue.use(VueCookies)
@@ -35,8 +37,16 @@ const routes = [{
     component: Dashboard
   }, {
     path: 'class',
-    name: 'Class',
-    component: ClassLayout
+    component: ClassLayout,
+    children: [{
+      path: '',
+      name: 'ClassList',
+      component: ClassList
+    }, {
+      path: ':code',
+      name: 'ClassDetail',
+      component: ClassDetail
+    }]
   }, {
     path: 'play',
     name: 'Play',

@@ -2,7 +2,7 @@
 <div id="class-list">
 
   <div class="main-title d-center-b">
-    <h1>Daftar Kelas <i class="fa fa-user"></i></h1>
+    <h1>Kelas Saya <i class="fa fa-user"></i></h1>
     <button @click="modalAddClass('#make-class-code')" class="btn btn-blue btn-xl br-10 shadow waves-effect waves-light">
       <span>Buat Kelas</span>
       <i class="ml-2 fa fa-plus"></i>
@@ -20,7 +20,7 @@
                 <th>Nama Kelas</th>
                 <th>Kategori</th>
                 <th>Kode Kelas</th>
-                <th>Soal</th>
+                <th>Entitas</th>
                 <th>Terakhir Dimainkan</th>
                 <th>
                   <input type="text" placeholder="Cari Kelas...">
@@ -37,7 +37,7 @@
                   <span>{{ item.yclass_category.name }}</span>
                 </td>
                 <td>{{ item.code }}</td>
-                <td>{{ item.questions_count }}</td>
+                <td>{{ item.entities_count }}</td>
                 <td>
                   <span v-if="item.last_session !== null">{{ moment(item.last_session.created_at).format('DD MMMM YYYY HH:mm') }}</span>
                   <span v-else>-</span>
@@ -49,7 +49,7 @@
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <div class="dropdown-menu">
-                      <router-link class="dropdown-item" :to="{name: 'Class', query: {id: item.id}}">
+                      <router-link class="dropdown-item" :to="{name: 'ClassDetail', params: {code: item.code}}">
                         <i class="fas fa-pen mr-2"></i>
                         <span>Detail</span>
                       </router-link>
