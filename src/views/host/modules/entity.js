@@ -8,7 +8,7 @@ Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get
 const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
 const label = ['A', 'B', 'C', 'D', 'E', 'F']
 
-function rebuildQuestion(data) {
+function rebuildEntity(data) {
   var answerList = []
 
   answerKey.forEach((key, i) => {
@@ -36,7 +36,7 @@ export default {
   namespaced: true,
 
   state: {
-    myEntity: {}, // {entity_:idClass : {...}}, ...
+    myEntity: {}, // {entity_:idClass : [{...}]}, ...
   },
 
   mutations: {
@@ -48,19 +48,14 @@ export default {
 
       // filter data
       data.data.filter(item => {
-        rebuildQuestion(item)
+        if (item.type == 'q')
+          rebuildEntity(item)
       })
 
-      // window.console.log(data)
-
       // Set to state data
-      // if (!myQuestion.data['questions_' + data.idClass])
-        // Vue.set(myQuestion.data, 'questions_' + data.idClass, data.questions)
-      // else
-        // myQuestion.data['question_' + data.idClass].push(data.questions[0])
+      Vue.set(myEntity, 'entity_' + data.code, data.data)
 
-
-      // console.log(myQuestion)
+      console.log(myEntity)
     },
 
   },
