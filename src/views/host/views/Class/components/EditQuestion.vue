@@ -73,7 +73,7 @@
         <div class="card mt-4">
           <div class="card-body">
             <div class="action-button">
-              <button @click="updateQuestion()" class="btn btn-lg btn-blue shadow btn-block mb-3 waves-effect waves-light">
+              <button @click="updateEntity()" class="btn btn-lg btn-blue shadow btn-block mb-3 waves-effect waves-light">
                 <span>Simpan Soal</span>
               </button>
               <router-link :to="{name: 'ClassDetail', params: {code: $route.params.code}}" class="btn btn-lg btn-danger shadow btn-block mb-3 waves-effect waves-light">
@@ -98,8 +98,8 @@ export default {
   },
 
   methods: {
-    updateQuestion() {
-      const data = this.rebuildQuestionBeforeSave(this.dataQuestion)
+    updateEntity() {
+      const data = this.rebuildEntityBeforeSave(this.dataQuestion)
       console.log(data)
       this.$store.dispatch('entity/updateEntity', {
         input: data,
@@ -107,7 +107,7 @@ export default {
       })
     },
 
-    rebuildQuestionBeforeSave(data) {
+    rebuildEntityBeforeSave(data) {
       const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
       const newData = {
         question: data.question,
@@ -123,21 +123,6 @@ export default {
 
       return newData
     },
-
-    // this.$store.dispatch('entity/updateEntity', {
-    //   id_yclass:'2',
-    //   question:'Jelaskan Perbedaan Qada dan Paimin',
-    //   media: event files [0],
-    //   a1:'Jawaban 1',
-    //   a2:'Jawaban 2',
-    //   a3:'Jawaban 3',
-    //   a4:'Jawaban 4',
-    //   a5:'Jawaban 5',
-    //   a6:'Jawaban 6',
-    //   correct:'a4',
-    //   type: 'q'
-    // })
-
 
     loadQuestion() {
       const query = this.$route.query

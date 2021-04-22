@@ -1,47 +1,20 @@
 <template>
-<div id="class-question">
+<div id="class-theory">
   <div class="row">
     <div class="col-9">
       <div class="left-panel d-flex">
         <div class="q-number mr-3">
           <button class="btn btn-sm btn-gray waves-effect waves-light">
-            {{ dataQuestion.id }}
+            {{ data.id }}
           </button>
         </div>
-        <div class="card card-question">
+        <div class="card card-question w-100">
           <div class="card-body">
 
             <div class="question-form">
               <div class="form-group y-form">
-                <textarea v-model="dataQuestion.question" class="form-control" rows="3" placeholder="Ketik Soal Kamu Disini..."></textarea>
+                <textarea v-model="data.theory" class="form-control" rows="3" placeholder="Ketik Soal Kamu Disini..."></textarea>
               </div>
-            </div>
-
-            <div class="answer-list">
-              <ul class="list-group">
-
-                <li v-for="(item, index) in dataQuestion.answer" class="list-group-item">
-                  <div class="answer">
-                    <button @click="selectAnswer(item, index)" :class="{selected: item.correct}" class="btn btn-md btn-outline-gray-2">
-                      {{ item.label}}
-                    </button>
-                    <div class="form-group y-form">
-                      <input v-model="item.value" type="text" class="form-control form-control-md" placeholder="Ketik Soal Kamu Disini...">
-                    </div>
-                    <div class="y-action">
-                      <i v-if="dataQuestion.answer.length > 2" @click="removeAnswer(index)" class="fa fa-times"></i>
-                    </div>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-
-            <div v-if="dataQuestion.answer.length < 6" @click="addAnswer()" class="action-bottom text-center">
-              <button class="btn btn-blue br-5">
-                <span>Tambah Jawaban</span>
-                <i class="fa fa-plus ml-2"></i>
-              </button>
             </div>
 
           </div>
@@ -73,12 +46,12 @@
         <div class="card mt-4">
           <div class="card-body">
             <div class="action-button">
-              <button @click="updateQuestion()" class="btn btn-lg btn-blue shadow btn-block mb-3 waves-effect waves-light">
+              <button @click="updateTheory()" class="btn btn-lg btn-blue shadow btn-block mb-3 waves-effect waves-light">
                 <span>Simpan Soal</span>
               </button>
-              <a href="/host#/class?id=2" class="btn btn-lg btn-danger shadow btn-block mb-3 waves-effect waves-light">
+              <router-link :to="{name: 'ClassDetail', params: {code: $route.params.code}}" class="btn btn-lg btn-danger shadow btn-block mb-3 waves-effect waves-light">
                 <span>Kembali</span>
-              </a>
+              </router-link>
             </div>
           </div>
         </div>
@@ -94,119 +67,51 @@
 export default {
 
   computed: {
-    yClass: function() {
-      // const data = this.$store.getters[this.Xyclass.g[1]] // data
-      // return data
-    }
+    //
   },
 
   methods: {
-    updateQuestion() {
-      const data = this.rebuildQuestionBeforeSave(this.dataQuestion)
-      // console.log(data)
-      this.$store.dispatch('question/updateQuestion', {
-        input: data,
-        idQuestion: this.$route.query.question
+    updateTheory() {
+      this.$store.dispatch('entity/updateEntity', {
+        input: {
+          type: 't',
+          theory: this.data.theory
+        },
+        id: this.$route.params.id
       })
     },
 
-    rebuildQuestionBeforeSave(data) {
-      const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
-      const newData = {
-        question: data.question,
-        id_yclass: this.$route.query.id,
-        correct: '',
-      }
-
-      data.answer.forEach((item, i) => {
-        newData[answerKey[i]] = item.value
-        if (item.correct) newData.correct = answerKey[i]
-      })
-
-      return newData
-    },
-
-    loadQuestion() {
+    loadEntities() {
       const query = this.$route.query
-      const dataQuestions = this.$store.state.question.myQuestion.data['questions_' + query.id]
-      console.log(dataQuestions)
-      if (dataQuestions) {
-        // console.log(dataQuestions.find(data => data.id == query.question))
-        this.dataQuestion = JSON.parse(
+      const params = this.$route.params
+      const entities = this.$store.state.entity.myEntity['entity_' + params.code]
+      if (entities) {
+        this.data = JSON.parse(
           JSON.stringify(
-            dataQuestions.find(data => data.id == query.question)
+            entities.find(data => data.id == params.id)
           )
         )
+        console.log(this.data)
       }
     },
-
-    getAllQuestion_() {
-      const idClass = this.$route.query.id
-      this.$store.dispatch('question/getAllQuestionById', idClass)
-    },
-
-    selectAnswer(item, i) {
-      console.log(item)
-      this.dataQuestion.answer.filter(data => data.correct = false)
-      item.correct = !item.correct
-    },
-
-    removeAnswer(i) {
-      this.dataQuestion.answer.splice(i, 1)
-    },
-
-    rebuildAnswer() {
-      const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
-      const label = ['A', 'B', 'C', 'D', 'E', 'F']
-
-      var i = 0
-      this.dataQuestion.answer.filter(item => {
-        item.label = label[i]
-        i++
-      })
-    },
-
-    addAnswer() {
-      const answer = this.dataQuestion.answer
-      if (answer.length < 6)
-        answer.push({
-          correct: false,
-          label: '',
-          value: ''
-        })
-    }
   },
 
   mounted() {
-    this.getAllQuestion_() // sementara
-    this.loadQuestion()
+    this.loadEntities()
   },
 
   watch: {
-    '$store.state.question.myQuestion.data': function() {
-      this.loadQuestion()
+    '$store.state.entity.myEntity': function() {
+      this.loadEntities()
     },
-
-    'dataQuestion.answer': function() {
-      this.rebuildAnswer()
-    }
   },
 
   data() {
     return {
       type: 'radio',
-      dataQuestion: {
+      data: {
         id: 1,
-        question: '',
-        answer: [{
-          correct: false,
-          label: 'A',
-          value: '',
-        }, {
-          correct: false,
-          label: 'B',
-          value: '',
-        }]
+        theory: '',
       },
     }
   },
