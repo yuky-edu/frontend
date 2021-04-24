@@ -1,4 +1,12 @@
-# hello-world
+# TODO LIST
+
+[Yuky Class]
+- tambah Soal
+- tambah materi
+- diplikat soal atau materi
+- tambah media audio
+- tambah media video
+- lihat media (kelas detail)
 
 ## Project setup
 ```
