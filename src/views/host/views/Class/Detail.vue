@@ -56,7 +56,7 @@
 
   <div v-for="(item, index) in myEntities">
     <QuestionCard v-if="item.type == 'q'" :key="item.id" :data="item" :number="index+1" />
-    <TheoryCard v-if="item.type == 't'" :data="item" :number="index+1"/>
+    <TheoryCard v-if="item.type == 't'" :data="item" :number="index+1" />
   </div>
 
 
@@ -95,7 +95,7 @@ export default {
     myEntities: function() {
       const code = this.$route.params.code
       const data = this.$store.state.entity.myEntity['entity_' + code]
-      if(data) return data
+      if (data) return data
       // console.log(data)
       return []
     }
@@ -123,20 +123,8 @@ export default {
         a1: 'Pilihan Jawaban 1',
         a2: 'Pilihan Jawaban 2',
         correct: 'a1',
-        type:'q'
-      }).then(data => {
-        console.log(data)
-        this.$router.push({ // redirect
-          name: 'EditEntityLayout',
-          params: {
-            code: $params.code,
-            id: data.id
-          },
-          query: {
-            type: 'question'
-          }
-        })
-      })
+        type: 'q'
+      }).then(data => this.redirectAftarCreateEntity(data.id, 'question'))
     },
 
     createTheory() {
@@ -144,19 +132,20 @@ export default {
       this.$store.dispatch('entity/createEntity', {
         id_yclass: idClass,
         theory: 'Materi masih kosong!',
-        type:'t'
-      }).then(data => {
-        console.log(data)
-        this.$router.push({ // redirect
-          name: 'EditEntityLayout',
-          params: {
-            code: $params.code,
-            id: data.id
-          },
-          query: {
-            type: 'theory'
-          }
-        })
+        type: 't'
+      }).then(data => this.redirectAftarCreateEntity(data.id, 'theory'))
+    },
+
+    redirectAftarCreateEntity(id, type) {
+      this.$router.push({
+        name: 'EditEntityLayout',
+        params: {
+          code: $params.code,
+          id: id
+        },
+        query: {
+          type: type
+        }
       })
     },
 
