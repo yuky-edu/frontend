@@ -93,8 +93,7 @@ export default {
     },
 
     myEntities: function() {
-      const code = this.$route.params.code
-      const data = this.$store.state.entity.myEntity['entity_' + code]
+      const data = this.$store.state.entity.myEntity['entity_' + $params.code]
       if (data) return data
       // console.log(data)
       return []
@@ -108,9 +107,8 @@ export default {
     },
 
     loadDataClass() {
-      const code = this.$route.params.code
       const myClass = this.$store.state.yclass.myClass
-      const data = myClass.find(data => data.code == code)
+      const data = myClass.find(data => data.code == $params.code)
       // console.log(data)
       if (data) this.dataClass = data
     },
