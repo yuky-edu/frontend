@@ -93,9 +93,9 @@ export default {
     },
 
     myEntities: function() {
-      const data = this.$store.state.entity.myEntity['entity_' + $params.code]
-      if (data) return data
+      const data = this.$store.state.entity.myEntity['entity_' + this.$route.params.code]
       // console.log(data)
+      if (data) return data
       return []
     }
 

@@ -18,14 +18,29 @@ export default {
     },
 
     /**
+     * Remove entity data in state.
+     *
+     * @param Object Master data entity in state
+     * @param Int Id entity
+     */
+    removeEntity: function(myEntity, id) {
+      const key = 'entity_' + $params.code
+      const data = myEntity[key]
+      const index = this.searchEntity(data, id)
+      data.splice(index, 1)
+    },
+
+    /**
      * Search entity by id entity.
      *
-     * @param Object Master data myEntity in state
-     * @param String Code class will be search
+     * @param Array Entity data
      * @param Int Id entity will be search
+     * @return Int Index of array
      */
-    searchEntity: function(myEntity, code, id) {
-
+    searchEntity: function(array, id) {
+      for (var i = 0; i < array.length; i++) {
+        if (array[i].id == id) return i
+      }
     },
 
     /**

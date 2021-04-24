@@ -157,16 +157,9 @@ export default {
         }) => {
           if (data.status) {
             console.log('API:removeEntityById', data)
-            // remove data question in state
-            // const data = state.myEntity.data['entity_' + id.idClass]
-            //
-            // data.forEach((item, i) => {
-            //   if (item.id == id.idQuestion)
-            //     data.splice(i, 1)
-            // })
+            Global.CLASS.removeEntity(state.myEntity, id)
           }
         })
-
     },
 
   }
