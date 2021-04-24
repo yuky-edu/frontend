@@ -4,48 +4,8 @@ import Global from '../variable'
 
 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
 
-// FUNCTIONS
-const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
-const label = ['A', 'B', 'C', 'D', 'E', 'F']
-
-function rebuildEntity(data) {
-
-  // rebuild answer
-  var answerList = []
-
-  answerKey.forEach((key, i) => {
-    if (data[key]) {
-      var _answer = {
-        correct: false,
-        label: label[i],
-        value: data[key],
-      }
-      if (key == data.correct) _answer.correct = true
-      answerList.push(_answer)
-    }
-    delete data[key]
-  })
-  delete data.correct
-  data.answer = answerList
-
-  // Rebuild media
-  const mediaTemp = {
-    path: null,
-    type: null,
-    file: null
-  }
-  if (data.media) {
-    mediaTemp.path = data.media[0]
-    mediaTemp.type = data.media[1]
-  }
-
-  data.media = mediaTemp
-
-  // console.log(data)
-}
-
 /**
- * * entity host
+ * Entity HOST for Data Management.
  */
 export default {
 
@@ -56,21 +16,24 @@ export default {
   },
 
   mutations: {
-    setEntity: ({ // Menyusun ulang data entitas
+
+    /**
+     * Set new entity data to state.myEntity.
+     *
+     * @param Object Reference state
+     */
+    setEntity: ({
       myEntity
     }, data) => {
-      const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
-      const label = ['A', 'B', 'C', 'D', 'E', 'F']
 
       // filter data
       data.data.filter(item => {
-        if (item.type == 'q')
-          rebuildEntity(item)
+        if (item.type == 'q') // [q] => Data with type question
+          Global.CLASS.rebuildEntity(item)
       })
 
       // Set to state data
       Vue.set(myEntity, 'entity_' + data.code, data.data)
-
       // console.log(myEntity)
     },
 
@@ -78,6 +41,12 @@ export default {
 
   actions: {
 
+    /**
+     * Get all entity data by code class.
+     *
+     * @param Object Reverense state & mutations
+     * @param String Code class
+     */
     getEntitiesByCodeClass: function({
       state,
       commit
@@ -93,6 +62,12 @@ export default {
         })
     },
 
+    /**
+     * Get entity data by id entity.
+     *
+     * @param Object Reverense state
+     * @param Int id entity
+     */
     getEntityById: function({
       state
     }, id) {
@@ -104,16 +79,21 @@ export default {
         })
     },
 
+    /**
+     * Remove entity data by id entity.
+     *
+     * @param Object Reverense state
+     * @param Int id entity
+     */
     removeEntityById: function({
       state
     }, id) {
-      // console.log(id)
       Axios.delete(Global.API_URL + '/hosts/entity/' + id)
         .then(({
           data
         }) => {
           if (data.status) {
-            console.log('remove question', data)
+            console.log('API:removeEntityById', data)
             // remove data question in state
             // const data = state.myEntity.data['entity_' + id.idClass]
             //
@@ -126,6 +106,13 @@ export default {
 
     },
 
+    /**
+     * Create new entity. (async)
+     *
+     * @param Object Reverense state & mutations
+     * @param Object Input data
+     * @return Object Data from API
+     */
     createEntity: async function({
       state,
       commit
@@ -140,16 +127,22 @@ export default {
           data
         }) => {
           if (data.status) {
-            console.log('created', data)
+            console.log('API:createEntity', data)
             // commit('setQuestion', {
             //   questions: [data.data],
             //   idClass: input.id_yclass
             // })
-            // return data.data
+            return data.data
           }
         })
     },
 
+    /**
+     * Remove entity by id entity.
+     *
+     * @param Object Reverense state & mutations
+     * @param Object Input FromData()
+     */
     updateEntity: function({
       state
     }, {

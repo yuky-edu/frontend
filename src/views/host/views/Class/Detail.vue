@@ -126,13 +126,17 @@ export default {
         correct: 'a1',
         type:'q'
       }).then(data => {
-        // this.$router.push({ // redirect
-        //   name: 'Class',
-        //   query: {
-        //     id: idClass,
-        //     question: data.id
-        //   }
-        // })
+        console.log(data)
+        this.$router.push({ // redirect
+          name: 'EditEntityLayout',
+          query: {
+            code: this.$route.params.code,
+            id: data.id
+          },
+          query: {
+            type: 'question'
+          }
+        })
       })
     },
 
@@ -143,13 +147,17 @@ export default {
         theory: 'Materi masih kosong!',
         type:'t'
       }).then(data => {
-        // this.$router.push({ // redirect
-        //   name: 'Class',
-        //   query: {
-        //     id: idClass,
-        //     question: data.id
-        //   }
-        // })
+        console.log(data)
+        this.$router.push({ // redirect
+          name: 'EditEntityLayout',
+          query: {
+            code: this.$route.params.code,
+            id: data.id
+          },
+          query: {
+            type: 'theory'
+          }
+        })
       })
     },
 
@@ -183,9 +191,3 @@ export default {
   }
 }
 </script>
-
-// this.$store.dispatch('entity/getEntityById', 32)
-
-// this.$store.dispatch('entity/removeEntityById', 25)
-
-// NOTE: untuk type theory, inputannya cuma {theory(required), media}

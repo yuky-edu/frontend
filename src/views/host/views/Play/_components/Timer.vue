@@ -1,5 +1,5 @@
 <template>
-<div class="play-timer">
+<div class="play-timer asdasd">
   <div class="box-timer" :class="{animate: animate}">
     <div class="count-timer">
       <span>{{ counter }}</span>
