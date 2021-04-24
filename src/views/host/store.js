@@ -13,6 +13,7 @@ Vue.use(Vuex)
 import profile from './modules/profile';
 import yclass from './modules/yclass';
 import entity from './modules/entity';
+import player from './modules/player';
 
 /**
  * * Vuex Main
@@ -62,5 +63,6 @@ export default new Vuex.Store({
     profile,
     yclass,
     entity,
+    player
   },
 })
