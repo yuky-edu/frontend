@@ -1,8 +1,7 @@
 # TODO LIST
 
 [Yuky Class]
-- tambah Soal
-- tambah materi
+- remove entity
 - diplikat soal atau materi
 - tambah media audio
 - tambah media video
