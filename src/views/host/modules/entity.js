@@ -18,7 +18,7 @@ export default {
   mutations: {
 
     /**
-     * Set new entity data to state.myEntity.
+     * Set entity data to state.myEntity.
      *
      * @param Object Reference state
      * @param Array Data entities
@@ -26,15 +26,25 @@ export default {
     setEntity: ({
       myEntity
     }, data) => {
+      const key = 'entity_' + $params.code
 
-      // filter data
       data.filter(item => {
         if (item.type == 'q') // [q] => Data with type question
           Global.CLASS.rebuildEntity(item)
       })
 
-      // Set to state data
-      Vue.set(myEntity, 'entity_' + $params.code, data)
+      if (!myEntity[key]) {
+        /**
+         * Create new entity.
+         */
+        Vue.set(myEntity, key, data)
+      } else {
+        /**
+         * Insert new entity.
+         */
+        myEntity[key].push(data[0])
+      }
+
       // console.log(myEntity)
     },
 
@@ -100,10 +110,7 @@ export default {
         }) => {
           if (data.status) {
             console.log('API:createEntity', data)
-            // commit('setQuestion', {
-            //   questions: [data.data],
-            //   idClass: input.id_yclass
-            // })
+            commit('setEntity', [data.data])
             return data.data
           }
         })

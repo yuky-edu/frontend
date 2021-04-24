@@ -18,11 +18,22 @@ export default {
     },
 
     /**
+     * Search entity by id entity.
+     *
+     * @param Object Master data myEntity in state
+     * @param String Code class will be search
+     * @param Int Id entity will be search
+     */
+    searchEntity: function(myEntity, code, id) {
+
+    },
+
+    /**
      * Rebuild entity.
      *
      * @param Object Singgle entity
      */
-    rebuildEntity: function(data) {
+    rebuildEntity: (data) => {
       const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
       const label = ['A', 'B', 'C', 'D', 'E', 'F']
 
@@ -56,7 +67,6 @@ export default {
       }
 
       data.media = mediaTemp
-
       // console.log(data)
     }
 

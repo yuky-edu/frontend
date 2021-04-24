@@ -128,8 +128,8 @@ export default {
         console.log(data)
         this.$router.push({ // redirect
           name: 'EditEntityLayout',
-          query: {
-            code: this.$route.params.code,
+          params: {
+            code: $params.code,
             id: data.id
           },
           query: {
@@ -149,8 +149,8 @@ export default {
         console.log(data)
         this.$router.push({ // redirect
           name: 'EditEntityLayout',
-          query: {
-            code: this.$route.params.code,
+          params: {
+            code: $params.code,
             id: data.id
           },
           query: {
