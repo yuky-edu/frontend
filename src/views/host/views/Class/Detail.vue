@@ -104,8 +104,7 @@ export default {
 
   methods: {
     getEntity() {
-      const code = this.$route.params.code
-      this.$store.dispatch('entity/getEntitiesByCodeClass', code)
+      this.$store.dispatch('entity/getEntitiesByCodeClass')
     },
 
     loadDataClass() {
@@ -164,6 +163,9 @@ export default {
   },
 
   mounted() {
+    window.$params = this.$route.params
+    window.$query = this.$route.query
+
     this.getEntity()
     this.loadDataClass()
   },

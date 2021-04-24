@@ -21,19 +21,20 @@ export default {
      * Set new entity data to state.myEntity.
      *
      * @param Object Reference state
+     * @param Array Data entities
      */
     setEntity: ({
       myEntity
     }, data) => {
 
       // filter data
-      data.data.filter(item => {
+      data.filter(item => {
         if (item.type == 'q') // [q] => Data with type question
           Global.CLASS.rebuildEntity(item)
       })
 
       // Set to state data
-      Vue.set(myEntity, 'entity_' + data.code, data.data)
+      Vue.set(myEntity, 'entity_' + $params.code, data)
       // console.log(myEntity)
     },
 
@@ -44,28 +45,26 @@ export default {
     /**
      * Get all entity data by code class.
      *
-     * @param Object Reverense state & mutations
-     * @param String Code class
+     * @param Object Reference state & mutations
      */
     getEntitiesByCodeClass: function({
       state,
       commit
-    }, code) {
+    }) {
+      const code = $params.code
       Axios.get(Global.API_URL + '/hosts/entity/myentity/yclass/by?code=' + code)
         .then(({
           data
         }) => {
-          commit('setEntity', {
-            data: data.data,
-            code
-          })
+          console.log('API:getEntitiesByCodeClass', data)
+          commit('setEntity', data.data)
         })
     },
 
     /**
      * Get entity data by id entity.
      *
-     * @param Object Reverense state
+     * @param Object Reference state
      * @param Int id entity
      */
     getEntityById: function({
@@ -80,36 +79,9 @@ export default {
     },
 
     /**
-     * Remove entity data by id entity.
-     *
-     * @param Object Reverense state
-     * @param Int id entity
-     */
-    removeEntityById: function({
-      state
-    }, id) {
-      Axios.delete(Global.API_URL + '/hosts/entity/' + id)
-        .then(({
-          data
-        }) => {
-          if (data.status) {
-            console.log('API:removeEntityById', data)
-            // remove data question in state
-            // const data = state.myEntity.data['entity_' + id.idClass]
-            //
-            // data.forEach((item, i) => {
-            //   if (item.id == id.idQuestion)
-            //     data.splice(i, 1)
-            // })
-          }
-        })
-
-    },
-
-    /**
      * Create new entity. (async)
      *
-     * @param Object Reverense state & mutations
+     * @param Object Reference state & mutations
      * @param Object Input data
      * @return Object Data from API
      */
@@ -138,9 +110,9 @@ export default {
     },
 
     /**
-     * Remove entity by id entity.
+     * Update entity by id entity.
      *
-     * @param Object Reverense state & mutations
+     * @param Object Reference state & mutations
      * @param Object Input FromData()
      */
     updateEntity: function({
@@ -161,6 +133,33 @@ export default {
           if (data.status)
             console.log("updated", data)
         })
+    },
+
+    /**
+     * Remove entity data by id entity.
+     *
+     * @param Object Reference state
+     * @param Int id entity
+     */
+    removeEntityById: function({
+      state
+    }, id) {
+      Axios.delete(Global.API_URL + '/hosts/entity/' + id)
+        .then(({
+          data
+        }) => {
+          if (data.status) {
+            console.log('API:removeEntityById', data)
+            // remove data question in state
+            // const data = state.myEntity.data['entity_' + id.idClass]
+            //
+            // data.forEach((item, i) => {
+            //   if (item.id == id.idQuestion)
+            //     data.splice(i, 1)
+            // })
+          }
+        })
+
     },
 
   }

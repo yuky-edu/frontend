@@ -8,6 +8,16 @@ export default {
   CLASS: { // Fungsi untuk mengelola data kelas
 
     /**
+     * Add entity data in state.
+     *
+     * @param Object Master data entity in state
+     * @param Objet New data
+     */
+    addEntity: function(entity, data) {
+
+    },
+
+    /**
      * Rebuild entity.
      *
      * @param Object Singgle entity

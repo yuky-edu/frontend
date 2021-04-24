@@ -3,7 +3,7 @@
 
   <EditQuestion v-if="type == 'question'" />
   <EditTheory v-if="type == 'theory'" />
-  
+
 </div>
 </template>
 
@@ -34,6 +34,9 @@ export default {
   },
 
   mounted() {
+    window.$params = this.$route.params
+    window.$query = this.$route.query
+    
     this.getEntity()
   },
 
