@@ -41,6 +41,7 @@ export default {
       for (var i = 0; i < array.length; i++) {
         if (array[i].id == id) return i
       }
+      return false
     },
 
     /**

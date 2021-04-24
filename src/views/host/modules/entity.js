@@ -40,11 +40,13 @@ export default {
         Vue.set(myEntity, key, data)
       } else {
         /**
-         * Insert new entity.
+         * Update entity.
          */
-        myEntity[key].push(data[0])
+        if (data.length == 1)
+          myEntity[key].push(data[0])
+        else
+          Vue.set(myEntity, key, data)
       }
-
       // console.log(myEntity)
     },
 
