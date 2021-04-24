@@ -9,6 +9,8 @@ const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
 const label = ['A', 'B', 'C', 'D', 'E', 'F']
 
 function rebuildEntity(data) {
+
+  // rebuild answer
   var answerList = []
 
   answerKey.forEach((key, i) => {
@@ -25,6 +27,20 @@ function rebuildEntity(data) {
   })
   delete data.correct
   data.answer = answerList
+
+  // Rebuild media
+  const mediaTemp = {
+    path: null,
+    type: null,
+    file: null
+  }
+  if (data.media) {
+    mediaTemp.path = data.media[0]
+    mediaTemp.type = data.media[1]
+  }
+
+  data.media = mediaTemp
+
   // console.log(data)
 }
 
@@ -145,7 +161,7 @@ export default {
         fd.append(key, input[key])
       }
       var type = input.type === 'q' ? 'question' : 'theory'
-        Axios.post(Global.API_URL + '/hosts/entity/'+ type +'/my'+type+'/' + id + '/update', fd)
+      Axios.post(Global.API_URL + '/hosts/entity/' + type + '/my' + type + '/' + id + '/update', fd)
         .then(({
           data
         }) => {

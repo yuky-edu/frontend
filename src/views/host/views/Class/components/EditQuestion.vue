@@ -54,19 +54,23 @@
           <div class="card-body">
             <div class="media-wrapper">
               <div class="media-button">
-                <button class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light">
+                <button @click="choiseMedia('image')" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light">
                   <i class="fa fa-pen"></i>
                 </button>
-                <button class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light">
+                <button @click="choiseMedia('sound')" class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light">
                   <i class="fa fa-eye"></i>
                 </button>
-                <button class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
+                <button @click="choiseMedia('video')" class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
                   <i class="fa fa-trash"></i>
                 </button>
+                <input ref="inputMedia" type="file" class="d-none" @change="previewMedia">
               </div>
+
               <div class="media-preview">
-                <span class="alt">Tidak Ada Media</span>
+                <img v-if="dataQuestion.media.type == 'image'" :src="dataQuestion.media.path" class="img-fluid" alt="image-preview">
+                <span v-else class="alt">Tidak Ada Media</span>
               </div>
+
             </div>
           </div>
         </div>
@@ -121,6 +125,9 @@ export default {
         if (item.correct) newData.correct = answerKey[i]
       })
 
+      if (data.media.file)
+        newData.media = data.media.file
+
       return newData
     },
 
@@ -128,7 +135,6 @@ export default {
       const query = this.$route.query
       const params = this.$route.params
       const entities = this.$store.state.entity.myEntity['entity_' + params.code]
-      console.log(entities)
       if (entities) {
         this.dataQuestion = JSON.parse(
           JSON.stringify(
@@ -136,6 +142,7 @@ export default {
           )
         )
       }
+      console.log(this.dataQuestion)
     },
 
     selectAnswer(item, i) {
@@ -167,6 +174,22 @@ export default {
           label: '',
           value: ''
         })
+    },
+
+    choiseMedia(type) {
+      this.$refs.inputMedia.click()
+      window.$mediaType = type
+    },
+
+    previewMedia(e) {
+      const file = e.target.files[0]
+      const blob = URL.createObjectURL(file)
+      this.dataQuestion.media = {
+        type: $mediaType,
+        path: blob,
+        file: file
+      }
+      console.log(this.dataQuestion)
     }
   },
 
@@ -190,6 +213,11 @@ export default {
       dataQuestion: {
         id: 1,
         question: '',
+        media: {
+          type: null,
+          path: null,
+          file: null,
+        },
         answer: [{
           correct: false,
           label: 'A',
@@ -199,7 +227,7 @@ export default {
           label: 'B',
           value: '',
         }]
-      },
+      }
     }
   },
 
