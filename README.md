@@ -2,8 +2,6 @@
 
 [Yuky Class]
 - diplikat soal atau materi !! Belum ada API untuk merubah index data !!
-- tambah media audio
-- tambah media video
 - lihat media (kelas detail)
 
 ## Project setup
