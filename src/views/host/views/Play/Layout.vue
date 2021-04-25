@@ -2,16 +2,18 @@
 <div id="play-layout">
   <div class="bg-play">
 
-    <Question />
+    <!-- <Question /> -->
 
     <!-- <Timer /> -->
-    <!-- <WaitingRoom /> -->
+    <WaitingRoom />
 
   </div>
 </div>
 </template>
 
 <script>
+// console.log(io)
+
 export default {
 
   computed: {
@@ -32,12 +34,10 @@ export default {
     }
   },
 
-  // TODO: asdfasdf
-
   components: {
-    Question: require('./_components/Question').default,
-    Timer: require('./_components/Timer').default,
-    WaitingRoom: require('./_components/WaitingRoom').default,
+    Question: require('./page/Question').default,
+    Timer: require('./page/Timer').default,
+    WaitingRoom: require('./page/WaitingRoom').default,
   }
 }
 </script>
