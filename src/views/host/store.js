@@ -8,8 +8,6 @@ import Global from './variable'
 
 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
 
-Vue.use(Vuex)
-
 import profile from './modules/profile';
 import yclass from './modules/yclass';
 import entity from './modules/entity';
