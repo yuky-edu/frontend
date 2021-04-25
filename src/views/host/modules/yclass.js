@@ -14,7 +14,7 @@ export default {
   state: {
     myClass: [],
     categories: [],
-
+    playClass: {},
     create: {
       code: ''
     }
@@ -64,12 +64,14 @@ export default {
         .then(({
           data
         }) => {
-          if (data.status) console.log("API:/hosts/yclass/myclass/single?code=$code");
+          console.log('API:getMyClassByCode', data)
+          if (data.status) state.playClass = data.data
         })
     },
 
     addClass: async function({
-      state, dispatch
+      state,
+      dispatch
     }, input) {
       await axios.post(Global.API_URL + '/hosts/yclass', input)
         .then(({
@@ -80,7 +82,8 @@ export default {
     },
 
     deleteClass: async function({
-      state, dispatch
+      state,
+      dispatch
     }, id) {
       await axios.delete(Global.API_URL + '/hosts/yclass/delete/' + id)
         .then(({

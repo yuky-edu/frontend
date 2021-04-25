@@ -25,7 +25,13 @@ export default {
   },
 
   mounted() {
-    //
+    window.$query = this.$route.query
+
+    this.$store.dispatch('yclass/getMyClassByCode', $query.code)
+    this.$store.dispatch(
+      'player/getPlayersBySession',
+      JSON.parse(localStorage.getItem('play_session')).id
+    )
   },
 
   data() {

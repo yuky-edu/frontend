@@ -10,7 +10,7 @@
           </div>
           <div class="row">
 
-            <CardJoined />
+            <CardJoined v-for="(item, index) in players" :data="item" />
 
           </div>
         </div>
@@ -20,23 +20,24 @@
         <div class="panel-right">
           <div class="main-title">
             <span class="weight-normal">Total : </span>
-            <span>234</span>
+            <span>{{ players.length }}</span>
           </div>
           <div class="card y-card card-class-info">
             <div class="card-body">
               <div class="class-info">
                 <div class="class-title">
-                  <span>XII - Fisika Kuantum</span>
+                  <span>{{ data.title }}</span>
                 </div>
                 <div class="class-more-info">
-                  <div class="text-danger"># Perlu perbaikan</div>
+                  <div class="text-danger">kategori: {{ category.name }}</div>
+                  <div class="text-danger">Kode: {{ data.code }}</div>
                 </div>
               </div>
 
               <hr>
 
               <div class="class-desc">
-                <p>Kelas ini merupakan kelas pembelajan untuk pelajaran fisika quantum agar bisa seperti hero Ant - Man.</p>
+                <p>{{ data.description }}</p>
               </div>
             </div>
           </div>
@@ -62,7 +63,22 @@
 export default {
 
   computed: {
-    //
+    data: function() {
+      return this.$store.state.yclass.playClass
+    },
+
+    category: ({
+      data
+    }) => {
+      if (data.category) return data.category
+      return {}
+    },
+
+    players: function() {
+      const data = this.$store.state.player.players
+      if(data) return data
+      return []
+    }
   },
 
   methods: {
@@ -70,7 +86,7 @@ export default {
   },
 
   mounted() {
-    //
+
   },
 
   data() {

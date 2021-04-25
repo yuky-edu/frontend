@@ -86,6 +86,31 @@ Global['CLASS'] = {
 
 Global['PLAYER'] = {
 
+  /**
+   * Remove player data in state.
+   *
+   * @param Array Master data players in state
+   * @param Int Id players
+   */
+  removePlayers: function(players, id) {
+    const index = this.searchPlayers(players, id)
+    players.splice(index, 1)
+  },
+
+  /**
+   * Search player by id player.
+   *
+   * @param Array Players data
+   * @param Int Id players will be search
+   * @return Int Index of array
+   */
+  searchPlayers: function(array, id) {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i].id == id) return i
+    }
+    return false
+  },
+
 }
 
 export default Global

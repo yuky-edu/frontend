@@ -10,10 +10,11 @@ Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get
 
 Vue.use(Vuex)
 
-import profile from './modules/profile';
-import yclass from './modules/yclass';
-import entity from './modules/entity';
-import player from './modules/player';
+import profile from './modules/profile'
+import yclass from './modules/yclass'
+import entity from './modules/entity'
+import player from './modules/player'
+import yclass_session from './modules/yclass_session'
 
 /**
  * * Vuex Main
@@ -63,6 +64,7 @@ export default new Vuex.Store({
     profile,
     yclass,
     entity,
-    player
+    player,
+    yclass_session,
   },
 })

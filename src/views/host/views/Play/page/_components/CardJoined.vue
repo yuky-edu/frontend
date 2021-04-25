@@ -3,13 +3,13 @@
   <div class="card y-list-card">
     <div class="card-body">
       <div class="kick">
-        <div class="icon-red">×</div>
+        <div @click="kickPlayer()" class="icon-red">×</div>
       </div>
       <div class="avatar-wrapper">
-        <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
+        <img class="rounded-circle img-fluid" :src="data.avatar" alt="Avatar">
       </div>
       <div class="joined-name">
-        <span>Dhimas Putra Hartono</span>
+        <span>{{ data.name }}</span>
       </div>
     </div>
   </div>
@@ -24,7 +24,13 @@ export default {
   },
 
   methods: {
-    //
+    kickPlayer() {
+      this.$store.dispatch('player/kickPlayer', this.data.id)
+      .then( status => {
+        // TODO: TO socket
+        console.log('Ter kick')
+      })
+    }
   },
 
   mounted() {
@@ -36,5 +42,7 @@ export default {
       //
     }
   },
+
+  props: ['data']
 }
 </script>
