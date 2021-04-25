@@ -1,5 +1,5 @@
 <template>
-<div class="theory-list mt-3">
+<div ref="cardEntity" class="theory-list mt-3">
   <div class="row">
     <div class="col-sm-11">
 
