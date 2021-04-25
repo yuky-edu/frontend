@@ -3,7 +3,7 @@
 
   <EditQuestion v-if="type == 'question'" />
   <EditTheory v-if="type == 'theory'" />
-  
+
 </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   computed: {
     type: function() {
       const type = this.$route.query.type
-      if(type) return type
+      if (type) return type
       // TODO: Kembali ke halaman detail jika tidak ada type
     },
   },
@@ -34,7 +34,14 @@ export default {
   },
 
   mounted() {
+    window.$params = this.$route.params
+    window.$query = this.$route.query
+
     this.getEntity()
+  },
+
+  watch: {
+    //
   },
 
   data() {

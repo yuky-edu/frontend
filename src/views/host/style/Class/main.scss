@@ -1,8 +1,11 @@
 @import "detail";
+@import "entity";
 @import "list";
-@import "question";
 
 .q-number {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+
   .btn {
     color: $dark-blue;
     font-size: 16px;
@@ -12,8 +15,9 @@
   }
 }
 
-.card-question {
+.card-entity {
   position: relative;
+  margin-bottom: 1.5rem;
 
   .card-label {
     position: absolute;
@@ -58,6 +62,7 @@
   .answer {
     margin: 24px 0;
     display: flex;
+    align-items: center;
 
     .y-form {
       width: 100%;
@@ -105,26 +110,39 @@
   .media-button {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 2rem;
   }
 
   .media-preview {
-    margin: 32px 0;
+    margin-bottom: 1rem;
     width: 100%;
     background: $gray-3;
     border: 6px solid #D8D4E2;
     box-sizing: border-box;
     box-shadow: 0 6px 0 #C2C2C2;
     border-radius: 10px;
-    min-height: 150px;
+    min-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 
     .alt {
       color: $gray-2;
       font-size: 18px;
       font-family: 'rubik-medium';
+      padding: 4rem 0;
     }
+
+    audio,
+    img,
+    video {
+      width: 100%;
+    }
+  }
+
+  .btn-remove{
+    margin-top: 2rem;
   }
 }
 

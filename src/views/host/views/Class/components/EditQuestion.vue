@@ -1,26 +1,26 @@
 <template>
 <div id="class-question">
   <div class="row">
-    <div class="col-9">
-      <div class="left-panel d-flex">
-        <div class="q-number mr-3">
+    <div class="col-lg-9 col-md-12">
+      <div class="left-panel">
+        <div class="q-number">
           <button class="btn btn-sm btn-gray waves-effect waves-light">
-            {{ dataQuestion.id }}
+            {{ data.id }}
           </button>
         </div>
-        <div class="card card-question w-100">
+        <div class="card card-entity w-100">
           <div class="card-body">
 
             <div class="question-form">
               <div class="form-group y-form">
-                <textarea v-model="dataQuestion.question" class="form-control" rows="3" placeholder="Ketik Soal Kamu Disini..."></textarea>
+                <textarea v-model="data.question" class="form-control" rows="3" placeholder="Ketik Soal Kamu Disini..."></textarea>
               </div>
             </div>
 
             <div class="answer-list">
               <ul class="list-group">
 
-                <li v-for="(item, index) in dataQuestion.answer" class="list-group-item">
+                <li v-for="(item, index) in data.answer" class="list-group-item">
                   <div class="answer">
                     <button @click="selectAnswer(item, index)" :class="{selected: item.correct}" class="btn btn-md btn-outline-gray-2">
                       {{ item.label}}
@@ -29,7 +29,7 @@
                       <input v-model="item.value" type="text" class="form-control form-control-md" placeholder="Ketik Soal Kamu Disini...">
                     </div>
                     <div class="y-action">
-                      <i v-if="dataQuestion.answer.length > 2" @click="removeAnswer(index)" class="fa fa-times"></i>
+                      <i v-if="data.answer.length > 2" @click="removeAnswer(index)" class="fa fa-times"></i>
                     </div>
                   </div>
                 </li>
@@ -37,7 +37,7 @@
               </ul>
             </div>
 
-            <div v-if="dataQuestion.answer.length < 6" @click="addAnswer()" class="action-bottom text-center">
+            <div v-if="data.answer.length < 6" @click="addAnswer()" class="action-bottom text-center">
               <button class="btn btn-blue br-5">
                 <span>Tambah Jawaban</span>
                 <i class="fa fa-plus ml-2"></i>
@@ -48,28 +48,11 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col-lg-3">
       <div class="right-panel">
-        <div class="card card-media">
-          <div class="card-body">
-            <div class="media-wrapper">
-              <div class="media-button">
-                <button class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light">
-                  <i class="fa fa-pen"></i>
-                </button>
-                <button class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light">
-                  <i class="fa fa-eye"></i>
-                </button>
-                <button class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
-                  <i class="fa fa-trash"></i>
-                </button>
-              </div>
-              <div class="media-preview">
-                <span class="alt">Tidak Ada Media</span>
-              </div>
-            </div>
-          </div>
-        </div>
+
+      <CardMedia />
+
         <div class="card mt-4">
           <div class="card-body">
             <div class="action-button">
@@ -99,15 +82,15 @@ export default {
 
   methods: {
     updateEntity() {
-      const data = this.rebuildEntityBeforeSave(this.dataQuestion)
+      const data = this.rebuildBeforeSave(this.data)
       console.log(data)
       this.$store.dispatch('entity/updateEntity', {
         input: data,
-        id: this.$route.params.id
+        id: $params.id
       })
     },
 
-    rebuildEntityBeforeSave(data) {
+    rebuildBeforeSave(data) {
       const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
       const newData = {
         question: data.question,
@@ -121,31 +104,31 @@ export default {
         if (item.correct) newData.correct = answerKey[i]
       })
 
+      if (data.media.file) newData.media = data.media.file
+
       return newData
     },
 
     loadQuestion() {
-      const query = this.$route.query
-      const params = this.$route.params
-      const entities = this.$store.state.entity.myEntity['entity_' + params.code]
-      console.log(entities)
+      const entities = this.$store.state.entity.myEntity['entity_' + $params.code]
       if (entities) {
-        this.dataQuestion = JSON.parse(
+        this.data = JSON.parse(
           JSON.stringify(
-            entities.find(data => data.id == params.id)
+            entities.find(data => data.id == $params.id)
           )
         )
       }
+      // console.log(this.data)
     },
 
     selectAnswer(item, i) {
-      console.log(item)
-      this.dataQuestion.answer.filter(data => data.correct = false)
+      // console.log(item)
+      this.data.answer.filter(data => data.correct = false)
       item.correct = !item.correct
     },
 
     removeAnswer(i) {
-      this.dataQuestion.answer.splice(i, 1)
+      this.data.answer.splice(i, 1)
     },
 
     rebuildAnswer() {
@@ -153,24 +136,28 @@ export default {
       const label = ['A', 'B', 'C', 'D', 'E', 'F']
 
       var i = 0
-      this.dataQuestion.answer.filter(item => {
+      this.data.answer.filter(item => {
         item.label = label[i]
         i++
       })
     },
 
     addAnswer() {
-      const answer = this.dataQuestion.answer
+      const answer = this.data.answer
       if (answer.length < 6)
         answer.push({
           correct: false,
           label: '',
           value: ''
         })
-    }
+    },
+
   },
 
   mounted() {
+    window.$params = this.$route.params
+    window.$query = this.$route.query
+
     this.loadQuestion()
   },
 
@@ -179,7 +166,7 @@ export default {
       this.loadQuestion()
     },
 
-    'dataQuestion.answer': function() {
+    'data.answer': function() {
       this.rebuildAnswer()
     }
   },
@@ -187,9 +174,14 @@ export default {
   data() {
     return {
       type: 'radio',
-      dataQuestion: {
+      data: {
         id: 1,
         question: '',
+        media: {
+          type: null,
+          path: null,
+          file: null,
+        },
         answer: [{
           correct: false,
           label: 'A',
@@ -199,12 +191,12 @@ export default {
           label: 'B',
           value: '',
         }]
-      },
+      }
     }
   },
 
   components: {
-    //
+    CardMedia: require('./CardMedia').default
   }
 }
 </script>

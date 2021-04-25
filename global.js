@@ -3,5 +3,5 @@ var apiURL = DEV ? 'http://localhost:8000/api' : 'https://unitedpatent.id/yuky/p
 
 export default {
   API_URL: apiURL,
-  TOKEN: 'token'
+  TOKEN: 'token',
 }

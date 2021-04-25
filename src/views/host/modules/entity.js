@@ -4,32 +4,8 @@ import Global from '../variable'
 
 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
 
-// FUNCTIONS
-const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
-const label = ['A', 'B', 'C', 'D', 'E', 'F']
-
-function rebuildEntity(data) {
-  var answerList = []
-
-  answerKey.forEach((key, i) => {
-    if (data[key]) {
-      var _answer = {
-        correct: false,
-        label: label[i],
-        value: data[key],
-      }
-      if (key == data.correct) _answer.correct = true
-      answerList.push(_answer)
-    }
-    delete data[key]
-  })
-  delete data.correct
-  data.answer = answerList
-  // console.log(data)
-}
-
 /**
- * * entity host
+ * Entity HOST for Data Management.
  */
 export default {
 
@@ -40,21 +16,34 @@ export default {
   },
 
   mutations: {
-    setEntity: ({ // Menyusun ulang data entitas
+
+    /**
+     * Set entity data to state.myEntity.
+     *
+     * @param Object Reference state
+     * @param Array Data entities
+     */
+    setEntity: ({
       myEntity
     }, data) => {
-      const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
-      const label = ['A', 'B', 'C', 'D', 'E', 'F']
+      const key = 'entity_' + $params.code
 
-      // filter data
-      data.data.filter(item => {
-        if (item.type == 'q')
-          rebuildEntity(item)
-      })
+      data.filter(item => Global.CLASS.rebuildEntity(item))
 
-      // Set to state data
-      Vue.set(myEntity, 'entity_' + data.code, data.data)
-
+      if (!myEntity[key]) {
+        /**
+         * Create new entity.
+         */
+        Vue.set(myEntity, key, data)
+      } else {
+        /**
+         * Update entity.
+         */
+        if (data.length == 1)
+          myEntity[key].push(data[0])
+        else
+          Vue.set(myEntity, key, data)
+      }
       // console.log(myEntity)
     },
 
@@ -62,21 +51,31 @@ export default {
 
   actions: {
 
+    /**
+     * Get all entity data by code class.
+     *
+     * @param Object Reference state & mutations
+     */
     getEntitiesByCodeClass: function({
       state,
       commit
-    }, code) {
+    }) {
+      const code = $params.code
       Axios.get(Global.API_URL + '/hosts/entity/myentity/yclass/by?code=' + code)
         .then(({
           data
         }) => {
-          commit('setEntity', {
-            data: data.data,
-            code
-          })
+          console.log('API:getEntitiesByCodeClass', data)
+          commit('setEntity', data.data)
         })
     },
 
+    /**
+     * Get entity data by id entity.
+     *
+     * @param Object Reference state
+     * @param Int id entity
+     */
     getEntityById: function({
       state
     }, id) {
@@ -88,28 +87,13 @@ export default {
         })
     },
 
-    removeEntityById: function({
-      state
-    }, id) {
-      // console.log(id)
-      Axios.delete(Global.API_URL + '/hosts/entity/' + id)
-        .then(({
-          data
-        }) => {
-          if (data.status) {
-            console.log('remove question', data)
-            // remove data question in state
-            // const data = state.myEntity.data['entity_' + id.idClass]
-            //
-            // data.forEach((item, i) => {
-            //   if (item.id == id.idQuestion)
-            //     data.splice(i, 1)
-            // })
-          }
-        })
-
-    },
-
+    /**
+     * Create new entity. (async)
+     *
+     * @param Object Reference state & mutations
+     * @param Object Input data
+     * @return Object Data from API
+     */
     createEntity: async function({
       state,
       commit
@@ -124,16 +108,19 @@ export default {
           data
         }) => {
           if (data.status) {
-            console.log('created', data)
-            // commit('setQuestion', {
-            //   questions: [data.data],
-            //   idClass: input.id_yclass
-            // })
-            // return data.data
+            console.log('API:createEntity', data)
+            commit('setEntity', [data.data])
+            return data.data
           }
         })
     },
 
+    /**
+     * Update entity by id entity.
+     *
+     * @param Object Reference state & mutations
+     * @param Object Input FromData()
+     */
     updateEntity: function({
       state
     }, {
@@ -145,12 +132,32 @@ export default {
         fd.append(key, input[key])
       }
       var type = input.type === 'q' ? 'question' : 'theory'
-        Axios.post(Global.API_URL + '/hosts/entity/'+ type +'/my'+type+'/' + id + '/update', fd)
+      Axios.post(Global.API_URL + '/hosts/entity/' + type + '/my' + type + '/' + id + '/update', fd)
         .then(({
           data
         }) => {
           if (data.status)
             console.log("updated", data)
+        })
+    },
+
+    /**
+     * Remove entity data by id entity.
+     *
+     * @param Object Reference state
+     * @param Int id entity
+     */
+    removeEntityById: function({
+      state
+    }, id) {
+      Axios.delete(Global.API_URL + '/hosts/entity/' + id)
+        .then(({
+          data
+        }) => {
+          if (data.status) {
+            console.log('API:removeEntityById', data)
+            Global.CLASS.removeEntity(state.myEntity, id)
+          }
         })
     },
 

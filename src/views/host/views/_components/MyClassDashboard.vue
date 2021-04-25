@@ -36,13 +36,13 @@
                 <span>{{ item.yclass_category.name }}</span>
               </td>
               <td class="text-right">
-                <router-link :to="{ name: 'Play'}">
-                  <button class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
+                <router-link :to="{name: 'Play'}">
+                  <router-link :to="{name: 'Play', query: {code: item.code, page: 'waiting'}}" class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
                     <span>Mainkan</span>
                     <span class="icon">
                       <i class="fas fa-chevron-right"></i>
                     </span>
-                  </button>
+                  </router-link>
                 </router-link>
               </td>
             </tr>
@@ -74,6 +74,8 @@
 
   <!-- Modal -->
   <ModalAddClass />
+
+  {{yClass}}
 
 </div>
 </template>
