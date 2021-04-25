@@ -12,12 +12,11 @@ export default {
   namespaced: true,
 
   state: {
-
+    // players: [],
   },
 
   mutations: {
-
-
+    //
   },
 
   actions: {
@@ -30,19 +29,22 @@ export default {
         .then(({
           data
         }) => {
-          console.log(data);
+          console.log('API:getPlayersBySession', data);
+          if (data.status) Vue.set(state, 'players', data.data)
         })
     },
 
-    kickPlayer: function({
+    kickPlayer: async function({
       state
     }, id_player) {
-      Axios.delete(Global.API_URL + '/hosts/player/' + id_player)
+      return await Axios.delete(Global.API_URL + '/hosts/player/' + id_player)
         .then(({
           data
         }) => {
+          console.log('API:kickPlayer', data)
           if (data.status) {
-            console.log('remove question', data)
+            Global.PLAYER.removePlayers(state.players, id_player)
+            return true
           }
         })
     },

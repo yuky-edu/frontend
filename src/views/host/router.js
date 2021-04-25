@@ -59,10 +59,10 @@ const routes = [{
     meta: {
       clearLayout: true
     },
-    beforeEnter: function(to, from, next) {
-      // middleware here
-      next()
-    },
+    // beforeEnter: function(to, from, next) {
+    //   // middleware here
+    //   next()
+    // },
   }]
 }]
 

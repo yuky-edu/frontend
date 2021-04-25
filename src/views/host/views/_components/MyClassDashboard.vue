@@ -36,14 +36,12 @@
                 <span>{{ item.yclass_category.name }}</span>
               </td>
               <td class="text-right">
-                <router-link :to="{name: 'Play'}">
-                  <router-link :to="{name: 'Play', query: {code: item.code, page: 'waiting'}}" class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
-                    <span>Mainkan</span>
-                    <span class="icon">
-                      <i class="fas fa-chevron-right"></i>
-                    </span>
-                  </router-link>
-                </router-link>
+                <button @click="createSession(item, index)" ref="btnPlay" class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
+                  <span>Mainkan</span>
+                  <span class="icon">
+                    <i class="fas fa-chevron-right"></i>
+                  </span>
+                </button>
               </td>
             </tr>
 
@@ -93,6 +91,25 @@ export default {
     modalAddClass: function(id) { // Open modal
       this.$store.dispatch('yclass/generateCode')
       $(id).modal()
+    },
+
+    createSession: function(data, index) {
+      const btn = this.$refs.btnPlay[index]
+      btn.setAttribute('disabled', true)
+      this.$store.dispatch('yclass_session/createSession', {
+        id_yclass: data.id
+      }).then(response => {
+        btn.removeAttribute('disabled')
+        localStorage.setItem('play_session', JSON.stringify(response.data))
+        this.$router.push({
+          name: 'Play',
+          query: {
+            code: data.code,
+            page: 'waiting'
+          }
+        })
+        console.log(response)
+      })
     }
   },
 

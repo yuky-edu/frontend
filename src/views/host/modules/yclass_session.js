@@ -21,25 +21,26 @@ export default {
       state
     }, id_session) {
       axios.get(Global.API_URL + '/hosts/yclass_session', {
-        params: {
-          id_session: id_session
-        }
-      })
+          params: {
+            id_session: id_session
+          }
+        })
         .then(({
           data
         }) => {
-          if (data.status) console.log(data);
+          if (data.status) console.log(data)
         })
     },
 
     createSession: async function({
       state
     }, input) {
-      await axios.post(Global.API_URL + '/hosts/yclass_session', input)
+      return await axios.post(Global.API_URL + '/hosts/yclass_session', input)
         .then(({
           data
         }) => {
-          if (data.status) console.log('sukses', data);
+          console.log('API:createSession', data)
+          return data
         })
     },
 
@@ -50,7 +51,7 @@ export default {
         .then(({
           data
         }) => {
-          if (data.status) console.log('sukses', data);
+          if (data.status) console.log('sukses', data)
         })
     },
 

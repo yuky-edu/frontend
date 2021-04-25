@@ -5,17 +5,6 @@
 </template>
 
 <script type="text/javascript">
-// NOTE: mengambil data semua player yang sedang bergabung di id sesision
-// this.$store.dispatch('player/getPlayersBySession', 1);
-
-// NOTE: kick player berdasarkan id player
-// this.$store.dispatch('player/kickPlayer', 1);
-
-
-// NOTE: buat sesi berdasarkan id yclass
-// this.$store.dispatch('yclass_session/createSession', {
-//    id_yclass: 2
-// });
 
 // NOTE: get sesi berdasarkan id
 // this.$store.dispatch('yclass_session/getSession', 2);
