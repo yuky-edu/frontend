@@ -84,4 +84,8 @@ Global['CLASS'] = {
   }
 }
 
+Global['PLAYER'] = {
+
+}
+
 export default Global
