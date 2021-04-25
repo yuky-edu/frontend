@@ -1,8 +1,7 @@
 # TODO LIST
 
 [Yuky Class]
-- remove entity
-- diplikat soal atau materi
+- diplikat soal atau materi !! Belum ada API untuk merubah index data !!
 - tambah media audio
 - tambah media video
 - lihat media (kelas detail)
