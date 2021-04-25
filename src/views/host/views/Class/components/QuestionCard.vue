@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-11">
 
-      <div class="card card-question">
+      <div class="card card-entity">
         <div class="card-label question">
           <div class="icon">
             <i class="fa fa-bars"></i>
@@ -16,7 +16,7 @@
                 {{ number }}
               </button>
             </div>
-            <div class="d-flex d-center-b w-100">
+            <div class="d-flex w-100">
               <div class="col-10">
                 <span>{{ data.question }}</span>
               </div>
