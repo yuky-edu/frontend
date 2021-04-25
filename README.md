@@ -1,9 +1,3 @@
-# TODO LIST
-
-[Yuky Class]
-- diplikat soal atau materi !! Belum ada API untuk merubah index data !!
-- lihat media (kelas detail)
-
 ## Project setup
 ```
 yarn install
