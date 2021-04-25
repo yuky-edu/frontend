@@ -28,10 +28,7 @@ export default {
     }, data) => {
       const key = 'entity_' + $params.code
 
-      data.filter(item => {
-        if (item.type == 'q') // [q] => Data with type question
-          Global.CLASS.rebuildEntity(item)
-      })
+      data.filter(item => Global.CLASS.rebuildEntity(item))
 
       if (!myEntity[key]) {
         /**

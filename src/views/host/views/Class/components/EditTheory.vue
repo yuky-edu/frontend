@@ -23,26 +23,9 @@
     </div>
     <div class="col">
       <div class="right-panel">
-        <div class="card card-media">
-          <div class="card-body">
-            <div class="media-wrapper">
-              <div class="media-button">
-                <button class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light">
-                  <i class="fa fa-pen"></i>
-                </button>
-                <button class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light">
-                  <i class="fa fa-eye"></i>
-                </button>
-                <button class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
-                  <i class="fa fa-trash"></i>
-                </button>
-              </div>
-              <div class="media-preview">
-                <span class="alt">Tidak Ada Media</span>
-              </div>
-            </div>
-          </div>
-        </div>
+
+        <CardMedia />
+
         <div class="card mt-4">
           <div class="card-body">
             <div class="action-button">
@@ -72,37 +55,49 @@ export default {
 
   methods: {
     updateTheory() {
+      const data = this.rebuildBeforeSave(this.data)
+      console.log(data)
       this.$store.dispatch('entity/updateEntity', {
-        input: {
-          type: 't',
-          theory: this.data.theory
-        },
-        id: this.$route.params.id
+        input: data,
+        id: $params.id
       })
     },
 
-    loadEntities() {
-      const query = this.$route.query
-      const params = this.$route.params
-      const entities = this.$store.state.entity.myEntity['entity_' + params.code]
+    rebuildBeforeSave(data) {
+      const newData = {
+        theory: data.theory,
+        id_yclass: data.yclass.id,
+        type: 't',
+      }
+
+      if (data.media.file) newData.media = data.media.file
+
+      return newData
+    },
+
+    loadTheory() {
+      const entities = this.$store.state.entity.myEntity['entity_' + $params.code]
       if (entities) {
         this.data = JSON.parse(
           JSON.stringify(
-            entities.find(data => data.id == params.id)
+            entities.find(data => data.id == $params.id)
           )
         )
-        console.log(this.data)
+        // console.log(this.data)
       }
     },
   },
 
   mounted() {
-    this.loadEntities()
+    window.$params = this.$route.params
+    window.$query = this.$route.query
+
+    this.loadTheory()
   },
 
   watch: {
     '$store.state.entity.myEntity': function() {
-      this.loadEntities()
+      this.loadTheory()
     },
   },
 
@@ -112,12 +107,17 @@ export default {
       data: {
         id: 1,
         theory: '',
+        media: {
+          type: null,
+          path: null,
+          file: null,
+        },
       },
     }
   },
 
   components: {
-    //
+    CardMedia: require('./CardMedia').default
   }
 }
 </script>

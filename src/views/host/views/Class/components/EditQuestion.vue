@@ -82,15 +82,15 @@ export default {
 
   methods: {
     updateEntity() {
-      const data = this.rebuildEntityBeforeSave(this.data)
+      const data = this.rebuildBeforeSave(this.data)
       console.log(data)
       this.$store.dispatch('entity/updateEntity', {
         input: data,
-        id: this.$route.params.id
+        id: $params.id
       })
     },
 
-    rebuildEntityBeforeSave(data) {
+    rebuildBeforeSave(data) {
       const answerKey = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']
       const newData = {
         question: data.question,
@@ -104,28 +104,25 @@ export default {
         if (item.correct) newData.correct = answerKey[i]
       })
 
-      if (data.media.file)
-        newData.media = data.media.file
+      if (data.media.file) newData.media = data.media.file
 
       return newData
     },
 
     loadQuestion() {
-      const query = this.$route.query
-      const params = this.$route.params
-      const entities = this.$store.state.entity.myEntity['entity_' + params.code]
+      const entities = this.$store.state.entity.myEntity['entity_' + $params.code]
       if (entities) {
         this.data = JSON.parse(
           JSON.stringify(
-            entities.find(data => data.id == params.id)
+            entities.find(data => data.id == $params.id)
           )
         )
       }
-      console.log(this.data)
+      // console.log(this.data)
     },
 
     selectAnswer(item, i) {
-      console.log(item)
+      // console.log(item)
       this.data.answer.filter(data => data.correct = false)
       item.correct = !item.correct
     },
@@ -158,6 +155,9 @@ export default {
   },
 
   mounted() {
+    window.$params = this.$route.params
+    window.$query = this.$route.query
+
     this.loadQuestion()
   },
 

@@ -54,22 +54,24 @@ export default {
       const label = ['A', 'B', 'C', 'D', 'E', 'F']
 
       // rebuild answer
-      var answerList = []
+      if (data.type == 'q') {
+        var answerList = []
 
-      answerKey.forEach((key, i) => {
-        if (data[key]) {
-          var _answer = {
-            correct: false,
-            label: label[i],
-            value: data[key],
+        answerKey.forEach((key, i) => {
+          if (data[key]) {
+            var _answer = {
+              correct: false,
+              label: label[i],
+              value: data[key],
+            }
+            if (key == data.correct) _answer.correct = true
+            answerList.push(_answer)
           }
-          if (key == data.correct) _answer.correct = true
-          answerList.push(_answer)
-        }
-        delete data[key]
-      })
-      delete data.correct
-      data.answer = answerList
+          delete data[key]
+        })
+        delete data.correct
+        data.answer = answerList
+      }
 
       // Rebuild media
       const mediaTemp = {
