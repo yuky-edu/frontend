@@ -13,13 +13,13 @@
       <img src="/assets/img/logo.svg">
     </div>
     <div class="join-form">
-      <form @submit.prevent="join()">
+      <form @submit.prevent="joinClass()">
         <label for="#join" class="text-white">
           <i class="fa fa-key mr-2"></i>
           Kode Kelas
         </label>
         <div class="form-group y-form">
-          <input ref="kode" type="text" class="form-control form-control-sm play-form" placeholder="Masukan Kode Kelas Kamu" name="class-code">
+          <input v-model="code" ref="kode" type="text" class="form-control form-control-sm play-form" placeholder="Masukan Kode Kelas Kamu" name="class-code">
         </div>
         <div class="w-100 text-center">
           <button class="btn btn-warning-gradient btn-circle-sm" name="button">
@@ -62,8 +62,18 @@ export default {
   },
 
   methods: {
-    join: function() {
-			this.$router.push('Joined')
+    joinClass: function() {
+      this.$store.dispatch('player/joinClass', {
+        code: this.code
+      }).then( response => {
+        localStorage.setItem('player_session', JSON.stringify({
+          token: response.player.token,
+          ws_channel: response.yclass.last_session.ws_channel
+        }))
+        // this.$router.push({
+        //   name: ''
+        // })
+      })
     }
   },
 
@@ -73,7 +83,7 @@ export default {
 
   data() {
     return {
-      //
+      code: 'belajarsains2021'
     }
   },
 }

@@ -16,7 +16,7 @@ const routes = [
     component: Join
   },
   {
-    path: '/joined',
+    path: '/:code',
     name: 'Joined',
     component: Joined
   },
