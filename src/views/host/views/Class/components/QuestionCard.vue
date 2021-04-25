@@ -53,7 +53,7 @@
 
     </div>
 
-    <EntityActionButton :data="data"/>
+    <EntityActionButton :data="data" type="question"/>
 
   </div>
 </div>

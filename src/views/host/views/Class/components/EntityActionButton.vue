@@ -1,12 +1,12 @@
 <template>
 <div class="entity-action-button col question-action text-center">
 
-  <!-- <router-link :to="{name: 'EditEntityLayout', params: {code: $route.params.code, id: data.id}, query: {type: 'question'}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
-    <i class="fa fa-pen"></i>
-  </router-link> -->
+  <router-link :to="{name: 'EditEntityLayout', params: {code: $route.params.code, id: data.id}, query: {type: type}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
+    <i class="fa fa-pen-alt"></i>
+  </router-link>
 
   <button class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
-    <i class="fa fa-eye"></i>
+    <i class="fas fa-copy"></i>
   </button>
 
   <button @click="removeEntity()" class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
@@ -40,6 +40,6 @@ export default {
     }
   },
 
-  props: ['data']
+  props: ['data', 'type']
 }
 </script>

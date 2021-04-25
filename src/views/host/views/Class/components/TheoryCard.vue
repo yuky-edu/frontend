@@ -33,17 +33,9 @@
       </div>
 
     </div>
-    <div class="col question-action text-center">
-      <router-link :to="{name: 'EditEntityLayout', params: {code: $route.params.code, id: data.id}, query: {type: 'theory'}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
-        <i class="fa fa-pen"></i>
-      </router-link>
-      <button class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
-        <i class="fa fa-eye"></i>
-      </button>
-      <button @click="$store.dispatch('entity/removeEntityById', data.id)" class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
-        <i class="fa fa-trash"></i>
-      </button>
-    </div>
+
+    <EntityActionButton :data="data" type="theory" />
+
   </div>
 </div>
 </template>
@@ -67,6 +59,10 @@ export default {
     return {
       //
     }
+  },
+
+  components: {
+    EntityActionButton: require('./EntityActionButton').default
   },
 
   props: ['data', 'number']
