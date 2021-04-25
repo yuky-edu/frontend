@@ -55,19 +55,27 @@
             <div class="media-wrapper">
               <div class="media-button">
                 <button @click="choiseMedia('image')" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light">
-                  <i class="fa fa-pen"></i>
+                  <i class="fa fa-image"></i>
                 </button>
-                <button @click="choiseMedia('sound')" class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light">
-                  <i class="fa fa-eye"></i>
+                <button @click="choiseMedia('audio')" class="btn btn-aqua btn-lg y-btn-icon-only shadow waves-effect waves-light">
+                  <i class="fa fa-file-audio"></i>
                 </button>
-                <button @click="choiseMedia('video')" class="btn btn-danger btn-lg y-btn-icon-only shadow waves-effect waves-light">
-                  <i class="fa fa-trash"></i>
+                <button @click="choiseMedia('video')" class="btn btn-success btn-lg y-btn-icon-only shadow waves-effect waves-light">
+                  <i class="fa fa-file-video"></i>
                 </button>
-                <input ref="inputMedia" type="file" class="d-none" @change="previewMedia">
+                <input ref="inputMedia" :accept="acceptMedia.use" type="file" class="d-none" @change="previewMedia">
               </div>
 
               <div class="media-preview">
                 <img v-if="dataQuestion.media.type == 'image'" :src="dataQuestion.media.path" class="img-fluid" alt="image-preview">
+                <audio v-else-if="dataQuestion.media.type == 'audio'" controls>
+                  <source :src="dataQuestion.media.path" type="audio/ogg">
+                  Your browser does not support the audio element.
+                </audio>
+                <video v-else-if="dataQuestion.media.type == 'video'" controls>
+                  <source :src="dataQuestion.media.path" type="video/mp4">
+                  Your browser does not support HTML video.
+                </video>
                 <span v-else class="alt">Tidak Ada Media</span>
               </div>
 
@@ -177,8 +185,11 @@ export default {
     },
 
     choiseMedia(type) {
-      this.$refs.inputMedia.click()
+      this.acceptMedia.use = this.acceptMedia[type]
       window.$mediaType = type
+      setTimeout(() => {
+        this.$refs.inputMedia.click()
+      }, 50)
     },
 
     previewMedia(e) {
@@ -210,6 +221,12 @@ export default {
   data() {
     return {
       type: 'radio',
+      acceptMedia: {
+        image: 'image/*',
+        audio: 'audio/*',
+        video: 'video/*',
+        use: null,
+      },
       dataQuestion: {
         id: 1,
         question: '',
