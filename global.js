@@ -1,4 +1,4 @@
-const DEV = false
+const DEV = true
 var apiURL = DEV ? 'http://localhost:8000/api' : 'https://unitedpatent.id/yuky/public/api'
 
 export default {
