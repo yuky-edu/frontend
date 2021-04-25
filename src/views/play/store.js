@@ -1,3 +1,5 @@
+import Vue from 'vue'
+import Vuex from 'vuex'
 import Axios from 'axios'
 import Global from './variable'
 
@@ -28,21 +30,3 @@ export default new Vuex.Store({
     player
   },
 })
-
-
-/**
- * * yuky play host
- */
-export default {
-
-  namespaced: true,
-
-  state: {
-
-  },
-
-  actions: {
-
-
-  }
-}
