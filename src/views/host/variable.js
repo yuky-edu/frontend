@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Global from '/global'
+import Global from '/yglobal'
 
 Global['CLASS'] = {
   /**
