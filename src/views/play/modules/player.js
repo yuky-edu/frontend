@@ -33,6 +33,29 @@ export default {
         })
     },
 
+    /*
+
+      this.$store.dispatch('player/updatePlayer', {
+        name: 'UDIN',
+        avatar: e.target.files[0]
+      })
+
+     */
+    updatePlayer: async function({
+      state
+    }, input) {
+      const fd = new FormData()
+      fd.append('name', input.name)
+      fd.append('avatar', input.avatar)
+      return await Axios.post(Global.API_URL + '/plays/player/update', fd)
+        .then(({
+          data
+        }) => {
+          console.log('API:updatePlayer', data)
+          if (data.status) console.log(data);
+        })
+    },
+
 
   }
 }
