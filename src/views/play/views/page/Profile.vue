@@ -21,7 +21,7 @@
       </div>
       <div class="col flex-center">
         <div class="avatar-circle">
-          <img src="/assets/avatar-1.png" alt="">
+          <img :src="data.avatar.image" alt="avatar">
         </div>
       </div>
       <div class="col flex-center">
@@ -31,12 +31,12 @@
       </div>
     </div>
 
-    <form @submit.prevent="toWaiting()">
+    <form @submit.prevent="register()">
       <div class="form-group y-form">
-        <input ref="kode" type="text" class="form-control form-control-sm play-form" placeholder="Masukan Nama Kamu" name="class-code">
+        <input v-model="data.name" ref="kode" type="text" class="form-control form-control-sm play-form" placeholder="Masukan Nama Kamu" name="class-code">
       </div>
       <div class="w-100 text-center mt-5">
-        <button class="btn btn-warning-gradient btn-sm btn-play" name="button">
+        <button class="btn btn-warning btn-sm btn-play" name="button">
           <span>Lanjutkan</span>
           <i class="fa fa-arrow-right ml-2"></i>
         </button>
@@ -56,19 +56,32 @@ export default {
   },
 
   methods: {
-    toWaiting: function()
-    {
-      this.$router.push('Waiting')
+    randomAvatar() {
+      const arr = [1, 2, 3, 4, 5]
+      const rand = arr[Math.floor(Math.random() * arr.length)]
+      this.data.avatar.image = 'avatar' + rand + '.png'
+    },
+
+    register() {
+      const data = this.data
+      data.id_session = this.$cookies.get('player_session').id_session,
+      this.$store.dispatch('player/register', data)
     }
   },
 
   mounted() {
-    //
+    this.randomAvatar()
   },
 
   data() {
     return {
-      //
+      data: {
+        name: '',
+        avatar: {
+          type: 'default',
+          image: 'avatar1.png'
+        }
+      }
     }
   },
 }

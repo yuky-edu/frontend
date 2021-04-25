@@ -100,7 +100,11 @@ export default {
         id_yclass: data.id
       }).then(response => {
         btn.removeAttribute('disabled')
-        localStorage.setItem('play_session', JSON.stringify(response.data))
+        this.$cookies.set('play_session', {
+          id: response.data.id,
+          ws_host: response.data.ws_channel + 'host',
+          ws_play: response.data.ws_channel + 'play'
+        }, '1d')
         this.$router.push({
           name: 'Play',
           query: {
@@ -108,7 +112,6 @@ export default {
             page: 'waiting'
           }
         })
-        console.log(response)
       })
     }
   },

@@ -12,8 +12,6 @@
 </template>
 
 <script>
-// console.log(io)
-
 export default {
 
   computed: {
@@ -21,16 +19,22 @@ export default {
   },
 
   methods: {
-    //
+    socketHandle() {
+      this.socket.on('ping', () => {
+        console.log("KEPING");
+      })
+    }
   },
 
   mounted() {
+    this.socketHandle()
+
     window.$query = this.$route.query
 
     this.$store.dispatch('yclass/getMyClassByCode', $query.code)
     this.$store.dispatch(
       'player/getPlayersBySession',
-      JSON.parse(localStorage.getItem('play_session')).id
+      this.$cookies.get('play_session').id
     )
   },
 

@@ -1,7 +1,7 @@
 <template>
 <div id="layout-playing">
 
-  <Joined />
+  <Profile />
 
 </div>
 </template>
@@ -14,21 +14,23 @@ export default {
   },
 
   methods: {
-    //
+    ping() {
+      this.socket.emit('ping')
+    }
   },
 
   mounted() {
-    //
+    this.ping()
   },
 
   data() {
     return {
-      //
+      // player_session: this.$cookies.get('player_session')
     }
   },
 
   components: {
-    Joined: require('./page/Joined').default
+    Profile: require('./page/Profile').default
   }
 }
 </script>

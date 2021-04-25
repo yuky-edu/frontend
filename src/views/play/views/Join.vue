@@ -48,7 +48,7 @@
   </div>
 
   <div class="footer">
-		<p>© 2021 Yuky - ARNAV Developer.</p>
+    <p>© 2021 Yuky - ARNAV Developer.</p>
   </div>
 
 </div>
@@ -65,19 +65,34 @@ export default {
     joinClass: function() {
       this.$store.dispatch('player/joinClass', {
         code: this.code
-      }).then( response => {
-        localStorage.setItem('player_session', JSON.stringify({
-          token: response.player.token,
-          ws_channel: response.yclass.last_session.ws_channel
-        }))
-        this.$router.push({
-          name: 'LayoutPlaying',
-          params: {
-            code: response.yclass.code
-          }
-        })
+      }).then(response => {
+
+        if (response.status) {
+          this.$cookies.set('player_session', {
+            ws_channel: response.data.yclass.last_session.ws_channel,
+            id_session: response.data.yclass.last_session.id,
+          }, '1d')
+
+          this.$router.push({
+            name: 'LayoutPlaying',
+            params: {
+              code: response.data.yclass.code
+            },
+            query: {
+              page: 'profile'
+            }
+          })
+        } else if (response.errCode == 'notFound') {
+          alert('Kelas tidak tersedia')
+        } else if (response.errCode == 'off') {
+          alert('Kelas tidak dibuka')
+        } else if (response.errCode == 'block') {
+          alert('Akses masuk ditutup')
+        }
+
       })
-    }
+    },
+
   },
 
   mounted() {
