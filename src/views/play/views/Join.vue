@@ -70,9 +70,12 @@ export default {
           token: response.player.token,
           ws_channel: response.yclass.last_session.ws_channel
         }))
-        // this.$router.push({
-        //   name: ''
-        // })
+        this.$router.push({
+          name: 'LayoutPlaying',
+          params: {
+            code: response.yclass.code
+          }
+        })
       })
     }
   },
