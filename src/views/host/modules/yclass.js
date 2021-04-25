@@ -57,6 +57,17 @@ export default {
         })
     },
 
+    getMyClassByCode: function({
+      state
+    }, code) {
+      axios.get(Global.API_URL + '/hosts/yclass/myclass/single?code=' + code)
+        .then(({
+          data
+        }) => {
+          if (data.status) console.log("API:/hosts/yclass/myclass/single?code=$code");
+        })
+    },
+
     addClass: async function({
       state, dispatch
     }, input) {
