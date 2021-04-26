@@ -14,23 +14,12 @@
       <div class="right d-flex">
         <div class="col-6 pl-0">
 
-          <div class="dropdown y-dropdown">
+          <select id="category" class="form-control">
+            <option v-for="(item, value) in categories" value="calendar" :data-image="item.image">
+              {{ item.name }}
+            </option>
+          </select>
 
-            <button class="btn dropdown-toggle" type="button" id="y-category" data-toggle="dropdown">
-              <div class="left">
-                <i class="fa fa-user"></i>
-                <span>Sains</span>
-              </div>
-            </button>
-
-            <div class="dropdown-menu" aria-labelledby="y-category">
-              <a v-for="(item, value) in categories" class="dropdown-item" href="#">
-                <i class="fa fa-user mr-2"></i>
-                <span>{{ item.name }}</span>
-              </a>
-            </div>
-
-          </div>
         </div>
         <div class="col-6 pr-0">
           <div class="form-group y-form">
@@ -45,11 +34,11 @@
     <div class="col-sm-3 text-right">
       <button class="btn br-5 btn-green btn-lg mb-2">
         <span>Mainkan</span>
-        <i class="fa fa-play ml-2"></i>
+        <i class="fa fa-arrow-right ml-2"></i>
       </button>
       <button class="btn br-5 btn-primary btn-lg">
         <span>Demo</span>
-        <i class="fa fa-play ml-2"></i>
+        <i class="fa fa-play-circle ml-2"></i>
       </button>
     </div>
   </div>
@@ -89,7 +78,13 @@ export default {
 
   computed: {
     categories: function() {
-      return this.$store.state.yclass.categories
+      const categories = this.$store.state.yclass.categories
+      if (categories.length > 0) {
+        $(document).ready(function(){
+          $("#category").msDropDown()
+        })
+      }
+      return categories
     },
 
     myEntities: function() {

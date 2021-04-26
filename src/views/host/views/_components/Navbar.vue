@@ -1,9 +1,9 @@
 <template>
 <nav class="navbar navbar-light navbar-expand topbar static-top">
   <div class="container-fluid">
-    <a class="navbar-brand logo" href="#">
+    <router-link class="navbar-brand logo" tag="a" :to="{name: 'Dashboard'}">
       <img src="/assets/img/logo.svg">
-    </a>
+    </router-link>
     <!-- <button class="btn btn-link rounded-circle mr-3" type="button"><i class="fas fa-bars"></i></button> -->
     <ul class="nav navbar-nav flex-nowrap ml-auto">
       <!-- <li class="nav-item dropdown no-arrow"><a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#"><i class="fas fa-search"></i></a>
