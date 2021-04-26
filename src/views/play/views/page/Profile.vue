@@ -15,25 +15,33 @@
     </div>
     <div class="row wrapper">
       <div class="col flex-center">
-        <button class="btn y-btn-icon btn-sm btn-outline-light">
-          <i class="fa fa-youtube"></i>
-        </button>
+        <label for="file">
+          <span class="btn y-btn-icon btn-sm btn-outline-light">
+            <i class="fa fa-picture-o"></i>
+          </span>
+        </label>
+        <input @change="previewAvatar" hidden id="file" type="file" accept="image/*">
       </div>
       <div class="col flex-center">
         <div class="avatar-circle">
-          <img :src="data.avatar.image" alt="avatar">
+          <img
+            :src="data.avatar.imageBlob ? data.avatar.imageBlob : '/avatar/'+data.avatar.image"
+          alt="avatar">
         </div>
       </div>
       <div class="col flex-center">
-        <button class="btn y-btn-icon btn-sm btn-outline-light">
-          <i class="fa fa-youtube"></i>
-        </button>
+        <label for="camera">
+          <span class="btn y-btn-icon btn-sm btn-outline-light">
+            <i class="fa fa-camera"></i>
+          </span>
+          <input @change="previewAvatar" hidden id="camera" type="file" capture="camera" accept="image/*">
+        </label>
       </div>
     </div>
 
     <form @submit.prevent="register()">
       <div class="form-group y-form">
-        <input v-model="data.name" ref="kode" type="text" class="form-control form-control-sm play-form" placeholder="Masukan Nama Kamu" name="class-code">
+        <input required autocomplete="off" v-model="data.name" ref="kode" type="text" class="form-control form-control-sm play-form" placeholder="Masukan Nama Kamu" name="class-code">
       </div>
       <div class="w-100 text-center mt-5">
         <button class="btn btn-warning btn-sm btn-play" name="button">
@@ -65,7 +73,15 @@ export default {
     register() {
       const data = this.data
       data.id_session = this.$cookies.get('player_session').id_session,
-      this.$store.dispatch('player/register', data)
+      this.$store.dispatch('player/register', data).then(response => {
+        this.socket.emit('register', response)
+      })
+    },
+
+    previewAvatar(e) {
+      this.data.avatar.type = "custom"
+      this.data.avatar.image = e.target.files[0]
+      this.data.avatar.imageBlob = URL.createObjectURL(this.data.avatar.image)
     }
   },
 
@@ -79,6 +95,7 @@ export default {
         name: '',
         avatar: {
           type: 'default',
+          imageBlob: '',
           image: 'avatar1.png'
         }
       }

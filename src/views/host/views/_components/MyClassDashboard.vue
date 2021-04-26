@@ -102,8 +102,7 @@ export default {
         btn.removeAttribute('disabled')
         this.$cookies.set('play_session', {
           id: response.data.id,
-          ws_host: response.data.ws_channel + 'host',
-          ws_play: response.data.ws_channel + 'play'
+          ws_channel: response.data.ws_channel
         }, '1d')
         this.$router.push({
           name: 'Play',

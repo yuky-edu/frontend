@@ -10,7 +10,7 @@
           </div>
           <div class="row">
 
-            <CardJoined v-for="(item, index) in players" :data="item" />
+            <CardJoined v-for="(item, index) in players" :key="index" :data="item" />
 
           </div>
         </div>
@@ -53,7 +53,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -82,11 +81,15 @@ export default {
   },
 
   methods: {
-    //
+    socketHandle() {
+      this.socket.on('register', data => {
+        this.players.unshift(data)
+      })
+    }
   },
 
   mounted() {
-
+    this.socketHandle()
   },
 
   data() {

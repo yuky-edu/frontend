@@ -1,5 +1,5 @@
 <template>
-<div class="col-md-6 col-lg-4 col-xl-3">
+<div class="c col-md-6 col-lg-4 col-xl-3">
   <div class="card y-list-card">
     <div class="card-body">
       <div class="kick">
@@ -30,11 +30,15 @@ export default {
         // TODO: TO socket
         console.log('Ter kick')
       })
+    },
+
+    effect() {
+      $(".c").fadeIn()
     }
   },
 
   mounted() {
-    //
+    this.effect()
   },
 
   data() {
@@ -43,6 +47,12 @@ export default {
     }
   },
 
-  props: ['data']
+  props: ['data', 'index']
 }
 </script>
+
+<style scoped>
+  .c {
+    display: none;
+  }
+</style>

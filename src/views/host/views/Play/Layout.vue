@@ -19,16 +19,10 @@ export default {
   },
 
   methods: {
-    socketHandle() {
-      this.socket.on('ping', () => {
-        console.log("KEPING");
-      })
-    }
+    //
   },
 
   mounted() {
-    this.socketHandle()
-
     window.$query = this.$route.query
 
     this.$store.dispatch('yclass/getMyClassByCode', $query.code)
@@ -40,7 +34,6 @@ export default {
 
   data() {
     return {
-      //
     }
   },
 

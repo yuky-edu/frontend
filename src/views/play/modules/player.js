@@ -76,18 +76,24 @@ export default {
         const fd = new FormData()
         fd.append('id_session', input.id_session)
         fd.append('name', input.name)
+        fd.append('avatar_type', input.avatar.type)
         fd.append('avatar', input.avatar.image)
         send = fd
       }
       else if (input.avatar.type == 'default') {
-        send = input
+        send = {
+          id_session: input.id_session,
+          name: input.name,
+          avatar: input.avatar.image,
+          avatar_type: input.avatar.type
+        }
       }
       return await Axios.post(Global.API_URL + '/plays/player/register', send)
         .then(({
           data
         }) => {
           console.log('API:register', data)
-          if (data.status) console.log(data)
+          if (data.status) return data.data
         })
     },
 
