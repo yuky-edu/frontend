@@ -81,6 +81,18 @@ export default {
         })
     },
 
+    updateClass: async function({
+      state,
+      dispatch
+    }, input) {
+      await axios.put(Global.API_URL + '/hosts/yclass/myclass/' + input.id, input)
+        .then(({
+          data
+        }) => {
+          if (data.status) return data.status
+        })
+    },
+
     deleteClass: async function({
       state,
       dispatch

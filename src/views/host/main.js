@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-// import socket from './socket'
+import socket from './socket'
 import Axios from 'axios'
 import moment from 'moment'
 import router from './router'
@@ -14,7 +14,7 @@ require('@/plugin/host.js')
 Vue.use(vueCookies)
 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
 Vue.prototype.axios = Axios
-// Vue.prototype.socket = socket
+Vue.prototype.socket = socket
 Vue.$cookies.config('7d')
 
 moment.locale('id');

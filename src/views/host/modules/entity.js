@@ -59,8 +59,7 @@ export default {
     getEntitiesByCodeClass: function({
       state,
       commit
-    }) {
-      const code = $params.code
+    }, code) {
       Axios.get(Global.API_URL + '/hosts/entity/myentity/yclass/by?code=' + code)
         .then(({
           data

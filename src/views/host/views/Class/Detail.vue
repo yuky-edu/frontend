@@ -4,31 +4,77 @@
   <div class="row">
     <div class="col-12">
       <div class="main-title">
-        <h1>
-          <span>{{ dataClass.title }}</span>
-          <i class="fa fa-pen edit-icon"></i>
-        </h1>
+        <div class="input-group w-75 border border-top-0 border-left-0 border-right-0">
+          <input disabled autocomplete="off" style="font-size: 30px; font-weight: 600" id="title" v-model="dataClass.title" type="text" class="yclass-input shadow-none bg-transparent border-0 form-control form-control-md" placeholder="Nama Kelas">
+          <div class="input-group-append">
+            <span class="input-group-text bg-transparent border-0">
+              <span v-if="dataClass.edit == 'title'">
+                <button class="btn btn-sm text-primary no-outline" @click="updateYclass()">
+                  <i class="fa fa-check"></i>
+                </button>
+              </span>
+              <span v-else>
+                <button class="btn btn-sm no-outline" @click="changeYclass('title')">
+                  <i class="fa fa-edit"></i>
+                </button>
+              </span>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-sm-8">
       <div class="right d-flex">
         <div class="col-6 pl-0">
-
           <select id="category" class="form-control">
-            <option v-for="(item, value) in categories" value="calendar" :data-image="item.image">
+            <option v-for="(item, value) in categories" :selected="dataClass.category == item.id ? true:false" :value="item.id" :data-image="item.image">
               {{ item.name }}
             </option>
           </select>
 
         </div>
         <div class="col-6 pr-0">
-          <div class="form-group y-form">
-            <input v-model="dataClass.code" type="text" class="form-control form-control-md" placeholder="Kode Kelas">
+          <div class="form-group y-form border">
+            <div class="input-group">
+              <input disabled autocomplete="off" id="code" v-model="dataClass.code" type="text" class="yclass-input shadow-none bg-transparent border-0 form-control form-control-md" placeholder="Kode Kelas">
+              <div class="input-group-append">
+                <span class="input-group-text bg-transparent border-0">
+                  <span v-if="dataClass.edit == 'code'">
+                    <button class="btn btn-sm text-primary no-outline" @click="updateYclass()">
+                      <i class="fa fa-check"></i>
+                    </button>
+                  </span>
+                  <span v-else>
+                    <button class="btn btn-sm no-outline" @click="changeYclass('code')">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                  </span>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="form-group y-form mt-3">
-        <textarea v-model="dataClass.description" class="form-control" rows="3" placeholder="Ketik Deskripsi Kelas Disini..."></textarea>
+        <div class="form-group y-form border">
+          <div class="input-group">
+            <textarea disabled id="description" v-model="dataClass.description" class="yclass-input shadow-none bg-transparent border-0 form-control" rows="3" placeholder="Ketik Deskripsi Kelas Disini..."></textarea>
+            <div class="input-group-append">
+              <span class="input-group-text bg-transparent border-0">
+                <span v-if="dataClass.edit == 'description'">
+                  <button class="no-outline btn btn-sm text-primary" @click="updateYclass()">
+                    <i class="fa fa-check"></i>
+                  </button>
+                </span>
+                <span v-else>
+                  <button class="btn btn-sm no-outline" @click="changeYclass('description')">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-sm-3 text-right">
@@ -69,7 +115,6 @@
     </div>
   </div>
 
-
 </div>
 </template>
 
@@ -78,13 +123,7 @@ export default {
 
   computed: {
     categories: function() {
-      const categories = this.$store.state.yclass.categories
-      if (categories.length > 0) {
-        $(document).ready(function(){
-          $("#category").msDropDown()
-        })
-      }
-      return categories
+      return this.$store.state.yclass.categories
     },
 
     myEntities: function() {
@@ -98,14 +137,25 @@ export default {
 
   methods: {
     getEntity() {
-      this.$store.dispatch('entity/getEntitiesByCodeClass')
+      this.$store.dispatch('entity/getEntitiesByCodeClass', $params.code)
     },
 
     loadDataClass() {
       const myClass = this.$store.state.yclass.myClass
       const data = myClass.find(data => data.code == $params.code)
       // console.log(data)
-      if (data) this.dataClass = data
+      if (data) {
+        this.dataClass.id = data.id
+        this.dataClass.title = data.title
+        this.dataClass.description = data.description
+        this.dataClass.code = data.code
+        this.dataClass.category = data.yclass_category.id
+
+        // Run msdropdown
+        $(document).ready(function(){
+          $("#category").msDropDown()
+        })
+      }
     },
 
     createQuestion() {
@@ -142,24 +192,72 @@ export default {
       })
     },
 
+    changeYclass(type) {
+      this.closeChange()
+      $('#' + type).removeClass('bg-transparent').removeAttr('disabled').focus()
+      this.dataClass.edit = type
+    },
+
+    closeChange() {
+      this.dataClass.edit = ''
+      $('.yclass-input').addClass('bg-transparent')
+      $('.yclass-input').attr('disabled', 'disabled')
+    },
+
+    updateYclass() {
+      const myClass = this.$store.state.yclass.myClass
+      const data = myClass.find(data => data.code == $params.code)
+      const value = this.dataClass[this.dataClass.edit]
+      const key = Object.keys(this.dataClass).find(key => this.dataClass[key] === value);
+      if (value !== data[key]) {
+        const id = this.dataClass.id
+        this.$store.dispatch('yclass/updateClass', {
+          id,
+          [key]: value
+        }).then(() => {
+          if (key == 'code') {
+            this.$router.push({name: 'ClassDetail', params: {code: value}})
+            // BUG: entities not updated
+          }
+        })
+      }
+      this.closeChange()
+    },
+
+    handleUpdateCategory() {
+      const _this = this
+      $("#category").change(function(){
+        const id = _this.dataClass.id
+        _this.$store.dispatch('yclass/updateClass', {
+          id,
+          yclass_category: this.value
+        })
+      })
+    }
+
+  },
+
+  beforeMount() {
+    window.$params = this.$route.params
+    window.$query = this.$route.query
+    this.getEntity()
   },
 
   mounted() {
-    window.$params = this.$route.params
-    window.$query = this.$route.query
-
-    this.getEntity()
     this.loadDataClass()
+    this.handleUpdateCategory()
   },
 
   data() {
     return {
       dataClass: {
-        title: 'Nama Kelas',
+        id: '',
+        title: '',
         code: '',
         description: '',
         category: 0,
-      },
+        edit: ''
+      }
     }
   },
 
@@ -175,3 +273,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .no-outline, .no-outline:hover {
+    outline: none;
+  }
+</style>
