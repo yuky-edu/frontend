@@ -152,7 +152,7 @@ export default {
         this.dataClass.category = data.yclass_category.id
 
         // Run msdropdown
-        $(document).ready(function(){
+        $(document).ready(function() {
           $("#category").msDropDown()
         })
       }
@@ -216,8 +216,17 @@ export default {
           [key]: value
         }).then(() => {
           if (key == 'code') {
-            this.$router.push({name: 'ClassDetail', params: {code: value}})
-            // BUG: entities not updated
+            data.code = value
+            this.$router.push({
+              name: 'ClassDetail',
+              params: {
+                code: value
+              }
+            })
+            window.$params = this.$route.params
+            window.$query = this.$route.query
+            this.loadDataClass()
+            this.getEntity()
           }
         })
       }
@@ -226,7 +235,7 @@ export default {
 
     handleUpdateCategory() {
       const _this = this
-      $("#category").change(function(){
+      $("#category").change(function() {
         const id = _this.dataClass.id
         _this.$store.dispatch('yclass/updateClass', {
           id,
@@ -275,7 +284,8 @@ export default {
 </script>
 
 <style scoped>
-  .no-outline, .no-outline:hover {
-    outline: none;
-  }
+.no-outline,
+.no-outline:hover {
+  outline: none;
+}
 </style>
