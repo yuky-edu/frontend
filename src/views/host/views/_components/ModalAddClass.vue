@@ -90,7 +90,7 @@ export default {
         title: 'Kelas Tanpa Nama',
         code: '',
         description: '',
-        category: 0,
+        category: 1,
       }
     }
   },
