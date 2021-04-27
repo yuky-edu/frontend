@@ -12,6 +12,7 @@ require('./style/main.scss').default
 Vue.prototype.axios = require('axios').default
 Vue.prototype.Nprogress = Nprogress
 Vue.prototype.socket = socket
+Vue.prototype.TOKEN = Global.TOKEN
 Vue.use(vueCookies)
 
 Vue.config.productionTip = false

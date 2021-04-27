@@ -60,14 +60,12 @@
                     </div>
                   </div>
 
-                  <router-link :to="{ name: 'Play'}">
-                    <button class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
-                      <span>Mainkan</span>
-                      <span class="icon">
-                        <i class="fas fa-chevron-right"></i>
-                      </span>
-                    </button>
-                  </router-link>
+                  <button @click="createSession(item, index)" ref="btnPlay" class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
+                    <span>Mainkan</span>
+                    <span class="icon">
+                      <i class="fas fa-chevron-right"></i>
+                    </span>
+                  </button>
                 </td>
               </tr>
 
@@ -122,6 +120,27 @@ export default {
 
     deleteClass(id) {
       this.$store.dispatch('yclass/deleteClass', id)
+    },
+
+    createSession: function(data, index) {
+      const btn = this.$refs.btnPlay[index]
+      btn.setAttribute('disabled', true)
+      this.$store.dispatch('yclass_session/createSession', {
+        id_yclass: data.id
+      }).then(response => {
+        btn.removeAttribute('disabled')
+        this.$cookies.set('play_session', {
+          id: response.data.id,
+          ws_channel: response.data.ws_channel
+        }, '1d')
+        this.$router.push({
+          name: 'Play',
+          query: {
+            code: data.code,
+            page: 'waiting'
+          }
+        })
+      })
     }
   },
 

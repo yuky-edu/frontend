@@ -74,12 +74,9 @@ export default {
           }, '1d')
 
           this.$router.push({
-            name: 'LayoutPlaying',
+            name: 'Profile',
             params: {
               code: response.data.yclass.code
-            },
-            query: {
-              page: 'profile'
             }
           })
         } else if (response.errCode == 'notFound') {

@@ -2,7 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Join from './views/Join'
-import LayoutPlaying from './views/LayoutPlaying'
+import Profile from './views/Profile'
+import Waiting from './views/AfterToken/Waiting'
+import LayoutToken from './views/LayoutToken'
 
 Vue.use(VueRouter)
 
@@ -13,10 +15,24 @@ const routes = [
     component: Join
   },
   {
-    path: '/:code',
-    name: 'LayoutPlaying',
-    component: LayoutPlaying
+    path: '/:code/profile',
+    name: 'Profile',
+    component: Profile
   },
+  {
+    path: '/:code',
+    component: LayoutToken, // After player have token
+    beforeEnter: function (to, from, next) {
+      next()
+    },
+    children: [
+      {
+        path: 'wait',
+        name: 'WaitingRoom',
+        component: Waiting
+      }
+    ]
+  }
 ]
 
 const router = new VueRouter({

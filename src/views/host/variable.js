@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Global from '/yglobal'
 
+Global['TOKEN'] = 'token'
+
 Global['CLASS'] = {
   /**
    * Add entity data in state.

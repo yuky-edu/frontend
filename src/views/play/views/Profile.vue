@@ -11,7 +11,8 @@
   <div class="body">
     <div class="text-center text-white mt-5 mb-4">
       <p>Anda Akan Bergabung Ke Kelas 🏆</p>
-      <h2>US-AGAMA ISLAM</h2>
+      <h2 class="m-0">{{yclass.title}}</h2>
+      <div><i class="fa fa-info-circle"></i> {{yclass.description}}</div>
     </div>
     <div class="row wrapper">
       <div class="col flex-center">
@@ -72,9 +73,24 @@ export default {
 
     register() {
       const data = this.data
+      let tokenName = this.TOKEN
       data.id_session = this.$cookies.get('player_session').id_session,
       this.$store.dispatch('player/register', data).then(response => {
+        this.$cookies.set(tokenName, response.token)
         this.socket.emit('register', response)
+      }).then(() => {
+        this.$router.push({
+          name: 'WaitingRoom',
+          params: {
+            code: this.$route.params.code
+          }
+        })
+      })
+    },
+
+    getYclass() {
+      this.axios.get(this.API_URL + '/plays/yclass/code/' + this.$route.params.code).then(res => {
+        if (res.data.status) this.yclass = res.data.data
       })
     },
 
@@ -86,19 +102,21 @@ export default {
   },
 
   mounted() {
+    this.getYclass()
     this.randomAvatar()
   },
 
   data() {
     return {
       data: {
-        name: '',
+        name: 'Muhammad Tegar Santosaputra',
         avatar: {
           type: 'default',
           imageBlob: '',
           image: 'avatar1.png'
         }
-      }
+      },
+      yclass: ''
     }
   },
 }

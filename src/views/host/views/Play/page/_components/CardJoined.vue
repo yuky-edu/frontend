@@ -27,8 +27,7 @@ export default {
     kickPlayer() {
       this.$store.dispatch('player/kickPlayer', this.data.id)
       .then( status => {
-        // TODO: TO socket
-        console.log('Ter kick')
+        this.socket.emit('kick', this.data.id)
       })
     },
 

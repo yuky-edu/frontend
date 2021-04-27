@@ -12,7 +12,8 @@ export default {
   namespaced: true,
 
   state: {
-    socket: {}
+    socket: {},
+    myInfo: ''
   },
 
   mutations: {
@@ -33,14 +34,6 @@ export default {
         })
     },
 
-    /*
-
-      this.$store.dispatch('player/updatePlayer', {
-        name: 'UDIN',
-        avatar: e.target.files[0]
-      })
-
-     */
     updatePlayer: async function({
       state
     }, input) {
@@ -56,18 +49,6 @@ export default {
         })
     },
 
-    /*
-
-      this.$store.dispatch('player/register', {
-        id_session: 6,
-        name: 'UDIN',
-        avatar: {
-        type: 'default/custom',
-        image: ''
-        }
-      })
-
-     */
     register: async function({
       state
     }, input) {
@@ -92,10 +73,30 @@ export default {
         .then(({
           data
         }) => {
-          console.log('API:register', data)
-          if (data.status) return data.data
+          if (data.status) {
+            state.myInfo = data.data
+            return data.data
+          }
         })
     },
+
+    getMyInfo: async function({
+      state
+    }, input) {
+      return await Axios.get(Global.API_URL + '/plays/player/myInfo', {
+        headers: {
+          Authorization: 'Bearer ' + window.$cookies.get(Global.TOKEN)
+        }
+      })
+        .then(({
+          data
+        }) => {
+          if (data.status) {
+            state.myInfo = data.data
+          }
+        })
+    },
+
 
 
   }

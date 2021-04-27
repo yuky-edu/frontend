@@ -15,8 +15,8 @@ Vue.use(vueCookies)
 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
 Vue.prototype.axios = Axios
 Vue.prototype.socket = socket
-Vue.prototype.TOKEN = Global.TOKEN
 Vue.prototype.API_URL = Global.API_URL
+Vue.prototype.TOKEN = Global.TOKEN
 Vue.$cookies.config('7d')
 
 moment.locale('id');

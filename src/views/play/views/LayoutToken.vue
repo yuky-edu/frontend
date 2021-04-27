@@ -1,8 +1,6 @@
 <template>
-<div id="layout-playing">
-
-  <Profile />
-
+<div id="layout-token">
+  <router-view/>
 </div>
 </template>
 
@@ -14,13 +12,16 @@ export default {
   },
 
   methods: {
-    ping() {
-      this.socket.emit('ping')
-    }
+    //
+  },
+
+  beforeMount() {
+    this.$store.dispatch('yclass_session/getMySession')
+    this.$store.dispatch('player/getMyInfo')
   },
 
   mounted() {
-    this.ping()
+    //
   },
 
   data() {
@@ -28,9 +29,5 @@ export default {
       // player_session: this.$cookies.get('player_session')
     }
   },
-
-  components: {
-    Profile: require('./page/Profile').default
-  }
 }
 </script>
