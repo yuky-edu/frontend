@@ -41,10 +41,28 @@ export default {
          */
         if (data.length == 1)
           myEntity[key].push(data[0])
-        else
+        else{
+          myEntity = {}
           Vue.set(myEntity, key, data)
+          console.log(myEntity)
+        }
       }
       // console.log(myEntity)
+    },
+
+    /**
+     * Remove entity data in state.
+     *
+     * @param Object Master data entity in state
+     * @param Int Id entity
+     */
+    removeEntity: ({
+      myEntity
+    }, id) => {
+      const key = 'entity_' + $params.code
+      const data = myEntity[key]
+      const index = Global.CLASS.searchEntity(data, id)
+      data.splice(index, 1)
     },
 
   },
@@ -147,15 +165,15 @@ export default {
      * @param Int id entity
      */
     removeEntityById: function({
-      state
+      state, commit
     }, id) {
       Axios.delete(Global.API_URL + '/hosts/entity/' + id)
         .then(({
           data
         }) => {
           if (data.status) {
-            console.log('API:removeEntityById', data)
-            Global.CLASS.removeEntity(state.myEntity, id)
+            console.log('API:removeEntityById', data) //
+            commit('removeEntity', id)
           }
         })
     },

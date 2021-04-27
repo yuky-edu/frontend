@@ -13,19 +13,6 @@ Global['CLASS'] = {
   },
 
   /**
-   * Remove entity data in state.
-   *
-   * @param Object Master data entity in state
-   * @param Int Id entity
-   */
-  removeEntity: function(myEntity, id) {
-    const key = 'entity_' + $params.code
-    const data = myEntity[key]
-    const index = this.searchEntity(data, id)
-    data.splice(index, 1)
-  },
-
-  /**
    * Search entity by id entity.
    *
    * @param Array Entity data
