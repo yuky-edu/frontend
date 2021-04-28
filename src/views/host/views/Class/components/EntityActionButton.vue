@@ -1,7 +1,7 @@
 <template>
 <div class="entity-action-button col question-action text-center">
 
-  <router-link :to="{name: 'EditEntityLayout', params: {code: $route.params.code, id: data.id}, query: {type: type}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
+  <router-link :to="{name: 'EditEntityLayout', params: {code: $route.params.code, id_entity: data.id}, query: {type: type}}" class="btn btn-warning btn-lg y-btn-icon-only shadow waves-effect waves-light mb-3">
     <i class="fa fa-pen-alt"></i>
   </router-link>
 

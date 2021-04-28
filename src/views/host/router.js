@@ -48,7 +48,7 @@ const routes = [{
         name: 'ClassDetail',
         component: ClassDetail
       },{
-        path: ':code/:id',
+        path: ':code/:id_entity',
         name: 'EditEntityLayout',
         component: EditEntityLayout
       }]

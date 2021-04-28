@@ -13,7 +13,7 @@
 
             <div class="question-form">
               <div class="form-group y-form">
-                <textarea v-model="data.theory" class="form-control" rows="3" placeholder="Ketik Soal Kamu Disini..."></textarea>
+                <textarea v-model="data.theory" class="form-control" rows="3" placeholder="Deskripsikan Materi..."></textarea>
               </div>
             </div>
 
@@ -30,7 +30,7 @@
           <div class="card-body">
             <div class="action-button">
               <button @click="updateTheory()" class="btn btn-lg btn-blue shadow btn-block mb-3 waves-effect waves-light">
-                <span>Simpan Soal</span>
+                <span>Simpan Materi</span>
               </button>
               <router-link :to="{name: 'ClassDetail', params: {code: $route.params.code}}" class="btn btn-lg btn-danger shadow btn-block mb-3 waves-effect waves-light">
                 <span>Kembali</span>
@@ -59,7 +59,7 @@ export default {
       console.log(data)
       this.$store.dispatch('entity/updateEntity', {
         input: data,
-        id: $params.id
+        id: $params.id_entity
       })
     },
 
@@ -80,7 +80,7 @@ export default {
       if (entities) {
         this.data = JSON.parse(
           JSON.stringify(
-            entities.find(data => data.id == $params.id)
+            entities.find(data => data.id == $params.id_entity)
           )
         )
         // console.log(this.data)

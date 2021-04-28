@@ -26,7 +26,7 @@
                       {{ item.label}}
                     </button>
                     <div class="form-group y-form">
-                      <input v-model="item.value" type="text" class="form-control form-control-md" placeholder="Ketik Soal Kamu Disini...">
+                      <input v-model="item.value" type="text" class="form-control form-control-md" placeholder="Deskripsikan Soal...">
                     </div>
                     <div class="y-action">
                       <i v-if="data.answer.length > 2" @click="removeAnswer(index)" class="fa fa-times"></i>
@@ -83,10 +83,16 @@ export default {
   methods: {
     updateEntity() {
       const data = this.rebuildBeforeSave(this.data)
-      console.log(data)
       this.$store.dispatch('entity/updateEntity', {
         input: data,
-        id: $params.id
+        id: $params.id_entity
+      }).then(res => {
+        this.$router.push({
+          name: 'ClassDetail',
+          params: {
+            code: $params.code
+          }
+        })
       })
     },
 
@@ -114,7 +120,7 @@ export default {
       if (entities) {
         this.data = JSON.parse(
           JSON.stringify(
-            entities.find(data => data.id == $params.id)
+            entities.find(data => data.id == $params.id_entity)
           )
         )
       }

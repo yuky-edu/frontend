@@ -11,7 +11,10 @@
           <router-link :to="{name: 'ClassList'}">Kelas</router-link>
         </li>
         <li v-if="$route.params.code" class="breadcrumb-item">
-          <router-link class="active" :to="{name: 'ClassDetail', params: {code: $route.params.code}}">{{$route.params.code}}</router-link>
+          <router-link :to="{name: 'ClassDetail', params: {code: $route.params.code}}">{{$route.params.code}}</router-link>
+        </li>
+        <li v-if="$route.params.id_entity" class="breadcrumb-item">
+          Soal & Materi
         </li>
       </ol>
 

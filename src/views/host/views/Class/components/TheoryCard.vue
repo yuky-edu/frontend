@@ -17,7 +17,7 @@
               </button>
             </div>
             <div class="d-flex w-100">
-              <div class="col-10">
+              <div class="col-10 ctn">
                 {{ data.theory }}
               </div>
               <div class="col-2">
@@ -68,3 +68,15 @@ export default {
   props: ['data', 'number']
 }
 </script>
+
+<style scoped>
+  .ctn {
+    height: 250px;
+    max-height: 250px;
+    overflow: scroll;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+  }
+</style>

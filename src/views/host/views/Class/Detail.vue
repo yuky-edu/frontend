@@ -96,8 +96,8 @@
 
 
 
-  <div v-if="!myEntities.length" class="container text-center mt-3">
-    <h1>Tidak ada soal.</h1>
+  <div v-if="!myEntities.length" class="alert alert-warning shadow-sm text-center my-3">
+    <h1>Belum ada materi dan soal di kelas ini.</h1>
   </div>
 
   <div class="row">
@@ -162,7 +162,7 @@ export default {
       const idClass = this.dataClass.id
       this.$store.dispatch('entity/createEntity', {
         id_yclass: idClass,
-        question: 'Soal masih kosong!',
+        question: '(soal kosong)',
         a1: 'Pilihan Jawaban 1',
         a2: 'Pilihan Jawaban 2',
         correct: 'a1',
@@ -174,7 +174,7 @@ export default {
       const idClass = this.dataClass.id
       this.$store.dispatch('entity/createEntity', {
         id_yclass: idClass,
-        theory: 'Materi masih kosong!',
+        theory: '(materi kosong)',
         type: 't'
       }).then(data => this.redirectAftarCreateEntity(data.id, 'theory'))
     },
