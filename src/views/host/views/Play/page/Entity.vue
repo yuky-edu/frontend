@@ -99,11 +99,10 @@
             <span>Pengikisan</span>
           </div>
         </div>
-
       </div>
     </div>
   </div>
-
+{{entity}}
 </div>
 </template>
 
@@ -111,20 +110,48 @@
 export default {
 
   computed: {
-    //
+    entities: function() {
+      return this.$store.state.entity.myEntity["entity_" + $params.code]
+    },
+    runningSession: function() {
+      return this.$store.state.yclass_session.runningSession
+    }
   },
 
   methods: {
-    //
+    getEntity() {
+      this.entity.data = this.entities[this.entity.index]
+    },
+    getIndexEntity() {
+      this.entity.index = this.runningSession.index_entity
+    },
+    handleSocket() {
+      // Send entity now
+      this.socket.on('reqEntity', () => {
+        this.socket.emit('resEntity', this.entity.data)
+      })
+    }
+  },
+
+  watch: {
+    'entity.index': function(v) {
+      this.getEntity()
+    }
   },
 
   mounted() {
-    //
+    this.handleSocket()
+    this.getIndexEntity()
+    this.getEntity()
+
   },
 
   data() {
     return {
-      //
+      entity: {
+        index: '',
+        data: ''
+      }
     }
   },
 }

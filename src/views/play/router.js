@@ -21,17 +21,11 @@ const routes = [
   },
   {
     path: '/:code',
+    name: 'LayoutToken',
     component: LayoutToken, // After player have token
     beforeEnter: function (to, from, next) {
       next()
-    },
-    children: [
-      {
-        path: 'wait',
-        name: 'WaitingRoom',
-        component: Waiting
-      }
-    ]
+    }
   }
 ]
 

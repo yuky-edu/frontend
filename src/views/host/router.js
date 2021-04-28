@@ -53,7 +53,7 @@ const routes = [{
         component: EditEntityLayout
       }]
   }, {
-    path: 'play',
+    path: 'play/:code',
     name: 'Play',
     component: PlayLayout,
     meta: {

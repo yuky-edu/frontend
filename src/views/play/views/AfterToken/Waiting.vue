@@ -2,20 +2,15 @@
 <div id="waiting">
 
   <div class="header">
-    <a class="btn y-btn btn-outline-light btn-xs" href="/play#/joined">
-      <i class="fa fa-arrow-left mr-2"></i>
-      <span>Kembali</span>
+    <a class="btn y-btn btn-outline-light btn-xs" href="#">
+      <i class="fa fa-check mr-2"></i>
+      <span>Kamu sudah di dalam kelas!</span>
     </a>
-
-    <a class="btn y-btn btn-outline-light btn-xs ml-2" href="/play#/jawab">
-      <span>Halaman Jawab</span>
-    </a>
-
   </div>
 
   <div class="body">
 
-    <div class="avatar flex-center">
+    <div class="avatar mt-5 flex-center">
       <div class="avatar-circle">
         <img :src="myInfo.avatar" alt="">
       </div>
@@ -30,7 +25,7 @@
       <div class="count">
         <h3>{{totalMyFriend}} <i class="fa fa-times ml-3"></i></h3>
       </div>
-      <p>Teman Anda Telah Bergabung</p>
+      <p>teman kamu telah bergabung</p>
     </div>
 
   </div>
@@ -62,6 +57,26 @@ export default {
     },
     addFriend() {
       this.totalMyFriend++
+    },
+    handleSocket() {
+      this.socket.on('startGame', () => {
+        this.$emit('changePage', 'Entity')
+      })
+      this.socket.on('addFriend', (id_player) => {
+        if (this.myInfo.id !== id_player) {
+          this.addFriend()
+        }
+      })
+      this.socket.on('kick', (id_player) => {
+        if (id_player == this.myInfo.id) {
+          alert('Anda telah dikick oleh host.')
+          this.$cookies.remove(this.TOKEN)
+          this.$cookies.remove('player_session')
+          this.$router.push({
+            name: 'Join'
+          })
+        }
+      })
     }
   },
 
@@ -70,21 +85,7 @@ export default {
   },
 
   mounted() {
-    this.socket.on('addFriend', (id_player) => {
-      if (this.myInfo.id !== id_player) {
-        this.addFriend()
-      }
-    })
-    this.socket.on('kick', (id_player) => {
-      if (id_player == this.myInfo.id) {
-        alert('Anda telah dikick oleh host.')
-        this.$cookies.remove(this.TOKEN)
-        this.$cookies.remove('player_session')
-        this.$router.push({
-          name: 'Join'
-        })
-      }
-    })
+    this.handleSocket()
   },
 
   data() {

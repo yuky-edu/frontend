@@ -1,6 +1,8 @@
 <template>
 <div id="layout-token">
-  <router-view/>
+  <WaitingRoom v-if="page == 'Waiting'" @changePage="onChangePage"/>
+  <Entity v-if="page == 'Entity'" @changePage="onChangePage"/>
+  <Loading v-if="page == 'Loading'"/>
 </div>
 </template>
 
@@ -12,22 +14,50 @@ export default {
   },
 
   methods: {
-    //
+    onChangePage(v) {
+      this.$nextTick(() => {
+        this.page = v
+      })
+    },
+
+    requestSessionInfo() {
+      this.socket.emit('reqSessionInfo')
+      this.socket.on('resSessionInfo', (data) => {
+        this.sessionInfo = data
+        console.log(data);
+        if (data.status == 'wait') {
+          this.$nextTick(() => {
+            this.page = 'Waiting'
+          })
+        }
+        else {
+          this.$nextTick(() => {
+            this.page = 'Entity'
+          })
+        }
+      })
+    }
   },
 
   beforeMount() {
-    this.$store.dispatch('yclass_session/getMySession')
     this.$store.dispatch('player/getMyInfo')
   },
 
   mounted() {
-    //
+    this.requestSessionInfo()
   },
 
   data() {
     return {
-      // player_session: this.$cookies.get('player_session')
+      page: 'Loading',
+      sessionInfo: ''
     }
   },
+
+  components: {
+    WaitingRoom: require('./AfterToken/Waiting').default,
+    Entity: require('./AfterToken/Entity').default,
+    Loading: require('./AfterToken/Loading').default,
+  }
 }
 </script>

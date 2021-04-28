@@ -12,15 +12,15 @@ export default {
   namespaced: true,
 
   state: {
-
+    runningSession: ''
   },
 
   actions: {
 
-    getSession: function({
+    getSession: async function({
       state
     }, id_session) {
-      axios.get(Global.API_URL + '/hosts/yclass_session', {
+      return await axios.get(Global.API_URL + '/hosts/yclass_session/single', {
           params: {
             id_session: id_session
           }
@@ -28,7 +28,7 @@ export default {
         .then(({
           data
         }) => {
-          if (data.status) console.log(data)
+          if (data.status) state.runningSession = data.data
         })
     },
 
@@ -39,7 +39,6 @@ export default {
         .then(({
           data
         }) => {
-          console.log('API:createSession', data)
           return data
         })
     },
@@ -47,11 +46,11 @@ export default {
     updateSession: async function({
       state
     }, input) {
-      await axios.put(Global.API_URL + '/hosts/yclass_session/' + input.id, input.data)
+      return await axios.put(Global.API_URL + '/hosts/yclass_session/' + input.id, input.data)
         .then(({
           data
         }) => {
-          if (data.status) console.log('sukses', data)
+          if (data.status) return data
         })
     },
 

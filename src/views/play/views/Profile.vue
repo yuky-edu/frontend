@@ -80,7 +80,7 @@ export default {
         this.socket.emit('register', response)
       }).then(() => {
         this.$router.push({
-          name: 'WaitingRoom',
+          name: 'LayoutToken',
           params: {
             code: this.$route.params.code
           }

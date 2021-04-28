@@ -1,5 +1,6 @@
 <template>
-<div id="jawab">
+<div id="entity">
+  {{entity}}
   <div class="w-100 text-center">
     <button class="btn btn-success-gradient btn-sm btn-play" name="button">
       <span>Lihat Soal</span>
@@ -29,7 +30,7 @@
 </template>
 
 <script>
-import PlayCard from './components/Card'
+import PlayCard from '../components/Card'
 
 export default {
 
@@ -38,16 +39,21 @@ export default {
   },
 
   methods: {
-    //
+    requestEntity() {
+      this.socket.emit('reqEntity')
+      this.socket.on('resEntity', (data) => {
+        this.entity = data
+      })
+    }
   },
 
   mounted() {
-    //
+    this.requestEntity()
   },
 
   data() {
     return {
-      //
+      entity: ''
     }
   },
 

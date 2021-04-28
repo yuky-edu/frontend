@@ -18,9 +18,14 @@ export default {
   methods: {
     playCounter(){
       this.animate = true
-      setInterval(() => {
+      var interval = setInterval(function() {
         this.counter--
-      }, 1500)
+        if (this.counter < 0) {
+          this.$emit('changePage', 'Entity')
+          this.socket.emit('startGame')
+          clearInterval(interval)
+        }
+      }.bind(this), 1500)
     }
   },
 
@@ -31,7 +36,7 @@ export default {
   data() {
     return {
       animate: false,
-      counter: 10,
+      counter: 3,
     }
   },
 }

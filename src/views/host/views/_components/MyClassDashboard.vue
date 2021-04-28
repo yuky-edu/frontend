@@ -73,8 +73,6 @@
   <!-- Modal -->
   <ModalAddClass />
 
-  {{yClass}}
-
 </div>
 </template>
 
@@ -106,9 +104,8 @@ export default {
         }, '1d')
         this.$router.push({
           name: 'Play',
-          query: {
-            code: data.code,
-            page: 'waiting'
+          params: {
+            code: data.code
           }
         })
       })

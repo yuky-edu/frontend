@@ -1,11 +1,11 @@
 <template>
 <div id="play-layout">
   <div class="bg-play">
-
-    <Question />
-
-    <!-- <Timer /> -->
-    <!-- <WaitingRoom /> -->
+{{sessionInfo}}
+    <Entity @changePage='onChangePage' v-if="page == 'Entity'"/>
+    <Timer @changePage='onChangePage' v-if="page == 'Timer'"/>
+    <WaitingRoom @changePage='onChangePage' v-if="page == 'Waiting'" />
+    <Loading v-if="page == 'Loading'" />
 
   </div>
 </div>
@@ -15,32 +15,71 @@
 export default {
 
   computed: {
-    //
+    runningSession: function() {
+      return this.$store.state.yclass_session.runningSession
+    }
+  },
+
+  watch: {
+    runningSession: function() {
+      this.sessionInfo = this.runningSession
+    }
   },
 
   methods: {
-    //
+    onChangePage(v) {
+      this.$nextTick(() => {
+        this.page = v
+      })
+    },
+
+    handleSocket() {
+      // Send session info
+      this.socket.on('reqSessionInfo', () => {
+        this.socket.emit('resSessionInfo', this.sessionInfo)
+      })
+    }
   },
 
   mounted() {
-    window.$query = this.$route.query
+    window.$params = this.$route.params
+    this.handleSocket()
 
-    this.$store.dispatch('yclass/getMyClassByCode', $query.code)
+    this.$store.dispatch('entity/getEntitiesByCodeClass', $params.code)
+    this.$store.dispatch('yclass/getMyClassByCode', $params.code)
     this.$store.dispatch(
       'player/getPlayersBySession',
       this.$cookies.get('play_session').id
     )
+    this.$store.dispatch(
+      'yclass_session/getSession',
+      this.$cookies.get('play_session').id
+    ).then(() => {
+      if (this.sessionInfo.status == 'wait') {
+        this.$nextTick(() => {
+          this.page = 'Waiting'
+        })
+      }
+      else {
+        this.$nextTick(() => {
+          this.page = 'Entity'
+        })
+      }
+    })
   },
 
   data() {
     return {
+      page: 'Loading',
+      sessionInfo: ''
     }
   },
 
   components: {
-    Question: require('./page/Question').default,
+    Entity: require('./page/Entity').default,
     Timer: require('./page/Timer').default,
     WaitingRoom: require('./page/WaitingRoom').default,
+    Loading: require('./page/Loading').default,
   }
 }
 </script>

@@ -43,7 +43,7 @@
           </div>
           <div class="card mt-4">
             <div class="card-body">
-              <button class="btn btn-block btn-lg br-5 shadow btn-blue waves-effect waves-light mb-3">
+              <button @click="startGame()" class="btn btn-block btn-lg br-5 shadow btn-blue waves-effect waves-light mb-3">
                 <span>Mulai Kelas</span>
               </button>
               <button class="btn btn-block btn-lg br-5 shadow btn-danger waves-effect waves-light">
@@ -86,6 +86,25 @@ export default {
         this.players.unshift(data)
         this.socket.emit('addFriend', data.id)
       })
+    },
+
+    refreshSession() {
+      this.$store.dispatch(
+        'yclass_session/getSession',
+        this.$cookies.get('play_session').id
+      )
+    },
+
+    startGame() {
+      this.$store.dispatch('yclass_session/updateSession', {
+        id: this.$cookies.get('play_session').id,
+        data: {
+          status: 'on_mode_open'
+        }
+      }).then(() => {
+          this.refreshSession()
+          this.$emit('changePage', 'Timer')
+        })
     }
   },
 
