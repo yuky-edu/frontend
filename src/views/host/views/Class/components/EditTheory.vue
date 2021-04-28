@@ -56,10 +56,16 @@ export default {
   methods: {
     updateTheory() {
       const data = this.rebuildBeforeSave(this.data)
-      console.log(data)
       this.$store.dispatch('entity/updateEntity', {
         input: data,
         id: $params.id_entity
+      }).then(res => {
+        this.$router.push({
+          name: 'ClassDetail',
+          params: {
+            code: $params.code
+          }
+        })
       })
     },
 
