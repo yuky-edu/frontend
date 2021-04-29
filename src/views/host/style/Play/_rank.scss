@@ -1,0 +1,60 @@
+#nav-theory {
+  padding-top: 98px;
+
+  .navbar-play {
+    padding: 16px 28px;
+  }
+
+  .nav-title {
+    font-family: 'rubik';
+    font-style: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: $white;
+  }
+}
+
+.list-rank {
+  li {
+    margin-bottom: 46px;
+    padding: 40px 80px 40px 40px;
+    background: $white;
+    box-shadow: 0 6px 0 #BDBDBD;
+    border-radius: 20px $im;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .player-wrapper {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #070744;
+      box-sizing: border-box;
+      margin-right: 24px;
+    }
+
+    .player-name {
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 33px;
+      color: #070744;
+    }
+  }
+
+  .badges-score {
+    background: #F8F8F8;
+    border: 1.5px solid #9892A9;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 33px;
+    color: #070744;
+    padding: 18px 40px;
+  }
+}

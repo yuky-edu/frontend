@@ -1,10 +1,10 @@
 <template>
 <div id="play-entity">
 
-  <CardQuestion v-if="entity.data.type == 'q'" :data="entity.data" />
-  <CardTheory v-if="entity.data.type == 't'" :data="entity.data" />
+  <CardQuestion v-if="entity.data.type == 'q'" :data="entity" />
+  <CardTheory v-if="entity.data.type == 't'" :data="entity" />
 
-  <!-- {{entity}} -->
+  {{entity}}
 </div>
 </template>
 
@@ -24,6 +24,10 @@ export default {
   },
 
   methods: {
+
+    debug() {
+      console.log("debug");
+    },
 
     getEntity() {
       this.entity.data = this.entities[this.entity.index]

@@ -1,6 +1,6 @@
 <template>
 <div id="nav-theory">
-  <nav class="navbar navbar-light navbar-expand topbar fixed-top">
+  <nav class="navbar navbar-play navbar-light navbar-expand topbar fixed-top">
     <div class="container-fluid">
 
       <div class="navbar-brand avatar-list" href="#">
@@ -31,11 +31,11 @@
         </li>
         <li class="nav-item no-arrow mx-1">
 
-          <button v-if="$parent.entity.index > 0" class="btn br-10 shadow btn-danger waves-effect waves-light" @click="$parent.previousEntity()">Sebelumnya</button>
+          <button v-if="data.index > 0" class="btn br-10 shadow btn-danger waves-effect waves-light" @click="$parent.$parent.previousEntity()">Sebelumnya</button>
 
-          <button  v-if="$parent.entity.index < $parent.entities.length - 1" class="btn br-10 shadow btn-green waves-effect waves-light ml-2" @click="$parent.nextEntity()">Selanjutnya</button>
+          <button  v-if="data.index < $parent.$parent.entities.length-1" class="btn br-10 shadow btn-green waves-effect waves-light ml-2" @click="$parent.$parent.nextEntity()">Selanjutnya</button>
 
-          <button v-else @click="$parent.nextEntity()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Selesai</button>
+          <button v-else @click="$parent.$parent.nextEntity()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Selesai</button>
 
         </li>
       </ul>
@@ -58,6 +58,8 @@ export default {
   mounted() {
     //
   },
+
+  props: ['data'],
 
   data() {
     return {
