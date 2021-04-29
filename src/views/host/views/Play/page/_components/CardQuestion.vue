@@ -2,7 +2,8 @@
 <div id="card-question">
   <div class="q-card">
     <div class="q-body">
-      <div class="q-media">
+
+      <div v-if="data.media.type" class="q-media">
         <div class="q-media-wrapper">
 
           <div v-if="data.media.type == 'image'">
@@ -25,6 +26,7 @@
 
         </div>
       </div>
+
       <div class="q-text container">
         {{ data.question }}
       </div>
