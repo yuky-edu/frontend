@@ -1,6 +1,6 @@
 <template>
 <div id="card-theory">
-  <NavTheory :data="data" />
+  <NavEntity :data="data" />
 
   <div class="e-card">
     <div class="e-body">
@@ -9,7 +9,7 @@
         <div class="e-media-wrapper">
 
           <div v-if="data.data.media.type == 'image'">
-            <img :src="data.media.path" alt="Yuky media">
+            <img :src="data.data.media.path" alt="Yuky media">
           </div>
 
           <div v-if="data.data.media.type == 'audio'">
@@ -21,7 +21,7 @@
 
           <div v-if="data.data.media.type == 'video'">
             <video controls>
-              <source :src="data.media.path" type="video/mp4">
+              <source :src="data.data.media.path" type="video/mp4">
               Your browser does not support HTML video.
             </video>
           </div>
@@ -60,7 +60,7 @@ export default {
   props: ['data'],
 
   components: {
-    NavTheory: require('./NavTheory').default,
+    NavEntity: require('./NavEntity').default,
   }
 }
 </script>

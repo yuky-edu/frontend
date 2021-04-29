@@ -5,6 +5,12 @@
   <div class="container">
     <ul class="list-group list-rank">
       <li v-for="(item, index) in [1,2,3,4,5,6]" class="list-group-item">
+        <div class="rank-number">
+          <span>1</span>
+        </div>
+        <div class="medal">
+          <img src="/assets/img/medal-1.png" alt="">
+        </div>
         <div class="player-wrapper">
           <div class="avatar-wrapper">
             <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">

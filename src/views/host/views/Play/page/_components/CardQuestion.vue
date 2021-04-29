@@ -1,7 +1,7 @@
 <template>
 <div id="card-question">
 
-  <NavQuestion :data="data" />
+  <NavEntity :data="data" />
 
   <div class="e-card">
     <div class="e-body">
@@ -35,9 +35,8 @@
     </div>
     <div class="answer-body">
       <div class="row">
-
         <div v-for="(item, index) in data.data.answer" class="col-xl-4 col-lg-6">
-          <div class="answer">
+          <div class="answer" :class="data.isCheckAnswer && data.data.answer[index].correct ? 'bg-success' : false">
             <button class="btn btn-sm">
               {{ item.label }}
             </button>
@@ -64,6 +63,10 @@ export default {
     }
   },
 
+  beforeMount() {
+    this.data.isCheckAnswer = false
+  },
+
   mounted() {
 
   },
@@ -77,7 +80,7 @@ export default {
   props: ['data'],
 
   components: {
-    NavQuestion: require('./NavQuestion').default,
+    NavEntity: require('./NavEntity').default,
   }
 }
 </script>

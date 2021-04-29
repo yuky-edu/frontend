@@ -1,5 +1,5 @@
 #nav-theory {
-  padding-top: 98px;
+  padding-top: 104px;
 
   .navbar-play {
     padding: 16px 28px;
@@ -24,6 +24,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+
+    .medal {
+      position: absolute;
+      top: -32px;
+      right: -60px;
+    }
+
+    .rank-number {
+      position: absolute;
+      padding: 12px 12px 12px 15px;
+      position: absolute;
+      width: 74px;
+      height: 57px;
+      left: -75px;
+      top: 50px;
+      background: #D8D4E2;
+      border-radius: 10px 0 0 10px;
+      font-weight: bold;
+      font-size: 28px;
+      line-height: 33px;
+      color: #070744;
+    }
   }
 
   .player-wrapper {

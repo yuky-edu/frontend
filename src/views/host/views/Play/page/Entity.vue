@@ -3,7 +3,6 @@
 
   <CardQuestion v-if="entity.data.type == 'q'" :data="entity" />
   <CardTheory v-if="entity.data.type == 't'" :data="entity" />
-
   {{entity}}
 </div>
 </template>
@@ -25,12 +24,12 @@ export default {
 
   methods: {
 
-    debug() {
-      console.log("debug");
-    },
-
     getEntity() {
       this.entity.data = this.entities[this.entity.index]
+    },
+
+    checkAnswer() {
+      this.entity.isCheckAnswer = true
     },
 
     getIndexEntity() {
@@ -57,6 +56,15 @@ export default {
       this.$store.dispatch('yclass_session/nextEntity', {
         id_session: this.runningSession.id,
         nextEntity: this.entity.index - 1
+      }).then(res => {
+        this.updateSession(res)
+      })
+    },
+
+    goToEntity(index) {
+      this.$store.dispatch('yclass_session/nextEntity', {
+        id_session: this.runningSession.id,
+        nextEntity: index
       }).then(res => {
         this.updateSession(res)
       })
@@ -99,7 +107,8 @@ export default {
     return {
       entity: {
         index: '',
-        data: ''
+        data: '',
+        isCheckAnswer: false
       }
     }
   },

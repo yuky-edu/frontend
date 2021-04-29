@@ -1,30 +1,64 @@
 <template>
 <div id="entity">
-  <div class="w-100 text-center">
-    <button class="btn btn-success btn-sm btn-play" name="button">
-      <span>Lihat Soal</span>
-    </button>
+
+  <div v-if="entity.type == 'q'" class="y-question">
+    <div class="w-100 text-center">
+      <button class="btn btn-success btn-sm btn-play" name="button">
+        <span>Lihat Soal</span>
+      </button>
+    </div>
+
+    <div class="w-100 text-white text-center mt-5">
+      <p>Klik di Jawaban yang Benar 👍</p>
+    </div>
+
+    <div class="row mt-5">
+      <div v-for="(item, index) in entity.answer" class="col-6">
+        <div class="play-card">
+          <div class="label-wrapper">
+            <div class="circle-wrapper" @click="selectCard()">
+              <h1>{{ item.label }}</h1>
+            </div>
+          </div>
+          <p class="answer">
+            {{ item.value }}
+          </p>
+          <div class="w-100 text-center">
+            <button class="btn btn-warning-gradient btn-xs btn-play" name="button">
+              <span>Selengkapnya</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="w-100 text-white text-center mt-5">
-    <p>Klik di Jawaban yang Benar 👍</p>
+  <div v-if="entity.type == 't'" class="y-theory">
+    <div class="container">
+      <div class="media-wrepper">
+        <div v-if="entity.media.type == 'image'">
+          <img :src="entity.media.path" class="img-fluid" alt="Yuky media">
+        </div>
+
+        <div v-if="entity.media.type == 'audio'">
+          <audio controls>
+            <source :src="entity.media.path" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
+        <div v-if="entity.media.type == 'video'">
+          <video controls>
+            <source :src="entity.media.path" type="video/mp4">
+            Your browser does not support HTML video.
+          </video>
+        </div>
+      </div>
+      <div v-html="entity.theory" class="text-wrapper"></div>
+    </div>
   </div>
 
-  <div class="row mt-5">
-    <div class="col-6">
-      <PlayCard/>
-    </div>
-    <div class="col-6">
-      <PlayCard/>
-    </div>
-    <div class="col-6">
-      <PlayCard/>
-    </div>
-    <div class="col-6">
-      <PlayCard/>
-    </div>
-  </div>
-  {{entity}}
+  <!-- {{entity}} -->
 
 </div>
 </template>

@@ -3,23 +3,14 @@
   <nav class="navbar navbar-play navbar-light navbar-expand topbar fixed-top">
     <div class="container-fluid">
 
-      <div class="navbar-brand avatar-list" href="#">
-        <div class="avatar-wrapper">
-          <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
-        </div>
-        <div class="avatar-wrapper">
-          <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
-        </div>
-        <div class="avatar-wrapper">
-          <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
-        </div>
-      </div>
-
-      <div class="more-list">
-        <button class="btn btn-link rounded-circle mr-3" type="button">
-          <i class="fas fa-bars"></i>
-        </button>
-        <span>24 Lainya</span>
+      <div class="navbar-brand w-25" href="#">
+        <select class="form-control" @change="changeIndex" v-model="data.index">
+          <option v-for="(item, index) in $parent.$parent.entities" :value="index">
+            <span v-if="item.question">{{index+1}}. {{item.question.substr(0, 10)}}</span>
+            <span v-if="item.theory">{{index+1}}. {{item.theory.substr(0, 10)}}</span>
+            ...
+          </option>
+        </select>
       </div>
 
       <ul class="nav navbar-nav flex-nowrap ml-auto">
@@ -38,7 +29,7 @@
           <button v-else @click="$parent.$parent.nextEntity()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Selesai</button>
 
         </li>
-        <li class="nav-item no-arrow mx-1">
+        <li class="nav-item no-arrow mx-1" v-if="data.data.type == 'q'">
           <button @click="$parent.$parent.checkAnswer()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Cek Jawaban</button>
         </li>
 
@@ -52,7 +43,11 @@
 export default {
 
   methods: {
-    //
+    changeIndex(e) {
+      let val = parseInt(e.target.value)
+      this.$parent.$parent.goToEntity(val)
+      this.data.index = val
+    }
   },
 
   mounted() {
