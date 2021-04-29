@@ -44,6 +44,9 @@ export default {
       this.socket.on('resEntity', (data) => {
         this.entity = data
       })
+      this.socket.on('rank', (data) => {
+        this.$emit('changePage', 'Score')
+      })
     }
   },
 

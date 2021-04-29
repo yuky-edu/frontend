@@ -54,5 +54,18 @@ export default {
         })
     },
 
+    nextEntity: async function({
+      state
+    }, data) {
+      return await axios.put(Global.API_URL + '/hosts/yclass_session/'+ data.id_session +'/entity', {
+          nextEntity: data.nextEntity
+        })
+        .then(({
+          data
+        }) => {
+          return data
+        })
+    },
+
   }
 }

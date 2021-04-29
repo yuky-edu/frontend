@@ -1,10 +1,10 @@
 <template>
 <div id="play-layout">
   <div class="bg-play">
-{{sessionInfo}}
     <Entity @changePage='onChangePage' v-if="page == 'Entity'"/>
     <Timer @changePage='onChangePage' v-if="page == 'Timer'"/>
     <WaitingRoom @changePage='onChangePage' v-if="page == 'Waiting'" />
+    <Rank @changePage='onChangePage' v-if="page == 'Rank'" />
     <Loading v-if="page == 'Loading'" />
 
   </div>
@@ -55,15 +55,27 @@ export default {
       'yclass_session/getSession',
       this.$cookies.get('play_session').id
     ).then(() => {
-      if (this.sessionInfo.status == 'wait') {
-        this.$nextTick(() => {
-          this.page = 'Waiting'
-        })
-      }
-      else {
-        this.$nextTick(() => {
-          this.page = 'Entity'
-        })
+      switch (this.sessionInfo.status) {
+        case 'wait':
+          this.$nextTick(() => {
+            this.page = 'Waiting'
+          })
+          break;
+        case 'off':
+          this.$nextTick(() => {
+            this.page = 'Rank'
+          })
+          break;
+        case 'on_mode_block':
+          this.$nextTick(() => {
+            this.page = 'Entity'
+          })
+          break;
+        case 'on_mode_open':
+          this.$nextTick(() => {
+            this.page = 'Entity'
+          })
+          break;
       }
     })
   },
@@ -80,6 +92,7 @@ export default {
     Timer: require('./page/Timer').default,
     WaitingRoom: require('./page/WaitingRoom').default,
     Loading: require('./page/Loading').default,
+    Rank: require('./page/Rank').default,
   }
 }
 </script>

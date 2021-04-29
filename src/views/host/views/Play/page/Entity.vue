@@ -31,7 +31,7 @@
           </div>
         </li>
         <li class="nav-item no-arrow mx-1">
-          <button class="btn br-10 shadow btn-green waves-effect waves-light">Selesai</button>
+          <button class="btn br-10 shadow btn-green waves-effect waves-light" @click="nextEntity()">Selanjutnya</button>
         </li>
 
       </ul>
@@ -130,12 +130,37 @@ export default {
       this.socket.on('reqEntity', () => {
         this.socket.emit('resEntity', this.entity.data)
       })
+    },
+    nextEntity() {
+      this.$store.dispatch('yclass_session/nextEntity', {
+        id_session: this.runningSession.id,
+        nextEntity: true
+      }).then(res => {
+        if (res.status) {
+          this.entity.index = res.index
+        }
+        else {
+          if (res.errCode == 'end') {
+            this.$store.dispatch('yclass_session/updateSession', {
+              id: this.$cookies.get('play_session').id,
+              data: {
+                status: 'off'
+              }
+            }).then(() => {
+                this.runningSession.status = 'off'
+                this.$emit('changePage', 'Rank')
+                this.socket.emit('rank')
+              })
+          }
+        }
+      })
     }
   },
 
   watch: {
     'entity.index': function(v) {
       this.getEntity()
+      this.socket.emit('resEntity', this.entity.data)
     }
   },
 
@@ -143,7 +168,6 @@ export default {
     this.handleSocket()
     this.getIndexEntity()
     this.getEntity()
-
   },
 
   data() {

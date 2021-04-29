@@ -2,6 +2,7 @@
 <div id="layout-token">
   <WaitingRoom v-if="page == 'Waiting'" @changePage="onChangePage"/>
   <Entity v-if="page == 'Entity'" @changePage="onChangePage"/>
+  <Score v-if="page == 'Score'" @changePage="onChangePage"/>
   <Loading v-if="page == 'Loading'"/>
 </div>
 </template>
@@ -24,16 +25,27 @@ export default {
       this.socket.emit('reqSessionInfo')
       this.socket.on('resSessionInfo', (data) => {
         this.sessionInfo = data
-        console.log(data);
-        if (data.status == 'wait') {
-          this.$nextTick(() => {
-            this.page = 'Waiting'
-          })
-        }
-        else {
-          this.$nextTick(() => {
-            this.page = 'Entity'
-          })
+        switch (this.sessionInfo.status) {
+          case 'wait':
+            this.$nextTick(() => {
+              this.page = 'Waiting'
+            })
+            break;
+          case 'off':
+            this.$nextTick(() => {
+              this.page = 'Score'
+            })
+            break;
+          case 'on_mode_block':
+            this.$nextTick(() => {
+              this.page = 'Entity'
+            })
+            break;
+          case 'on_mode_open':
+            this.$nextTick(() => {
+              this.page = 'Entity'
+            })
+            break;
         }
       })
     }
@@ -58,6 +70,7 @@ export default {
     WaitingRoom: require('./AfterToken/Waiting').default,
     Entity: require('./AfterToken/Entity').default,
     Loading: require('./AfterToken/Loading').default,
+    Score: require('./AfterToken/Score').default,
   }
 }
 </script>
