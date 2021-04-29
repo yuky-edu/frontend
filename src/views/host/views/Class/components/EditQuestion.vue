@@ -13,7 +13,7 @@
 
             <div class="question-form">
               <div class="form-group y-form">
-                <textarea v-model="data.question" class="form-control" rows="3" placeholder="Ketik Soal Kamu Disini..."></textarea>
+                <textarea v-model="data.question" class="form-control" rows="3" placeholder="Deskripsikan soal..."></textarea>
               </div>
             </div>
 
@@ -26,7 +26,7 @@
                       {{ item.label}}
                     </button>
                     <div class="form-group y-form">
-                      <input v-model="item.value" type="text" class="form-control form-control-md" placeholder="Deskripsikan Soal...">
+                      <input v-model="item.value" type="text" class="form-control form-control-md" placeholder="Pilihan Jawaban...">
                     </div>
                     <div class="y-action">
                       <i v-if="data.answer.length > 2" @click="removeAnswer(index)" class="fa fa-times"></i>

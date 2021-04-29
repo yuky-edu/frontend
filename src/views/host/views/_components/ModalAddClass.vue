@@ -13,25 +13,25 @@
             <div class="col-12">
               <div class="form-group y-form">
                 Nama Kelas
-                <input autocomplete="off" v-model="input.title" ref="title" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Kelas" name="class-name">
+                <input required autocomplete="off" v-model="input.title" ref="title" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Kelas" name="class-name">
               </div>
             </div>
             <div class="col-12">
               <div class="form-group y-form">
                 Deskripsi
-                <input autocomplete="off" v-model="input.description" ref="description" type="text" class="form-control form-control-lg" placeholder="Masukan Deskripsi" name="class-name">
+                <input required autocomplete="off" v-model="input.description" ref="description" type="text" class="form-control form-control-lg" placeholder="Masukan Deskripsi" name="class-name">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group y-form">
                 Kode Kelas
-                <input v-model="input.code" ref="code" type="text" class="form-control form-control-lg" placeholder="Kode Kelas" name="class-name">
+                <input required v-model="input.code" ref="code" type="text" class="form-control form-control-lg" placeholder="Kode Kelas" name="class-name">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group y-form">
                 Kategori
-                <select v-model="input.category" class="form-control form-control-lg">
+                <select required v-model="input.category" class="form-control form-control-lg">
                   <option v-for="(item, index) in categories" :value="item.id">{{ item.name }}</option>
                 </select>
               </div>
