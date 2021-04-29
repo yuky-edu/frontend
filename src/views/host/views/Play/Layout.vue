@@ -6,7 +6,6 @@
     <WaitingRoom @changePage='onChangePage' v-if="page == 'Waiting'" />
     <Rank @changePage='onChangePage' v-if="page == 'Rank'" />
     <Loading v-if="page == 'Loading'" />
-
   </div>
 </div>
 </template>

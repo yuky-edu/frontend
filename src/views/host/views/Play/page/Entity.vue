@@ -38,71 +38,10 @@
     </div>
   </nav>
 
-  <div class="q-card">
-    <div class="q-body">
-      <div class="q-media">
-        <div class="q-media-wrapper">
-          <img src="/assets/img/images-media1.png" alt="Yuky media">
-        </div>
-      </div>
-      <div class="q-text container">
-        Dari Gambar Diatas Jelaskan Apa Perbedaan Reboisasi dan Konspirasi ?
-      </div>
-    </div>
-    <div class="answer-body">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="answer">
-            <button class="btn btn-sm">
-              A
-            </button>
-            <span>Pengikisan</span>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="answer">
-            <button class="btn btn-sm">
-              A
-            </button>
-            <span>Pengikisan</span>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="answer">
-            <button class="btn btn-sm">
-              A
-            </button>
-            <span>Pengikisan</span>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="answer">
-            <button class="btn btn-sm">
-              Z
-            </button>
-            <span>Pengikisan</span>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="answer">
-            <button class="btn btn-sm">
-              A
-            </button>
-            <span>Pengikisan</span>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="answer">
-            <button class="btn btn-sm">
-              A
-            </button>
-            <span>Pengikisan</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-{{entity}}
+  <CardQuestion v-if="entity.data.type == 'q'" :data="entity.data" />
+  <CardTheory v-if="entity.data.type == 't'" />
+
+  {{entity}}
 </div>
 </template>
 
@@ -110,27 +49,34 @@
 export default {
 
   computed: {
+
     entities: function() {
       return this.$store.state.entity.myEntity["entity_" + $params.code]
     },
+
     runningSession: function() {
       return this.$store.state.yclass_session.runningSession
     }
+
   },
 
   methods: {
+
     getEntity() {
       this.entity.data = this.entities[this.entity.index]
     },
+
     getIndexEntity() {
       this.entity.index = this.runningSession.index_entity
     },
+
     handleSocket() {
       // Send entity now
       this.socket.on('reqEntity', () => {
         this.socket.emit('resEntity', this.entity.data)
       })
     },
+
     nextEntity() {
       this.$store.dispatch('yclass_session/nextEntity', {
         id_session: this.runningSession.id,
@@ -138,8 +84,7 @@ export default {
       }).then(res => {
         if (res.status) {
           this.entity.index = res.index
-        }
-        else {
+        } else {
           if (res.errCode == 'end') {
             this.$store.dispatch('yclass_session/updateSession', {
               id: this.$cookies.get('play_session').id,
@@ -147,10 +92,10 @@ export default {
                 status: 'off'
               }
             }).then(() => {
-                this.runningSession.status = 'off'
-                this.$emit('changePage', 'Rank')
-                this.socket.emit('rank')
-              })
+              this.runningSession.status = 'off'
+              this.$emit('changePage', 'Rank')
+              this.socket.emit('rank')
+            })
           }
         }
       })
@@ -178,5 +123,10 @@ export default {
       }
     }
   },
+
+  components: {
+    CardQuestion: require('./_components/CardQuestion').default,
+    CardTheory: require('./_components/CardTheory').default,
+  }
 }
 </script>

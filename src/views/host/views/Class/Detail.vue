@@ -184,7 +184,7 @@ export default {
         name: 'EditEntityLayout',
         params: {
           code: $params.code,
-          id: id
+          id_entity: id
         },
         query: {
           type: type

@@ -1,8 +1,7 @@
 <template>
 <div id="entity">
-  {{entity}}
   <div class="w-100 text-center">
-    <button class="btn btn-success-gradient btn-sm btn-play" name="button">
+    <button class="btn btn-success btn-sm btn-play" name="button">
       <span>Lihat Soal</span>
     </button>
   </div>
@@ -25,6 +24,7 @@
       <PlayCard/>
     </div>
   </div>
+  {{entity}}
 
 </div>
 </template>
