@@ -1,6 +1,6 @@
 <template>
   <div>
-    HALAMAN PERANKINGAN
+    
   </div>
 </template>
 

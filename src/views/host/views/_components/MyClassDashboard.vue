@@ -32,8 +32,7 @@
                 </router-link>
               </td>
               <td class="text-regular text-16">
-                <i class="fa fa-user mr-2"></i>
-                <span>{{ item.yclass_category.name }}</span>
+                <span><img :src="item.category.image" :alt="item.category.name" width="25"> {{ item.category.name }}</span>
               </td>
               <td class="text-right">
                 <button @click="createSession(item, index)" ref="btnPlay" class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">

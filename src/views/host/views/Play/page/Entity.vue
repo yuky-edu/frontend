@@ -1,8 +1,5 @@
 <template>
-<div id="play-question">
-
-  <NavQuestion v-if="entity.data.type == 'q'" :data="entity.data" />
-  <NavTheory v-if="entity.data.type == 't'" :data="entity.data" />
+<div id="play-entity">
 
   <CardQuestion v-if="entity.data.type == 'q'" :data="entity.data" />
   <CardTheory v-if="entity.data.type == 't'" :data="entity.data" />
@@ -78,7 +75,7 @@ export default {
           })
         }
       }
-    }
+    },
   },
 
   watch: {
@@ -106,8 +103,6 @@ export default {
   components: {
     CardQuestion: require('./_components/CardQuestion').default,
     CardTheory: require('./_components/CardTheory').default,
-    NavQuestion: require('./_components/NavQuestion').default,
-    NavTheory: require('./_components/NavTheory').default,
   }
 }
 </script>

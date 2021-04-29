@@ -50,6 +50,7 @@ module.exports = {
   lintOnSave: false,
   devServer: {
     // host: '0.0.0.0',
-    host: '192.168.137.1',
+    // host: '192.168.137.1',
+    host: '192.168.137.236',
   },
 }

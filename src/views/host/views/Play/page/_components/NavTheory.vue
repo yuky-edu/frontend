@@ -1,6 +1,6 @@
 <template>
 <div id="nav-theory">
-  <nav class="navbar navbar-light navbar-expand topbar static-top">
+  <nav class="navbar navbar-light navbar-expand topbar fixed-top">
     <div class="container-fluid">
 
       <div class="navbar-brand avatar-list" href="#">

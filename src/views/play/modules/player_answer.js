@@ -20,20 +20,42 @@ export default {
   },
 
   actions: {
-
-    joinClass: async function({
+    /*
+      this.$store.dispatch('player_answer/answering', {
+        entity: 38,
+        answer: 'a1'
+      }).then(data => {
+        this.myAnswer = data.id
+      })
+   */
+    answering: async function({
       state
     }, input) {
-      return await Axios.post(Global.API_URL + '/plays/player/join', input)
+      return await Axios.post(Global.API_URL + '/plays/player_answer/' + input.entity, {
+        answer: input.answer
+      })
         .then(({
           data
         }) => {
-          console.log('API:joinClass', data)
-          return data
+          if (data.status) return data.data
         })
     },
 
-
+    /*
+      this.$store.dispatch('player_answer/cancelAnswer', 3).then(() => {
+        this.myAnswer = ''
+      })
+   */
+    cancelAnswer: async function({
+      state
+    }, id_answer) {
+      return await Axios.delete(Global.API_URL + '/plays/player_answer/' + id_answer)
+        .then(({
+          data
+        }) => {
+          return data
+        })
+    },
 
   }
 }

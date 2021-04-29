@@ -1,4 +1,8 @@
-#play-question {
+// *{
+//   border: 1px solid red;
+// }
+
+#play-entity {
   nav {
     background: #5534CE;
     box-shadow: 0 1px 4px rgba(7, 7, 68, 0.5);
@@ -29,27 +33,27 @@
   }
 }
 
-.q-card {
-  padding: 40px;
+.e-card {
+  padding: 96px 40px 40px;
 
-  .q-body {
+  .e-body {
     text-align: center;
   }
 
-  .q-media {
+  .e-media {
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
   }
 
-  .q-media-wrapper {
+  .e-media-wrapper {
     border: 8px solid $white;
     box-sizing: border-box;
     filter: drop-shadow(0px 8px 0px #BDBDBD);
     border-radius: 10px;
   }
 
-  .q-text {
+  .e-text {
     font-size: 36px;
     line-height: 43px;
     text-align: center;
@@ -58,7 +62,7 @@
 
   .answer-body {
     margin-top: 60px;
-    
+
     .answer {
       padding: 18px 40px 18px 24px;
       background: $white;
@@ -88,4 +92,8 @@
       }
     }
   }
+}
+
+#card-question{
+  // height: 100vh;
 }

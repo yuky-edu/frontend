@@ -1,10 +1,13 @@
 <template>
 <div id="card-question">
-  <div class="q-card">
-    <div class="q-body">
 
-      <div v-if="data.media.type" class="q-media">
-        <div class="q-media-wrapper">
+  <NavQuestion :data="data" />
+
+  <div class="e-card">
+    <div class="e-body">
+
+      <div v-if="data.media.type" class="e-media">
+        <div class="e-media-wrapper">
 
           <div v-if="data.media.type == 'image'">
             <img :src="data.media.path" alt="Yuky media">
@@ -27,14 +30,13 @@
         </div>
       </div>
 
-      <div class="q-text container">
-        {{ data.question }}
+      <div v-html="data.question" class="e-text container">
       </div>
     </div>
     <div class="answer-body">
       <div class="row">
 
-        <div v-for="(item, index) in data.answer" class="col-xl-4 col-lg-2">
+        <div v-for="(item, index) in data.answer" class="col-xl-4 col-lg-6">
           <div class="answer">
             <button class="btn btn-sm">
               {{ item.label }}
@@ -57,11 +59,13 @@ export default {
   },
 
   methods: {
-    //
+    checkAnswer(){
+
+    }
   },
 
   mounted() {
-    //
+
   },
 
   data() {
@@ -71,5 +75,9 @@ export default {
   },
 
   props: ['data'],
+
+  components: {
+    NavQuestion: require('./NavQuestion').default,
+  }
 }
 </script>

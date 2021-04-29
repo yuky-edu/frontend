@@ -1,10 +1,12 @@
 <template>
 <div id="card-theory">
-  <div class="q-card">
-    <div class="q-body">
+  <NavTheory :data="data" />
 
-      <div v-if="data.media.type" class="q-media">
-        <div class="q-media-wrapper">
+  <div class="e-card">
+    <div class="e-body">
+
+      <div v-if="data.media.type" class="e-media">
+        <div class="e-media-wrapper">
 
           <div v-if="data.media.type == 'image'">
             <img :src="data.media.path" alt="Yuky media">
@@ -27,9 +29,7 @@
         </div>
       </div>
 
-      <div class="q-text container text-white">
-        {{ data.theory }}
-      </div>
+      <div v-html="data.theory" class="e-text container text-white"></div>
     </div>
   </div>
 </div>
@@ -57,6 +57,10 @@ export default {
     }
   },
 
-  props: ['data', 'index']
+  props: ['data', 'index'],
+
+  components: {
+    NavTheory: require('./NavTheory').default,
+  }
 }
 </script>
