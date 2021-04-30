@@ -7,6 +7,7 @@ import Join from './views/Join'
 import Profile from './views/Profile'
 import Waiting from './views/AfterToken/Waiting'
 import LayoutToken from './views/LayoutToken'
+import CardSelect from './views/draft/CardSelect'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/',
     name: 'Join',
     component: Join
+  },
+  {
+    path: '/card-select',
+    name: 'CardSelect',
+    component: CardSelect
   },
   {
     path: '/:code/profile',
