@@ -62,8 +62,13 @@
   }
 }
 
+.code {
+  font-size: 30px;
+}
+
 .card-class-info{
   min-height: 333px;
+  font-size: 20px;
 }
 
 .class-info {
@@ -82,7 +87,6 @@
 
   .class-title {
     font-weight: bold;
-    font-size: 18px;
     line-height: 21px;
     color: $black;
     margin-bottom: 16px;
@@ -91,7 +95,7 @@
   .class-more-info {}
 
   .class-desc {
-    font-size: 14px;
+    font-size: 20px;
     line-height: 17px;
   }
 }

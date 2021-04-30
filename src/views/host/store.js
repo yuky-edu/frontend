@@ -11,6 +11,7 @@ import profile from './modules/profile'
 import yclass from './modules/yclass'
 import entity from './modules/entity'
 import player from './modules/player'
+import player_answer from './modules/player_answer'
 import yclass_session from './modules/yclass_session'
 
 /**
@@ -62,6 +63,7 @@ export default new Vuex.Store({
     yclass,
     entity,
     player,
+    player_answer,
     yclass_session,
   },
 })

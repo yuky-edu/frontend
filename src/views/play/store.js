@@ -6,6 +6,7 @@ import Global from './variable'
 Vue.use(Vuex)
 
 import player from './modules/player';
+import player_answer from './modules/player_answer';
 import yclass_session from './modules/yclass_session';
 
 /**
@@ -27,6 +28,7 @@ export default new Vuex.Store({
 
   modules: {
     player,
+    player_answer,
     yclass_session
   },
 })

@@ -47,7 +47,7 @@
       <div v-for="(item, index) in entity.answer" class="col-6">
         <div class="play-card">
           <div class="label-wrapper">
-            <div class="circle-wrapper" @click="selectCard()">
+            <div class="circle-wrapper" @click="selectCard(item.key)">
               <h1>{{ item.label }}</h1>
             </div>
           </div>
@@ -66,7 +66,7 @@
 
   <div v-if="entity.type == 't'" class="y-theory">
     <div class="container">
-      <div class="media-wrepper">
+      <div class="media-wrepper" v-if="entity.media.type !== null && entity.media.file !== null && entity.media.path !== null">
         <div v-if="entity.media.type == 'image'">
           <img :src="entity.media.path" class="img-fluid" alt="Yuky media">
         </div>
@@ -111,6 +111,15 @@ export default {
       })
       this.socket.on('rank', (data) => {
         this.$emit('changePage', 'Score')
+      })
+    },
+
+    selectCard(key) {
+      this.$store.dispatch('player_answer/answering', {
+        entity: this.entity.id,
+        answer: key
+      }).then(data => {
+        // this.myAnswer = data.id
       })
     }
   },

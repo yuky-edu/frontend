@@ -74,18 +74,17 @@ export default {
      *
      * @param Object Reference state & mutations
      */
-    getEntitiesByCodeClass: function({
-      state,
-      commit
-    }, code) {
-      Axios.get(Global.API_URL + '/hosts/entity/myentity/yclass/by?code=' + code)
-        .then(({
-          data
-        }) => {
-          console.log('API:getEntitiesByCodeClass', data)
-          commit('setEntity', data.data)
-        })
-    },
+     getEntitiesByCodeClass: function({
+       state,
+       commit
+     }, code) {
+       Axios.get(Global.API_URL + '/hosts/entity/myentity/yclass/by?code=' + code)
+         .then(({
+           data
+         }) => {
+           commit('setEntity', data.data)
+         })
+     },
 
     /**
      * Get entity data by id entity.

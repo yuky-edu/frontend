@@ -45,8 +45,8 @@
         <input required autocomplete="off" v-model="data.name" ref="kode" type="text" class="form-control form-control-sm play-form" placeholder="Masukan Nama Kamu" name="class-code">
       </div>
       <div class="w-100 text-center mt-5">
-        <button class="btn btn-warning btn-sm btn-play" name="button">
-          <span>Lanjutkan</span>
+        <button ref="btnNext" class="btn btn-warning btn-sm btn-play" name="button">
+          <span>Masuk</span>
           <i class="fa fa-arrow-right ml-2"></i>
         </button>
       </div>
@@ -72,6 +72,7 @@ export default {
     },
 
     register() {
+      this.$refs.btnNext.disabled = true
       const data = this.data
       let tokenName = this.TOKEN
       data.id_session = this.$cookies.get('player_session').id_session,

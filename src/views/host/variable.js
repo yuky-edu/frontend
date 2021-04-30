@@ -46,6 +46,7 @@ Global['CLASS'] = {
           var _answer = {
             correct: false,
             label: label[i],
+            key: answerKey[i],
             value: data[key],
           }
           if (key == data.correct) _answer.correct = true

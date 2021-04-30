@@ -30,6 +30,7 @@ export default {
 
     checkAnswer() {
       this.entity.isCheckAnswer = true
+      this.$store.dispatch('player_answer/getAnswerByEntity', this.entity.data.id)
     },
 
     getIndexEntity() {
@@ -47,8 +48,9 @@ export default {
       this.$store.dispatch('yclass_session/nextEntity', {
         id_session: this.runningSession.id,
         nextEntity: true
+      }).then(res => {
+        this.updateSession(res)
       })
-      this.updateSession(res)
     },
 
     previousEntity() {
@@ -118,6 +120,3 @@ export default {
   }
 }
 </script>
-
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ut nulla repudiandae voluptatem qui, similique dolore dolorem non laborum soluta rem debitis voluptates eveniet eius, nisi cum consequuntur, aperiam maiores?

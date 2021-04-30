@@ -31,7 +31,8 @@ export default {
     answering: async function({
       state
     }, input) {
-      return await Axios.post(Global.API_URL + '/plays/player_answer/' + input.entity, {
+      return await Axios.post(Global.API_URL + '/plays/player_answer', {
+        entity: input.entity,
         answer: input.answer
       })
         .then(({
