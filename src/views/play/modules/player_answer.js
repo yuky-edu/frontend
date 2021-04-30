@@ -47,16 +47,27 @@ export default {
         this.myAnswer = ''
       })
    */
-    cancelAnswer: async function({
-      state
-    }, id_answer) {
-      return await Axios.delete(Global.API_URL + '/plays/player_answer/' + id_answer)
-        .then(({
-          data
-        }) => {
-          return data
-        })
-    },
+   cancelAnswer: async function({
+     state
+   }, id_answer) {
+     return await Axios.delete(Global.API_URL + '/plays/player_answer/' + id_answer)
+       .then(({
+         data
+       }) => {
+         return data
+       })
+   },
+
+   getByPlayerAndEntity: async function({
+     state
+   }, id_entity) {
+     return await Axios.get(Global.API_URL + '/plays/player_answer/entity/' + id_entity)
+       .then(({
+         data
+       }) => {
+         return data
+       })
+   },
 
   }
 }

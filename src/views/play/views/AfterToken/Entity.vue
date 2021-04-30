@@ -47,7 +47,7 @@
       <div v-for="(item, index) in entity.answer" class="col-6">
         <div class="play-card">
           <div class="label-wrapper">
-            <div class="circle-wrapper" @click="selectCard(item.key)">
+            <div class="circle-wrapper" @click="selectCard(item)">
               <h1>{{ item.label }}</h1>
             </div>
           </div>
@@ -62,6 +62,9 @@
         </div>
       </div>
     </div>
+
+    <CardSelect v-if="myAnswer" :data="myAnswer"/>
+
   </div>
 
   <div v-if="entity.type == 't'" class="y-theory">
@@ -95,7 +98,9 @@
 </template>
 
 <script>
-import PlayCard from '../components/Card'
+import CardSelect from './components/CardSelect'
+import CardWrongAnswer from './components/CardWrongAnswer'
+import CardCorrectAnswer from './components/CardCorrectAnswer'
 
 export default {
 
@@ -108,20 +113,39 @@ export default {
       this.socket.emit('reqEntity')
       this.socket.on('resEntity', (data) => {
         this.entity = data
+        if (this.entity.type == 'q') {
+          this.checkSelectedCard()
+        }
       })
       this.socket.on('rank', (data) => {
         this.$emit('changePage', 'Score')
       })
     },
 
-    selectCard(key) {
+    selectCard(item) {
       this.$store.dispatch('player_answer/answering', {
         entity: this.entity.id,
-        answer: key
+        answer: item.key
       }).then(data => {
-        // this.myAnswer = data.id
+        item["id"] = data.id
+        this.myAnswer = item
+      })
+    },
+
+    checkSelectedCard() {
+      this.$store.dispatch('player_answer/getByPlayerAndEntity', this.entity.id).then(data => {
+        if (data.data) {
+          let item = this.entity.answer.find(function(x) {
+            return x.key == data.data.answer
+          })
+          item["id"] = data.data.id
+          this.myAnswer = item
+        }
       })
     }
+  },
+
+  beforeMount() {
   },
 
   mounted() {
@@ -130,12 +154,15 @@ export default {
 
   data() {
     return {
-      entity: ''
+      entity: '',
+      myAnswer: ''
     }
   },
 
   components: {
-    PlayCard
+    CardSelect,
+    CardWrongAnswer,
+    CardCorrectAnswer
   }
 }
 </script>

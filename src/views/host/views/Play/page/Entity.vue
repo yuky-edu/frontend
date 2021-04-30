@@ -26,11 +26,7 @@ export default {
 
     getEntity() {
       this.entity.data = this.entities[this.entity.index]
-    },
-
-    checkAnswer() {
-      this.entity.isCheckAnswer = true
-      this.$store.dispatch('player_answer/getAnswerByEntity', this.entity.data.id)
+      this.entity.isCheckAnswer = false
     },
 
     getIndexEntity() {

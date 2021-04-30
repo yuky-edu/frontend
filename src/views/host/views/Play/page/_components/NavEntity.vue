@@ -30,7 +30,7 @@
 
         </li>
         <li class="nav-item no-arrow mx-1" v-if="data.data.type == 'q'">
-          <button @click="$parent.$parent.checkAnswer()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Cek Jawaban</button>
+          <button @click="$parent.countBeforeCheck()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Cek Jawaban</button>
         </li>
 
       </ul>
