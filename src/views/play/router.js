@@ -8,6 +8,8 @@ import Profile from './views/Profile'
 import Waiting from './views/AfterToken/Waiting'
 import LayoutToken from './views/LayoutToken'
 import CardSelect from './views/draft/CardSelect'
+import CardWrongAnswer from './views/draft/CardWrongAnswer'
+import CardCorrectAnswer from './views/draft/CardCorrectAnswer'
 
 Vue.use(VueRouter)
 
@@ -20,7 +22,7 @@ const routes = [
   {
     path: '/card-select',
     name: 'CardSelect',
-    component: CardSelect
+    component: CardCorrectAnswer
   },
   {
     path: '/:code/profile',
