@@ -7,7 +7,7 @@
   </div>
   <p class="answer">Soekarno Hatta</p>
   <div class="w-100 text-center">
-    <button class="btn btn-warning-gradient btn-xs btn-play" name="button">
+    <button class="btn show-a y-play-custom-shadow btn-xs" name="button">
       <span>Selengkapnya</span>
     </button>
   </div>

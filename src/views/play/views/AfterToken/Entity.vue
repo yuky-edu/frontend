@@ -3,7 +3,7 @@
 
   <div v-if="entity.type == 'q'" class="y-question">
     <div class="w-100 text-center">
-      <button class="btn btn-success btn-sm btn-play" name="button">
+      <button class="btn y-play-custom-shadow show-q" name="button">
         <span>Lihat Soal</span>
       </button>
     </div>
@@ -23,9 +23,9 @@
           <p class="answer">
             {{ item.value }}
           </p>
-          <div class="w-100 text-center">
-            <button class="btn btn-warning-gradient btn-xs btn-play" name="button">
-              <span>Selengkapnya</span>
+          <div class="text-center">
+            <button class="btn w-100 show-a y-play-custom-shadow btn-sm" name="button">
+              <span><i class="fa fa-ellipsis-h"></i></span>
             </button>
           </div>
         </div>

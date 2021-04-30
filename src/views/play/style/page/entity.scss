@@ -21,4 +21,21 @@
     line-height: 130%;
     color: #FFFFFF;
   }
+
+  .y-play-custom-shadow {
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 6px #ffffff38;
+  }
+  .y-play-custom-shadow:hover {
+    color: #FFF;
+    outline: none;
+  }
+  .show-q {
+    background: linear-gradient(#24E95B, #03AD46, #02B64A);
+    color: #FFF;
+  }
+  .show-a {
+    background: linear-gradient(#FFCB4D, #FC622C);
+    color: #FFF;
+  }
 }
