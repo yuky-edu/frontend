@@ -91,9 +91,8 @@ export default {
         .then(({
           data
         }) => {
-          if (data.status) {
-            state.myInfo = data.data
-          }
+          state.myInfo = data
+          return state.myInfo
         })
     },
 

@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from './store'
+import Global from './variable'
 
 import Join from './views/Join'
 import Profile from './views/Profile'
@@ -17,14 +19,38 @@ const routes = [
   {
     path: '/:code/profile',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    beforeEnter: function (to, from, next) {
+      if (window.$cookies.get('play_session')) {
+        next()
+      }
+    }
   },
   {
     path: '/:code',
     name: 'LayoutToken',
     component: LayoutToken, // After player have token
     beforeEnter: function (to, from, next) {
-      next()
+      if (!window.$cookies.get(Global.TOKEN)) {
+        next({
+          name: 'Join'
+        })
+      }
+      else {
+        store.dispatch('player/getMyInfo').then(res => {
+          if (res.status) {
+            next()
+          }
+          else next({
+            name: 'Join'
+          })
+        }).catch(() => {
+          next({
+            name: 'Join'
+          })
+          window.$cookies.remove(Global.TOKEN)
+        })
+      }
     }
   }
 ]

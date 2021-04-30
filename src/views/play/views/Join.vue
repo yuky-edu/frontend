@@ -19,7 +19,7 @@
           Kode Kelas
         </label>
         <div class="form-group y-form">
-          <input v-model="code" ref="kode" type="text" class="form-control form-control-sm play-form" placeholder="Masukan Kode Kelas Kamu" name="class-code">
+          <input autocomplete="off" v-model="code" ref="kode" type="text" class="form-control form-control-sm play-form" placeholder="Masukan kode kelas" name="class-code">
         </div>
         <div class="w-100 text-center">
           <button class="btn btn-warning-gradient btn-circle-sm" name="button">
@@ -98,7 +98,7 @@ export default {
 
   data() {
     return {
-      code: 'belajarsains2021'
+      code: this.$route.query.code ? this.$route.query.code : ''
     }
   },
 }

@@ -51,10 +51,6 @@ export default {
     }
   },
 
-  beforeMount() {
-    this.$store.dispatch('player/getMyInfo')
-  },
-
   mounted() {
     this.requestSessionInfo()
   },

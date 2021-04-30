@@ -9,6 +9,8 @@ import vueCookies from 'vue-cookies'
 
 require('./variable')
 require('./style/main.scss').default
+require('@/plugin/play.js')
+
 Vue.prototype.axios = require('axios').default
 Vue.prototype.Nprogress = Nprogress
 Vue.prototype.socket = socket

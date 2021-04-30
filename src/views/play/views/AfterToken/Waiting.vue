@@ -38,7 +38,7 @@ export default {
 
   computed: {
     myInfo: function() {
-      return this.$store.state.player.myInfo
+      return this.$store.state.player.myInfo.data
     },
     mySession: function() {
       return this.$store.state.yclass_session.mySession

@@ -47,9 +47,8 @@ export default {
       this.$store.dispatch('yclass_session/nextEntity', {
         id_session: this.runningSession.id,
         nextEntity: true
-      }).then(res => {
-        this.updateSession(res)
       })
+      this.updateSession(res)
     },
 
     previousEntity() {

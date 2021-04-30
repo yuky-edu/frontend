@@ -34,19 +34,16 @@ export default {
         })
     },
 
-    kickPlayer: async function({
+    kickPlayer: function({
       state
     }, id_player) {
-      return await Axios.delete(Global.API_URL + '/hosts/player/' + id_player)
+      Axios.delete(Global.API_URL + '/hosts/player/' + id_player)
         .then(({
           data
         }) => {
-          console.log('API:kickPlayer', data)
-          if (data.status) {
-            Global.PLAYER.removePlayers(state.players, id_player)
             return true
-          }
         })
+        Global.PLAYER.removePlayers(state.players, id_player)
     },
 
 

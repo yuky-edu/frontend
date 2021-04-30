@@ -26,9 +26,7 @@ export default {
   methods: {
     kickPlayer() {
       this.$store.dispatch('player/kickPlayer', this.data.id)
-      .then( status => {
-        this.socket.emit('kick', this.data.id)
-      })
+      this.socket.emit('kick', this.data.id)
     },
 
     effect() {

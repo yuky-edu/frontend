@@ -1,12 +1,12 @@
-@import '@/plugin/bootstrap/bootstrap-play';
-@import '@/assets/style/main';
+@import '@/plugin/play';
 
 @import './page/join';
 @import './page/entity';
 @import './page/joined';
 @import './page/waiting';
-@import './page/jawab';
 @import './page/card';
+
+@import '@/assets/style/main';
 
 // ROOT STYLE
 body{

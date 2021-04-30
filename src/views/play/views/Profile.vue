@@ -10,7 +10,7 @@
 
   <div class="body">
     <div class="text-center text-white mt-5 mb-4">
-      <p>Anda Akan Bergabung Ke Kelas 🏆</p>
+      <p>Kamu akan bergabung ke kelas 🏆</p>
       <h2 class="m-0">{{yclass.title}}</h2>
       <div><i class="fa fa-info-circle"></i> {{yclass.description}}</div>
     </div>
