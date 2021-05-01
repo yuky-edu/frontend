@@ -67,5 +67,18 @@ export default {
         })
     },
 
+    updateAnsweredEntity: async function({
+      state
+    }, data) {
+      return await axios.put(Global.API_URL + '/hosts/yclass_session/'+ data.id +'/answeredEntity', {
+          answered_entity: data.answered_entity
+        })
+        .then(({
+          data
+        }) => {
+          return data
+        })
+    },
+
   }
 }

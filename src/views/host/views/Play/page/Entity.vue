@@ -1,8 +1,9 @@
 <template>
 <div id="play-entity">
 
-  <CardQuestion v-if="entity.data.type == 'q'" :data="entity" />
-  <CardTheory v-if="entity.data.type == 't'" :data="entity" />
+  <CardQuestion v-if="entity.data.type == 'q'" />
+  <CardTheory v-if="entity.data.type == 't'" />
+
   {{entity}}
 </div>
 </template>
@@ -16,21 +17,17 @@ export default {
       return this.$store.state.entity.myEntity["entity_" + $params.code]
     },
 
-    runningSession: function() {
-      return this.$store.state.yclass_session.runningSession
-    }
-
   },
 
   methods: {
 
     getEntity() {
       this.entity.data = this.entities[this.entity.index]
-      this.entity.isCheckAnswer = false
     },
 
     getIndexEntity() {
-      this.entity.index = this.runningSession.index_entity
+      this.entity.index = this.$parent.runningSession.index_entity
+      this.entity.answered_entity = JSON.parse(this.$parent.runningSession.answered_entity)
     },
 
     handleSocket() {
@@ -42,7 +39,7 @@ export default {
 
     nextEntity() {
       this.$store.dispatch('yclass_session/nextEntity', {
-        id_session: this.runningSession.id,
+        id_session: this.$parent.runningSession.id,
         nextEntity: true
       }).then(res => {
         this.updateSession(res)
@@ -51,7 +48,7 @@ export default {
 
     previousEntity() {
       this.$store.dispatch('yclass_session/nextEntity', {
-        id_session: this.runningSession.id,
+        id_session: this.$parent.runningSession.id,
         nextEntity: this.entity.index - 1
       }).then(res => {
         this.updateSession(res)
@@ -60,7 +57,7 @@ export default {
 
     goToEntity(index) {
       this.$store.dispatch('yclass_session/nextEntity', {
-        id_session: this.runningSession.id,
+        id_session: this.$parent.runningSession.id,
         nextEntity: index
       }).then(res => {
         this.updateSession(res)
@@ -70,6 +67,7 @@ export default {
     updateSession(res) {
       if (res.status) {
         this.entity.index = res.index
+        this.entity.answered_entity = JSON.parse(res.answered_entity)
       } else {
         if (res.errCode == 'end') {
           this.$store.dispatch('yclass_session/updateSession', {
@@ -78,7 +76,7 @@ export default {
               status: 'off'
             }
           }).then(() => {
-            this.runningSession.status = 'off'
+            this.$parent.runningSession.status = 'off'
             this.$emit('changePage', 'Rank')
             this.socket.emit('rank')
           })
@@ -104,8 +102,8 @@ export default {
     return {
       entity: {
         index: '',
-        data: '',
-        isCheckAnswer: false
+        answered_entity: '',
+        data: ''
       }
     }
   },

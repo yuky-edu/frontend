@@ -46,12 +46,12 @@
     <div class="row mt-5">
       <div v-for="(item, index) in entity.answer" class="col-6">
         <div class="play-card">
-          <div class="label-wrapper">
-            <div class="circle-wrapper" @click="selectCard(item)">
+          <div class="label-wrapper" @click="selectCard(item)">
+            <div class="circle-wrapper">
               <h1>{{ item.label }}</h1>
             </div>
           </div>
-          <p class="answer">
+          <p class="answer" @click="selectCard(item)">
             {{ item.value }}
           </p>
           <div class="text-center">
@@ -63,7 +63,9 @@
       </div>
     </div>
 
-    <CardSelect v-if="myAnswer" :data="myAnswer"/>
+    <div class="selected-card" v-if="myAnswer">
+      <CardSelect :data="myAnswer"/>
+    </div>
 
   </div>
 
@@ -166,3 +168,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .selected-card {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    padding-top: 100px;
+    background: linear-gradient(180deg, #6935F0 0%, #5534CE 100%);
+  }
+</style>

@@ -34,6 +34,28 @@ export default {
         })
     },
 
+    getPlayersLeaderboard: async function({
+      state
+    }, id_session) {
+      return await Axios.get(Global.API_URL + '/hosts/player/session/' + id_session + '/leaderboard')
+        .then(({
+          data
+        }) => {
+          return data.data
+        })
+    },
+
+    addScore: function({
+      state
+    }, input) {
+      Axios.put(Global.API_URL + '/hosts/player/addScore/' + input.id, input.data)
+        .then(({
+          data
+        }) => {
+          return data
+        })
+    },
+
     kickPlayer: function({
       state
     }, id_player) {
