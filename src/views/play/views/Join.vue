@@ -15,7 +15,16 @@
     <div class="join-form">
       <form @submit.prevent="joinClass()">
         <label for="#join" class="text-white">
-          <i class="fa fa-key mr-2"></i>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12.2506 2.06256H5.74887C3.48312 2.06256 2.06262 3.66681 2.06262 5.93706V12.0631C2.06262 14.3333 3.47637 15.9376 5.74887 15.9376H12.2499C14.5231 15.9376 15.9376 14.3333 15.9376 12.0631V5.93706C15.9376 3.66681 14.5231 2.06256 12.2506 2.06256Z"
+              stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M8.01689 9.00005C8.01689 9.7673 7.39514 10.3891 6.62789 10.3891C5.86064 10.3891 5.23889 9.7673 5.23889 9.00005C5.23889 8.2328 5.86064 7.61105 6.62789 7.61105H6.63014C7.39589 7.6118 8.01689 8.23355 8.01689 9.00005Z" stroke="white"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8.01904 9.00006H12.7575V10.3891" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M10.6364 10.3891V9.00014" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
           Kode Kelas
         </label>
 
