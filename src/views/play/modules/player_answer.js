@@ -69,5 +69,16 @@ export default {
        })
    },
 
+   getMyAnswerBySession: async function({
+     state
+   }, id_session) {
+     return await Axios.get(Global.API_URL + '/plays/player_answer/session/' + id_session)
+       .then(({
+         data
+       }) => {
+         return data
+       })
+   },
+
   }
 }

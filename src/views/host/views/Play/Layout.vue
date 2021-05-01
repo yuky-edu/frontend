@@ -1,10 +1,10 @@
 <template>
 <div id="play-layout">
   <div class="bg-play">
-    <Entity @changePage='onChangePage' v-if="page == 'Entity'"/>
-    <Timer @changePage='onChangePage' v-if="page == 'Timer'"/>
-    <WaitingRoom @changePage='onChangePage' v-if="page == 'Waiting'" />
-    <Rank @changePage='onChangePage' v-if="page == 'Rank'" />
+    <Entity v-if="page == 'Entity'"/>
+    <Timer v-if="page == 'Timer'"/>
+    <WaitingRoom v-if="page == 'Waiting'" />
+    <Rank v-if="page == 'Rank'" />
     <Loading v-if="page == 'Loading'" />
   </div>
 </div>
@@ -17,7 +17,7 @@ export default {
     runningSession: function() {
       return this.$store.state.yclass_session.runningSession
     },
-    
+
     players: function() {
       const data = this.$store.state.player.players
       if(data) return data

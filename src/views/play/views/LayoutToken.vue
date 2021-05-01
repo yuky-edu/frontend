@@ -1,8 +1,8 @@
 <template>
 <div id="layout-token">
-  <WaitingRoom v-if="page == 'Waiting'" @changePage="onChangePage"/>
-  <Entity v-if="page == 'Entity'" @changePage="onChangePage"/>
-  <Score v-if="page == 'Score'" @changePage="onChangePage"/>
+  <WaitingRoom v-if="page == 'Waiting'"/>
+  <Entity v-if="page == 'Entity'"/>
+  <Score v-if="page == 'Score'"/>
   <Loading v-if="page == 'Loading'"/>
 
 </div>

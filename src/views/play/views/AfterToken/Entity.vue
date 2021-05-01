@@ -1,7 +1,7 @@
 <template>
 <div id="entity" v-if="entity">
 
-  <div v-if="entity.data.type == 'q'" class="y-question">
+  <div v-if="entity.data.type == 'q' && myAnswer.status !== ''" class="y-question">
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -63,8 +63,8 @@
       </div>
     </div>
 
-    <div class="selected-card" v-if="myAnswer">
-      <CardSelect :data="myAnswer"/>
+    <div class="selected-card" v-if="myAnswer.status == 'answered'">
+      <CardSelect :data="myAnswer.data"/>
     </div>
 
   </div>
@@ -115,12 +115,13 @@ export default {
       this.socket.emit('reqEntity')
       this.socket.on('resEntity', (data) => {
         this.entity = data
+        this.myAnswer.status = ''
         if (this.entity.data.type == 'q') {
           this.checkSelectedCard()
         }
       })
       this.socket.on('rank', (data) => {
-        this.$emit('changePage', 'Score')
+        this.$parent.page = 'Score'
       })
     },
 
@@ -131,19 +132,23 @@ export default {
       }).then(data => {
         this.socket.emit('reqAnswer', this.$parent.myInfo.id)
         item["id"] = data.id
-        this.myAnswer = item
+        this.myAnswer.status = 'answered'
+        this.myAnswer.data = item
       })
     },
 
     checkSelectedCard() {
-      this.myAnswer = ''
       this.$store.dispatch('player_answer/getByPlayerAndEntity', this.entity.data.id).then(data => {
         if (data.data) {
           let item = this.entity.data.answer.find(function(x) {
             return x.key == data.data.answer
           })
           item["id"] = data.data.id
-          this.myAnswer = item
+          this.myAnswer.status = 'answered'
+          this.myAnswer.data = item
+        }
+        else {
+          this.myAnswer.status = 'notAnswered'
         }
       })
     }
@@ -159,7 +164,10 @@ export default {
   data() {
     return {
       entity: '',
-      myAnswer: ''
+      myAnswer: {
+        status: '',
+        data: ''
+      }
     }
   },
 

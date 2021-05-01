@@ -2,6 +2,10 @@
 <div id="rank">
   <p class="text-warning">
     tampilkan aja datanya disini pakek {}
+
+    <pre>
+      {{data}}
+    </pre>
   </p>
   <div class="w-100">
     <button class="btn btn-block btn-warning">Selesai</button>
@@ -18,7 +22,15 @@ export default {
   },
 
   methods: {
-    //
+    getMyAnswer() {
+      this.$store.dispatch('player_answer/getMyAnswerBySession', this.$parent.sessionInfo.id).then(data => {
+        this.data = data.data
+      })
+    }
+  },
+
+  beforeMount() {
+    this.getMyAnswer()
   },
 
   mounted() {
@@ -27,7 +39,7 @@ export default {
 
   data() {
     return {
-      //
+      data: ''
     }
   },
 }

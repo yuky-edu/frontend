@@ -40,20 +40,37 @@ export default {
     },
 
     nextEntity() {
+      let nextEntity = this.entity.index + 1
+      if (nextEntity < this.entities.length) {
+        this.entity.index = this.entity.index + 1
+      }
+      else {
+        this.$store.dispatch('yclass_session/updateSession', {
+          id: this.$cookies.get('play_session').id,
+          data: {
+            status: 'off'
+          }
+        }).then(() => {
+          this.socket.emit('rank')
+          this.$parent.runningSession.status = 'off'
+          this.$parent.page = 'Rank'
+        })
+      }
       this.$store.dispatch('yclass_session/nextEntity', {
         id_session: this.$parent.runningSession.id,
-        nextEntity: true
+        nextEntity: this.entity.index
       }).then(res => {
-        this.updateSession(res)
+        this.entity.answered_entity = JSON.parse(res.answered_entity)
       })
     },
 
     previousEntity() {
+      this.entity.index = this.entity.index - 1
       this.$store.dispatch('yclass_session/nextEntity', {
         id_session: this.$parent.runningSession.id,
-        nextEntity: this.entity.index - 1
+        nextEntity: this.entity.index
       }).then(res => {
-        this.updateSession(res)
+        this.entity.answered_entity = JSON.parse(res.answered_entity)
       })
     },
 
@@ -62,27 +79,12 @@ export default {
         id_session: this.$parent.runningSession.id,
         nextEntity: index
       }).then(res => {
-        this.updateSession(res)
+        this.entity.answered_entity = JSON.parse(res.answered_entity)
       })
     },
 
     updateSession(res) {
       if (res.status) {
-        this.entity.index = res.index
-        this.entity.answered_entity = JSON.parse(res.answered_entity)
-      } else {
-        if (res.errCode == 'end') {
-          this.$store.dispatch('yclass_session/updateSession', {
-            id: this.$cookies.get('play_session').id,
-            data: {
-              status: 'off'
-            }
-          }).then(() => {
-            this.$parent.runningSession.status = 'off'
-            this.$emit('changePage', 'Rank')
-            this.socket.emit('rank')
-          })
-        }
       }
     },
   },

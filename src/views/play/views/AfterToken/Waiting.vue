@@ -60,7 +60,7 @@ export default {
     },
     handleSocket() {
       this.socket.on('startGame', () => {
-        this.$emit('changePage', 'Entity')
+        this.$parent.page = 'Entity'
       })
       this.socket.on('addFriend', (id_player) => {
         if (this.myInfo.id !== id_player) {

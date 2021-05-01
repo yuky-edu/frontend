@@ -4,13 +4,13 @@
     <div class="container-fluid">
 
       <div class="navbar-brand w-25" href="#">
-        <select class="form-control" @change="changeIndex" v-model="data.index">
+        <!-- <select class="form-control" @change="changeIndex" v-model="data.index">
           <option v-for="(item, index) in $parent.$parent.entities" :value="index">
             <span v-if="item.question">{{index+1}}. {{item.question.substr(0, 10)}}</span>
             <span v-if="item.theory">{{index+1}}. {{item.theory.substr(0, 10)}}</span>
             ...
           </option>
-        </select>
+        </select> -->
       </div>
 
       <ul class="nav navbar-nav flex-nowrap ml-auto">
