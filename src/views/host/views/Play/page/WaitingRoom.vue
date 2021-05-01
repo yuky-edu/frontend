@@ -10,7 +10,7 @@
           </div>
           <div class="row">
 
-            <CardJoined v-for="(item, index) in players" :key="index" :data="item" />
+            <CardJoined v-for="(item, index) in $parent.players" :key="index" :data="item" />
 
           </div>
         </div>
@@ -20,7 +20,7 @@
         <div class="panel-right">
           <div class="main-title">
             <span class="weight-normal">Total : </span>
-            <span>{{ players.length }}</span>
+            <span>{{ $parent.players.length }}</span>
           </div>
           <div class="text-center font-weight-bold bg-white mb-3 px-2 py-3 shadow code">
             <svg width="30" height="15" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,11 +76,6 @@ export default {
       return {}
     },
 
-    players: function() {
-      const data = this.$store.state.player.players
-      if(data) return data
-      return []
-    }
   },
 
   methods: {

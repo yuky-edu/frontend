@@ -36,6 +36,7 @@ export default {
     cancelAnswer() {
       this.$store.dispatch('player_answer/cancelAnswer', this.data.id)
       this.$parent.myAnswer = ''
+      this.socket.emit('cancelAnswer', this.$parent.$parent.myInfo.id)
     }
   },
 
