@@ -29,7 +29,6 @@ export default {
         .then(({
           data
         }) => {
-          console.log('API:joinClass', data)
           return data
         })
     },

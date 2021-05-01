@@ -15,7 +15,7 @@
         </div>
         <div class="player-wrapper">
           <div class="avatar-wrapper">
-            <img class="rounded-circle img-fluid" src="/assets/avatars/avatar.png" alt="Avatar">
+            <img class="rounded-circle img-fluid" :src="item.avatar" alt="Avatar">
           </div>
           <div class="player-name">{{item.name}}</div>
         </div>

@@ -5,7 +5,7 @@
 
   <div class="entity-wrapper">
 
-    <div v-if="data.data.media.type" class="e-media">
+    <div v-if="data.data.media.type" class="mb-5">
       <div class="entity-media">
 
         <div v-if="data.data.media.type == 'image'">

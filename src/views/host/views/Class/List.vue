@@ -4,9 +4,14 @@
   <div class="main-title d-center-b">
     <h1>
       Kelas Saya
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.7044 3.51898C10.034 3.51898 9.46373 3.9848 9.30365 4.61265H14.6863C14.5263 3.9848 13.956 3.51898 13.2856 3.51898H10.7044ZM16.2071 4.61264H18.1881C20.2891 4.61264 22 6.34428 22 8.47085C22 8.47085 21.94 9.3711 21.92 10.6248C21.918 10.724 21.8699 10.8212 21.7909 10.88C21.3097 11.2354 20.8694 11.5291 20.8294 11.5493C19.1686 12.6632 17.2386 13.447 15.1826 13.8369C15.0485 13.8632 14.9165 13.7934 14.8484 13.6739C14.2721 12.6754 13.1956 12.0253 11.995 12.0253C10.8024 12.0253 9.71586 12.6683 9.12256 13.6678C9.05353 13.7853 8.92346 13.8531 8.7904 13.8278C6.75138 13.4369 4.82141 12.6541 3.17059 11.5594L2.21011 10.8911C2.13007 10.8405 2.08004 10.7493 2.08004 10.6481C2.05003 10.1316 2 8.47085 2 8.47085C2 6.34428 3.71086 4.61264 5.81191 4.61264H7.78289C7.97299 3.1443 9.2036 2 10.7044 2H13.2856C14.7864 2 16.017 3.1443 16.2071 4.61264ZM21.6598 12.8152L21.6198 12.8355C19.5988 14.1924 17.1676 15.0937 14.6163 15.4684C14.2561 15.519 13.8959 15.2861 13.7959 14.9216C13.5758 14.0912 12.8654 13.5443 12.015 13.5443H12.005H11.985C11.1346 13.5443 10.4242 14.0912 10.2041 14.9216C10.1041 15.2861 9.74387 15.519 9.38369 15.4684C6.83242 15.0937 4.4012 14.1924 2.38019 12.8355C2.37019 12.8254 2.27014 12.7646 2.1901 12.8152C2.10005 12.8659 2.10005 12.9874 2.10005 12.9874L2.17009 18.1519C2.17009 20.2785 3.87094 22 5.97199 22H18.018C20.1191 22 21.8199 20.2785 21.8199 18.1519L21.9 12.9874C21.9 12.9874 21.9 12.8659 21.8099 12.8152C21.7599 12.7849 21.6999 12.795 21.6598 12.8152ZM12.7454 17.0583C12.7454 17.4836 12.4152 17.8177 11.995 17.8177C11.5848 17.8177 11.2446 17.4836 11.2446 17.0583V15.7519C11.2446 15.3367 11.5848 14.9924 11.995 14.9924C12.4152 14.9924 12.7454 15.3367 12.7454 15.7519V17.0583Z" fill="#0e0e0e"/>
-      </svg>
+      
+<svg width="32" height="32" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.99634 12.5075V10.6047" stroke="#070744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.6425 3.99756C14.91 3.99756 15.93 5.02506 15.93 6.29256V8.87256C14.085 9.95256 11.6475 10.6051 8.9925 10.6051C6.3375 10.6051 3.9075 9.95256 2.0625 8.87256V6.28506C2.0625 5.01756 3.09 3.99756 4.3575 3.99756H13.6425Z" stroke="#070744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.6213 3.99426V3.71976C11.6213 2.80476 10.8788 2.06226 9.96384 2.06226H8.02884C7.11384 2.06226 6.37134 2.80476 6.37134 3.71976V3.99426" stroke="#070744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2.08081 11.6121L2.22256 13.4938C2.31856 14.7621 3.37531 15.7423 4.64656 15.7423H13.3458C14.6171 15.7423 15.6738 14.7621 15.7698 13.4938L15.9116 11.6121" stroke="#070744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
     </h1>
     <button @click="modalAddClass('#make-class-code')" class="btn btn-blue btn-xl br-10 shadow waves-effect waves-light">
       <span>Buat Kelas</span>
@@ -25,7 +30,7 @@
                 <th>Nama Kelas</th>
                 <th>Kategori</th>
                 <th>Kode Kelas</th>
-                <th>Entitas</th>
+                <th>Slide</th>
                 <th>Terakhir Dimainkan</th>
                 <th>
                   <input type="text" placeholder="Cari Kelas...">
@@ -67,7 +72,12 @@
                   <button @click="createSession(item, index)" ref="btnPlay" class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
                     <span>Mainkan</span>
                     <span class="icon">
-                      <i class="fas fa-chevron-right"></i>
+                      
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.75 11.7256L4.75 11.7256" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.7002 5.70124L19.7502 11.7252L13.7002 17.7502" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
                     </span>
                   </button>
                 </td>

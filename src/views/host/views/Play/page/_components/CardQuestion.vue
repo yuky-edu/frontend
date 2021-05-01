@@ -9,7 +9,7 @@
       <div class="e-media-wrapper">
 
         <div v-if="data.data.media.type == 'image'">
-          <img :src="data.media.path" alt="Yuky media">
+          <img :src="data.data.media.path" alt="Yuky media">
         </div>
 
         <div v-if="data.data.media.type == 'audio'">
@@ -35,7 +35,7 @@
     <div class="answer-body">
       <div class="row">
         <div v-for="(item, index) in data.data.answer" class="col-xl-4 col-lg-6">
-          <div class="answer" :class="isAnswered(data.data.id) && data.data.answer[index].correct ? 'bg-success' : false">
+          <div class="answer" :class="isAnswered(data.data.id) && data.data.answer[index].correct ? 'correct-answer' : false">
             <button class="btn btn-sm">
               {{ item.label }}
             </button>

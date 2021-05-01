@@ -6,6 +6,8 @@
 #play-layout {
   background: linear-gradient(180deg, #8034E1 0%, #6935F0 100%);
   padding-bottom: 0 $im;
+  height: 100vh;
+  overflow: hidden;
 
   .bg-play {
     position: relative;

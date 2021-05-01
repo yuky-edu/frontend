@@ -76,6 +76,9 @@ export default {
             name: 'Join'
           })
         }
+        else {
+          this.totalMyFriend--
+        }
       })
     }
   },

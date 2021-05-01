@@ -21,7 +21,7 @@ const routes = [
     name: 'Profile',
     component: Profile,
     beforeEnter: function (to, from, next) {
-      if (window.$cookies.get('play_session')) {
+      if (window.$cookies.get(Global.TOKEN)) {
         next()
       }
     }
