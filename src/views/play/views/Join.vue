@@ -4,11 +4,11 @@
   <div class="header">
     <a class="btn y-btn btn-outline-light btn-xs" href="/">
       <i class="fa fa-home mr-1"></i>
-      <span>Beranda</span>
+      <span class="ml-1">Beranda</span>
     </a>
   </div>
 
-  <div class="body play-container input-focus">
+  <div class="body play-container">
     <div class="brand mx-auto">
       <img src="/assets/img/logo.svg">
     </div>
@@ -25,7 +25,7 @@
             <path d="M8.01904 9.00006H12.7575V10.3891" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M10.6364 10.3891V9.00014" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-          Kode Kelas
+          <span class="ml-1">Kode Kelas</span>
         </label>
 
         <div class="form-group y-form">
@@ -109,7 +109,7 @@ export default {
 
   data() {
     return {
-      code: this.$route.query.code ? this.$route.query.code : ''
+      code: this.$route.query.code ? this.$route.query.code : 'xxxasdfsdfasdf'
     }
   },
 }

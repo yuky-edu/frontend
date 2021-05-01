@@ -3,10 +3,10 @@
   box-sizing: border-box;
   border-radius: 6px;
 
-  .btn-xs {
-    padding: 6px 12px;
+  &.btn-xs {
+    padding: 10px 18px;
     font-weight: normal;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 14px;
   }
 }
@@ -24,6 +24,24 @@
   }
 }
 
+.y-btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border-width: 1.5px;
+  background: #ffffff26;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background: #ffffff61 $im;
+  }
+}
+
 .btn-play:hover {
   color: #FFF;
   outline: none;
@@ -32,6 +50,46 @@
   &.warning-gradient {
     background: linear-gradient(#f9bf31, #ff5317);
     color: #FFF;
+  }
+}
+
+.btn-warning-gradient {
+  color: #fff;
+  background: $btn-orange-gradient;
+  font-size: 24px;
+  padding: 14px 33px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 0 8px rgb(255 255 255 / 25%);
+  font-family: 'rubik-medium';
+  transition: 0.3s ease;
+
+  &.btn-xs {
+    font-size: 10px;
+    padding: 7px;
+    box-shadow: 0 0 0 6px rgb(255 255 255 / 25%);
+  }
+
+  &.btn-sm {
+    font-size: 16px;
+    padding: 12px 32px;
+    box-shadow: 0 0 0 6px rgb(255 255 255 / 25%);
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 8px rgb(255 255 255 / 30%);
+    background: $btn-orange-gradient-hover;
+    color: $white;
+  }
+
+  &:active {
+    box-shadow: 0 0 0 8px rgb(255 255 255 / 35%);
+    color: $white !important;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 8px rgb(255 255 255 / 35%) !important;
+    color: $white !important;
   }
 }
 // .btn {
@@ -245,44 +303,6 @@
 //   }
 // }
 //
-// .btn-warning-gradient {
-//   color: #fff;
-//   background: $btn-orange-gradient;
-//   font-size: 24px;
-//   padding: 14px 33px;
-//   border-radius: 18px;
-//   border: none;
-//   box-shadow: 0 0 0 8px rgb(255 255 255 / 25%);
-//   font-family: 'rubik-medium';
-//
-//   &.btn-xs {
-//     font-size: 10px;
-//     padding: 7px;
-//     box-shadow: 0 0 0 6px rgb(255 255 255 / 25%);
-//   }
-//
-//   &.btn-sm {
-//     font-size: 16px;
-//     padding: 12px 32px;
-//     box-shadow: 0 0 0 6px rgb(255 255 255 / 25%);
-//   }
-//
-//   &:hover {
-//     box-shadow: 0 0 0 8px rgb(255 255 255 / 30%);
-//     background: $btn-orange-gradient-hover;
-//     color: $white;
-//   }
-//
-//   &:active {
-//     box-shadow: 0 0 0 8px rgb(255 255 255 / 35%);
-//     color: $white !important;
-//   }
-//
-//   &:focus {
-//     box-shadow: 0 0 0 8px rgb(255 255 255 / 35%) !important;
-//     color: $white !important;
-//   }
-// }
 //
 // .btn-success-gradient {
 //   color: #fff;
