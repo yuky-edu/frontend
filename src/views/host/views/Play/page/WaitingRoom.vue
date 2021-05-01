@@ -46,10 +46,10 @@
           </div>
           <div class="card mt-4">
             <div class="card-body">
-              <button @click="startGame()" class="btn btn-block btn-lg br-5 shadow btn-blue waves-effect waves-light mb-3">
+              <button @click="startGame()" class="btn btn-block btn-lg br-10 shadow btn-blue waves-effect waves-light mb-3">
                 <span>Mulai Kelas</span>
               </button>
-              <button class="btn btn-block btn-lg br-5 shadow btn-danger waves-effect waves-light">
+              <button class="btn btn-block btn-lg br-10 shadow btn-danger waves-effect waves-light">
                 <span>Batalkan </span>
               </button>
             </div>

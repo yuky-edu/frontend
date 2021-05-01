@@ -147,17 +147,28 @@
   opacity: 0.3;
   transition: 0.3s ease;
   z-index: 10;
+  // background: pink;
 
   &:hover {
     opacity: 1;
   }
 
   &.navigator-right {
-    right: 30px;
+    right: -66px;
+    padding: 80px 40px 80px 10px;
+
+    &:hover {
+      transform: translateX(-60px);
+    }
   }
 
   &.navigator-left {
-    left: 30px;
+    left: -66px;
+    padding: 80px 10px 80px 40px;
+
+    &:hover {
+      transform: translateX(60px);
+    }
   }
 
   button {
