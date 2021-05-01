@@ -81,7 +81,7 @@ export default {
   methods: {
     socketHandle() {
       this.socket.on('register', data => {
-        this.players.unshift(data)
+        this.$parent.players.unshift(data)
         this.socket.emit('addFriend', data.id)
       })
     },

@@ -21,17 +21,13 @@
           </div>
         </li>
         <li class="nav-item no-arrow mx-1">
-
           <button v-if="data.index > 0" class="btn br-10 shadow btn-danger waves-effect waves-light" @click="$parent.$parent.previousEntity()">Sebelumnya</button>
-
+          <span v-if="data.data.type == 'q'">
+            <button v-if="$parent.isAnswered(data.data.id)" :disabled="$parent.leaderboards.isChecking" @click="$parent.checkScore()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Lihat Skor</button>
+            <button v-if="!$parent.isAnswered(data.data.id)" @click="$parent.countBeforeCheck()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Cek Jawaban</button>
+          </span>
           <button  v-if="data.index < $parent.$parent.entities.length-1" class="btn br-10 shadow btn-green waves-effect waves-light ml-2" @click="$parent.$parent.nextEntity()">Selanjutnya</button>
-
-          <button v-else @click="$parent.$parent.nextEntity()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Selesai</button>
-
-        </li>
-        <li class="nav-item no-arrow mx-1" v-if="data.data.type == 'q'">
-          <button v-if="$parent.isAnswered(data.data.id)" @click="$parent.checkScore()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Lihat Skor</button>
-          <button v-else @click="$parent.countBeforeCheck()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Cek Jawaban</button>
+          <button v-if="data.index == $parent.$parent.entities.length-1" @click="$parent.$parent.nextEntity()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Selesai</button>
         </li>
 
       </ul>

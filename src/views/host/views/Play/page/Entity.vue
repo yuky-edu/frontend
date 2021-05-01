@@ -6,7 +6,6 @@
 
   {{entity}}
   <hr>
-  {{playerAnswer}}
 </div>
 </template>
 
@@ -35,24 +34,9 @@ export default {
     handleSocket() {
       // Send entity now
       this.socket.on('reqEntity', () => {
-        this.socket.emit('resEntity', this.entity.data)
+        this.socket.emit('resEntity', this.entity)
       })
 
-      // Get who already answering
-      this.socket.on('reqAnswer', (id) => {
-        let playerAnswer = this.$parent.players.find(function(x) {
-          return x.id == id
-        });
-        this.playerAnswer.push(playerAnswer)
-      })
-
-      // Get who cancel answer
-      this.socket.on('cancelAnswer', (id) => {
-        let playerAnswer = this.$parent.players.findIndex(function(x) {
-          return x.id == id
-        });
-        this.playerAnswer.splice(playerAnswer, 1)
-      })
     },
 
     nextEntity() {
@@ -106,7 +90,7 @@ export default {
   watch: {
     'entity.index': function(v) {
       this.getEntity()
-      this.socket.emit('resEntity', this.entity.data)
+      this.socket.emit('resEntity', this.entity)
     }
   },
 
@@ -120,10 +104,9 @@ export default {
     return {
       entity: {
         index: '',
-        answered_entity: '',
+        answered_entity: [],
         data: ''
-      },
-      playerAnswer: []
+      }
     }
   },
 

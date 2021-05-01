@@ -134,6 +134,10 @@
     </div>
   </div>
 
+  Yang telah menjawab:
+  {{playerAnswer}}
+  <hr>
+
   <div class="counter" v-if="counter.status">
     {{counter.number}}
   </div>
@@ -164,6 +168,7 @@ export default {
     },
 
     checkScore(cb='') {
+      this.leaderboards.isChecking = true
       this.$store.dispatch('player_answer/getAnswerByEntity', this.data.data.id).then(data => {
         data.map(x => {
           if (x.correct)
@@ -176,6 +181,7 @@ export default {
         if (typeof cb == 'function') {
           cb()
         }
+        this.leaderboards.isChecking = false
       })
     },
 
@@ -213,6 +219,35 @@ export default {
 
     openLeaderboardsModal() {
       $("#leaderboards").modal("show")
+    },
+
+    handleSocket() {
+      // Get who already answering
+      this.socket.on('reqAnswer', (id) => {
+        let playerAnswer = this.$parent.$parent.players.find(function(x) {
+          return x.id == id
+        });
+        this.playerAnswer.push(playerAnswer)
+      })
+
+      // Get who cancel answer
+      this.socket.on('cancelAnswer', (id) => {
+        let playerAnswer = this.$parent.$parent.players.findIndex(function(x) {
+          return x.id == id
+        });
+        this.playerAnswer.splice(playerAnswer, 1)
+      })
+    },
+
+    checkPlayerAnswer() {
+      this.$store.dispatch('player_answer/getPlayerByEntity', this.$parent.entity.data.id).then(data => {
+        for (var v of data) {
+          let playerAnswer = this.$parent.$parent.players.find(function(x) {
+            return x.id == v.player
+          });
+          this.playerAnswer.push(playerAnswer)
+        }
+      })
     }
   },
 
@@ -220,7 +255,8 @@ export default {
   },
 
   mounted() {
-    //
+    this.handleSocket()
+    this.checkPlayerAnswer()
   },
 
   data() {
@@ -231,9 +267,11 @@ export default {
         number: 3
       },
       leaderboards: {
+        isChecking: false,
         correct: [],
         wrong: []
-      }
+      },
+      playerAnswer: []
     }
   },
 

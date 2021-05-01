@@ -1,31 +1,31 @@
 <template>
-<div id="entity">
+<div id="entity" v-if="entity">
 
-  <div v-if="entity.type == 'q'" class="y-question">
+  <div v-if="entity.data.type == 'q'" class="y-question">
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
-            <div class="media-wrepper" v-if="entity.media.type !== null && entity.media.file !== null && entity.media.path !== null">
-              <div v-if="entity.media.type == 'image'">
-                <img :src="entity.media.path" class="img-fluid" alt="Yuky media">
+            <div class="media-wrepper" v-if="entity.data.media.type !== null && entity.data.media.file !== null && entity.data.media.path !== null">
+              <div v-if="entity.data.media.type == 'image'">
+                <img :src="entity.data.media.path" class="img-fluid" alt="Yuky media">
               </div>
 
-              <div v-if="entity.media.type == 'audio'">
+              <div v-if="entity.data.media.type == 'audio'">
                 <audio controls>
-                  <source :src="entity.media.path" type="audio/mp3">
+                  <source :src="entity.data.media.path" type="audio/mp3">
                   Your browser does not support the audio element.
                 </audio>
               </div>
 
-              <div v-if="entity.media.type == 'video'">
+              <div v-if="entity.data.media.type == 'video'">
                 <video controls>
-                  <source :src="entity.media.path" type="video/mp4">
+                  <source :src="entity.data.media.path" type="video/mp4">
                   Your browser does not support HTML video.
                 </video>
               </div>
             </div>
-            <div v-html="entity.question"></div>
+            <div v-html="entity.data.question"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
@@ -44,7 +44,7 @@
     </div>
 
     <div class="row mt-5">
-      <div v-for="(item, index) in entity.answer" class="col-6">
+      <div v-for="(item, index) in entity.data.answer" class="col-6">
         <div class="play-card">
           <div class="label-wrapper" @click="selectCard(item)">
             <div class="circle-wrapper">
@@ -69,32 +69,32 @@
 
   </div>
 
-  <div v-if="entity.type == 't'" class="y-theory">
+  <div v-if="entity.data.type == 't'" class="y-theory">
     <div class="container">
-      <div class="media-wrepper" v-if="entity.media.type !== null && entity.media.file !== null && entity.media.path !== null">
-        <div v-if="entity.media.type == 'image'">
-          <img :src="entity.media.path" class="img-fluid" alt="Yuky media">
+      <div class="media-wrepper" v-if="entity.data.media.type !== null && entity.data.media.file !== null && entity.data.media.path !== null">
+        <div v-if="entity.data.media.type == 'image'">
+          <img :src="entity.data.media.path" class="img-fluid" alt="Yuky media">
         </div>
 
-        <div v-if="entity.media.type == 'audio'">
+        <div v-if="entity.data.media.type == 'audio'">
           <audio controls>
-            <source :src="entity.media.path" type="audio/mp3">
+            <source :src="entity.data.media.path" type="audio/mp3">
             Your browser does not support the audio element.
           </audio>
         </div>
 
-        <div v-if="entity.media.type == 'video'">
+        <div v-if="entity.data.media.type == 'video'">
           <video controls>
-            <source :src="entity.media.path" type="video/mp4">
+            <source :src="entity.data.media.path" type="video/mp4">
             Your browser does not support HTML video.
           </video>
         </div>
       </div>
-      <div v-html="entity.theory" class="text-wrapper"></div>
+      <div v-html="entity.data.theory" class="text-wrapper"></div>
     </div>
   </div>
 
-  <!-- {{entity}} -->
+  {{entity}}
 
 </div>
 </template>
@@ -115,7 +115,7 @@ export default {
       this.socket.emit('reqEntity')
       this.socket.on('resEntity', (data) => {
         this.entity = data
-        if (this.entity.type == 'q') {
+        if (this.entity.data.type == 'q') {
           this.checkSelectedCard()
         }
       })
@@ -126,7 +126,7 @@ export default {
 
     selectCard(item) {
       this.$store.dispatch('player_answer/answering', {
-        entity: this.entity.id,
+        entity: this.entity.data.id,
         answer: item.key
       }).then(data => {
         this.socket.emit('reqAnswer', this.$parent.myInfo.id)
@@ -136,9 +136,10 @@ export default {
     },
 
     checkSelectedCard() {
-      this.$store.dispatch('player_answer/getByPlayerAndEntity', this.entity.id).then(data => {
+      this.myAnswer = ''
+      this.$store.dispatch('player_answer/getByPlayerAndEntity', this.entity.data.id).then(data => {
         if (data.data) {
-          let item = this.entity.answer.find(function(x) {
+          let item = this.entity.data.answer.find(function(x) {
             return x.key == data.data.answer
           })
           item["id"] = data.data.id

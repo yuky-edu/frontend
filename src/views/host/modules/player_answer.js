@@ -32,6 +32,17 @@ export default {
         })
     },
 
+    getPlayerByEntity: async function({
+      state
+    }, id_entity) {
+      return await Axios.get(Global.API_URL + '/hosts/player_answer/entity/' + id_entity + '/player')
+        .then(({
+          data
+        }) => {
+          if (data.status) return data.data
+        })
+    },
+
 
   }
 }
