@@ -1,8 +1,9 @@
 <template>
-<div id="entity" v-if="entity">
+<div id="entity" v-if="entity" class="container">
 
   <div v-if="entity.data.type == 'q' && myAnswer.status !== ''" class="y-question">
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+
+    <div class="modal fade" id="showQustion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
@@ -28,14 +29,15 @@
             <div v-html="entity.data.question"></div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
+            <button type="button" class="btn btn-dark waves-effect waves-light" data-dismiss="modal">Tutup</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="w-100 text-center">
-      <button class="btn y-play-custom-shadow show-q waves-effect waves-light" data-toggle="modal" data-target="#exampleModalLong" name="button">
-        <span>Tampilkan Soal</span>
+
+    <div class="w-100 text-center mt-5">
+      <button class="btn y-play-custom-shadow show-q waves-effect waves-light pl-4 pr-4" data-toggle="modal" data-target="#showQustion" name="button">
+        <span>Lihat Soal</span>
       </button>
     </div>
 
@@ -55,8 +57,8 @@
             {{ item.value }}
           </p>
           <div class="text-center">
-            <button class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-sm" name="button">
-              <span><i class="fa fa-ellipsis-h"></i></span>
+            <button class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-md" name="button">
+              <span>Selengkapnya</span>
             </button>
           </div>
         </div>
@@ -70,8 +72,9 @@
   </div>
 
   <div v-if="entity.data.type == 't'" class="y-theory">
-    <div class="container">
-      <div class="media-wrepper" v-if="entity.data.media.type !== null && entity.data.media.file !== null && entity.data.media.path !== null">
+    <div class="container mt-5">
+
+      <div class="media-wrepper" v-if="entity.data.media.type !== null && entity.data.media.path !== null">
         <div v-if="entity.data.media.type == 'image'">
           <img :src="entity.data.media.path" class="img-fluid" alt="Yuky media">
         </div>
@@ -90,11 +93,13 @@
           </video>
         </div>
       </div>
+
       <div v-html="entity.data.theory" class="text-wrapper"></div>
+
     </div>
   </div>
 
-  {{entity}}
+  <!-- {{entity}} -->
 
 </div>
 </template>

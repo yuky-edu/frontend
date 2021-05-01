@@ -33,7 +33,7 @@ module.exports = {
         entry: 'src/views/play/main.js',
         // the source template
         template: 'public/play.html',
-        // output as dist/play/index.html
+        // output as dist/play/index.htmli
         filename: 'play/index.html',
         // when using title option,
         // template title tag needs to be <title><%= htmlWebpackPlugin.options.title %></title>
@@ -51,6 +51,6 @@ module.exports = {
   devServer: {
     host: '0.0.0.0',
     // host: '192.168.137.1',
-    host: '192.168.43.125',
+    // host: '192.168.43.125',
   },
 }

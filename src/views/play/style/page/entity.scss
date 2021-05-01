@@ -4,7 +4,8 @@
     display: flex;
     justify-content: center;
 
-    img, video {
+    img,
+    video {
       width: 100%;
       min-width: 300px;
       max-width: 500px;
@@ -24,18 +25,41 @@
 
   .y-play-custom-shadow {
     border-radius: 10px;
-    box-shadow: 0px 0px 0px 6px #ffffff38;
+    box-shadow: 0 0 0 6px #ffffff38;
   }
+
   .y-play-custom-shadow:hover {
     color: #FFF;
     outline: none;
   }
+
   .show-q {
     background: linear-gradient(#24E95B, #03AD46, #02B64A);
     color: #FFF;
   }
+
   .show-a {
     background: linear-gradient(#FFCB4D, #FC622C);
     color: #FFF;
+  }
+}
+
+#card-select {
+  .play-card {
+    border-radius: 35px;
+    padding: 48px 40px 40px;
+  }
+
+  .circle-wrapper{
+    width: 128px;
+    height: 128px;
+
+    h1{
+      font-size: 76px;
+    }
+
+    .answer{
+      font-size: 22px;
+    }
   }
 }

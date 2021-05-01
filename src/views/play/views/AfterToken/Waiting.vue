@@ -8,7 +8,7 @@
     </a>
   </div>
 
-  <div class="body">
+  <div class="body container">
 
     <div class="avatar mt-5 flex-center">
       <div class="avatar-circle">
@@ -25,7 +25,7 @@
       <div class="count">
         <h3>{{totalMyFriend}} <i class="fa fa-times ml-3"></i></h3>
       </div>
-      <p>teman kamu telah bergabung</p>
+      <p>Teman kamu telah bergabung</p>
     </div>
 
   </div>

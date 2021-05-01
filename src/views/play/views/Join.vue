@@ -14,6 +14,7 @@
     </div>
     <div class="join-form">
       <form @submit.prevent="joinClass()">
+
         <label for="#join" class="text-white">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -109,7 +110,7 @@ export default {
 
   data() {
     return {
-      code: this.$route.query.code ? this.$route.query.code : 'xxxasdfsdfasdf'
+      code: this.$route.query.code ? this.$route.query.code : 'belajarsains2021'
     }
   },
 }
