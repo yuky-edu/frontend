@@ -1,6 +1,14 @@
-#join{
-  .body{
-    margin-top: 120px;
+#join {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    justify-content: center;
+    width: 100%;
   }
 }
 
@@ -15,37 +23,22 @@
   }
 }
 
-.join-form{
-  button{
+.join-form {
+  button {
     margin: 54px 0;
 
-    svg{
+    svg {
       margin-left: -6px;
     }
   }
 }
 
-.footer{
-  position: absolute;
-  left: 0;
-  bottom: 12px;
+.footer {
+  // position: absolute;
+  // left: 0;
+  // bottom: 12px;
   width: 100%;
   color: $white;
   text-align: center;
   font-size: 12px;
-}
-
-.warning-gradient {
-  background: linear-gradient(#FFCB4D, #FC622C);
-  color: #FFF;
-}
-.y-play-custom-shadow-playbtn {
-  box-shadow: 0px 0px 0px 6px #ffffff38;
-  width: 90px;
-  height: 90px;
-  padding-left: 23px;
-}
-.y-play-custom-shadow-playbtn:hover {
-  color: #FFF;
-  outline: none;
 }

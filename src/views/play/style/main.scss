@@ -1,35 +1,36 @@
 @import '@/plugin/play';
-
 @import './components/play-forms';
 @import './components/play-buttons';
-
 @import './page/join';
 @import './page/entity';
 @import './page/joined';
 @import './page/waiting';
 @import './page/card';
+@import '@/assets/style/main'; // ROOT STYLE
 
-@import '@/assets/style/main';
-
-// ROOT STYLE
-body{
-  background: linear-gradient(180deg, #6935F0 0%, #5534CE 100%);
-  padding: 20px;
-  min-height: 100vh;
-  position: relative;
+html, body {
+  // height: 100vh;
+  // max-height: 100vh;
   overflow: hidden;
+  // position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
-.flex-center{
+#root {
+  padding: 20px;
+  background: linear-gradient(180deg, #6935F0 0%, #5534CE 100%);
+  height: 100%;
+}
+
+.flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.play-container{
+.play-container {
   max-width: 360px;
   margin: auto;
 }
-
-
 @import 'responsive';

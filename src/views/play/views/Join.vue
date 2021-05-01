@@ -8,7 +8,7 @@
     </a>
   </div>
 
-  <div class="body play-container">
+  <div class="body play-container input-focus">
     <div class="brand mx-auto">
       <img src="/assets/img/logo.svg">
     </div>
@@ -18,11 +18,13 @@
           <i class="fa fa-key mr-2"></i>
           Kode Kelas
         </label>
+
         <div class="form-group y-form">
           <input autocomplete="off" v-model="code" ref="kode" type="text" class="form-control form-control-sm play-form" placeholder="Masukan kode kelas" name="class-code">
         </div>
+
         <div class="w-100 text-center">
-          <button class="btn rounded-circle y-play-custom-shadow-playbtn warning-gradient btn-circle-sm" name="button">
+          <button class="btn rounded-circle btn-play warning-gradient btn-circle-sm" name="button">
             <svg width="49" height="56" viewBox="0 0 49 56" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g filter="url(#filter0_d)">
                 <path
@@ -48,7 +50,7 @@
   </div>
 
   <div class="footer">
-    <p>© 2021 Yuky - ARNAV Developer.</p>
+    <p class="m-0">© 2021 Yuky - ARNAV Developer.</p>
   </div>
 
 </div>
