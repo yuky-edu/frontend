@@ -5,7 +5,7 @@
 
   <div class="entity-wrapper">
 
-    <div v-if="data.data.media.type" class="mb-5">
+    <div v-if="data.data.media.type" class="mt-4">
       <div class="entity-media">
 
         <div v-if="data.data.media.type == 'image'">
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div v-html="data.data.theory" class="entity-theory container"></div>
+    <div v-html="data.data.theory" class="entity-theory container mt-4"></div>
   </div>
 </div>
 </div>

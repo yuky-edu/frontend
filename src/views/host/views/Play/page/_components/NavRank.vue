@@ -4,7 +4,7 @@
     <div class="container-fluid">
 
       <div class="nav-title">
-        Menu Ranking Kelas
+        Ranking Kelas
       </div>
 
       <ul class="nav navbar-nav flex-nowrap ml-auto">

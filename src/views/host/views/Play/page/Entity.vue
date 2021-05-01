@@ -4,6 +4,18 @@
   <CardQuestion v-if="entity.data.type == 'q'" />
   <CardTheory v-if="entity.data.type == 't'" />
 
+  <div class="navigator navigator-right">
+    <button class="btn btn-light">
+      <i class="fa fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <div class="navigator navigator-left">
+    <button class="btn btn-light">
+      <i class="fa fa-arrow-left"></i>
+    </button>
+  </div>
+
   <!-- {{entity}} -->
   <hr>
 </div>
@@ -43,8 +55,7 @@ export default {
       let nextEntity = this.entity.index + 1
       if (nextEntity < this.entities.length) {
         this.entity.index = this.entity.index + 1
-      }
-      else {
+      } else {
         this.$store.dispatch('yclass_session/updateSession', {
           id: this.$cookies.get('play_session').id,
           data: {
@@ -84,8 +95,7 @@ export default {
     },
 
     updateSession(res) {
-      if (res.status) {
-      }
+      if (res.status) {}
     },
   },
 

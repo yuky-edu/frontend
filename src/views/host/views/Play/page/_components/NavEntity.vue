@@ -50,7 +50,6 @@
       <ul class="nav navbar-nav flex-nowrap ml-auto">
         <!-- <li class="nav-item no-arrow mx-1 mr-5">
           <div class="form-group m-0">
-            <label for="font-range">14 px</label>
             <input type="range" class="form-control-range" id="font-range">
           </div>
         </li> -->

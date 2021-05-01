@@ -5,7 +5,7 @@
 
   <div class="entity-wrapper question-wrapper">
 
-    <div v-if="data.data.media.type" class="entity-media">
+    <div v-if="data.data.media.type" class="entity-media mt-3">
       <div class="e-media-wrapper">
 
         <div v-if="data.data.media.type == 'image'">
@@ -53,6 +53,29 @@
   <div class="counter" v-if="counter.status">
     {{counter.number}}
   </div> -->
+
+  <div class="answered">
+    <div class="answered-list">
+      <div class="player-list">
+        <img src="/avatar/avatar1.png" alt="">
+      </div>
+      <div class="player-list">
+        <img src="/avatar/avatar2.png" alt="">
+      </div>
+      <div class="player-list">
+        <img src="/avatar/avatar3.png" alt="">
+      </div>
+      <div class="player-list">
+        <img src="/avatar/avatar4.png" alt="">
+      </div>
+      <div class="player-list">
+        <img src="/avatar/avatar4.png" alt="">
+      </div>
+    </div>
+    <div class="answered-count">
+      <button class="btn btn-light">21+</button>
+    </div>
+  </div>
 
   <div class="modal fade bd-example-modal-lg" data-keyboard="false" data-backdrop="static" id="leaderboards" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">

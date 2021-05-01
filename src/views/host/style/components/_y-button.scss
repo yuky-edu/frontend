@@ -112,6 +112,10 @@
   &:hover {
     color: $white;
   }
+
+  &.shadow {
+    box-shadow: 0 5px 0 #32C746 $im;
+  }
 }
 
 .btn-danger {
