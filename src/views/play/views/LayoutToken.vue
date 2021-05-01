@@ -4,6 +4,7 @@
   <Entity v-if="page == 'Entity'" @changePage="onChangePage"/>
   <Score v-if="page == 'Score'" @changePage="onChangePage"/>
   <Loading v-if="page == 'Loading'"/>
+
 </div>
 </template>
 
@@ -11,7 +12,9 @@
 export default {
 
   computed: {
-    //
+    myInfo: function() {
+      return this.$store.state.player.myInfo.data
+    }
   },
 
   methods: {

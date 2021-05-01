@@ -16,6 +16,12 @@ export default {
   computed: {
     runningSession: function() {
       return this.$store.state.yclass_session.runningSession
+    },
+    
+    players: function() {
+      const data = this.$store.state.player.players
+      if(data) return data
+      return []
     }
   },
 

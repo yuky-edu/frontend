@@ -5,6 +5,8 @@
   <CardTheory v-if="entity.data.type == 't'" />
 
   {{entity}}
+  <hr>
+  {{playerAnswer}}
 </div>
 </template>
 
@@ -34,6 +36,22 @@ export default {
       // Send entity now
       this.socket.on('reqEntity', () => {
         this.socket.emit('resEntity', this.entity.data)
+      })
+
+      // Get who already answering
+      this.socket.on('reqAnswer', (id) => {
+        let playerAnswer = this.$parent.players.find(function(x) {
+          return x.id == id
+        });
+        this.playerAnswer.push(playerAnswer)
+      })
+
+      // Get who cancel answer
+      this.socket.on('cancelAnswer', (id) => {
+        let playerAnswer = this.$parent.players.findIndex(function(x) {
+          return x.id == id
+        });
+        this.playerAnswer.splice(playerAnswer, 1)
       })
     },
 
@@ -104,7 +122,8 @@ export default {
         index: '',
         answered_entity: '',
         data: ''
-      }
+      },
+      playerAnswer: []
     }
   },
 

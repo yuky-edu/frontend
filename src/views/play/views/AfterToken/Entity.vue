@@ -129,6 +129,7 @@ export default {
         entity: this.entity.id,
         answer: item.key
       }).then(data => {
+        this.socket.emit('reqAnswer', this.$parent.myInfo.id)
         item["id"] = data.id
         this.myAnswer = item
       })
