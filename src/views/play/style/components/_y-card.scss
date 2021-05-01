@@ -1,0 +1,50 @@
+.y-card {
+  border: 1px solid $gray-1;
+  box-sizing: border-box;
+  border-radius: 10px;
+  overflow: hidden;
+  background: $white;
+
+  .card-header {
+    background: $white;
+    border: none;
+    padding: 26px 32px;
+  }
+
+  .card-title{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: $black;
+    margin: 0;
+  }
+
+  .card-body {
+    padding: 32px;
+
+    li {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      font-size: 48px;
+    }
+  }
+
+  .title {
+    margin-top: 34px;
+    font-size: 24px;
+    font-family: 'rubik';
+  }
+
+  .card-footer {
+    background: $gray-1;
+  }
+}

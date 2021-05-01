@@ -15,7 +15,7 @@
     <div class="card-body pt-0">
       <div class="table-responsive">
 
-        <table class="table my-0 table-hover y-table">
+        <table class="table my-0 table-hover <y-table></y-table>">
           <thead>
             <tr>
               <th>Nama Kelas</th>
@@ -35,7 +35,7 @@
                 <!-- <span>
                   <img :src="item.category.image" :alt="item.category.name" width="25"> {{ item.category.name }}
                 </span> -->
-                <p>Masih eror</p>          
+                <p>Masih eror</p>
               </td>
               <td class="text-right">
                 <button @click="createSession(item, index)" ref="btnPlay" class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">

@@ -1,5 +1,8 @@
 @import '@/plugin/play';
 
+@import './components/play-forms';
+@import './components/play-buttons';
+
 @import './page/join';
 @import './page/entity';
 @import './page/joined';
@@ -11,15 +14,21 @@
 // ROOT STYLE
 body{
   background: linear-gradient(180deg, #6935F0 0%, #5534CE 100%);
-  padding: 40px 32px;
+  padding: 20px;
   min-height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .flex-center{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.play-container{
+  max-width: 360px;
+  margin: auto;
 }
 
 

@@ -8,7 +8,7 @@
     </a>
   </div>
 
-  <div class="body">
+  <div class="body play-container">
     <div class="brand mx-auto">
       <img src="/assets/img/logo.svg">
     </div>
