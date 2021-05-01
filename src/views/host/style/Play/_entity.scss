@@ -115,3 +115,28 @@
 .question-wrapper {
   height: 100%;
 }
+
+.dropdown-entity {
+  .dropdown-toggle {
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 21px;
+    color: #070744;
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+  }
+
+  .dropdown-menu{
+    border-radius: 10px;
+    top: 120%;
+  }
+
+  .dropdown-item{
+    padding: 12px 24px;
+  }
+
+  svg {
+    margin-right: 24px;
+  }
+}

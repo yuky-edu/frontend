@@ -159,9 +159,7 @@ export default {
         this.$parent.entity.answered_entity = data.answered_entity
       })
 
-      this.checkScore(() => {
-        this.saveScore(this.leaderboards.correct)
-      })
+      this.saveScore(this.leaderboards.correct)
       this.counter.status = false
       this.counter.number = 3
     },

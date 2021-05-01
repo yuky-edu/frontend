@@ -138,7 +138,8 @@ export default {
      * @param Object Input FromData()
      */
     updateEntity: function({
-      state
+      state,
+      commit
     }, {
       input,
       id
