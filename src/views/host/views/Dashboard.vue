@@ -17,7 +17,10 @@
                         {{ $store.state.yclass.myClass.length }}
                       </div>
                       <div class="icon-rounded icon-blue">
-                        <i class="fas fa-calendar fa-2x"></i>
+                        <svg width="1366" height="69" viewBox="0 0 1366 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="682.5" cy="3409" rx="3409.5" ry="3409" fill="white"/>
+</svg>
+
                       </div>
                     </div>
                     <div class="title">

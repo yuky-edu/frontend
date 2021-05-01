@@ -3,38 +3,63 @@
 // }
 
 #play-entity {
-  
+  height: 100%;
 }
 
-.e-card {
-  padding: 96px 40px 40px;
+#card-theory {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
 
-  .e-body {
-    text-align: center;
+.entity-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  overflow-y: scroll;
+  margin: 36px;
+
+  &::-webkit-scrollbar {
+    width: 0;
   }
 
-  .e-media {
+  .entity-media {
+    margin-bottom: 100px;
+
+    img,
+    video {
+      border: 4px solid $white;
+      box-sizing: border-box;
+      // filter: drop-shadow(0px 8px 0px #BDBDBD);
+      border-radius: 10px;
+      width: 500px;
+      min-width: 200px;
+    }
+  }
+
+  .entity-theory {
+    font-size: 36px;
+    line-height: 43px;
+    color: $white;
     display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
   }
 
-  .e-media-wrapper {
-    border: 8px solid $white;
-    box-sizing: border-box;
-    filter: drop-shadow(0px 8px 0px #BDBDBD);
-    border-radius: 10px;
-  }
-
-  .e-text {
+  .entity-question {
     font-size: 36px;
     line-height: 43px;
     text-align: center;
     color: $white;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
   }
 
   .answer-body {
-    margin-top: 60px;
+    margin-bottom: 70px;
 
     .answer {
       padding: 18px 40px 18px 24px;
@@ -67,6 +92,10 @@
   }
 }
 
-#card-question{
-  // height: 100vh;
+#card-question {
+  height: 100%;
+}
+
+.question-wrapper {
+  height: 100%;
 }

@@ -1,6 +1,6 @@
 <template>
 <div id="nav-question">
-  <nav class="navbar navbar-play navbar-light navbar-expand topbar fixed-top">
+  <nav class="navbar navbar-play navbar-light navbar-expand topbar">
     <div class="container-fluid">
 
       <div class="navbar-brand w-25" href="#">

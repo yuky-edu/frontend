@@ -2,6 +2,58 @@
 <div id="card-question">
 
   <NavEntity :data="data" />
+
+  <div class="entity-wrapper question-wrapper">
+
+    <div v-if="data.data.media.type" class="entity-media">
+      <div class="e-media-wrapper">
+
+        <div v-if="data.data.media.type == 'image'">
+          <img :src="data.media.path" alt="Yuky media">
+        </div>
+
+        <div v-if="data.data.media.type == 'audio'">
+          <audio controls>
+            <source :src="data.data.media.path" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
+        <div v-if="data.data.media.type == 'video'">
+          <video controls>
+            <source :src="data.data.media.path" type="video/mp4">
+            Your browser does not support HTML video.
+          </video>
+        </div>
+
+      </div>
+    </div>
+
+    <div v-html="data.data.question" class="entity-question container">
+    </div>
+
+    <div class="answer-body">
+      <div class="row">
+        <div v-for="(item, index) in data.data.answer" class="col-xl-4 col-lg-6">
+          <div class="answer" :class="isAnswered(data.data.id) && data.data.answer[index].correct ? 'bg-success' : false">
+            <button class="btn btn-sm">
+              {{ item.label }}
+            </button>
+            <span>{{ item.value }}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Yang telah menjawab:
+  {{playerAnswer}}
+
+  <div class="counter" v-if="counter.status">
+    {{counter.number}}
+  </div> -->
+
   <div class="modal fade bd-example-modal-lg" data-keyboard="false" data-backdrop="static" id="leaderboards" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
@@ -88,59 +140,6 @@
     </div>
   </div>
 
-  <div class="e-card">
-    <div class="e-body">
-
-      <div v-if="data.data.media.type" class="e-media">
-        <div class="e-media-wrapper">
-
-          <div v-if="data.data.media.type == 'image'">
-            <img :src="data.media.path" alt="Yuky media">
-          </div>
-
-          <div v-if="data.data.media.type == 'audio'">
-            <audio controls>
-              <source :src="data.data.media.path" type="audio/mp3">
-              Your browser does not support the audio element.
-            </audio>
-          </div>
-
-          <div v-if="data.data.media.type == 'video'">
-            <video controls>
-              <source :src="data.data.media.path" type="video/mp4">
-              Your browser does not support HTML video.
-            </video>
-          </div>
-
-        </div>
-      </div>
-
-      <div v-html="data.data.question" class="e-text container">
-      </div>
-
-    </div>
-    <div class="answer-body">
-      <div class="row">
-        <div v-for="(item, index) in data.data.answer" class="col-xl-4 col-lg-6">
-          <div class="answer" :class="isAnswered(data.data.id) && data.data.answer[index].correct ? 'bg-success' : false">
-            <button class="btn btn-sm">
-              {{ item.label }}
-            </button>
-            <span>{{ item.value }}</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  Yang telah menjawab:
-  {{playerAnswer}}
-  <hr>
-
-  <div class="counter" v-if="counter.status">
-    {{counter.number}}
-  </div>
 </div>
 </template>
 
@@ -167,7 +166,7 @@ export default {
       this.counter.number = 3
     },
 
-    checkScore(cb='') {
+    checkScore(cb = '') {
       this.leaderboards.isChecking = true
       this.$store.dispatch('player_answer/getAnswerByEntity', this.data.data.id).then(data => {
         data.map(x => {
@@ -251,8 +250,7 @@ export default {
     }
   },
 
-  beforeMount() {
-  },
+  beforeMount() {},
 
   mounted() {
     this.handleSocket()
@@ -282,15 +280,15 @@ export default {
 </script>
 
 <style scoped>
-  .counter {
-    position: fixed;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    top: 0;
-    bottom: 0;
-    font-size: 180px;
-    padding: 20% 0 0 0;
-    text-align: center;
-    color: #FFF;
-  }
+.counter {
+  position: fixed;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  bottom: 0;
+  font-size: 180px;
+  padding: 20% 0 0 0;
+  text-align: center;
+  color: #FFF;
+}
 </style>

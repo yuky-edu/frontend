@@ -4,7 +4,7 @@
   <CardQuestion v-if="entity.data.type == 'q'" />
   <CardTheory v-if="entity.data.type == 't'" />
 
-  {{entity}}
+  <!-- {{entity}} -->
   <hr>
 </div>
 </template>
