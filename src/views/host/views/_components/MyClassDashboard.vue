@@ -32,7 +32,10 @@
                 </router-link>
               </td>
               <td class="text-regular text-16">
-                <span><img :src="item.category.image" :alt="item.category.name" width="25"> {{ item.category.name }}</span>
+                <!-- <span>
+                  <img :src="item.category.image" :alt="item.category.name" width="25"> {{ item.category.name }}
+                </span> -->
+                <p>Masih eror</p>          
               </td>
               <td class="text-right">
                 <button @click="createSession(item, index)" ref="btnPlay" class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
