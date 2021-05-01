@@ -2,7 +2,7 @@
 <div id="card-question">
 
   <NavEntity :data="data" />
-  <div class="modal fade bd-example-modal-lg" id="leaderboards" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade bd-example-modal-lg" data-keyboard="false" data-backdrop="static" id="leaderboards" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -28,11 +28,11 @@
             </div>
           </h5>
         </div>
-        <div class="modal-body">
+        <div class="modal-body px-0">
           <h4 class="text-center mb-3">
             Papan Skor
           </h4>
-          <div class="container-fluid">
+          <div class="container-fluid w-100 px-3">
             <div class="row">
               <div class="col">
                 <div class="p-2 rounded text-center bg-success text-white">
@@ -40,7 +40,7 @@
                 </div>
                 <ul class="list-group">
                   <li v-for="(item, index) in leaderboards.correct" class="list-group-item">
-                    <div class="container-fluid">
+                    <div class="container">
                       <div class="row">
                         <div class="col">
                           <img :src="item.player_info.avatar" :alt="item.player_info.name" class="rounded img-thumbnail" width="100">
@@ -62,7 +62,7 @@
                 </div>
                 <ul class="list-group">
                   <li v-for="(item, index) in leaderboards.wrong" class="list-group-item">
-                    <div class="container-fluid">
+                    <div class="container">
                       <div class="row">
                         <div class="col">
                           <img :src="item.player_info.avatar" :alt="item.player_info.name" class="rounded img-thumbnail" width="100">
@@ -82,7 +82,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+          <button type="button" class="btn btn-secondary" @click="closeLeaderboardsModal()">Tutup</button>
         </div>
       </div>
     </div>
@@ -117,11 +117,12 @@
 
       <div v-html="data.data.question" class="e-text container">
       </div>
+
     </div>
     <div class="answer-body">
       <div class="row">
         <div v-for="(item, index) in data.data.answer" class="col-xl-4 col-lg-6">
-          <div class="answer" :class="data.isCheckAnswer && data.data.answer[index].correct ? 'bg-success' : false">
+          <div class="answer" :class="isAnswered(data.data.id) && data.data.answer[index].correct ? 'bg-success' : false">
             <button class="btn btn-sm">
               {{ item.label }}
             </button>
@@ -148,7 +149,21 @@ export default {
 
   methods: {
     checkAnswer() {
-      this.data.isCheckAnswer = true
+      this.$store.dispatch('yclass_session/updateAnsweredEntity', {
+        id: this.$parent.$parent.runningSession.id,
+        answered_entity: this.$parent.entity.data.id
+      }).then(data => {
+        this.$parent.entity.answered_entity = data.answered_entity
+      })
+
+      this.checkScore(() => {
+        this.saveScore(this.leaderboards.correct)
+      })
+      this.counter.status = false
+      this.counter.number = 3
+    },
+
+    checkScore(cb='') {
       this.$store.dispatch('player_answer/getAnswerByEntity', this.data.data.id).then(data => {
         data.map(x => {
           if (x.correct)
@@ -157,9 +172,32 @@ export default {
             this.leaderboards.wrong.push(x)
         })
         this.openLeaderboardsModal()
-        this.counter.status = false
-        this.counter.number = 3
+      }).then(() => {
+        if (typeof cb == 'function') {
+          cb()
+        }
       })
+    },
+
+    closeLeaderboardsModal() {
+      $("#leaderboards").modal("hide")
+      this.leaderboards.correct = []
+      this.leaderboards.wrong = []
+    },
+
+    isAnswered(val) {
+      return this.$parent.entity.answered_entity.includes(val)
+    },
+
+    saveScore(correct) {
+      for (var val of correct) {
+        this.$store.dispatch('player/addScore', {
+          id: val.player,
+          data: {
+            score: val.score
+          }
+        })
+      }
     },
 
     countBeforeCheck() {
@@ -170,7 +208,7 @@ export default {
           this.checkAnswer()
           clearInterval(interval)
         }
-      }.bind(this), 1000)
+      }.bind(this), 100)
     },
 
     openLeaderboardsModal() {
@@ -182,13 +220,12 @@ export default {
   },
 
   mounted() {
-    // this.$nextTick(() => {
-    //   this.data.isCheckAnswer = false
-    // })
+    //
   },
 
   data() {
     return {
+      data: this.$parent.entity,
       counter: {
         status: false,
         number: 3
@@ -199,8 +236,6 @@ export default {
       }
     }
   },
-
-  props: ['data'],
 
   components: {
     NavEntity: require('./NavEntity').default,
@@ -216,7 +251,7 @@ export default {
     top: 0;
     bottom: 0;
     font-size: 180px;
-    padding: 30% 0;
+    padding: 20% 0 0 0;
     text-align: center;
     color: #FFF;
   }

@@ -20,7 +20,7 @@ export default {
   },
 
   watch: {
-    runningSession: function() {
+    'runningSession': function() {
       this.sessionInfo = this.runningSession
     }
   },

@@ -22,7 +22,7 @@
           <input autocomplete="off" v-model="code" ref="kode" type="text" class="form-control form-control-sm play-form" placeholder="Masukan kode kelas" name="class-code">
         </div>
         <div class="w-100 text-center">
-          <button class="btn btn-warning-gradient btn-circle-sm" name="button">
+          <button class="btn rounded-circle y-play-custom-shadow-playbtn warning-gradient btn-circle-sm" name="button">
             <svg width="49" height="56" viewBox="0 0 49 56" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g filter="url(#filter0_d)">
                 <path
@@ -66,12 +66,12 @@ export default {
       this.$store.dispatch('player/joinClass', {
         code: this.code
       }).then(response => {
-
         if (response.status) {
           this.$cookies.set('player_session', {
             ws_channel: response.data.yclass.last_session.ws_channel,
             id_session: response.data.yclass.last_session.id,
           }, '1d')
+
 
           this.$router.push({
             name: 'Profile',

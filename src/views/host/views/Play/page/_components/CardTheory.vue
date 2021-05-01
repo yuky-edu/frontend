@@ -53,11 +53,9 @@ export default {
 
   data() {
     return {
-      //
+      data: this.$parent.entity
     }
   },
-
-  props: ['data'],
 
   components: {
     NavEntity: require('./NavEntity').default,

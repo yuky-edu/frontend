@@ -2,7 +2,7 @@
 <div id="card-select" class="text-center">
   <div class="container">
     <div class="w-100 text-center mb-3">
-      <button class="btn btn-light">...</button>
+        <i class="fa fa-spinner rounded-circle p-2 bg-white fa-pulse" style="font-size: 30px;"></i>
     </div>
     <div class="play-card">
       <div class="label-wrapper">
@@ -34,9 +34,8 @@ export default {
 
   methods: {
     cancelAnswer() {
-      this.$store.dispatch('player_answer/cancelAnswer', this.data.id).then(() => {
-        this.$parent.myAnswer = ''
-      })
+      this.$store.dispatch('player_answer/cancelAnswer', this.data.id)
+      this.$parent.myAnswer = ''
     }
   },
 

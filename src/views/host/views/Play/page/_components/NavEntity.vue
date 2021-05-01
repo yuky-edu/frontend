@@ -30,7 +30,8 @@
 
         </li>
         <li class="nav-item no-arrow mx-1" v-if="data.data.type == 'q'">
-          <button @click="$parent.countBeforeCheck()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Cek Jawaban</button>
+          <button v-if="$parent.isAnswered(data.data.id)" @click="$parent.checkScore()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Lihat Skor</button>
+          <button v-else @click="$parent.countBeforeCheck()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Cek Jawaban</button>
         </li>
 
       </ul>
@@ -56,10 +57,9 @@ export default {
 
   data() {
     return {
-      //
+      data: this.$parent.$parent.entity,
     }
-  },
+  }
 
-  props: ['data']
 }
 </script>
