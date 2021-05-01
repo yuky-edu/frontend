@@ -21,9 +21,9 @@ const routes = [
     name: 'Profile',
     component: Profile,
     beforeEnter: function (to, from, next) {
-      if (window.$cookies.get(Global.TOKEN)) {
+      // if (window.$cookies.get(Global.TOKEN)) {
         next()
-      }
+      // }
     }
   },
   {

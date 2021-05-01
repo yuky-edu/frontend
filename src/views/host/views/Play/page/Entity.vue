@@ -4,14 +4,14 @@
   <CardQuestion v-if="entity.data.type == 'q'" />
   <CardTheory v-if="entity.data.type == 't'" />
 
-  <div class="navigator navigator-right">
-    <button class="btn btn-light">
+  <div v-if="entity.index < entities.length-1" class="navigator navigator-right">
+    <button @click="nextEntity()" class="btn btn-light">
       <i class="fa fa-arrow-right"></i>
     </button>
   </div>
 
-  <div class="navigator navigator-left">
-    <button class="btn btn-light">
+  <div v-if="entity.index > 0" class="navigator navigator-left">
+    <button @click="previousEntity()" class="btn btn-light">
       <i class="fa fa-arrow-left"></i>
     </button>
   </div>
@@ -86,6 +86,7 @@ export default {
     },
 
     goToEntity(index) {
+      this.entity.index = index
       this.$store.dispatch('yclass_session/nextEntity', {
         id_session: this.$parent.runningSession.id,
         nextEntity: index
