@@ -47,17 +47,17 @@
     <div class="row mt-5">
       <div v-for="(item, index) in entity.data.answer" class="col-6">
         <div class="play-card">
-          <div class="label-wrapper" @click="selectCard(item)">
+          <div class="label-wrapper">
             <div class="circle-wrapper">
               <h1>{{ item.label }}</h1>
             </div>
           </div>
-          <p class="answer" @click="selectCard(item)">
+          <p class="answer">
             {{ item.value }}
           </p>
           <div class="text-center">
-            <button class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-md" name="button">
-              <span>Selengkapnya</span>
+            <button @click="selectCard(item)" class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-md" name="button">
+              <span>Pilih</span>
             </button>
           </div>
         </div>

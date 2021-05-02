@@ -218,7 +218,7 @@
                     </div>
                   </li>
                   <li v-if="!leaderboards.correct.length" class="text-center mt-5">
-                    <h1>Yahh....</h1>
+                    <h1>😭</h1>
                     <h4>Tidak ada yang benar.</h4>
                   </li>
                 </ul>
@@ -244,11 +244,11 @@
                       </div>
                     </div>
                     <div class="score score-red">
-                      + {{item.score}}
+                      + 0
                     </div>
                   </li>
                   <li v-if="!leaderboards.wrong.length" class="text-center mt-5">
-                    <h1>Yee....</h1>
+                    <h1>😁🎉</h1>
                     <h4>Tidak ada yang salah.</h4>
                   </li>
                 </ul>
