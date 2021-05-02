@@ -138,7 +138,6 @@ export default {
         item["id"] = data.id
         this.myAnswer.status = 'answered'
         this.myAnswer.data = item
-        console.log(this.myAnswer);
       })
     },
 

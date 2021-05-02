@@ -372,7 +372,10 @@ export default {
 
     checkPlayerAnswer() {
       this.playerAnswer = []
-      this.$store.dispatch('player_answer/getPlayerByEntity', this.$parent.entity.data.id).then(data => {
+      this.$store.dispatch('player_answer/getPlayerByEntity', {
+        entity: this.$parent.entity.data.id,
+        session: this.$parent.$parent.sessionInfo.id
+      }).then(data => {
         for (var v of data) {
           let playerAnswer = this.$parent.$parent.players.find(function(x) {
             return x.id == v.player
