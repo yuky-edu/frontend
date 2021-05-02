@@ -165,36 +165,12 @@
     </div>
 
     <div class="action">
-      <button class="btn btn-block btn-warning">Selesai</button>
-      <button class="btn btn-block btn-success">Bagikan</button>
+      <button class="btn btn-block shadow btn-yellow waves-effect waves-light btn-lg">Selesai</button>
+      <button class="btn btn-block shadow btn-green waves-effect waves-light btn-lg">Bagikan</button>
     </div>
 
   </div>
 
-  <p class="text-warning">
-    tampilkan aja datanya disini pakek {}
-
-  <pre>
-  {{$parent.myInfo}}
-
-  Total Benar:
-  {{
-        data.filter(function(x) {
-          return x.correct == true
-        }).length
-      }}
-
-  Salah:
-  {{
-        data.filter(function(x) {
-          return x.correct == false
-        }).length
-      }}
-  </pre>
-  </p>
-  <div class="w-100">
-
-  </div>
 </div>
 </template>
 

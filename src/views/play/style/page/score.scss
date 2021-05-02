@@ -97,7 +97,16 @@
     background: #35FF86;
   }
 
-  .badge-red{
+  .badge-red {
     background: #F83939;
+  }
+
+  .action {
+    margin-top: 28px;
+
+    .btn {
+      margin-bottom: 16px;
+      border-radius: 10px;
+    }
   }
 }
