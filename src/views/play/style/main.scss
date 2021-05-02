@@ -4,6 +4,7 @@
 @import './page/join';
 @import './page/entity';
 @import './page/joined';
+@import './page/score';
 @import './page/waiting';
 @import './page/card';
 @import '@/assets/style/main'; // ROOT STYLE
@@ -21,7 +22,7 @@ body{
 #root {
   padding: 20px;
   background: linear-gradient(180deg, #6935F0 0%, #5534CE 100%);
-  height: 104vh;
+  min-height: 100vh;
 }
 
 .flex-center {
@@ -34,4 +35,17 @@ body{
   max-width: 360px;
   margin: auto;
 }
+
+#loader{
+  position: absolute;
+  top: 0;
+  left: 0;
+  // background: pink;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @import 'responsive';

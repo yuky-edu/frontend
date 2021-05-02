@@ -1,0 +1,103 @@
+#score {
+  .container {
+    max-width: 600px;
+  }
+
+  .header {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: $white;
+
+    .player-name {
+      font-weight: bold;
+    }
+  }
+
+  .avatar-wrapper {
+    margin-top: 32px;
+    width: 100%;
+  }
+
+  .avatar-circle {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -30px;
+    width: 110px;
+    height: 110px;
+    box-shadow: 0 0 0 10px rgb(102 53 235);
+
+    img {
+      display: block;
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .card {
+    background: #FFFFFF;
+    padding: 20px;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #070744;
+
+    &.card-shadow {
+      box-shadow: 0 8px 0 #BDBDBD;
+    }
+  }
+
+  .card-score {
+    padding-top: 54px;
+  }
+
+  .total-score {
+    font-family: 'rubik-medium';
+    margin-top: 14px;
+    margin-bottom: 24px;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 43px;
+    color: #070744;
+
+    svg {
+      margin-left: 0.5rem;
+    }
+  }
+
+  .counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 18px;
+
+    .number-count {
+      font-family: 'rubik-medium';
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 43px;
+      color: #070744;
+      margin-right: 12px;
+    }
+  }
+
+  .badge-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .badge-green {
+    background: #35FF86;
+  }
+
+  .badge-red{
+    background: #F83939;
+  }
+}
