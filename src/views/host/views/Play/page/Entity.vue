@@ -116,7 +116,7 @@ export default {
       this.entity.index = index
       this.$store.dispatch('yclass_session/nextEntity', {
         id_session: this.$parent.runningSession.id,
-        nextEntity: index
+        nextEntity: this.entity.index
       }).then(res => {
         this.entity.answered_entity = JSON.parse(res.answered_entity)
       })

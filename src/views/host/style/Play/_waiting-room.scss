@@ -1,11 +1,9 @@
 #play-waiting {
   height: 100%;
   overflow-y: scroll;
-
   // &::-webkit-scrollbar {
   //   width: 0;
   // }
-
   .container-fluid {
     padding: 60px 56px;
   }
@@ -74,7 +72,7 @@
   border-radius: 10px;
 }
 
-.card-class-info{
+.card-class-info {
   min-height: 333px;
   font-size: 20px;
 }
@@ -105,5 +103,30 @@
   .class-desc {
     font-size: 20px;
     line-height: 17px;
+  }
+}
+
+.class-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .badge-orange-circle {
+    width: 44px;
+    height: 44px;
+    background: rgba(252, 98, 44, 0.15);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .code {
+    font-weight: bold;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    color: #000000;
   }
 }

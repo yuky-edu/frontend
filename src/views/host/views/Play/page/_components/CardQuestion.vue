@@ -272,6 +272,12 @@ export default {
     //
   },
 
+  watch: {
+    '$parent.entity.index': function() {
+      this.checkPlayerAnswer()
+    }
+  },
+
   methods: {
     checkAnswer() {
       this.$store.dispatch('yclass_session/updateAnsweredEntity', {
@@ -365,6 +371,7 @@ export default {
     },
 
     checkPlayerAnswer() {
+      this.playerAnswer = []
       this.$store.dispatch('player_answer/getPlayerByEntity', this.$parent.entity.data.id).then(data => {
         for (var v of data) {
           let playerAnswer = this.$parent.$parent.players.find(function(x) {
