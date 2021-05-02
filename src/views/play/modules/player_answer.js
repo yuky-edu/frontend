@@ -2,8 +2,6 @@ import Vue from 'vue'
 import Axios from 'axios'
 import Global from '../variable'
 
-Axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.$cookies.get(Global.TOKEN)
-
 /**
  * * player answer play
  */
@@ -34,6 +32,10 @@ export default {
       return await Axios.post(Global.API_URL + '/plays/player_answer', {
         entity: input.entity,
         answer: input.answer
+      }, {
+        headers: {
+          Authorization: 'Bearer ' + window.$cookies.get(Global.TOKEN)
+        }
       })
         .then(({
           data
@@ -50,7 +52,11 @@ export default {
    cancelAnswer: async function({
      state
    }, id_answer) {
-     return await Axios.delete(Global.API_URL + '/plays/player_answer/' + id_answer)
+     return await Axios.delete(Global.API_URL + '/plays/player_answer/' + id_answer, {
+       headers: {
+         Authorization: 'Bearer ' + window.$cookies.get(Global.TOKEN)
+       }
+     })
        .then(({
          data
        }) => {
@@ -61,7 +67,11 @@ export default {
    getByPlayerAndEntity: async function({
      state
    }, id_entity) {
-     return await Axios.get(Global.API_URL + '/plays/player_answer/entity/' + id_entity)
+     return await Axios.get(Global.API_URL + '/plays/player_answer/entity/' + id_entity, {
+       headers: {
+         Authorization: 'Bearer ' + window.$cookies.get(Global.TOKEN)
+       }
+     })
        .then(({
          data
        }) => {
@@ -72,7 +82,11 @@ export default {
    getMyAnswerBySession: async function({
      state
    }, id_session) {
-     return await Axios.get(Global.API_URL + '/plays/player_answer/session/' + id_session)
+     return await Axios.get(Global.API_URL + '/plays/player_answer/session/' + id_session, {
+       headers: {
+         Authorization: 'Bearer ' + window.$cookies.get(Global.TOKEN)
+       }
+     })
        .then(({
          data
        }) => {
