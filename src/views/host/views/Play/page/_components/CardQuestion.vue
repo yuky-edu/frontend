@@ -53,7 +53,7 @@
 
   <div class="answered">
     <div class="answered-list">
-      <div v-for="(item, index) in playerAnswer" :key="index" class="player-list">
+      <div v-for="(item, index) in playerAnswer" :key="index" class="player-list avatar-circle">
         <img :src="item.avatar" :alt="item.name">
       </div>
     </div>

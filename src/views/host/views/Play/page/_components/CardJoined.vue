@@ -5,8 +5,8 @@
       <div class="kick">
         <div @click="kickPlayer()" class="icon-red">×</div>
       </div>
-      <div class="avatar-wrapper">
-        <img class="rounded-circle img-fluid" :src="data.avatar" alt="Avatar">
+      <div class="avatar-wrapper avatar-circle">
+        <img class="avatar" :src="data.avatar" alt="Avatar">
       </div>
       <div class="joined-name">
         <span>{{ data.name }}</span>
