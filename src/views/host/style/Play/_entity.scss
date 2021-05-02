@@ -224,10 +224,21 @@
     }
   }
 
-  img {
+  .avatar-circle {
+    width: 40px;
     height: 40px;
-    width: auto;
     border-radius: 100%;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    display: block;
+    height: 100%;
+    width: auto;
   }
 }
 
@@ -317,7 +328,7 @@
     border: 1.5px solid #D8D4E2;
     border-radius: 10px;
 
-    .list-group{
+    .list-group {
       height: 320px;
       overflow-y: scroll;
 
