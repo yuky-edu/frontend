@@ -1,5 +1,5 @@
 <template>
-<div id="entity" v-if="entity" class="container">
+<div id="entity" v-if="entity" class="container p-0">
   <div v-if="entity.data.type == 'q'" class="y-question">
     <div v-if="myAnswer.status == ''" class="text-white text-center">
       Tunggu, Yaa! 😉...
@@ -49,7 +49,7 @@
 
       <div class="row mt-5">
         <div v-for="(item, index) in entity.data.answer" class="col-6">
-          <div class="play-card" :class="myAnswer.data.key == item.key && entity.answered_entity.includes(entity.data.id) ? myAnswer.data.correct ? 'answer-blue' : 'answer-red' : false">
+          <div class="play-card" :class="myAnswer.data.key == item.key && entity.answered_entity.includes(entity.data.id) ? myAnswer.data.correct ? 'answer-green' : 'answer-red' : false">
             <div class="label-wrapper">
               <div class="circle-wrapper">
                 <h1>{{ item.label }}</h1>
@@ -62,7 +62,7 @@
               <button v-if="!entity.answered_entity.includes(entity.data.id)" @click="selectCard(item)" class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-md" name="button">
                 <span>Pilih</span>
               </button>
-              <button v-else disabled :class="item.correct ? 'btn-primary' : 'btn-danger'" class="btn w-100 waves-effect waves-light btn-md" name="button">
+              <button v-else disabled :class="item.correct ? 'btn-success' : 'btn-danger'" class="btn w-100 waves-effect waves-light btn-md text-white" name="button">
                 <span v-if="item.correct">Benar</span>
                 <span v-else="item.correct">Salah</span>
               </button>
@@ -212,10 +212,10 @@ export default {
     padding-top: 100px;
     background: linear-gradient(180deg, #6935F0 0%, #5534CE 100%);
   }
-  .answer-blue {
-    border: 5px solid blue;
+  .answer-green {
+    border: 5px solid #32c746;
   }
   .answer-red {
-    border: 5px solid red;
+    border: 5px solid #F83939;
   }
 </style>

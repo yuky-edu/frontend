@@ -63,16 +63,44 @@
     margin-right: auto;
   }
 
-  .circle-wrapper{
+  .circle-wrapper {
     width: 128px;
     height: 128px;
 
-    h1{
+    h1 {
       font-size: 76px;
     }
 
-    .answer{
+    .answer {
       font-size: 22px;
     }
+  }
+}
+
+.card-answer-result {
+  .badge-wrapper {
+    margin-bottom: 40px;
+  }
+
+  .badge-circle {
+    width: 56px;
+    height: 56px;
+    margin: auto;
+  }
+
+  h1 {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 56px;
+    text-align: center;
+    color: #070744;
+  }
+
+  p {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: #070744;
   }
 }

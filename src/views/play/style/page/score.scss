@@ -83,30 +83,4 @@
       margin-right: 12px;
     }
   }
-
-  .badge-circle {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .badge-green {
-    background: #35FF86;
-  }
-
-  .badge-red {
-    background: #F83939;
-  }
-
-  .action {
-    margin-top: 28px;
-
-    .btn {
-      margin-bottom: 16px;
-      border-radius: 10px;
-    }
-  }
 }
