@@ -1,5 +1,8 @@
 <template>
 <div id="entity" v-if="entity" class="container">
+  <div v-if="myAnswer.status == ''" class="text-white text-center">
+    Tunggu, Yaa! 😉...
+  </div>
   <div v-if="entity.data.type == 'q' && myAnswer.status !== ''" class="y-question">
 
     <div class="modal fade" id="showQustion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -34,19 +37,19 @@
       </div>
     </div>
 
-    <div class="w-100 text-center mt-5">
+    <div class="w-100 text-center mt-3">
       <button class="btn y-play-custom-shadow show-q waves-effect waves-light pl-4 pr-4" data-toggle="modal" data-target="#showQustion" name="button">
         <span>Lihat Soal</span>
       </button>
     </div>
-
+<!--
     <div class="w-100 text-white text-center mt-5">
       <p>Silahkan pilih kartu yang benar 👍</p>
-    </div>
+    </div> -->
 
     <div class="row mt-5">
       <div v-for="(item, index) in entity.data.answer" class="col-6">
-        <div class="play-card">
+        <div class="play-card" :class="myAnswer.data.key == item.key && entity.answered_entity.includes(entity.data.id) ? myAnswer.data.correct ? 'answer-blue' : 'answer-red' : false">
           <div class="label-wrapper">
             <div class="circle-wrapper">
               <h1>{{ item.label }}</h1>
@@ -56,16 +59,22 @@
             {{ item.value }}
           </p>
           <div class="text-center">
-            <button @click="selectCard(item)" class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-md" name="button">
+            <button v-if="!entity.answered_entity.includes(entity.data.id)" @click="selectCard(item)" class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-md" name="button">
               <span>Pilih</span>
+            </button>
+            <button v-else disabled :class="item.correct ? 'btn-primary' : 'btn-danger'" class="btn w-100 waves-effect waves-light btn-md" name="button">
+              <span v-if="item.correct">Benar</span>
+              <span v-else="item.correct">Salah</span>
             </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="selected-card" v-if="myAnswer.status == 'answered'">
-      <CardSelect :data="myAnswer.data"/>
+    <div class="selected-card" v-if="myAnswer.status == 'answered' && !entity.answered_entity.includes(entity.data.id)">
+      <CardSelect v-if="!myAnswer.answered" :data="myAnswer.data"/>
+      <CardWrongAnswer v-if="myAnswer.answered && !myAnswer.data.correct" :data="myAnswer.data"/>
+      <CardCorrectAnswer v-if="myAnswer.answered && myAnswer.data.correct" :data="myAnswer.data"/>
     </div>
 
   </div>
@@ -120,6 +129,7 @@ export default {
       this.socket.on('resEntity', (data) => {
         this.entity = data
         this.myAnswer.status = ''
+        this.myAnswer.answered = false
         if (this.entity.data.type == 'q') {
           this.checkSelectedCard()
         }
@@ -155,6 +165,12 @@ export default {
           this.myAnswer.status = 'notAnswered'
         }
       })
+    },
+
+    handleSocket() {
+      this.socket.on('checkAnswer', () => {
+        this.myAnswer.answered = true
+      })
     }
   },
 
@@ -163,6 +179,7 @@ export default {
 
   mounted() {
     this.requestEntity()
+    this.handleSocket()
   },
 
   data() {
@@ -170,7 +187,8 @@ export default {
       entity: '',
       myAnswer: {
         status: '',
-        data: ''
+        data: '',
+        answered: false
       }
     }
   },
@@ -193,5 +211,11 @@ export default {
     z-index: 2;
     padding-top: 100px;
     background: linear-gradient(180deg, #6935F0 0%, #5534CE 100%);
+  }
+  .answer-blue {
+    border: 5px solid blue;
+  }
+  .answer-red {
+    border: 5px solid red;
   }
 </style>
