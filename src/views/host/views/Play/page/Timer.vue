@@ -21,7 +21,7 @@ export default {
       var interval = setInterval(function() {
         this.counter--
         if (this.counter < 0) {
-          this.$parent.page = 'Entity'
+          this.$parent.changePage('Entity')
           this.socket.emit('startGame')
           clearInterval(interval)
         }

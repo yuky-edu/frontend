@@ -1,6 +1,5 @@
 <template>
 <div id="entity" v-if="entity" class="container">
-
   <div v-if="entity.data.type == 'q' && myAnswer.status !== ''" class="y-question">
 
     <div class="modal fade" id="showQustion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -126,7 +125,7 @@ export default {
         }
       })
       this.socket.on('rank', (data) => {
-        this.$parent.page = 'Score'
+        this.$parent.changePage('Score')
       })
     },
 
@@ -139,6 +138,7 @@ export default {
         item["id"] = data.id
         this.myAnswer.status = 'answered'
         this.myAnswer.data = item
+        console.log(this.myAnswer);
       })
     },
 

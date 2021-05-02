@@ -10,7 +10,7 @@
       <ul class="nav navbar-nav flex-nowrap ml-auto">
         <li class="nav-item no-arrow mx-1">
 
-          <button class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Selesai</button>
+          <router-link :to="{name: 'Dashboard'}" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Kembali ke Host</router-link>
 
         </li>
       </ul>

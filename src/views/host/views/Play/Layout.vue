@@ -32,7 +32,7 @@ export default {
   },
 
   methods: {
-    onChangePage(v) {
+    changePage(v) {
       this.$nextTick(() => {
         this.page = v
       })
@@ -62,24 +62,16 @@ export default {
     ).then(() => {
       switch (this.sessionInfo.status) {
         case 'wait':
-          this.$nextTick(() => {
-            this.page = 'Waiting'
-          })
+            this.changePage('Waiting')
           break;
         case 'off':
-          this.$nextTick(() => {
-            this.page = 'Rank'
-          })
+            this.changePage('Rank')
           break;
         case 'on_mode_block':
-          this.$nextTick(() => {
-            this.page = 'Entity'
-          })
+            this.changePage('Entity')
           break;
         case 'on_mode_open':
-          this.$nextTick(() => {
-            this.page = 'Entity'
-          })
+            this.changePage('Entity')
           break;
       }
     })

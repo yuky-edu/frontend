@@ -63,10 +63,10 @@
         </li> -->
         <li class="nav-item no-arrow mx-1">
           <span v-if="data.data.type == 'q'">
-            <button v-if="$parent.isAnswered(data.data.id)"  @click="$parent.checkScore()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Lihat Skor</button>
-            <button v-if="!$parent.isAnswered(data.data.id)" :disabled="$parent.leaderboards.isChecking" @click="$parent.countBeforeCheck()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Cek Jawaban</button>
+            <button v-if="$parent.isAnswered(data.data.id)"  @click="$parent.checkScore()" class="btn br-10 btn-green waves-effect shadow waves-light ml-2">Lihat Skor</button>
+            <button v-if="!$parent.isAnswered(data.data.id)" :disabled="$parent.leaderboards.isChecking" @click="$parent.countBeforeCheck()" class="btn br-10 btn-green shadow waves-effect waves-light ml-2">Cek Jawaban</button>
           </span>
-          <button v-if="data.index == $parent.$parent.entities.length-1" @click="$parent.$parent.nextEntity()" class="btn br-10 shadow btn-green waves-effect waves-light ml-2">Selesai</button>
+          <button v-if="data.index == $parent.$parent.entities.length-1" @click="$parent.$parent.openEndgameModal()" class="btn br-10 btn-outline-light waves-effect waves-light ml-2">Selesai</button>
         </li>
 
       </ul>

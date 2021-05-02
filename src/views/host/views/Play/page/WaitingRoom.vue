@@ -101,7 +101,7 @@ export default {
         }
       }).then(() => {
           this.refreshSession()
-          this.$parent.page = 'Timer'
+          this.$parent.changePage('Timer')
         })
     }
   },

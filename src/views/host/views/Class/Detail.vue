@@ -84,11 +84,11 @@
       </div>
     </div>
     <div class="col-sm-3 text-right">
-      <button class="btn br-5 btn-green btn-lg mb-2">
+      <button class="waves-effect waves-light btn br-5 btn-green shadow btn-lg mb-2">
         <span>Mainkan</span>
         <i class="fa fa-arrow-right ml-2"></i>
       </button>
-      <button class="btn br-5 btn-primary btn-lg">
+      <button class="waves-effect waves-light btn br-5 btn-primary shadow btn-lg">
         <span>Demo</span>
         <i class="fa fa-play-circle ml-2"></i>
       </button>
