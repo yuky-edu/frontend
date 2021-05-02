@@ -14,9 +14,9 @@
         {{data.value}}
       </p>
       <div class="text-center">
-        <button class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-lg" name="button">
+        <!-- <button class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-lg" name="button">
           <span>Selengkapnya</span>
-        </button>
+        </button> -->
       </div>
     </div>
     <button type="button" @click="cancelAnswer()" class="btn y-btn btn-outline-light btn-lg">Batalkan Jawaban</button>

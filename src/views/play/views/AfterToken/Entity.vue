@@ -1,73 +1,82 @@
 <template>
 <div id="entity" v-if="entity" class="container">
-  <div v-if="entity.data.type == 'q' && myAnswer.status !== ''" class="y-question">
+  <div v-if="entity.data.type == 'q'" class="y-question">
+    <div v-if="myAnswer.status == ''" class="text-white text-center">
+      Tunggu, Yaa! 😉...
+    </div>
+    <div v-else>
+      <div class="modal fade" id="showQustion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="media-wrepper" v-if="entity.data.media.type !== null && entity.data.media.path !== null">
+                <div v-if="entity.data.media.type == 'image'">
+                  <img :src="entity.data.media.path" class="img-fluid" alt="Yuky media">
+                </div>
 
-    <div class="modal fade" id="showQustion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="media-wrepper" v-if="entity.data.media.type !== null && entity.data.media.path !== null">
-              <div v-if="entity.data.media.type == 'image'">
-                <img :src="entity.data.media.path" class="img-fluid" alt="Yuky media">
-              </div>
+                <div v-if="entity.data.media.type == 'audio'">
+                  <audio controls>
+                    <source :src="entity.data.media.path" type="audio/mp3">
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
 
-              <div v-if="entity.data.media.type == 'audio'">
-                <audio controls>
-                  <source :src="entity.data.media.path" type="audio/mp3">
-                  Your browser does not support the audio element.
-                </audio>
+                <div v-if="entity.data.media.type == 'video'">
+                  <video controls>
+                    <source :src="entity.data.media.path" type="video/mp4">
+                    Your browser does not support HTML video.
+                  </video>
+                </div>
               </div>
-
-              <div v-if="entity.data.media.type == 'video'">
-                <video controls>
-                  <source :src="entity.data.media.path" type="video/mp4">
-                  Your browser does not support HTML video.
-                </video>
-              </div>
+              <div v-html="entity.data.question"></div>
             </div>
-            <div v-html="entity.data.question"></div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-dark waves-effect waves-light" data-dismiss="modal">Tutup</button>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-dark waves-effect waves-light" data-dismiss="modal">Tutup</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="w-100 text-center mt-5">
-      <button class="btn y-play-custom-shadow show-q waves-effect waves-light pl-4 pr-4" data-toggle="modal" data-target="#showQustion" name="button">
-        <span>Lihat Soal</span>
-      </button>
-    </div>
+      <div class="w-100 text-center mt-3">
+        <button class="btn y-play-custom-shadow show-q waves-effect waves-light pl-4 pr-4" data-toggle="modal" data-target="#showQustion" name="button">
+          <span>Lihat Soal</span>
+        </button>
+      </div>
+  <!--
+      <div class="w-100 text-white text-center mt-5">
+        <p>Silahkan pilih kartu yang benar 👍</p>
+      </div> -->
 
-    <div class="w-100 text-white text-center mt-5">
-      <p>Silahkan pilih kartu yang benar 👍</p>
-    </div>
-
-    <div class="row mt-5">
-      <div v-for="(item, index) in entity.data.answer" class="col-6">
-        <div class="play-card">
-          <div class="label-wrapper">
-            <div class="circle-wrapper">
-              <h1>{{ item.label }}</h1>
+      <div class="row mt-5">
+        <div v-for="(item, index) in entity.data.answer" class="col-6">
+          <div class="play-card" :class="myAnswer.data.key == item.key && entity.answered_entity.includes(entity.data.id) ? myAnswer.data.correct ? 'answer-blue' : 'answer-red' : false">
+            <div class="label-wrapper">
+              <div class="circle-wrapper">
+                <h1>{{ item.label }}</h1>
+              </div>
             </div>
-          </div>
-          <p class="answer">
-            {{ item.value }}
-          </p>
-          <div class="text-center">
-            <button @click="selectCard(item)" class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-md" name="button">
-              <span>Pilih</span>
-            </button>
+            <p class="answer">
+              {{ item.value }}
+            </p>
+            <div class="text-center">
+              <button v-if="!entity.answered_entity.includes(entity.data.id)" @click="selectCard(item)" class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-md" name="button">
+                <span>Pilih</span>
+              </button>
+              <button v-else disabled :class="item.correct ? 'btn-primary' : 'btn-danger'" class="btn w-100 waves-effect waves-light btn-md" name="button">
+                <span v-if="item.correct">Benar</span>
+                <span v-else="item.correct">Salah</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="selected-card" v-if="myAnswer.status == 'answered'">
-      <CardSelect :data="myAnswer.data"/>
+      <div class="selected-card" v-if="myAnswer.status == 'answered' && !entity.answered_entity.includes(entity.data.id)">
+        <CardSelect v-if="!myAnswer.answered" :data="myAnswer.data"/>
+        <CardWrongAnswer v-if="myAnswer.answered && !myAnswer.data.correct" :data="myAnswer.data"/>
+        <CardCorrectAnswer v-if="myAnswer.answered && myAnswer.data.correct" :data="myAnswer.data"/>
+      </div>
     </div>
-
   </div>
 
   <div v-if="entity.data.type == 't'" class="y-theory">
@@ -120,6 +129,7 @@ export default {
       this.socket.on('resEntity', (data) => {
         this.entity = data
         this.myAnswer.status = ''
+        this.myAnswer.answered = false
         if (this.entity.data.type == 'q') {
           this.checkSelectedCard()
         }
@@ -155,6 +165,12 @@ export default {
           this.myAnswer.status = 'notAnswered'
         }
       })
+    },
+
+    handleSocket() {
+      this.socket.on('checkAnswer', () => {
+        this.myAnswer.answered = true
+      })
     }
   },
 
@@ -163,6 +179,7 @@ export default {
 
   mounted() {
     this.requestEntity()
+    this.handleSocket()
   },
 
   data() {
@@ -170,7 +187,8 @@ export default {
       entity: '',
       myAnswer: {
         status: '',
-        data: ''
+        data: '',
+        answered: false
       }
     }
   },
@@ -193,5 +211,11 @@ export default {
     z-index: 2;
     padding-top: 100px;
     background: linear-gradient(180deg, #6935F0 0%, #5534CE 100%);
+  }
+  .answer-blue {
+    border: 5px solid blue;
+  }
+  .answer-red {
+    border: 5px solid red;
   }
 </style>

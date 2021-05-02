@@ -292,6 +292,8 @@ export default {
         this.saveScore(this.leaderboards.correct)
       })
 
+      this.socket.emit('checkAnswer')
+
       this.counter.status = false
       this.counter.number = 3
     },
