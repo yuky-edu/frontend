@@ -54,6 +54,17 @@ export default {
         })
     },
 
+    deleteSession: async function({
+      state
+    }, id) {
+      return await axios.delete(Global.API_URL + '/hosts/yclass_session/' + id)
+        .then(({
+          data
+        }) => {
+          return data
+        })
+    },
+
     nextEntity: async function({
       state
     }, data) {

@@ -57,7 +57,7 @@
               <button @click="startGame()" class="btn btn-block btn-lg br-10 shadow btn-blue waves-effect waves-light mb-3">
                 <span>Mulai Kelas</span>
               </button>
-              <button class="btn btn-block btn-lg br-10 shadow btn-danger waves-effect waves-light">
+              <button @click="deleteSession()" class="btn btn-block btn-lg br-10 shadow btn-danger waves-effect waves-light">
                 <span>Batalkan </span>
               </button>
             </div>
@@ -111,6 +111,17 @@ export default {
           this.refreshSession()
           this.$parent.changePage('Timer')
         })
+    },
+
+    deleteSession() {
+      this.$store.dispatch('yclass_session/deleteSession', this.$cookies.get('play_session').id).then((data) => {
+        if (data.status) {
+          this.$router.push({
+            name: 'ClassList'
+          })
+        }
+      })
+
     }
   },
 

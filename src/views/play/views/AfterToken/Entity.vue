@@ -6,7 +6,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
-            <div class="media-wrepper" v-if="entity.data.media.type !== null && entity.data.media.file !== null && entity.data.media.path !== null">
+            <div class="media-wrepper" v-if="entity.data.media.type !== null && entity.data.media.path !== null">
               <div v-if="entity.data.media.type == 'image'">
                 <img :src="entity.data.media.path" class="img-fluid" alt="Yuky media">
               </div>
