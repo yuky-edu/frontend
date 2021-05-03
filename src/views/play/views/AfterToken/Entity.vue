@@ -192,7 +192,13 @@ export default {
         data: '',
         answered: false
       },
-      isSelected: false
+      isSelected: false,
+
+      sound: {
+        cardSelect: new Audio('../../../../../assets/sound/card-select.mp3'),
+        wrongAnswer: new Audio('../../../../../assets/sound/answer-wrong.mp3'),
+        correctAnswer: new Audio('../../../../../assets/sound/answer-correct.mp3')
+      }
     }
   },
 

@@ -40,6 +40,10 @@ export default {
     }
   },
 
+  beforeMount() {
+    this.$parent.sound.cardSelect.play()
+  },
+
   mounted() {
     //
   },

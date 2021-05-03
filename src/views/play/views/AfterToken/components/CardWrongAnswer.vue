@@ -51,6 +51,10 @@ export default {
     //
   },
 
+  beforeMount() {
+    this.$parent.sound.wrongAnswer.play()
+  },
+
   mounted() {
     //
   },

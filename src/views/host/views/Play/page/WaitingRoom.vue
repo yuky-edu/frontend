@@ -129,6 +129,7 @@ export default {
     },
 
     deleteSession() {
+      this.settings.audio.file.pause()
       this.$store.dispatch('yclass_session/deleteSession', this.$cookies.get('play_session').id).then((data) => {
         if (data.status) {
           this.$router.push({
