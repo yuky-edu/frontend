@@ -14,8 +14,8 @@
           <img v-if="index+1 == 3" src="/assets/img/medal-3.png" alt="3">
         </div>
         <div class="player-wrapper">
-          <div class="avatar-wrapper">
-            <img class="rounded-circle img-fluid" :src="item.avatar" alt="Avatar">
+          <div class="avatar-wrapper avatar-circle">
+            <img :src="item.avatar" alt="Avatar">
           </div>
           <div class="player-name">{{item.name}}</div>
         </div>

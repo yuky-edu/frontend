@@ -207,7 +207,7 @@
               <div class="answer-player-list">
                 <ul class="list-group">
                   <li v-for="(item, index) in leaderboards.correct" class="list-group-item">
-                    <div class="player-info">
+                    <div class="player-info avatar-circle">
                       <img class="avatar" :src="item.player_info.avatar" :alt="item.player_info.name" alt="avatar">
                       <div class="player-name">
                         {{item.player_info.name}}
@@ -237,7 +237,7 @@
               <div class="answer-player-list">
                 <ul class="list-group">
                   <li v-for="(item, index) in leaderboards.wrong" class="list-group-item">
-                    <div class="player-info">
+                    <div class="player-info avatar-circle">
                       <img class="avatar" :src="item.player_info.avatar" :alt="item.player_info.name" alt="avatar">
                       <div class="player-name">
                         {{item.player_info.name}}

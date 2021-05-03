@@ -1,14 +1,11 @@
-@import '@/plugin/host';
-
-// Components
+@import '@/plugin/host'; // Components
 @import "components/y-badge";
 @import "components/y-button";
 @import "components/y-card";
 @import "components/y-forms";
 @import "components/y-table";
+@import '@/assets/style/main'; // ROOT ELEMENT
 
-@import '@/assets/style/main';
-// ROOT ELEMENT
 * {
   // border: 1px solid red;
 }
@@ -17,21 +14,22 @@
   width: 0 $im;
 }
 
-html, body{
+body,
+html {
   height: 100%;
   min-width: 100%;
 }
 
-body{
+body {
   // position: fixed;
   overflow-y: scroll;
 }
 
-#app{
+#app {
   min-height: 100%;
 }
 
-#y-layout{
+#y-layout {
   height: 100%;
 }
 
@@ -234,13 +232,22 @@ footer {
   justify-content: center;
 }
 
-#loader{
+#loader {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
+.avatar-circle {
+  
+  img {
+    box-shadow: 0 0 0 5px rgb(0 0 0 / 20%);
+    object-fit: cover;
+    display: block;
+    border-radius: 100%;
+  }
+}
 // MORE
 @import 'dashboard';
 @import 'Class/main';

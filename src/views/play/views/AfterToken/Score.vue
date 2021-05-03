@@ -10,10 +10,8 @@
       </div>
     </div>
 
-    <div class="avatar-wrapper">
-      <div class="avatar-circle">
-        <img :src="$parent.myInfo.avatar" alt="Avatar">
-      </div>
+    <div class="avatar-circle">
+      <img :src="$parent.myInfo.avatar" alt="Avatar">
     </div>
 
     <div class="card card-score">
