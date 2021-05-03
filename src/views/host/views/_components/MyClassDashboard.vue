@@ -24,7 +24,6 @@
             </tr>
           </thead>
           <tbody>
-
             <tr v-for="(item, index) in yClass">
               <td class="text-bold bold-16">
                 <router-link :to="{ name: 'ClassDetail', params: {code: item.code} }">
@@ -33,14 +32,14 @@
               </td>
               <td class="text-regular text-16">
                 <span>
-                  <img :src="item.category.image" :alt="item.category.name" width="25"> {{ item.category.name }}
+                  <img :src="item.category.imageurl" :alt="item.category.name" width="25"> {{ item.category.name }}
                 </span>
               </td>
               <td class="text-right">
                 <button @click="createSession(item, index)" ref="btnPlay" class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
                   <span>Mainkan</span>
                   <span class="icon">
-                   
+
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M19.75 11.7256L4.75 11.7256" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M13.7002 5.70124L19.7502 11.7252L13.7002 17.7502" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

@@ -4,7 +4,7 @@
   <div class="main-title d-center-b">
     <h1>
       Kelas Saya
-      
+
 <svg width="32" height="32" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8.99634 12.5075V10.6047" stroke="#070744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M13.6425 3.99756C14.91 3.99756 15.93 5.02506 15.93 6.29256V8.87256C14.085 9.95256 11.6475 10.6051 8.9925 10.6051C6.3375 10.6051 3.9075 9.95256 2.0625 8.87256V6.28506C2.0625 5.01756 3.09 3.99756 4.3575 3.99756H13.6425Z" stroke="#070744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -43,7 +43,7 @@
                 <td>{{ index+1 }}.</td>
                 <td>{{ item.title }}</td>
                 <td>
-                  <span><img :src="item.category.image" :alt="item.category.name" width="25"> {{ item.category.name }}</span>
+                  <span><img :src="item.category.imageurl" :alt="item.category.name" width="25"> {{ item.category.name }}</span>
                 </td>
                 <td>{{ item.code }}</td>
                 <td>{{ item.entities_count }}</td>
@@ -72,7 +72,7 @@
                   <button @click="createSession(item, index)" ref="btnPlay" class="btn y-btn y-btn-icon-right btn-green waves-effect waves-light">
                     <span>Mainkan</span>
                     <span class="icon">
-                      
+
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M19.75 11.7256L4.75 11.7256" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M13.7002 5.70124L19.7502 11.7252L13.7002 17.7502" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

@@ -305,8 +305,10 @@ export default {
         this.leaderboards.correct = []
         this.leaderboards.wrong = []
         data.map(x => {
-          if (x.correct)
+          if (x.correct) {
+            x.score = Math.floor(x.score)
             this.leaderboards.correct.push(x)
+          }
           else
             this.leaderboards.wrong.push(x)
         })
