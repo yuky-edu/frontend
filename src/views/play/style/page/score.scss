@@ -14,24 +14,20 @@
     }
   }
 
-  .avatar-wrapper {
-    margin-top: 32px;
-    width: 100%;
-  }
-
   .avatar-circle {
+    width: 100%;
+    margin-top: 32px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: -30px;
-    width: 110px;
-    height: 110px;
-    box-shadow: 0 0 0 10px rgb(102 53 235);
 
     img {
+      box-shadow: 0 0 0 10px rgb(102 53 235);
+      width: 110px;
+      height: 110px;
       display: block;
-      height: 100%;
-      width: auto;
+      margin: auto;
     }
   }
 

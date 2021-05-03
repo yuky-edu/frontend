@@ -11,7 +11,7 @@
   <div class="body container">
 
     <div class="avatar mt-5 flex-center">
-      <div class="avatar-circle">
+      <div class="avatar-wrapper avatar-circle">
         <img :src="myInfo.avatar" alt="">
       </div>
     </div>
