@@ -48,7 +48,10 @@ export default {
   },
 
   mounted() {
-    //
+    // Send All PLayer
+    this.socket.on('reqLeaderboards', () => {
+      this.socket.emit('resLeaderboards', this.leaderboards)
+    })
   },
 
   data() {

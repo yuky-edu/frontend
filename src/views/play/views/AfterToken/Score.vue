@@ -18,7 +18,7 @@
 
     <div class="card card-score">
       <div class="card-body">
-        <span>Total Skor kamu Adalah </span>
+        <span>Skor kamu adalah </span>
         <div class="total-score">
           <span>1080</span>
           <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,7 +115,16 @@
             </defs>
           </svg>
         </div>
-        <span>Kamu Dapat Peringkat Ke : <strong>3</strong></span>
+        <span>
+          Kamu dapat peringkat ke-
+          <strong>
+            {{
+              leaderboards.findIndex(function(x){
+                return x.id == $parent.myInfo.id
+              }) + 1
+            }}
+          </strong>
+        </span>
       </div>
     </div>
 
@@ -165,8 +174,8 @@
     </div>
 
     <div class="action">
-      <button class="btn btn-block shadow btn-yellow waves-effect waves-light btn-lg">Selesai</button>
-      <button class="btn btn-block shadow btn-green waves-effect waves-light btn-lg">Bagikan</button>
+      <button @click="$router.push({name: 'Join'})" class="btn btn-block shadow btn-yellow waves-effect waves-light btn-lg">Selesai</button>
+      <button @click="screenshotScore()" class="btn btn-block shadow btn-green waves-effect waves-light btn-lg">Bagikan</button>
     </div>
 
   </div>
@@ -175,6 +184,7 @@
 </template>
 
 <script>
+import domtoimage from 'dom-to-image'
 export default {
 
   computed: {
@@ -187,8 +197,17 @@ export default {
         this.data = data.data
       })
     },
+    handleSocket() {
+      this.socket.emit('reqLeaderboards')
+      this.socket.on('resLeaderboards', (data) => {
+        this.leaderboards = data
+      })
+    },
     refreshMyInfo() {
       this.$store.dispatch('player/getMyInfo')
+    },
+    screenshotScore() {
+      //
     }
   },
 
@@ -198,12 +217,13 @@ export default {
   },
 
   mounted() {
-    //
+    this.handleSocket()
   },
 
   data() {
     return {
-      data: ''
+      data: '',
+      leaderboards: []
     }
   },
 }

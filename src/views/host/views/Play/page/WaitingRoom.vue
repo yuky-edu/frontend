@@ -60,6 +60,16 @@
               <button @click="deleteSession()" class="btn btn-block btn-lg br-10 shadow btn-danger waves-effect waves-light">
                 <span>Batalkan </span>
               </button>
+
+              <div class="settings mt-3">
+                <button v-if="settings.audio.status == false" @click="settings.audio.status = true" class="btn btn-block w-25" type="button" name="button">
+                  🔈
+                </button>
+                <button v-if="settings.audio.status == true" @click="settings.audio.status = false" class="btn btn-block w-25" type="button" name="button">
+                  🔊
+                </button>
+              </div>
+
             </div>
           </div>
         </div>
@@ -108,6 +118,7 @@ export default {
           status: 'on_mode_open'
         }
       }).then(() => {
+          this.settings.audio.status = false
           this.refreshSession()
           this.$parent.changePage('Timer')
         })
@@ -121,17 +132,37 @@ export default {
           })
         }
       })
-
-    }
+    },
   },
 
   mounted() {
     this.socketHandle()
+    this.settings.audio.status = true
+  },
+
+  watch: {
+    'settings.audio.status': function(x) {
+      if (x) {
+        this.settings.audio.file.play()
+        this.settings.audio.file.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+      }
+      else {
+        this.settings.audio.file.pause()
+      }
+    }
   },
 
   data() {
     return {
-      //
+      settings: {
+        audio: {
+          status: false,
+          file: new Audio('../../../../../assets/sound/backsound.mp3')
+        }
+      }
     }
   },
 
@@ -140,3 +171,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.settings .btn {
+  font-size: 30px;
+}
+.settings .btn:focus {
+  outline: none;
+}
+</style>

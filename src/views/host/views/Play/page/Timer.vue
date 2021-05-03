@@ -23,6 +23,7 @@ export default {
         if (this.counter < 0) {
           this.$parent.changePage('Entity')
           this.socket.emit('startGame')
+          this.tickFile.pause()
           clearInterval(interval)
         }
       }.bind(this), 1500)
@@ -31,12 +32,14 @@ export default {
 
   mounted() {
     this.playCounter()
+    this.tickFile.play()
   },
 
   data() {
     return {
       animate: false,
       counter: 3,
+      tickFile: new Audio('../../../../../assets/sound/tick.mp3')
     }
   },
 }
