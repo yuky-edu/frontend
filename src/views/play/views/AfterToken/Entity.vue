@@ -59,7 +59,7 @@
               {{ item.value }}
             </p>
             <div class="text-center">
-              <button v-if="!entity.answered_entity.includes(entity.data.id)" @click="selectCard(item)" class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-md" name="button">
+              <button :disabled="isSelected" v-if="!entity.answered_entity.includes(entity.data.id)" @click="selectCard(item)" class="btn w-100 show-a y-play-custom-shadow waves-effect waves-light btn-md" name="button">
                 <span>Pilih</span>
               </button>
               <button v-else disabled :class="item.correct ? 'btn-success' : 'btn-danger'" class="btn w-100 waves-effect waves-light btn-md text-white" name="button">
@@ -140,6 +140,7 @@ export default {
     },
 
     selectCard(item) {
+      this.isSelected = true
       this.$store.dispatch('player_answer/answering', {
         entity: this.entity.data.id,
         answer: item.key
@@ -148,6 +149,7 @@ export default {
         item["id"] = data.id
         this.myAnswer.status = 'answered'
         this.myAnswer.data = item
+        this.isSelected = false
       })
     },
 
@@ -189,7 +191,8 @@ export default {
         status: '',
         data: '',
         answered: false
-      }
+      },
+      isSelected: false
     }
   },
 

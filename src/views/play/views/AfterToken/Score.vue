@@ -172,7 +172,7 @@
     </div>
 
     <div class="action">
-      <button @click="$router.push({name: 'Join'})" class="btn btn-block shadow btn-yellow waves-effect waves-light btn-lg">Selesai</button>
+      <button @click="finish()" class="btn btn-block shadow btn-yellow waves-effect waves-light btn-lg">Selesai</button>
       <button @click="screenshotScore()" class="btn btn-block shadow btn-green waves-effect waves-light btn-lg">Bagikan</button>
     </div>
 
@@ -205,6 +205,11 @@ export default {
     },
     screenshotScore() {
       //
+    },
+    finish() {
+      window.$cookies.remove(this.TOKEN)
+      window.$cookies.remove('player_session')
+      this.$router.push({name: 'Join'})
     }
   },
 

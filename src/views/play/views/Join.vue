@@ -34,7 +34,7 @@
         </div>
 
         <div class="w-100 text-center">
-          <button class="btn rounded-circle btn-play warning-gradient btn-circle-sm" name="button">
+          <button :disabled="isJoining" class="btn rounded-circle btn-play warning-gradient btn-circle-sm" name="button">
             <svg width="49" height="56" viewBox="0 0 49 56" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g filter="url(#filter0_d)">
                 <path
@@ -75,6 +75,7 @@ export default {
 
   methods: {
     joinClass: function() {
+      this.isJoining = true
       this.$store.dispatch('player/joinClass', {
         code: this.code
       }).then(response => {
@@ -99,6 +100,7 @@ export default {
           alert('Akses masuk ditutup')
         }
 
+        this.isJoining = false
       })
     },
 
@@ -110,6 +112,7 @@ export default {
 
   data() {
     return {
+      isJoining: false,
       code: this.$route.query.code ? this.$route.query.code : ''
     }
   },

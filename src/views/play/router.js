@@ -14,16 +14,34 @@ const routes = [
   {
     path: '/',
     name: 'Join',
-    component: Join
+    component: Join,
+    beforeEnter: function (to, from, next) {
+      // if (!window.$cookies.get('player_session')) {
+        next()
+      // }
+      // else {
+      //   next({
+      //     name: 'Profile'
+      //   })
+      // }
+    }
   },
   {
     path: '/:code/profile',
     name: 'Profile',
     component: Profile,
     beforeEnter: function (to, from, next) {
-      // if (window.$cookies.get(Global.TOKEN)) {
+      if (window.$cookies.get('player_session') && !window.$cookies.get(Global.TOKEN)) {
         next()
-      // }
+      }
+      else {
+        next({
+          name: 'LayoutToken',
+          params: {
+            code: to.params.code
+          }
+        })
+      }
     }
   },
   {
@@ -31,7 +49,7 @@ const routes = [
     name: 'LayoutToken',
     component: LayoutToken, // After player have token
     beforeEnter: function (to, from, next) {
-      if (!window.$cookies.get(Global.TOKEN)) {
+      if (!window.$cookies.get(Global.TOKEN) || !window.$cookies.get('player_session')) {
         next({
           name: 'Join'
         })
@@ -49,6 +67,7 @@ const routes = [
             name: 'Join'
           })
           window.$cookies.remove(Global.TOKEN)
+          window.$cookies.remove('player_session')
         })
       }
     }

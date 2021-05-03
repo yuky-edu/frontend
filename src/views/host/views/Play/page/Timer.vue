@@ -26,7 +26,7 @@ export default {
           this.tickFile.pause()
           clearInterval(interval)
         }
-      }.bind(this), 1500)
+      }.bind(this), 1000)
     }
   },
 
