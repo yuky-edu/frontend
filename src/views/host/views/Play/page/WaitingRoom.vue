@@ -1,5 +1,15 @@
 <template>
 <div id="play-waiting">
+
+  <div class="audio-toggle">
+    <button v-if="settings.audio.status == false" @click="settings.audio.status = true" class="btn" type="button" name="button">
+      🔈
+    </button>
+    <button v-if="settings.audio.status == true" @click="settings.audio.status = false" class="btn" type="button" name="button">
+      🔊
+    </button>
+  </div>
+
   <div class="container-fluid">
     <div class="row">
 
@@ -61,14 +71,7 @@
                 <span>Batalkan </span>
               </button>
 
-              <div class="settings mt-3">
-                <button v-if="settings.audio.status == false" @click="settings.audio.status = true" class="btn btn-block w-25" type="button" name="button">
-                  🔈
-                </button>
-                <button v-if="settings.audio.status == true" @click="settings.audio.status = false" class="btn btn-block w-25" type="button" name="button">
-                  🔊
-                </button>
-              </div>
+
 
             </div>
           </div>
@@ -172,12 +175,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.settings .btn {
-  font-size: 30px;
-}
-.settings .btn:focus {
-  outline: none;
-}
-</style>
