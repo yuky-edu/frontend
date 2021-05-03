@@ -15,7 +15,7 @@
         <p>Kamu akan bergabung ke kelas 🏆</p>
         <h2 class="class-title">{{yclass.title}}</h2>
       </div>
-      <div class="row wrapper">
+      <div class="row wrapper mb-5 mt-5">
         <div class="col flex-center">
           <label for="file">
             <span class="btn y-btn-icon btn-sm btn-outline-light">
