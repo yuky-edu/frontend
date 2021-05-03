@@ -184,7 +184,6 @@
 </template>
 
 <script>
-import domtoimage from 'dom-to-image'
 export default {
 
   computed: {
