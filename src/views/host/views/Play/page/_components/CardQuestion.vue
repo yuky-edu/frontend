@@ -261,7 +261,6 @@
       </div>
     </div>
   </div>
-
 </div>
 </template>
 
@@ -287,11 +286,7 @@ export default {
         this.$parent.entity.answered_entity = data.answered_entity
         this.leaderboards.isChecking = false
       })
-
-      this.getScore(() => {
-        this.saveScore(this.leaderboards.correct)
-      })
-
+      this.getScore('save')
       this.socket.emit('checkAnswer')
 
       this.counter.status = false
@@ -303,18 +298,20 @@ export default {
     },
 
     getScore(cb = '') {
-      this.$store.dispatch('player_answer/getAnswerByEntity', this.data.data.id).then(data => {
+      this.$store.dispatch('player_answer/getAnswerByEntityAndSession', {
+        entity: this.data.data.id,
+        session: this.$parent.$parent.sessionInfo.id
+      }).then(data => {
+        this.leaderboards.correct = []
+        this.leaderboards.wrong = []
         data.map(x => {
-          this.leaderboards.correct = []
-          this.leaderboards.wrong = []
           if (x.correct)
             this.leaderboards.correct.push(x)
           else
             this.leaderboards.wrong.push(x)
         })
-      }).then(() => {
-        if (typeof cb == 'function') {
-          cb()
+        if (cb == 'save') {
+          this.saveScore(this.leaderboards.correct)
         }
       })
     },

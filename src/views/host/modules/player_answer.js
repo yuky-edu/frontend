@@ -21,10 +21,10 @@ export default {
 
   actions: {
 
-    getAnswerByEntity: async function({
+    getAnswerByEntityAndSession: async function({
       state
-    }, id_entity) {
-      return await Axios.get(Global.API_URL + '/hosts/player_answer/entity/' + id_entity)
+    }, id) {
+      return await Axios.get(Global.API_URL + '/hosts/player_answer/entity/' + id.entity + '/session/' + id.session)
         .then(({
           data
         }) => {
