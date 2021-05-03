@@ -144,9 +144,9 @@
 
 .btn-outline-light {
   color: $white;
-  border-width: 3px;
-  border-radius: 12px;
-  padding: 9px 30px;
+  border-width: 2px;
+  border-radius: 10px;
+  padding: 10px 32px;
 
   &:hover {
     color: $dark;
@@ -213,10 +213,10 @@
   color: #fff;
   background: $btn-orange-gradient;
   font-size: 24px;
-  padding: 14px 33px;
-  border-radius: 18px;
+  padding: 18px 32px;
+  border-radius: 15px;
   border: none;
-  box-shadow: 0 0 0 8px rgb(255 255 255 / 25%);
+  box-shadow: 0 0 0 6px rgb(255 255 255 / 25%);
   font-family: 'rubik-medium';
 
   &.btn-xs {
