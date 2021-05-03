@@ -155,6 +155,7 @@ export default {
         }) => {
           if (data.status)
             console.log("updated", data)
+            console.log('state', state)
         })
     },
 

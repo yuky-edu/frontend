@@ -51,7 +51,7 @@
     <div class="col-lg-3">
       <div class="right-panel">
 
-      <CardMedia />
+        <CardMedia />
 
         <div class="card mt-4">
           <div class="card-body">

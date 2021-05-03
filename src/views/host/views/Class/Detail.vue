@@ -147,6 +147,7 @@ export default {
     },
 
     loadDataClass() {
+      console.log('load data')
       const myClass = this.$store.state.yclass.myClass
       const data = myClass.find(data => data.code == $params.code)
       // console.log(data)
@@ -259,6 +260,7 @@ export default {
   },
 
   mounted() {
+    this.getEntity()
     this.loadDataClass()
     this.handleUpdateCategory()
   },
