@@ -120,6 +120,7 @@ export default {
       }).then(() => {
           this.settings.audio.status = false
           this.refreshSession()
+          this.socket.emit('getReady')
           this.$parent.changePage('Timer')
         })
     },

@@ -360,12 +360,12 @@ export default {
         let playerAnswer = this.$parent.$parent.players.find(function(x) {
           return x.id == id
         });
-        this.playerAnswer.push(playerAnswer)
+        this.playerAnswer.unshift(playerAnswer)
       })
 
       // Get who cancel answer
       this.socket.on('cancelAnswer', (id) => {
-        let playerAnswer = this.$parent.$parent.players.findIndex(function(x) {
+        let playerAnswer = this.playerAnswer.findIndex(function(x) {
           return x.id == id
         });
         this.playerAnswer.splice(playerAnswer, 1)

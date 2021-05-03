@@ -23,7 +23,10 @@
 
     <div class="joined-card">
       <div class="count">
-        <h3>{{totalMyFriend}} <i class="fa fa-times ml-3"></i></h3>
+        <h3>
+          {{totalMyFriend}}
+          <i class="ml-2 fa fa-spinner fa-pulse"></i>
+        </h3>
       </div>
       <p>Teman kamu telah bergabung</p>
     </div>
@@ -66,6 +69,9 @@ export default {
         if (this.myInfo.id !== id_player) {
           this.addFriend()
         }
+      })
+      this.socket.on('getReady', () => {
+        $(".joined-card").html('<center><h3>Bersiap! Kelas akan segera dimulai!</h3></center>')
       })
       this.socket.on('kick', (id_player) => {
         if (id_player == this.myInfo.id) {

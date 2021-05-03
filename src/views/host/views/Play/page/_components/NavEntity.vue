@@ -55,6 +55,10 @@
         </div>
       </div>
 
+      <!-- <button @click="$parent.$parent.randomPlayers()" type="button" class="btn btn-primary">
+        ACAK BOS
+      </button> -->
+
       <ul class="nav navbar-nav flex-nowrap ml-auto">
         <!-- <li class="nav-item no-arrow mx-1 mr-5">
           <div class="form-group m-0">

@@ -140,7 +140,7 @@ export default {
   data() {
     return {
       data: {
-        name: 'Muhammad Tegar Santosaputra',
+        name: '',
         avatar: {
           type: 'default',
           imageBlob: '',

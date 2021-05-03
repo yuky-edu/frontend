@@ -20,7 +20,7 @@
       <div class="card-body">
         <span>Skor kamu adalah </span>
         <div class="total-score">
-          <span>1080</span>
+          <span>{{$parent.myInfo.score}}</span>
           <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0)">
               <g filter="url(#filter0_ii)">

@@ -110,7 +110,7 @@ export default {
 
   data() {
     return {
-      code: this.$route.query.code ? this.$route.query.code : 'belajarsains2021'
+      code: this.$route.query.code ? this.$route.query.code : ''
     }
   },
 }

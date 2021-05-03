@@ -54,6 +54,16 @@ export default {
 
   methods: {
 
+    randomPlayers() {
+      let players = this.$parent.players
+      let random = setInterval(function() {
+        this.randomP = players[Math.floor(Math.random() * players.length)]
+      }.bind(this), 100)
+      setTimeout(function() {
+        clearInterval(random)
+      }, 3000)
+    },
+
     openEndgameModal() {
       $("#endGame").modal("show")
     },
@@ -147,7 +157,8 @@ export default {
         index: '',
         answered_entity: [],
         data: ''
-      }
+      },
+      randomP: 'kasdhiajidwioials'
     }
   },
 
