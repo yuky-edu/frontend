@@ -1,6 +1,15 @@
 <template>
 <div id="play-entity">
 
+  <div class="audio-toggle">
+    <button v-if="settings.audio.status == false" @click="settings.audio.status = true" class="btn" type="button" name="button">
+      🔈
+    </button>
+    <button v-if="settings.audio.status == true" @click="settings.audio.status = false" class="btn" type="button" name="button">
+      🔊
+    </button>
+  </div>
+
   <div v-if="entity.index == entities.length-1" class="modal fade" id="endGame" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -141,6 +150,18 @@ export default {
     'entity.index': function(v) {
       this.getEntity()
       this.socket.emit('resEntity', this.entity)
+    },
+
+    'settings.audio.status': function(x) {
+      if (x) {
+        this.settings.audio.file.play()
+        this.settings.audio.file.addEventListener('ended', function() {
+          this.currentTime = 0;
+          this.play();
+        }, false);
+      } else {
+        this.settings.audio.file.pause()
+      }
     }
   },
 
@@ -158,7 +179,13 @@ export default {
         answered_entity: [],
         data: ''
       },
-      randomP: 'kasdhiajidwioials'
+      randomP: 'kasdhiajidwioials',
+      settings: {
+        audio: {
+          status: false,
+          file: new Audio('../../../../assets/sound/backsound.mp3')
+        }
+      }
     }
   },
 

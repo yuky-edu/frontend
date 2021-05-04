@@ -308,8 +308,7 @@ export default {
           if (x.correct) {
             x.score = Math.floor(x.score)
             this.leaderboards.correct.push(x)
-          }
-          else
+          } else
             this.leaderboards.wrong.push(x)
         })
         if (cb == 'save') {
