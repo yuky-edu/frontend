@@ -8,7 +8,8 @@
         </div>
       </div>
       <div class="card-body pt-0">
-        <ul class="list-group list-group-flush">
+        <div class="badge badge-warning w-100 p-3">Belum ada kelas yang dimainkan.</div>
+        <!-- <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <div class="row">
               <div class="col">
@@ -43,7 +44,7 @@
               </div>
             </div>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </div>
