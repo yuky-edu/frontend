@@ -83,7 +83,7 @@
     </div>
     <div class="body">
       <div class="wrapper text-center">
-        <iframe class="video" src="https://www.youtube.com/embed/PjfP2tmjtQM">
+        <iframe class="video" src="https://www.youtube.com/embed/g2Mz98CKURk">
         </iframe>
         <div class="bg"></div>
       </div>
