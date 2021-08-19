@@ -85,8 +85,8 @@ export default {
   data() {
     return {
       login: {
-        email: 'fanesahadi@gmail.com',
-        password: '12345678',
+        email: 'test@gmail.com',
+        password: 'test',
         remember: false,
       },
       btnLoginLoading: false,

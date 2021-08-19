@@ -1,4 +1,4 @@
 export default {
-  API_URL: 'https://unitedpatent.id/yuky/public/api',
+  API_URL: 'https://localhost:8000/api',
   TOKEN: 'token'
 }
