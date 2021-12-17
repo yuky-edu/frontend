@@ -24,7 +24,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in yClass">
+            <tr v-for="(item, index) in yClass" :key="index">
               <td class="text-bold bold-16">
                 <router-link :to="{ name: 'ClassDetail', params: {code: item.code} }">
                   {{ item.title }}

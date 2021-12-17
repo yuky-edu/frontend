@@ -88,14 +88,14 @@
         <span>Mainkan</span>
         <i class="fa fa-arrow-right ml-2"></i>
       </button>
-      <button class="waves-effect waves-light btn br-5 btn-primary shadow btn-lg">
+      <!-- <button class="waves-effect waves-light btn br-5 btn-primary shadow btn-lg">
         <span>Demo</span>
         <i class="fa fa-play-circle ml-2"></i>
-      </button>
+      </button> -->
     </div>
   </div>
 
-  <div v-for="(item, index) in myEntities">
+  <div v-for="(item, index) in myEntities" :key="index">
     <QuestionCard v-if="item.type == 'q'" :key="item.id" :data="item" :number="index+1" />
     <TheoryCard v-if="item.type == 't'" :data="item" :number="index+1" />
   </div>
